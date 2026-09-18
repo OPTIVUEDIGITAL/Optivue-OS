@@ -1,0 +1,60 @@
+name: Prepare P4 portrait
+
+on:
+  push:
+    branches:
+      - p4/about-section
+    paths:
+      - ".github/workflows/p4-about-image.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: p4/about-section
+
+      - name: Install Pillow
+        run: python3 -m pip install --quiet pillow
+
+      - name: Crop and resize real portrait
+        run: |
+          python3 - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+
+          path = Path("production/assets/rahmel-dela-cruz.webp")
+          img = Image.open(path).convert("RGB")
+
+          # Center-crop the existing real portrait to 4:5 without generating content.
+          w, h = img.size
+          target_ratio = 4 / 5
+          if w / h > target_ratio:
+              crop_w = round(h * target_ratio)
+              left = (w - crop_w) // 2
+              img = img.crop((left, 0, left + crop_w, h))
+          else:
+              crop_h = round(w / target_ratio)
+              top = (h - crop_h) // 2
+              img = img.crop((0, top, w, top + crop_h))
+
+          img = img.resize((880, 1100), Image.Resampling.LANCZOS)
+          img.save(path, "WEBP", quality=86, method=6)
+
+          final = Image.open(path)
+          assert final.size == (880, 1100), final.size
+          assert path.stat().st_size < 180 * 1024, path.stat().st_size
+          print(f"{path}: {final.size[0]}x{final.size[1]}, {path.stat().st_size} bytes")
+          PY
+
+      - name: Commit resized portrait
+        run: |
+          git config user.name "Optivue Build Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add production/assets/rahmel-dela-cruz.webp
+          git commit -m "Prepare 4:5 operator portrait [skip image]"
+          git push origin HEAD:p4/about-section

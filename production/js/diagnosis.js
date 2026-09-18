@@ -41,7 +41,7 @@ export function initDiagnosis(root) {
     }
     if (step.id === 'goals') {
       body = `<div class="ovgo-form-row"><label for="diag-goal">Main Goal</label><select id="diag-goal" name="goal">
-        <option value="">Select one</option><option>Generate more qualified leads</option><option>Improve conversion</option><option>Improve follow-up</option><option>Improve visibility and SEO</option><option>Improve reporting and attribution</option>
+        <option value="">Select one</option>${['Generate more qualified leads','Improve conversion','Improve follow-up','Improve visibility and SEO','Improve reporting and attribution'].map((value) => `<option ${state.answers.goal === value ? 'selected' : ''}>${value}</option>`).join('')}
       </select></div>` + field('challenge','Biggest Growth Challenge');
     }
     if (step.id === 'acquisition') {
@@ -70,8 +70,12 @@ export function initDiagnosis(root) {
       if (key === 'channels' || key === 'systems') continue;
       state.answers[key] = value;
     }
-    state.answers.channels = [...form.querySelectorAll('input[name="channels"]:checked')].map((el) => el.value);
-    state.answers.systems = [...form.querySelectorAll('input[name="systems"]:checked')].map((el) => el.value);
+    if (form.querySelector('input[name="channels"]')) {
+      state.answers.channels = [...form.querySelectorAll('input[name="channels"]:checked')].map((el) => el.value);
+    }
+    if (form.querySelector('input[name="systems"]')) {
+      state.answers.systems = [...form.querySelectorAll('input[name="systems"]:checked')].map((el) => el.value);
+    }
   }
 
   function renderResults() {

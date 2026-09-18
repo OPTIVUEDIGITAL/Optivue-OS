@@ -41,7 +41,7 @@ jobs:
 
       - name: Serve production
         run: |
-          python3 -m http.server 8787 --directory production > /tmp/optivue-http.log 2>&1 &
+          node scripts/qa-server.mjs > /tmp/optivue-http.log 2>&1 &
           echo $! > /tmp/optivue-http.pid
           for i in {1..20}; do
             if curl -fsS http://127.0.0.1:8787/ >/dev/null; then exit 0; fi

@@ -57,7 +57,7 @@ a{color:inherit}
 .ovgo-header.is-scrolled{background:color-mix(in srgb,var(--ovgo-bg) 88%,transparent);border-color:var(--ovgo-border);backdrop-filter:blur(18px)}
 .ovgo-brand{display:flex;align-items:center;gap:10px;text-decoration:none;white-space:nowrap}
 .ovgo-brand>span{font-weight:600;font-size:var(--ovgo-type-sm);letter-spacing:.06em}
-.ovgo-brand small{font:500 10px/1 Inter,ui-sans-serif,sans-serif;color:var(--ovgo-muted)}
+.ovgo-brand small{font:500 var(--ovgo-type-xs)/1 Inter,ui-sans-serif,sans-serif;color:var(--ovgo-muted)}
 .ovgo-nav{display:flex;align-items:center;gap:clamp(14px,1.8vw,26px);margin-left:auto}
 .ovgo-nav a{font-size:var(--ovgo-type-xs);color:var(--ovgo-muted);text-decoration:none;transition:color .2s ease}
 .ovgo-nav a:hover,.ovgo-nav a:focus-visible{color:var(--ovgo-text)}
@@ -89,18 +89,18 @@ a{color:inherit}
 .ovgo-hero__content{position:relative;z-index:4;width:min(610px,44vw);margin-left:auto;margin-right:clamp(28px,6vw,110px);padding-top:76px}
 .ovgo-hero h1{font-size:var(--ovgo-type-display);line-height:.88;letter-spacing:-.055em;margin:18px 0 24px;font-weight:600}
 .ovgo-hero h1 span{font-weight:500}
-.ovgo-hero__lede{font-size:clamp(16px,1.35vw,20px);color:var(--ovgo-muted);max-width:58ch;margin:0}
-.ovgo-signature{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:28px;font:500 10px/1.4 Inter,ui-sans-serif,sans-serif;color:var(--ovgo-muted);letter-spacing:.08em}
+.ovgo-hero__lede{font-size:var(--ovgo-type-lede);color:var(--ovgo-muted);max-width:58ch;margin:0}
+.ovgo-signature{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:28px;font:500 var(--ovgo-type-xs)/1.4 Inter,ui-sans-serif,sans-serif;color:var(--ovgo-muted);letter-spacing:.08em}
 .ovgo-signature i{font-style:normal;color:var(--ovgo-blue)}
 .ovgo-actions{display:grid;gap:10px;margin-top:34px}
 .ovgo-actions--inline{display:flex;flex-wrap:wrap}
 .ovgo-ownership{font-size:var(--ovgo-type-xs);color:var(--ovgo-muted);margin:16px 0 0}.ovgo-ownership span{color:var(--ovgo-green)}
-.ovgo-hero__footer{position:absolute;z-index:5;left:clamp(18px,3vw,42px);right:clamp(18px,3vw,42px);bottom:18px;display:flex;justify-content:space-between;gap:20px;font:500 9px/1 Inter,ui-sans-serif,sans-serif;letter-spacing:.08em;color:var(--ovgo-subtle)}
+.ovgo-hero__footer{position:absolute;z-index:5;left:clamp(18px,3vw,42px);right:clamp(18px,3vw,42px);bottom:18px;display:flex;justify-content:space-between;gap:20px;font:500 var(--ovgo-type-xs)/1 Inter,ui-sans-serif,sans-serif;letter-spacing:.08em;color:var(--ovgo-subtle)}
 .ovgo-hero__footer a{text-decoration:none}
 .ovgo-section{padding:clamp(78px,8vw,126px) clamp(20px,4vw,58px);border-top:1px solid var(--ovgo-border);background:var(--ovgo-bg)}
 .ovgo-section>*{max-width:var(--ovgo-max);margin-left:auto;margin-right:auto}
 .ovgo-section-head{margin-bottom:38px}.ovgo-section-head h2{font-size:var(--ovgo-type-section);line-height:1.02;letter-spacing:-.045em;margin:0 0 16px;max-width:18ch}
-.ovgo-section-head h3{font-size:clamp(28px,3.4vw,44px);letter-spacing:-.035em;margin:0 0 12px}
+.ovgo-section-head h3{font-size:var(--ovgo-type-title-lg);letter-spacing:-.035em;margin:0 0 12px}
 .ovgo-section-head p:not(.ovgo-kicker){color:var(--ovgo-muted);max-width:68ch;margin:0}
 .ovgo-section-head--split{display:flex;align-items:flex-start;justify-content:space-between;gap:30px}
 .ovgo-status{font-size:var(--ovgo-type-xs);color:var(--ovgo-green);border:1px solid color-mix(in srgb,var(--ovgo-green) 28%,transparent);padding:8px 10px;border-radius:8px;white-space:nowrap}.ovgo-status span{font-size:var(--ovgo-type-xs)}

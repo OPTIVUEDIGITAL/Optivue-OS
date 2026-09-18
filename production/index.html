@@ -34,7 +34,7 @@
         <button class="ovgo-icon-btn" type="button" data-ovgo-theme aria-label="Toggle light and dark mode">
           <span aria-hidden="true">◐</span>
         </button>
-        <button class="ovgo-btn ovgo-btn--primary ovgo-btn--compact" type="button" data-ovgo-booking>
+        <button class="ovgo-btn ovgo-btn--primary ovgo-btn--compact" type="button" data-ovgo-booking data-ovgo-intent="proposal">
           Request a Custom Proposal
         </button>
         <button class="ovgo-menu-btn" type="button" data-ovgo-menu-toggle aria-expanded="false" aria-controls="ovgo-mobile-menu">
@@ -54,7 +54,7 @@
         <a href="#pricing">Pricing</a>
         <a href="#estimator">Estimator</a>
         <a href="#about">About</a>
-        <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking>Request a Custom Proposal</button>
+        <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking data-ovgo-intent="proposal">Request a Custom Proposal</button>
       </nav>
     </div>
 
@@ -69,7 +69,7 @@
             <span>ACQUIRE</span><i>→</i><span>CONVERT</span><i>→</i><span>AUTOMATE</span><i>→</i><span>MEASURE</span><i>→</i><span>OPTIMIZE</span>
           </div>
           <div class="ovgo-actions">
-            <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking>
+            <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking data-ovgo-intent="proposal">
               Request a Custom Proposal <span aria-hidden="true">→</span>
             </button>
             <a class="ovgo-btn ovgo-btn--secondary" href="#diagnosis">
@@ -147,7 +147,7 @@
           <h3>Growth improves when these systems work together.</h3>
           <p>Acquisition, conversion, follow-up, measurement, and optimization should reinforce one another instead of living in separate tools and reports.</p>
           <div class="ovgo-actions ovgo-actions--inline">
-            <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking>Request a Custom Proposal</button>
+            <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking data-ovgo-intent="proposal">Request a Custom Proposal</button>
             <a class="ovgo-btn ovgo-btn--secondary" href="#diagnosis">Get Your Free Audit</a>
           </div>
         </div>
@@ -279,7 +279,7 @@
         </div>
 
         <div class="ovgo-pricing-grid">
-          <article class="ovgo-price-card" data-price-card>
+          <article class="ovgo-price-card" data-price-card data-price-plan="Growth Starter">
             <optivue-spotlight-card bg="#121417" theme="dark"></optivue-spotlight-card>
             <div class="ovgo-price-card__content">
               <small>3-MONTH LAUNCH</small>
@@ -297,7 +297,7 @@
             </div>
           </article>
 
-          <article class="ovgo-price-card is-featured" data-price-card>
+          <article class="ovgo-price-card is-featured" data-price-card data-price-plan="Growth Accelerator">
             <optivue-spotlight-card bg="#181B20" featured="true" theme="dark"></optivue-spotlight-card>
             <div class="ovgo-price-card__content">
               <div class="ovgo-price-card__badge">MOST POPULAR</div>
@@ -317,7 +317,7 @@
             </div>
           </article>
 
-          <article class="ovgo-price-card" data-price-card>
+          <article class="ovgo-price-card" data-price-card data-price-plan="Growth Lab">
             <optivue-spotlight-card bg="#121417" theme="dark"></optivue-spotlight-card>
             <div class="ovgo-price-card__content">
               <small>FLEXIBLE GROWTH PARTNERSHIP</small>
@@ -365,6 +365,18 @@
           <span class="ovgo-status" data-diagnosis-progress>STEP 1 OF 5</span>
         </div>
         <div class="ovgo-tool-shell" data-ovgo-diagnosis></div>
+      </section>
+
+      <section id="growth-brief" class="ovgo-section ovgo-lead-section">
+        <div class="ovgo-section-head ovgo-section-head--split">
+          <div>
+            <p class="ovgo-kicker">[ CONNECT THE JOURNEY ]</p>
+            <h2>Save your Growth OS context.</h2>
+            <p>Package your diagnosis, project scope, pricing interest, and viewed systems into one brief before you talk with Optivue.</p>
+          </div>
+          <span class="ovgo-status">CONTEXT // SESSION-BASED</span>
+        </div>
+        <div class="ovgo-tool-shell" data-ovgo-lead-capture></div>
       </section>
 
       <section id="estimator" class="ovgo-section ovgo-tool-section">

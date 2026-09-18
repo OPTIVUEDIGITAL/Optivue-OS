@@ -1,0 +1,182 @@
+name: P4 Generate Safe Evidence
+
+on:
+  push:
+    branches:
+      - evidence/p4-safe-evidence
+    paths:
+      - ".github/workflows/p4-generate-safe-evidence.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: evidence/p4-safe-evidence
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install image tooling
+        run: python -m pip install --disable-pip-version-check pillow
+
+      - name: Generate sanitised reconstruction assets
+        run: |
+          mkdir -p production/assets/evidence
+          python - <<'PY'
+          from PIL import Image, ImageDraw, ImageFont
+          from pathlib import Path
+
+          out = Path("production/assets/evidence")
+          W, H = 1600, 1000
+          BG=(13,15,18); SURF=(22,25,30); SURF2=(29,33,39); BORDER=(57,64,74)
+          TEXT=(244,246,248); MUTED=(164,172,183); BLUE=(76,141,255); GREEN=(52,211,153)
+
+          def font(size,bold=False,mono=False):
+              candidates = [
+                  "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf" if mono else None,
+                  "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else None,
+                  "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+              ]
+              for p in candidates:
+                  if p and Path(p).exists():
+                      return ImageFont.truetype(p,size=size)
+              return ImageFont.load_default()
+
+          def rounded(draw, box, radius, fill, outline=None, width=1):
+              draw.rounded_rectangle(box, radius=radius, fill=fill, outline=outline, width=width)
+
+          def header(draw, client, title, subtitle):
+              draw.text((70,55),"SANITISED RECONSTRUCTION",font=font(22,True),fill=GREEN)
+              draw.text((70,100),client,font=font(30,True),fill=TEXT)
+              draw.text((70,150),title,font=font(58,True),fill=TEXT)
+              draw.text((70,230),subtitle,font=font(24),fill=MUTED)
+              draw.line((70,285,1530,285),fill=BORDER,width=2)
+
+          def footer(draw):
+              draw.text((70,945),"No client records, identities, account IDs, credentials, or private URLs shown.",font=font(18),fill=MUTED)
+
+          def save(img,name):
+              img.save(out/name,"WEBP",quality=88,method=6)
+
+          # Revive 1
+          img=Image.new("RGB",(W,H),BG); d=ImageDraw.Draw(img)
+          header(d,"Express Medical Care / Revive","Lead routing and follow-up","Reconstruction of the workflow shape used to move a new inquiry toward consultation.")
+          cols=[("New lead",BLUE),("Screening",BLUE),("Consultation",GREEN),("Follow-up",MUTED),("Converted",GREEN)]
+          x0=70; gap=18; cw=(1460-gap*4)//5
+          for i,(label,color) in enumerate(cols):
+              x=x0+i*(cw+gap)
+              rounded(d,(x,340,x+cw,820),16,SURF,BORDER,2)
+              d.text((x+22,365),label,font=font(22,True),fill=TEXT)
+              for j in range(3 if i<3 else 2):
+                  y=430+j*115
+                  rounded(d,(x+18,y,x+cw-18,y+80),12,SURF2)
+                  d.text((x+34,y+24),["Inquiry","Qualified","Booked","Reminder","Client"][min(j+i,4)],font=font(18),fill=MUTED)
+          d.line((390,325,390,420),fill=GREEN,width=3)
+          d.text((250,300),"Stage changes trigger the next follow-up",font=font(18,True),fill=GREEN)
+          footer(d); save(img,"revive-workflow-reconstruction.webp")
+
+          # Revive 2
+          img=Image.new("RGB",(W,H),BG); d=ImageDraw.Draw(img)
+          header(d,"Express Medical Care / Revive","Acquisition to consultation measurement","Reconstruction showing the event path from traffic source to booked consultation.")
+          nodes=[("Search / Ads",100,470),("Landing page",380,470),("Lead form",660,470),("CRM",940,470),("Consultation",1220,470)]
+          for label,x,y in nodes:
+              rounded(d,(x,y,x+220,y+100),14,SURF,BORDER,2)
+              d.text((x+22,y+34),label,font=font(20,True),fill=TEXT)
+          for a,b in zip(nodes,nodes[1:]):
+              ax=a[1]+220; bx=b[1]
+              d.line((ax+10,520,bx-10,520),fill=BLUE,width=4)
+              d.polygon([(bx-10,520),(bx-24,512),(bx-24,528)],fill=BLUE)
+          rounded(d,(420,680,1180,830),16,SURF2,BORDER,2)
+          d.text((450,710),"Measured events",font=font(20,True),fill=TEXT)
+          for i,t in enumerate(["form_submit","qualified_lead","consultation_booked"]):
+              d.text((450+i*230,770),t,font=font(16,mono=True),fill=GREEN)
+          d.line((760,665,760,580),fill=GREEN,width=3)
+          d.text((790,620),"One measurement path instead of disconnected reports",font=font(18,True),fill=GREEN)
+          footer(d); save(img,"revive-measurement-reconstruction.webp")
+
+          # CBP 1
+          img=Image.new("RGB",(W,H),BG); d=ImageDraw.Draw(img)
+          header(d,"CBP / Ideal Spine","Member portal information structure","Reconstruction of the member-facing portal pattern built inside Kajabi constraints.")
+          rounded(d,(70,330,310,880),18,SURF,BORDER,2)
+          d.text((98,365),"Portal",font=font(24,True),fill=TEXT)
+          for i,t in enumerate(["Home","Refining Room","Courses","Podcast","Resources"]):
+              y=430+i*72
+              fill=BLUE if i==1 else MUTED
+              d.text((98,y),t,font=font(19,i==1),fill=fill)
+          rounded(d,(350,330,1530,880),18,SURF,BORDER,2)
+          rounded(d,(390,370,1490,570),16,SURF2)
+          d.text((430,410),"Weekly live session",font=font(32,True),fill=TEXT)
+          d.text((430,465),"One clear entry point for the recurring member experience.",font=font(20),fill=MUTED)
+          for i,(t,desc) in enumerate([("Latest deep dive","Recent member content"),("Audio recap","Short-form learning"),("Course library","Structured education")]):
+              x=390+i*350
+              rounded(d,(x,620,x+320,810),14,SURF2,BORDER,1)
+              d.text((x+22,650),t,font=font(20,True),fill=TEXT)
+              d.text((x+22,705),desc,font=font(17),fill=MUTED)
+          d.line((305,500,355,500),fill=GREEN,width=3)
+          d.text((345,300),"Navigation stays visible while content changes",font=font(18,True),fill=GREEN)
+          footer(d); save(img,"cbp-portal-reconstruction.webp")
+
+          # CBP 2
+          img=Image.new("RGB",(W,H),BG); d=ImageDraw.Draw(img)
+          header(d,"CBP / Ideal Spine","Content-to-member workflow","Reconstruction of how one live session can become several member-facing formats.")
+          items=[("Live session",100),("Transcript",390),("Audio recap",680),("Portal card",970),("Member access",1260)]
+          for label,x in items:
+              rounded(d,(x,470,x+210,580),14,SURF,BORDER,2)
+              d.text((x+22,505),label,font=font(18,True),fill=TEXT)
+          for a,b in zip(items,items[1:]):
+              d.line((a[1]+210,525,b[1],525),fill=BLUE,width=4)
+          rounded(d,(520,690,1080,820),14,SURF2,BORDER,2)
+          d.text((550,720),"Reuse the source, not the member's attention",font=font(22,True),fill=TEXT)
+          d.text((550,770),"The portal becomes the single place to discover each format.",font=font(18),fill=MUTED)
+          d.line((800,675,800,590),fill=GREEN,width=3)
+          footer(d); save(img,"cbp-content-flow-reconstruction.webp")
+
+          # CJB 1
+          img=Image.new("RGB",(W,H),BG); d=ImageDraw.Draw(img)
+          header(d,"CJB / LearnX","Growth scorecard and operating view","Reconstruction of a simple daily view that turns activity into an executive readout.")
+          rounded(d,(70,335,1530,880),18,SURF,BORDER,2)
+          d.text((105,370),"Daily growth scorecard",font=font(28,True),fill=TEXT)
+          cols=["Metric","Yesterday","Today","Target","Status"]; xs=[105,520,770,1010,1260]
+          for x,t in zip(xs,cols): d.text((x,430),t,font=font(18,True),fill=MUTED)
+          rows=[("Proposals sent","0","1","3","Needs attention"),("Follow-ups","4","6","8","On track"),("Deals won","0","0","1","Watch"),("Referrals","0","0","1","Watch")]
+          for r,row in enumerate(rows):
+              y=500+r*78
+              d.line((105,y-16,1485,y-16),fill=BORDER,width=1)
+              for x,t in zip(xs,row):
+                  col=GREEN if t=="On track" else (BLUE if t in {"1","3","4","6","8"} else TEXT)
+                  d.text((x,y),t,font=font(18,x==105),fill=col)
+          d.line((1260,460,1260,500),fill=GREEN,width=3)
+          d.text((1070,315),"Status makes the morning review scannable",font=font(18,True),fill=GREEN)
+          footer(d); save(img,"cjb-scorecard-reconstruction.webp")
+
+          # CJB 2
+          img=Image.new("RGB",(W,H),BG); d=ImageDraw.Draw(img)
+          header(d,"CJB / LearnX","Content and prospecting workflow","Reconstruction showing how one source idea moves into publishable content and follow-up.")
+          lanes=[("Source idea",90,380),("Draft",390,380),("Review",690,380),("Publish",990,380),("Follow-up",1290,380)]
+          for label,x,y in lanes:
+              rounded(d,(x,y,x+220,y+110),14,SURF,BORDER,2)
+              d.text((x+24,y+38),label,font=font(19,True),fill=TEXT)
+          for a,b in zip(lanes,lanes[1:]):
+              d.line((a[1]+220,435,b[1],435),fill=BLUE,width=4)
+          rounded(d,(300,610,1300,820),16,SURF2,BORDER,2)
+          d.text((340,645),"One content item can feed several operating tasks",font=font(24,True),fill=TEXT)
+          for i,t in enumerate(["Insight article","LinkedIn post","Lead magnet","Sales follow-up"]):
+              rounded(d,(340+i*230,720,530+i*230,780),10,BG,BORDER,1)
+              d.text((360+i*230,740),t,font=font(16),fill=MUTED)
+          d.line((800,595,800,500),fill=GREEN,width=3)
+          footer(d); save(img,"cjb-content-workflow-reconstruction.webp")
+          PY
+
+      - name: Commit safe evidence
+        run: |
+          git config user.name "Optivue Build Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add production/assets/evidence/*.webp
+          git commit -m "Add sanitised P4 evidence reconstructions"
+          git push origin HEAD:evidence/p4-safe-evidence

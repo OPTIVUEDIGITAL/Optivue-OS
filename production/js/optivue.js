@@ -1,6 +1,8 @@
 import { initBooking } from './booking.js';
 import { initDiagnosis } from './diagnosis.js';
 import { initEstimator } from './estimator.js';
+import { initLeadCapture } from './lead-capture.js';
+import { addJourneyValue } from './context.js';
 
 const root = document.getElementById('optivue-growth-os');
 
@@ -16,6 +18,7 @@ if (root) {
   initBooking(root);
   initDiagnosis(root);
   initEstimator(root);
+  initLeadCapture(root);
 }
 
 function initTheme(root) {
@@ -138,6 +141,7 @@ function initSystemInspector(root) {
     purpose.textContent = item.purpose;
     tools.innerHTML = item.tools.map((tool) => `<span>${tool}</span>`).join('');
     capabilities.innerHTML = item.capabilities.map((capability) => `<li>${capability}</li>`).join('');
+    addJourneyValue('systemStagesViewed', item.name);
   }
 
   buttons.forEach((button) => button.addEventListener('click', () => select(button.dataset.stage)));
@@ -180,6 +184,7 @@ function initTransformations(root) {
     title.textContent = item.title;
     summary.textContent = item.summary;
     flow.innerHTML = item.flow.map((label, index) => `<span>${label}</span>${index < item.flow.length - 1 ? '<i>→</i>' : ''}`).join('');
+    addJourneyValue('transformationsViewed', item.title);
   }
 
   root.querySelectorAll('[data-transform]').forEach((button) => button.addEventListener('click', () => select(button.dataset.transform)));
@@ -204,6 +209,7 @@ function initWorkLab(root) {
   root.querySelectorAll('[data-work-title]').forEach((button) => {
     button.addEventListener('click', () => {
       inspectorTitle.textContent = button.dataset.workTitle;
+      addJourneyValue('workItemsViewed', button.dataset.workTitle);
       root.querySelector('.ovgo-work-inspector')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
   });
@@ -213,6 +219,10 @@ function initSpotlights(root) {
   root.querySelectorAll('[data-price-card]').forEach((card) => {
     const spotlight = card.querySelector('optivue-spotlight-card');
     if (!spotlight) return;
+    card.addEventListener('click', () => {
+      const plan = card.dataset.pricePlan || card.querySelector('h3')?.textContent?.trim();
+      if (plan) addJourneyValue('pricingPlansViewed', plan);
+    });
     card.addEventListener('pointermove', (event) => {
       const rect = card.getBoundingClientRect();
       spotlight.style.setProperty('--spot-x', `${event.clientX - rect.left}px`);

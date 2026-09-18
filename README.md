@@ -41,13 +41,13 @@ Each step contributes to one shared prospect context so the visitor does not nee
 
 - GitHub is the source of truth.
 - `production/` is the canonical public application.
-- GitHub Pages is the initial static host.
+- Cloudflare Pages is the primary static host.
 - `portable/` is the generated one-file edition for custom-code environments.
 - Wix is optional and isolated under `adapters/wix/`.
 - Protected integrations remain behind a separate server-side API/relay boundary.
 - Raw automation webhook URLs and secret keys must never be shipped in browser code.
 
-See `docs/standalone-deployment.md`.
+See `docs/standalone-deployment.md` and `docs/cloudflare-deployment.md`.
 
 ## Unified prospect context
 
@@ -111,13 +111,12 @@ Optivue-OS/
 │   ├── architecture.md
 │   ├── implementation-plan.md
 │   ├── standalone-deployment.md
+│   ├── cloudflare-deployment.md
 │   ├── integrations/
 │   │   └── make-intake.md
 │   └── reference/
 │       └── source-map.md
-└── .github/
-    └── workflows/
-        └── deploy-pages.yml
+
 ```
 
 ## Conversion paths

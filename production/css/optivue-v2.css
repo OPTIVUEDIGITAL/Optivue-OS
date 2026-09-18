@@ -476,6 +476,7 @@
   grid-template-columns: 38% minmax(0, 1fr);
   gap: clamp(28px, 5vw, 72px);
   align-items: end;
+  min-width: 0;
 }
 
 #optivue-growth-os .ovgo-portrait {
@@ -495,6 +496,10 @@
   margin-top: 12px;
   font-size: var(--ovgo-type-xs);
   color: var(--ovgo-subtle);
+}
+
+#optivue-growth-os .ovgo-about__body {
+  min-width: 0;
 }
 
 #optivue-growth-os .ovgo-about__body h2 {
@@ -517,10 +522,16 @@
   margin-bottom: 0;
 }
 
+#optivue-growth-os .ovgo-about .ovgo-process {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
 /* The existing Client Work detail remains the site's single deliberate grid violation. */
 @media (max-width: 760px) {
   #optivue-growth-os .ovgo-about__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   #optivue-growth-os .ovgo-portrait {

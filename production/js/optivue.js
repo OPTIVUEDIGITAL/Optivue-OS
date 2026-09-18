@@ -2,7 +2,7 @@ import { initBooking } from './booking.js';
 import { initDiagnosis } from './diagnosis.js';
 import { initEstimator } from './estimator.js';
 import { initLeadCapture } from './lead-capture.js';
-import { addJourneyValue } from './context.js';
+import { addJourneyValue, snapshot } from './context.js';
 
 const root = document.getElementById('optivue-growth-os');
 
@@ -19,6 +19,7 @@ if (root) {
   initDiagnosis(root);
   initEstimator(root);
   initLeadCapture(root);
+  initPricingRecommendation(root);
 }
 
 function initTheme(root) {
@@ -248,4 +249,30 @@ function initReveal(root) {
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
   sections.forEach((element) => observer.observe(element));
+}
+
+
+function initPricingRecommendation(root) {
+  const cards = [...root.querySelectorAll('[data-price-card]')];
+
+  const apply = () => {
+    const recommended = snapshot().estimator.recommendedPlan;
+    cards.forEach((card) => {
+      const match = Boolean(recommended) && card.dataset.pricePlan === recommended;
+      card.classList.toggle('is-recommended', match);
+      let badge = card.querySelector('[data-recommended-badge]');
+      if (match && !badge) {
+        badge = document.createElement('div');
+        badge.className = 'ovgo-recommended-badge';
+        badge.dataset.recommendedBadge = '';
+        badge.textContent = 'LIKELY FIT BASED ON YOUR ESTIMATE';
+        card.querySelector('.ovgo-price-card__content')?.prepend(badge);
+      } else if (!match && badge) {
+        badge.remove();
+      }
+    });
+  };
+
+  apply();
+  window.addEventListener('ovgo:contextchange', apply);
 }

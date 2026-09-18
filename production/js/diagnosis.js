@@ -1,4 +1,4 @@
-import { updateSection } from './context.js';
+import { setIdentity, updateSection } from './context.js';
 
 const STEPS = [
   { id: 'business', label: 'Business' },
@@ -79,9 +79,12 @@ export function initDiagnosis(root) {
       state.answers.systems = [...form.querySelectorAll('input[name="systems"]:checked')].map((el) => el.value);
     }
 
-    updateSection('business', {
+    setIdentity({
       company: state.answers.businessName || '',
       website: state.answers.website || '',
+    });
+
+    updateSection('business', {
       industry: state.answers.industry || '',
       primaryOffer: state.answers.offer || '',
       goal: state.answers.goal || '',

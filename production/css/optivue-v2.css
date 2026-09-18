@@ -535,7 +535,9 @@
   }
 
   #optivue-growth-os .ovgo-portrait {
+    width: min(76vw, 280px);
     margin-left: 0;
+    justify-self: start;
   }
 
   #optivue-growth-os .ovgo-portrait img {

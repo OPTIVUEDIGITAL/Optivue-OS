@@ -1,0 +1,140 @@
+/*
+ * Optivue Growth OS — locked v2 visual baseline
+ * Source of truth: docs/design-direction.md §4
+ *
+ * This file intentionally overrides optivue.css and remains independently
+ * removable until the design direction is fully validated.
+ */
+
+#optivue-growth-os {
+  --ovgo-subtle: #99A1AE;
+  --ovgo-radius-structural: 6px;
+  --ovgo-radius-chip: 3px;
+  --ovgo-paper: #F7F8FA;
+  --ovgo-paper-card: #FFFFFF;
+  --ovgo-paper-text: #101114;
+  --ovgo-paper-muted: #60646C;
+  --ovgo-paper-border: rgba(16, 17, 20, 0.12);
+}
+
+/* Typography baseline: Inter everywhere unless explicitly display or mono. */
+#optivue-growth-os *,
+#optivue-growth-os *::before,
+#optivue-growth-os *::after {
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+#optivue-growth-os h1,
+#optivue-growth-os h2,
+#optivue-growth-os h3,
+#optivue-growth-os h4 {
+  font-family: Archivo, Inter, ui-sans-serif, sans-serif !important;
+  font-weight: 700;
+  font-variation-settings: "wdth" 115, "wght" 700;
+}
+
+#optivue-growth-os .ovgo-brand > span,
+#optivue-growth-os .ovgo-brand small,
+#optivue-growth-os .ovgo-price strong {
+  font-family: "IBM Plex Mono", ui-monospace, monospace !important;
+}
+
+/* Locked radius scale: 6px structural, 3px chip/control details. */
+#optivue-growth-os .ovgo-icon-btn,
+#optivue-growth-os .ovgo-menu-btn,
+#optivue-growth-os .ovgo-btn,
+#optivue-growth-os .ovgo-problem-grid,
+#optivue-growth-os .ovgo-stage,
+#optivue-growth-os .ovgo-inspector,
+#optivue-growth-os .ovgo-system-close,
+#optivue-growth-os .ovgo-transform-card,
+#optivue-growth-os .ovgo-work-item,
+#optivue-growth-os .ovgo-transform-detail,
+#optivue-growth-os .ovgo-work-inspector,
+#optivue-growth-os .ovgo-price-card,
+#optivue-growth-os .ovgo-ownership-block,
+#optivue-growth-os .ovgo-disclosure,
+#optivue-growth-os .ovgo-compare-grid article,
+#optivue-growth-os .ovgo-tool-shell,
+#optivue-growth-os .ovgo-form-row input,
+#optivue-growth-os .ovgo-form-row select,
+#optivue-growth-os .ovgo-choice,
+#optivue-growth-os .ovgo-context-summary,
+#optivue-growth-os .ovgo-modal__dialog {
+  border-radius: var(--ovgo-radius-structural);
+}
+
+#optivue-growth-os .ovgo-status,
+#optivue-growth-os .ovgo-tool-chips span,
+#optivue-growth-os .ovgo-chip-row span,
+#optivue-growth-os .ovgo-flow span,
+#optivue-growth-os .ovgo-filter-row button,
+#optivue-growth-os .ovgo-mini-flow span,
+#optivue-growth-os .ovgo-recommended-badge,
+#optivue-growth-os .ovgo-price-card__badge,
+#optivue-growth-os .ovgo-process span {
+  border-radius: var(--ovgo-radius-chip);
+}
+
+/* The document caps visible kickers at seven. Content removal belongs to P1. */
+#optivue-growth-os .ovgo-kicker {
+  display: none;
+}
+
+#optivue-growth-os .ovgo-hero .ovgo-kicker,
+#optivue-growth-os #systems > .ovgo-section-head .ovgo-kicker,
+#optivue-growth-os #transformations > .ovgo-section-head .ovgo-kicker,
+#optivue-growth-os #pricing > .ovgo-section-head .ovgo-kicker,
+#optivue-growth-os #diagnosis > .ovgo-section-head .ovgo-kicker,
+#optivue-growth-os #estimator > .ovgo-section-head .ovgo-kicker,
+#optivue-growth-os #about > .ovgo-section-head .ovgo-kicker {
+  display: block;
+}
+
+/* Paper-light section 1: Who this is for. */
+#optivue-growth-os .ovgo-audience {
+  background: var(--ovgo-paper);
+  color: var(--ovgo-paper-text);
+}
+
+#optivue-growth-os .ovgo-audience .ovgo-section-head h2,
+#optivue-growth-os .ovgo-audience .ovgo-problem-grid p {
+  color: var(--ovgo-paper-text);
+}
+
+#optivue-growth-os .ovgo-audience .ovgo-problem-grid {
+  border-color: var(--ovgo-paper-border);
+}
+
+#optivue-growth-os .ovgo-audience .ovgo-problem-grid article {
+  background: var(--ovgo-paper-card);
+  border-color: var(--ovgo-paper-border);
+}
+
+#optivue-growth-os .ovgo-audience .ovgo-problem-grid span {
+  color: #0A7A50;
+}
+
+/* Paper-light section 2: final CTA. */
+#optivue-growth-os .ovgo-final-cta {
+  background: var(--ovgo-paper);
+  color: var(--ovgo-paper-text);
+  border-color: var(--ovgo-paper-border);
+}
+
+#optivue-growth-os .ovgo-final-cta > p:not(.ovgo-kicker) {
+  color: var(--ovgo-paper-muted);
+}
+
+#optivue-growth-os .ovgo-final-cta .ovgo-btn--secondary {
+  background: var(--ovgo-paper-card);
+  color: var(--ovgo-paper-text);
+  border-color: var(--ovgo-paper-border);
+}
+
+/* Preserve explicit square full-screen modal on small screens from base CSS. */
+@media (max-width: 760px) {
+  #optivue-growth-os .ovgo-modal__dialog {
+    border-radius: 0;
+  }
+}

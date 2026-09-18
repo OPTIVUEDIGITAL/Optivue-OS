@@ -30,7 +30,7 @@ jobs:
             sleep 1
           done
 
-      - name: Capture required viewports and check overflow
+      - name: Capture required viewports and focused sections
         run: |
           mkdir -p shots/p3
           node <<'NODE'
@@ -47,24 +47,37 @@ jobs:
               const page = await browser.newPage({viewport:{width:v.width,height:v.height}, deviceScaleFactor:1});
               await page.goto('http://127.0.0.1:8787/', {waitUntil:'networkidle'});
               await page.screenshot({path:`shots/p3/${v.name}.png`, fullPage:true});
-              const metrics = await page.evaluate(() => ({
-                scrollWidth: document.documentElement.scrollWidth,
-                clientWidth: document.documentElement.clientWidth,
-                heroPanel: (() => {
-                  const el=document.querySelector('.ovgo-hero__content');
+              const metrics = await page.evaluate(() => {
+                const rect = sel => {
+                  const el=document.querySelector(sel);
                   if(!el) return null;
                   const r=el.getBoundingClientRect();
-                  return {left:r.left,right:r.right,width:r.width};
-                })(),
-                estimatorWidth: (() => {
-                  const el=document.querySelector('#estimator [data-ovgo-estimator]');
-                  if(!el) return null;
-                  const r=el.getBoundingClientRect();
-                  return {left:r.left,right:r.right,width:r.width};
-                })()
-              }));
+                  return {left:r.left,right:r.right,width:r.width,top:r.top+scrollY,height:r.height};
+                };
+                return {
+                  scrollWidth: document.documentElement.scrollWidth,
+                  clientWidth: document.documentElement.clientWidth,
+                  heroPanel: rect('.ovgo-hero__content'),
+                  clientWork: rect('#transformations'),
+                  diagnosis: rect('#diagnosis'),
+                  estimator: rect('#estimator')
+                };
+              });
               console.log(`${v.name}px ${JSON.stringify(metrics)}`);
               if (metrics.scrollWidth > metrics.clientWidth + 1) failed = true;
+
+              if (v.name === '390') {
+                await page.locator('.ovgo-hero__content').screenshot({path:'shots/p3/390-hero.png'});
+                await page.locator('#estimator').screenshot({path:'shots/p3/390-estimator.png'});
+              }
+              if (v.name === '768') {
+                await page.locator('#transformations').screenshot({path:'shots/p3/768-client-work.png'});
+              }
+              if (v.name === '1440') {
+                await page.locator('.ovgo-hero__content').screenshot({path:'shots/p3/1440-hero.png'});
+                await page.locator('#transformations').screenshot({path:'shots/p3/1440-client-work.png'});
+                await page.locator('#diagnosis').screenshot({path:'shots/p3/1440-diagnosis.png'});
+              }
               await page.close();
             }
             await browser.close();
@@ -74,6 +87,6 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: p3-shots
+          name: p3-focused-shots
           path: shots/p3/*.png
           retention-days: 3

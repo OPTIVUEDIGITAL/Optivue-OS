@@ -175,8 +175,8 @@ class OptivueGrowthSystem extends HTMLElement {
         .edge--active{stroke:var(--o-blue);stroke-width:1.75}.edge--loop.edge--active{stroke:var(--o-violet)}
         .node__bg{fill:var(--o-node-fill);stroke:var(--o-node-border);stroke-width:1}
         .node__dot{fill:var(--o-label)}.node--connected .node__dot{fill:var(--o-green)}
-        .node__label{fill:var(--o-label-strong);font:500 19px Inter,system-ui,sans-serif}
-        .node__meta{fill:var(--o-label);font:400 12px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.12em}
+        .node__label{fill:var(--o-label-strong);font:500 var(--ovgo-type-lede,18px) Inter,system-ui,sans-serif}
+        .node__meta{fill:var(--o-label);font:500 var(--ovgo-type-xs,12px) Inter,system-ui,sans-serif;letter-spacing:.02em}
         .node{opacity:.55}.node--connected{opacity:1}
         :host([density="reduced"]) .node[data-tier="2"]{display:none}
         .scrim{position:absolute;inset:0;pointer-events:none;background:

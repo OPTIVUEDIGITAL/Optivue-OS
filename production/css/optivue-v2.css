@@ -475,7 +475,7 @@
   display: grid;
   grid-template-columns: 38% minmax(0, 1fr);
   gap: clamp(28px, 5vw, 72px);
-  align-items: end;
+  align-items: center;
   min-width: 0;
 }
 
@@ -539,7 +539,7 @@
   }
 
   #optivue-growth-os .ovgo-portrait img {
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 4 / 5;
   }
 
   #optivue-growth-os .ovgo-about__bio p {

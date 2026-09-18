@@ -1,0 +1,109 @@
+name: P4 Evidence Verification
+
+on:
+  push:
+    branches:
+      - evidence/p4-safe-evidence
+    paths:
+      - ".github/workflows/p4-verify-evidence.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Playwright
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --silent playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start static server
+        run: |
+          python3 -m http.server 8787 --directory production > /tmp/optivue-http.log 2>&1 &
+          for i in {1..20}; do
+            curl -fsS http://127.0.0.1:8787/ >/dev/null && break
+            sleep 1
+          done
+
+      - name: Verify evidence semantics and responsive layout
+        run: |
+          mkdir -p shots/p4
+          node <<'NODE'
+          const { chromium } = require('playwright');
+          (async () => {
+            const browser = await chromium.launch({headless:true});
+            let failed = false;
+            for (const v of [{name:'390',width:390,height:844},{name:'1440',width:1440,height:900}]) {
+              const page = await browser.newPage({viewport:{width:v.width,height:v.height}});
+              await page.goto('http://127.0.0.1:8787/', {waitUntil:'networkidle'});
+              const result = await page.evaluate(() => {
+                const imgs=[...document.querySelectorAll('.ovgo-case-media img,.ovgo-transform-evidence img,.ovgo-operator-card img')];
+                return {
+                  scrollWidth:document.documentElement.scrollWidth,
+                  clientWidth:document.documentElement.clientWidth,
+                  images:imgs.map(img=>({
+                    src:img.getAttribute('src'),
+                    alt:img.getAttribute('alt'),
+                    width:img.getAttribute('width'),
+                    height:img.getAttribute('height'),
+                    naturalWidth:img.naturalWidth,
+                    naturalHeight:img.naturalHeight
+                  }))
+                };
+              });
+              console.log(v.name+' '+JSON.stringify(result));
+              if(result.scrollWidth > result.clientWidth + 1) failed=true;
+              if(result.images.length < 5) failed=true;
+              for(const img of result.images){
+                if(!img.src || !img.src.includes('.webp')) failed=true;
+                if(!img.alt || img.alt.trim().length < 12) failed=true;
+                if(!img.width || !img.height) failed=true;
+                if(img.naturalWidth <= 0 || img.naturalHeight <= 0) failed=true;
+              }
+
+              const transformations=page.locator('#transformations');
+              await transformations.scrollIntoViewIfNeeded();
+              await page.waitForTimeout(700);
+              await transformations.screenshot({path:`shots/p4/${v.name}-client-work.png`});
+
+              const about=page.locator('#about');
+              await about.scrollIntoViewIfNeeded();
+              await page.waitForTimeout(700);
+              await about.screenshot({path:`shots/p4/${v.name}-about.png`});
+
+              await page.close();
+            }
+
+            const page=await browser.newPage({viewport:{width:1440,height:900}});
+            await page.goto('http://127.0.0.1:8787/', {waitUntil:'networkidle'});
+            const expected={
+              cbp:'cbp-content-flow-reconstruction.webp',
+              cjb:'cjb-content-workflow-reconstruction.webp',
+              revive:'revive-measurement-reconstruction.webp'
+            };
+            for(const [key,file] of Object.entries(expected)){
+              await page.click(`[data-transform="${key}"]`);
+              const src=await page.locator('[data-transform-image]').getAttribute('src');
+              console.log('detail '+key+' '+src);
+              if(!src || !src.endsWith(file)) failed=true;
+            }
+            await browser.close();
+            if(failed) process.exit(2);
+          })();
+          NODE
+
+      - name: Verify evidence inventory
+        run: |
+          test "$(find production/assets/evidence -maxdepth 1 -type f -name '*.webp' | wc -l)" -eq 6
+          test -f production/assets/rahmel-dela-cruz.webp
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: p4-evidence-shots
+          path: shots/p4/*.png
+          retention-days: 3

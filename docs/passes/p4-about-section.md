@@ -59,15 +59,21 @@ Rewrite the `#about` intro as a short first-person bio.
 
 > I'm Rahmel. I build and run the whole system myself — the site, the tracking, the CRM, the follow-up. There's no account manager in between, and no junior doing the work after you've met me.
 >
-> I've spent `{{YEARS}}` years working on `{{BUSINESS_TYPES}}`. Most of what I do is unglamorous: making the pieces you already own talk to each other properly.
+> I've spent eight years working with medical and wellness practices and consulting businesses. Most of what I do is unglamorous: making the pieces you already own talk to each other properly.
 >
 > You'll hear from me directly, and you'll know what changed and why.
 
-**Placeholders the human must fill. Leave them visible and report them. Do not guess:**
+**Resolved human inputs**
 
-- `{{YEARS}}` — years of experience
-- `{{BUSINESS_TYPES}}` — the kinds of businesses he works with
-- `{{TIMEZONE_LINE}}` — optional. If he works in a different timezone from his clients, one plain sentence saying so. Ask; do not assume either way.
+- Years of experience: **eight**
+- Business types: **medical and wellness practices and consulting businesses**
+- Timezone line: **omit**
+
+**Approved bio draft (71 words)**
+
+> I'm Rahmel. I build and run the work myself — the site, the tracking, the CRM, and the follow-up. There’s no account manager in between, and no junior taking over after you’ve met me.
+>
+> I’ve spent eight years working with medical and wellness practices and consulting businesses. Most of the day-to-day work is practical: connecting the pieces you already use, fixing the handoffs, and making it clear what changed and why.
 
 ---
 
@@ -186,7 +192,7 @@ All must pass before opening the PR:
 - [ ] Bio is 60–100 words, first person
 - [ ] Bio states explicitly that the client works with him directly
 - [ ] `grep -icE 'arsenal|protocol|ecosystem|journey|seamless|robust|leverage|empower|unlock|elevate|passionate'` on `index.html` returns **0**
-- [ ] Every placeholder is still visible and listed in the PR description
+- [ ] All human-supplied bio inputs are resolved; no unresolved placeholders remain
 - [ ] Zero invented facts — every factual claim traces to something the human supplied
 - [ ] Portrait has explicit width/height and factual alt text
 - [ ] No horizontal overflow at 390 px

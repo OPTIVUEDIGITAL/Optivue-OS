@@ -1,0 +1,79 @@
+name: P3 Composition Verification
+
+on:
+  push:
+    branches:
+      - layout/p3-composition
+    paths:
+      - ".github/workflows/p3-verify-composition.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Playwright
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --silent playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start static server
+        run: |
+          python3 -m http.server 8787 --directory production > /tmp/optivue-http.log 2>&1 &
+          for i in {1..20}; do
+            curl -fsS http://127.0.0.1:8787/ >/dev/null && break
+            sleep 1
+          done
+
+      - name: Capture required viewports and check overflow
+        run: |
+          mkdir -p shots/p3
+          node <<'NODE'
+          const { chromium } = require('playwright');
+          (async () => {
+            const browser = await chromium.launch({headless:true});
+            const cases = [
+              {name:'390', width:390, height:844},
+              {name:'768', width:768, height:1024},
+              {name:'1440', width:1440, height:900},
+            ];
+            let failed = false;
+            for (const v of cases) {
+              const page = await browser.newPage({viewport:{width:v.width,height:v.height}, deviceScaleFactor:1});
+              await page.goto('http://127.0.0.1:8787/', {waitUntil:'networkidle'});
+              await page.screenshot({path:`shots/p3/${v.name}.png`, fullPage:true});
+              const metrics = await page.evaluate(() => ({
+                scrollWidth: document.documentElement.scrollWidth,
+                clientWidth: document.documentElement.clientWidth,
+                heroPanel: (() => {
+                  const el=document.querySelector('.ovgo-hero__content');
+                  if(!el) return null;
+                  const r=el.getBoundingClientRect();
+                  return {left:r.left,right:r.right,width:r.width};
+                })(),
+                estimatorWidth: (() => {
+                  const el=document.querySelector('#estimator [data-ovgo-estimator]');
+                  if(!el) return null;
+                  const r=el.getBoundingClientRect();
+                  return {left:r.left,right:r.right,width:r.width};
+                })()
+              }));
+              console.log(`${v.name}px ${JSON.stringify(metrics)}`);
+              if (metrics.scrollWidth > metrics.clientWidth + 1) failed = true;
+              await page.close();
+            }
+            await browser.close();
+            if (failed) process.exit(2);
+          })();
+          NODE
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: p3-shots
+          path: shots/p3/*.png
+          retention-days: 3

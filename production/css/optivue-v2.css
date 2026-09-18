@@ -468,3 +468,149 @@
     scroll-margin-top: 68px;
   }
 }
+
+
+/* ==========================================================================
+   P4 — Evidence layer
+   Publication-safe reconstructions + real operator portrait.
+   ========================================================================== */
+
+#optivue-growth-os .ovgo-case-media,
+#optivue-growth-os .ovgo-transform-evidence,
+#optivue-growth-os .ovgo-operator-card {
+  margin: 0;
+}
+
+#optivue-growth-os .ovgo-case-media {
+  margin: calc(clamp(26px,3vw,40px) * -1);
+  margin-bottom: 24px;
+}
+
+#optivue-growth-os .ovgo-transform-card:nth-child(2) .ovgo-case-media,
+#optivue-growth-os .ovgo-transform-card:nth-child(3) .ovgo-case-media {
+  margin: -20px -20px 20px;
+}
+
+#optivue-growth-os .ovgo-case-media img,
+#optivue-growth-os .ovgo-transform-evidence img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 8 / 5;
+  object-fit: cover;
+  background: var(--ovgo-bg);
+  border-bottom: 1px solid var(--ovgo-border);
+}
+
+#optivue-growth-os .ovgo-case-media figcaption,
+#optivue-growth-os .ovgo-transform-evidence figcaption {
+  padding: 12px 14px;
+  color: var(--ovgo-subtle);
+  font-size: var(--ovgo-type-xs);
+  line-height: 1.45;
+  border-bottom: 1px solid var(--ovgo-border);
+  background: var(--ovgo-surface-2);
+}
+
+#optivue-growth-os .ovgo-case-media figcaption::before,
+#optivue-growth-os .ovgo-transform-evidence figcaption::before {
+  content: "";
+  display: inline-block;
+  width: 26px;
+  height: 1px;
+  margin: 0 8px 4px 0;
+  background: var(--ovgo-green);
+}
+
+#optivue-growth-os .ovgo-transform-detail {
+  grid-template-columns: minmax(0,1.25fr) minmax(280px,.75fr);
+  align-items: stretch;
+}
+
+#optivue-growth-os .ovgo-transform-evidence {
+  overflow: hidden;
+  border: 1px solid var(--ovgo-border);
+  border-radius: var(--ovgo-radius-structural);
+  background: var(--ovgo-surface-2);
+}
+
+#optivue-growth-os .ovgo-transform-detail__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#optivue-growth-os .ovgo-transform-detail__copy .ovgo-flow {
+  margin-top: 22px;
+}
+
+/* Operator trust block. Motion/parallax is intentionally deferred to P6. */
+#optivue-growth-os .ovgo-about-grid {
+  display: grid;
+  grid-template-columns: minmax(260px,.7fr) minmax(0,1.3fr);
+  gap: clamp(32px,5vw,72px);
+  align-items: center;
+}
+
+#optivue-growth-os .ovgo-operator-card {
+  position: relative;
+  max-width: 430px;
+  transform: rotate(-1.2deg);
+  transform-origin: center;
+  border: 1px solid var(--ovgo-border);
+  border-radius: var(--ovgo-radius-structural);
+  overflow: hidden;
+  background: var(--ovgo-surface);
+  box-shadow: 0 26px 70px rgba(0,0,0,.28);
+}
+
+#optivue-growth-os .ovgo-operator-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 24%;
+}
+
+#optivue-growth-os .ovgo-operator-card figcaption {
+  display: grid;
+  gap: 4px;
+  padding: 18px;
+  border-top: 1px solid var(--ovgo-border);
+  background: var(--ovgo-surface-2);
+}
+
+#optivue-growth-os .ovgo-operator-card figcaption strong {
+  font-size: var(--ovgo-type-title-sm);
+}
+
+#optivue-growth-os .ovgo-operator-card figcaption span,
+#optivue-growth-os .ovgo-operator-card figcaption small {
+  color: var(--ovgo-muted);
+}
+
+#optivue-growth-os .ovgo-about-copy {
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  #optivue-growth-os .ovgo-case-media,
+  #optivue-growth-os .ovgo-transform-card:nth-child(2) .ovgo-case-media,
+  #optivue-growth-os .ovgo-transform-card:nth-child(3) .ovgo-case-media {
+    margin: -22px -22px 18px;
+  }
+
+  #optivue-growth-os .ovgo-transform-detail {
+    grid-template-columns: 1fr;
+  }
+
+  #optivue-growth-os .ovgo-about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #optivue-growth-os .ovgo-operator-card {
+    max-width: min(88vw, 360px);
+    justify-self: center;
+    transform: rotate(-.8deg);
+  }
+}

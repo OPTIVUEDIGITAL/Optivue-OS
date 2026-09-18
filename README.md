@@ -50,6 +50,12 @@ Each step contributes to one shared prospect context so the visitor does not nee
 
 See `docs/standalone-deployment.md` and `docs/cloudflare-deployment.md`.
 
+## Design governance
+
+All visual, content, evidence, typography, layout, motion, accessibility, and verification work must follow `docs/design-direction.md`.
+
+Passes P0–P7 run in order, one pass per PR. P0 evidence intake is blocking.
+
 ## Unified prospect context
 
 The production experience shares context across:

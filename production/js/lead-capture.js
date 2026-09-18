@@ -14,7 +14,7 @@ export function initLeadCapture(root) {
     mount.innerHTML = `
       <div class="ovgo-lead-grid">
         <div class="ovgo-lead-copy">
-          <p class="ovgo-kicker">[ SAVE YOUR GROWTH CONTEXT ]</p>
+          <p class="ovgo-kicker">Save your growth context</p>
           <h3>Turn your diagnosis and estimate into a conversation.</h3>
           <p>Your Growth OS activity can be packaged into one prospect brief, so you do not need to repeat the same information on a discovery call.</p>
           <div class="ovgo-context-summary" data-lead-context-summary></div>

@@ -10,7 +10,7 @@ if (root) {
   initTheme(root);
   initHeader(root);
   initMobileMenu(root);
-  initSystemInspector(root);
+  initSystemDetail(root);
   initTransformations(root);
   initWorkLab(root);
   initSpotlights(root);
@@ -76,11 +76,11 @@ function initMobileMenu(root) {
   });
 }
 
-function initSystemInspector(root) {
+function initSystemDetail(root) {
   const data = {
     acquire: {
       index: 'STAGE 01',
-      name: 'ACQUIRE ENGINE',
+      name: 'Acquire',
       title: 'Bring the right people into the system.',
       purpose: 'Build acquisition around clear intent and measurable business outcomes rather than disconnected traffic volume.',
       tools: ['Google Ads','Meta Ads','SEO','Google Business Profile','Content'],
@@ -88,7 +88,7 @@ function initSystemInspector(root) {
     },
     convert: {
       index: 'STAGE 02',
-      name: 'CONVERSION ENGINE',
+      name: 'Convert',
       title: 'Turn attention into measurable intent.',
       purpose: 'Reduce friction between the first click and the actions that indicate a real prospect is ready to move forward.',
       tools: ['Landing Pages','CRO','Booking','Offer Structure','Lead Qualification'],
@@ -96,7 +96,7 @@ function initSystemInspector(root) {
     },
     automate: {
       index: 'STAGE 03',
-      name: 'AUTOMATION ENGINE',
+      name: 'Automate',
       title: 'Move leads forward without relying on manual follow-up.',
       purpose: 'Connect lead capture to CRM routing, email, SMS, pipeline stages, and clear ownership so response does not depend on memory.',
       tools: ['CRM','Email','SMS','Lead Routing','Pipeline Automation'],
@@ -104,7 +104,7 @@ function initSystemInspector(root) {
     },
     measure: {
       index: 'STAGE 04',
-      name: 'MEASUREMENT ENGINE',
+      name: 'Measure',
       title: 'Track what creates qualified opportunities and customers.',
       purpose: 'Define the events and outcomes that matter, then connect website behavior, campaigns, and CRM progression into usable reporting.',
       tools: ['GA4','GTM','Dashboards','Attribution','Reporting'],
@@ -112,7 +112,7 @@ function initSystemInspector(root) {
     },
     optimize: {
       index: 'STAGE 05',
-      name: 'OPTIMIZATION ENGINE',
+      name: 'Optimize',
       title: 'Use performance data to improve the system.',
       purpose: 'Use what the system reveals to improve messaging, user experience, channel efficiency, and the highest-friction parts of the journey.',
       tools: ['CRO','Campaign Optimization','Search Intelligence','Funnel Analysis','UX Improvement'],
@@ -152,19 +152,19 @@ function initSystemInspector(root) {
 function initTransformations(root) {
   const data = {
     revive: {
-      kicker: '[ HEALTHCARE & WELLNESS // CONNECTED ACQUISITION ]',
+      kicker: 'Healthcare & wellness',
       title: 'Express Medical Care / Revive',
       summary: 'Connect acquisition, landing experiences, qualification, CRM routing, automated follow-up, consultation booking, and performance visibility.',
       flow: ['Search / Ads / GBP','Landing Experience','Lead Capture','Qualification','CRM','SMS + Email','Consultation Pipeline','Customer','Analytics'],
     },
     cbp: {
-      kicker: '[ EDUCATION & MEMBERSHIP // DIGITAL INFRASTRUCTURE ]',
+      kicker: 'Education & membership',
       title: 'CBP / Ideal Spine',
       summary: 'Create a connected member-facing experience across portal UX, custom front-end implementation, content access, and supporting digital systems.',
       flow: ['Member Entry','Portal Experience','Content Access','Custom UI','Live / Recorded Resources','Member Journey'],
     },
     cjb: {
-      kicker: '[ CONSULTING & LEARNING // MARKETING OPERATIONS ]',
+      kicker: 'Consulting & learning',
       title: 'CJB / LearnX',
       summary: 'Connect content, prospecting, performance reporting, dashboards, and marketing execution into clearer operational workflows.',
       flow: ['Market / Prospects','Content','Lead Generation','Scorecards','Reporting','Marketing Decisions'],
@@ -195,7 +195,7 @@ function initTransformations(root) {
 function initWorkLab(root) {
   const filters = [...root.querySelectorAll('[data-filter]')];
   const items = [...root.querySelectorAll('.ovgo-work-item')];
-  const inspectorTitle = root.querySelector('[data-work-inspector-title]');
+  const detailTitle = root.querySelector('[data-work-detail-title]');
 
   filters.forEach((button) => {
     button.addEventListener('click', () => {
@@ -209,9 +209,9 @@ function initWorkLab(root) {
 
   root.querySelectorAll('[data-work-title]').forEach((button) => {
     button.addEventListener('click', () => {
-      inspectorTitle.textContent = button.dataset.workTitle;
+      detailTitle.textContent = button.dataset.workTitle;
       addJourneyValue('workItemsViewed', button.dataset.workTitle);
-      root.querySelector('.ovgo-work-inspector')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      root.querySelector('.ovgo-work-detail')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
   });
 }

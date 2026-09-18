@@ -1,5 +1,5 @@
 name: P4 About Visual Review
-# rerun after layout refinement
+# rerun after mobile portrait refinement
 
 on:
   push:

@@ -1,39 +1,59 @@
 # Growth OS Lead Intake Relay
 
-This folder contains a lightweight server-side relay template for Growth OS lead submissions.
+This folder contains the server-side relay for Growth OS lead submissions.
 
-## Why use a relay
+## Hosting target
 
-Do not expose a raw Make webhook URL or secret-bearing integration endpoint in browser JavaScript.
+Cloudflare Workers.
 
-The public site should submit to a controlled endpoint such as:
+Planned public endpoint:
 
 `https://api.optivuedigital.com/growth-os/intake`
 
-The relay then forwards the validated payload to Make using the private `MAKE_WEBHOOK_URL` environment secret.
+## Why use a relay
+
+Never expose a raw Make webhook URL or another secret-bearing integration endpoint in browser JavaScript.
+
+The browser submits to the Worker.
+
+The Worker validates the request and forwards it to Make using the private:
+
+`MAKE_WEBHOOK_URL`
+
+environment secret.
 
 ## Current status
 
-A draft Make scenario exists for the Growth OS intake, but the connected Make organization/team is currently paused because its operations or data-transfer limit has been exceeded.
+The connected Make organization/team is currently paused because its operations or data-transfer limit has been exceeded.
 
-Until that is resolved:
+Until Make is restored:
 
 - keep `production/js/runtime-config.js` with `leadSubmissionEnabled: false`
-- do not publish the raw Make webhook URL
-- the lead form can still carry context into Calendly for the active session
+- do not deploy a live Make destination
+- do not publish the raw Make webhook
+- the Growth OS can still carry session context into Calendly
 
-## Required environment values
+## Cloudflare Worker config
 
-- `MAKE_WEBHOOK_URL` — private Growth OS Make webhook
-- `ALLOWED_ORIGIN` — final Growth OS site origin, e.g. `https://growth.optivuedigital.com`
+Template:
+
+`wrangler.jsonc`
+
+Required runtime values:
+
+- `MAKE_WEBHOOK_URL` — secret, never commit its value
+- `ALLOWED_ORIGIN` — production site origin, eventually `https://www.optivuedigital.com`
 
 ## Activation sequence
 
-1. Resolve Make account/team limit.
-2. Put the Growth OS Make webhook into learning mode.
-3. Send the normalized sample payload from `docs/prospect-journey.md`.
-4. Map learned fields into the existing Optivue Intelligence Sheet.
-5. Activate the Make scenario.
-6. Deploy this relay with `MAKE_WEBHOOK_URL` stored as a secret.
-7. Set `production/js/runtime-config.js` to the relay URL and enable lead submission.
-8. Run an end-to-end test with a non-production test lead.
+1. Resolve Make account/team limits.
+2. Put the Growth OS webhook into learning mode.
+3. Send the normalized payload from `docs/prospect-journey.md`.
+4. Map learned fields into the Optivue Intelligence Sheet.
+5. Validate deduplication.
+6. Activate the Make scenario.
+7. Deploy the Cloudflare Worker.
+8. Store `MAKE_WEBHOOK_URL` as a Cloudflare secret.
+9. Configure `ALLOWED_ORIGIN`.
+10. Point `runtime-config.js` to the Worker endpoint and enable lead submission.
+11. Run an end-to-end non-production lead test.

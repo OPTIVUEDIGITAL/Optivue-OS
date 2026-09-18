@@ -1,6 +1,21 @@
 # Optivue Growth OS — Production
 
-This directory is the canonical standalone front-end build.
+This directory is the canonical standalone front-end implementation of the unified Optivue Growth OS ecosystem.
+
+## Six connected functions
+
+The production app simultaneously provides:
+
+- Interactive Digital Growth Portfolio
+- Business Transformation Showcase
+- Growth Diagnosis Platform
+- Project Estimation Tool
+- Pricing Experience
+- Lead-Generation System
+
+These functions share one prospect context through:
+
+`js/context.js`
 
 ## Entry point
 
@@ -18,22 +33,43 @@ The application uses:
 - Web Components
 - browser-native APIs
 
-## Local preview
+## Important modules
 
-Serve this directory through any static HTTP server.
+- `js/context.js` — shared prospect context
+- `js/diagnosis.js` — Growth Diagnosis
+- `js/estimator.js` — Project Estimator
+- `js/lead-capture.js` — contextual lead capture
+- `js/booking.js` — Calendly experience and booking intent
+- `js/runtime-config.js` — public integration flags/endpoints
+- `js/optivue.js` — page-level orchestration
 
-Do not open `index.html` directly with `file://` when testing ES modules.
+## Lead submission
 
-## Deployment
+Direct lead submission is disabled by default.
 
-GitHub Pages publishes this directory automatically after approved changes are merged to `main`.
+Do not put a raw Make webhook URL in `runtime-config.js`.
+
+When the backend is ready, configure a public server-side relay endpoint and then enable lead submission.
 
 See:
 
-`../docs/standalone-deployment.md`
+- `../backend/lead-intake/README.md`
+- `../docs/integrations/make-intake.md`
+
+## Local preview
+
+Serve this directory through a static HTTP server.
+
+Do not use `file://` when testing ES modules.
+
+## Deployment
+
+GitHub Pages publishes this directory after approved changes reach `main`.
+
+See `../docs/standalone-deployment.md`.
 
 ## Editing rule
 
 Make product changes here first.
 
-The one-file version in `../portable/` should be regenerated after the production implementation is approved.
+Regenerate `../portable/optivue-growth-os.html` only after the modular production implementation validates.

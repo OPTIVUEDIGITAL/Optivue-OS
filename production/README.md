@@ -21,19 +21,19 @@ No build step is required.
 
 The application uses HTML5, CSS3, ES modules, Web Components, and browser-native APIs.
 
-## Cloudflare Pages
+## Cloudflare Workers + Static Assets
 
-This directory is the Cloudflare Pages output directory.
+This directory is the static asset directory deployed by the root `wrangler.jsonc`.
 
-Staging configuration:
+Current deployment model:
 
 - repository: `OPTIVUEDIGITAL/Optivue-OS`
-- branch: `release/cloudflare-staging`
-- framework preset: None
-- build command: `exit 0`
-- output directory: `production`
-
-After QA, use `main` as the production branch.
+- production branch: `main`
+- build command: none
+- deploy command: `npx wrangler deploy`
+- static assets directory: `./production`
+- workers.dev staging: enabled
+- preview URLs: enabled
 
 See:
 
@@ -41,7 +41,7 @@ See:
 
 ## Security headers
 
-`_headers` is interpreted by Cloudflare Pages and adds static-site security headers.
+`_headers` is interpreted natively by Cloudflare Workers Static Assets and adds static-site security headers.
 
 ## Lead submission
 

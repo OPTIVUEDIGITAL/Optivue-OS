@@ -34,7 +34,7 @@
 }
 #optivue-growth-os[data-theme="light"]{
   --ovgo-bg:#F7F8FA;--ovgo-surface:#FFFFFF;--ovgo-surface-2:#F0F2F5;--ovgo-surface-3:#FFFFFF;
-  --ovgo-text:#101114;--ovgo-muted:#60646C;--ovgo-subtle:#8A9099;
+  --ovgo-text:#101114;--ovgo-muted:#60646C;--ovgo-subtle:#686E77;
   --ovgo-border:rgba(16,17,20,.08);--ovgo-border-strong:rgba(16,17,20,.16);
   --ovgo-blue:#176BFF;--ovgo-green:#10A66A;--ovgo-violet:#625BF6;--ovgo-amber:#D78B18;
 }

@@ -4,68 +4,419 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Optivue Growth OS connects acquisition, conversion, CRM, automation, SEO, and analytics into one client acquisition system.">
-  <title>Optivue Growth OS</title>
+  <meta name="theme-color" content="#090A0C">
+  <title>Optivue Growth OS — Clicks to Clients</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/optivue.css">
 </head>
 <body>
-  <main id="optivue-growth-os" class="ovgo-app" data-theme="dark">
-    <section class="ovgo-hero" aria-labelledby="ovgo-hero-title">
-      <div class="ovgo-hero__visual" data-ovgo-system-visual aria-hidden="true"></div>
-      <div class="ovgo-hero__content">
-        <p class="ovgo-eyebrow">[ OPTIVUE GROWTH OS ]</p>
-        <h1 id="ovgo-hero-title">CLICKS<br>TO CLIENTS.</h1>
-        <p class="ovgo-lede">I build connected growth systems across acquisition, conversion, CRM, automation, SEO, and analytics.</p>
-        <p class="ovgo-system-signature">ACQUIRE → CONVERT → AUTOMATE → MEASURE → OPTIMIZE</p>
-        <div class="ovgo-actions">
-          <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-action="proposal">Request a Custom Proposal</button>
-          <a class="ovgo-btn ovgo-btn--secondary" href="#diagnosis">Get Your Free Audit</a>
-        </div>
-        <p class="ovgo-ownership">Built in your stack. Owned by your business.</p>
+  <div id="optivue-growth-os" class="ovgo-app" data-theme="dark">
+    <header class="ovgo-header" data-ovgo-header>
+      <a class="ovgo-brand" href="#overview" aria-label="Optivue Digital home">
+        <span>OPTIVUE DIGITAL</span>
+        <small>[ GROWTH OS ]</small>
+      </a>
+
+      <nav class="ovgo-nav" aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#transformations">Transformations</a>
+        <a href="#systems">Systems</a>
+        <a href="#work">Work</a>
+        <a href="#diagnosis">Diagnosis</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#estimator">Estimator</a>
+        <a href="#about">About</a>
+      </nav>
+
+      <div class="ovgo-header__actions">
+        <button class="ovgo-icon-btn" type="button" data-ovgo-theme aria-label="Toggle light and dark mode">
+          <span aria-hidden="true">◐</span>
+        </button>
+        <button class="ovgo-btn ovgo-btn--primary ovgo-btn--compact" type="button" data-ovgo-booking>
+          Request a Custom Proposal
+        </button>
+        <button class="ovgo-menu-btn" type="button" data-ovgo-menu-toggle aria-expanded="false" aria-controls="ovgo-mobile-menu">
+          <span></span><span></span><span></span>
+          <span class="ovgo-sr-only">Open navigation</span>
+        </button>
       </div>
-    </section>
+    </header>
 
-    <section id="systems" class="ovgo-section" data-ovgo-section="systems">
-      <p class="ovgo-eyebrow">THE OPTIVUE GROWTH SYSTEM</p>
-      <h2>Growth improves when the systems work together.</h2>
-    </section>
+    <div class="ovgo-mobile-menu" id="ovgo-mobile-menu" data-ovgo-mobile-menu hidden>
+      <nav aria-label="Mobile navigation">
+        <a href="#overview">Overview</a>
+        <a href="#transformations">Transformations</a>
+        <a href="#systems">Systems</a>
+        <a href="#work">Work</a>
+        <a href="#diagnosis">Diagnosis</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#estimator">Estimator</a>
+        <a href="#about">About</a>
+        <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking>Request a Custom Proposal</button>
+      </nav>
+    </div>
 
-    <section id="transformations" class="ovgo-section" data-ovgo-section="transformations">
-      <p class="ovgo-eyebrow">SELECTED TRANSFORMATIONS</p>
-      <h2>From disconnected activity to connected acquisition systems.</h2>
-    </section>
+    <main>
+      <section id="overview" class="ovgo-hero">
+        <optivue-growth-system class="ovgo-hero__system" theme="dark" density="full"></optivue-growth-system>
+        <div class="ovgo-hero__content">
+          <p class="ovgo-kicker">[ OPTIVUE GROWTH OS ]</p>
+          <h1>CLICKS<br><span>TO CLIENTS.</span></h1>
+          <p class="ovgo-hero__lede">I build connected growth systems across acquisition, conversion, CRM, automation, SEO, and analytics.</p>
+          <div class="ovgo-signature" aria-label="Acquire, convert, automate, measure, optimize">
+            <span>ACQUIRE</span><i>→</i><span>CONVERT</span><i>→</i><span>AUTOMATE</span><i>→</i><span>MEASURE</span><i>→</i><span>OPTIMIZE</span>
+          </div>
+          <div class="ovgo-actions">
+            <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking>
+              Request a Custom Proposal <span aria-hidden="true">→</span>
+            </button>
+            <a class="ovgo-btn ovgo-btn--secondary" href="#diagnosis">
+              Get Your Free Audit <span class="ovgo-mono">[/DIAGNOSIS]</span>
+            </a>
+          </div>
+          <p class="ovgo-ownership"><span aria-hidden="true">●</span> Built in your stack. Owned by your business.</p>
+        </div>
+        <div class="ovgo-hero__footer">
+          <span>FULL-STACK DIGITAL MARKETING // RAHMEL DELA CRUZ</span>
+          <a href="#systems">SCROLL TO SEE THE SYSTEM ↓</a>
+        </div>
+      </section>
 
-    <section id="work" class="ovgo-section" data-ovgo-section="work">
-      <p class="ovgo-eyebrow">WORK LAB</p>
-      <h2>Evidence of execution, not a screenshot gallery.</h2>
-    </section>
+      <section class="ovgo-audience ovgo-section">
+        <div class="ovgo-section-head">
+          <p class="ovgo-kicker">[ WHO THIS IS FOR ]</p>
+          <h2>Built for businesses with growth pieces that are not working together.</h2>
+        </div>
+        <div class="ovgo-problem-grid">
+          <article><span>01</span><p>You generate traffic, but conversion is inconsistent.</p></article>
+          <article><span>02</span><p>You have a CRM, but follow-up still depends on manual work.</p></article>
+          <article><span>03</span><p>You run ads, but cannot clearly see what becomes a customer.</p></article>
+          <article><span>04</span><p>Your website, CRM, campaigns, and reporting operate separately.</p></article>
+        </div>
+      </section>
 
-    <section id="pricing" class="ovgo-section" data-ovgo-section="pricing">
-      <p class="ovgo-eyebrow">PRICING</p>
-      <h2>Choose how far you want to build.</h2>
-      <p>Built in your stack. Owned by your business.</p>
-    </section>
+      <section id="systems" class="ovgo-section ovgo-systems">
+        <div class="ovgo-section-head ovgo-section-head--split">
+          <div>
+            <p class="ovgo-kicker">[ ARCHITECTURE // 02 ]</p>
+            <h2>The Optivue Growth System.</h2>
+            <p>Five connected stages designed to turn fragmented marketing activity into one measurable acquisition system.</p>
+          </div>
+          <div class="ovgo-status"><span>●</span> SYSTEM MODEL // CONNECTED</div>
+        </div>
 
-    <section id="diagnosis" class="ovgo-section" data-ovgo-section="diagnosis">
-      <p class="ovgo-eyebrow">FREE GROWTH AUDIT</p>
-      <h2>Find the bottleneck slowing your growth.</h2>
-      <div data-ovgo-diagnosis></div>
-    </section>
+        <div class="ovgo-stage-grid" role="tablist" aria-label="Growth System stages">
+          <button class="ovgo-stage is-active" role="tab" aria-selected="true" data-stage="acquire">
+            <small>01_ACQUIRE</small><strong>Acquire</strong><span>Bring the right people into the system.</span>
+          </button>
+          <button class="ovgo-stage" role="tab" aria-selected="false" data-stage="convert">
+            <small>02_CONVERT</small><strong>Convert</strong><span>Turn attention into measurable intent.</span>
+          </button>
+          <button class="ovgo-stage" role="tab" aria-selected="false" data-stage="automate">
+            <small>03_AUTOMATE</small><strong>Automate</strong><span>Move leads forward without manual follow-up.</span>
+          </button>
+          <button class="ovgo-stage" role="tab" aria-selected="false" data-stage="measure">
+            <small>04_MEASURE</small><strong>Measure</strong><span>Track what creates qualified opportunities.</span>
+          </button>
+          <button class="ovgo-stage" role="tab" aria-selected="false" data-stage="optimize">
+            <small>05_OPTIMIZE</small><strong>Optimize</strong><span>Use performance data to improve the system.</span>
+          </button>
+        </div>
 
-    <section id="estimator" class="ovgo-section" data-ovgo-section="estimator">
-      <p class="ovgo-eyebrow">PROJECT ESTIMATOR</p>
-      <h2>Estimate the scope of your growth system.</h2>
-      <div data-ovgo-estimator></div>
-    </section>
+        <div class="ovgo-inspector">
+          <div class="ovgo-inspector__main">
+            <div class="ovgo-inspector__meta">
+              <span data-stage-index>STAGE 01</span>
+              <span>/</span>
+              <span data-stage-name>ACQUIRE ENGINE</span>
+            </div>
+            <h3 data-stage-title>Bring the right people into the system.</h3>
+            <p data-stage-purpose>Build acquisition around clear intent and measurable business outcomes rather than disconnected traffic volume.</p>
+            <div class="ovgo-tool-chips" data-stage-tools></div>
+          </div>
+          <aside class="ovgo-inspector__side">
+            <p class="ovgo-kicker">CONNECTED CAPABILITIES</p>
+            <ul data-stage-capabilities></ul>
+          </aside>
+        </div>
 
-    <section id="about" class="ovgo-section" data-ovgo-section="about">
-      <p class="ovgo-eyebrow">HOW I WORK</p>
-      <h2>Understand. Diagnose. Connect. Measure. Improve.</h2>
-    </section>
-  </main>
+        <div class="ovgo-system-close">
+          <p class="ovgo-kicker">[ COMPLETE SYSTEM HARMONY ]</p>
+          <h3>Growth improves when these systems work together.</h3>
+          <p>Acquisition, conversion, follow-up, measurement, and optimization should reinforce one another instead of living in separate tools and reports.</p>
+          <div class="ovgo-actions ovgo-actions--inline">
+            <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking>Request a Custom Proposal</button>
+            <a class="ovgo-btn ovgo-btn--secondary" href="#diagnosis">Get Your Free Audit</a>
+          </div>
+        </div>
+      </section>
 
+      <section id="transformations" class="ovgo-section">
+        <div class="ovgo-section-head ovgo-section-head--split">
+          <div>
+            <p class="ovgo-kicker">[ SELECTED TRANSFORMATIONS ]</p>
+            <h2>Transformations.</h2>
+            <p>Real client systems, documented by problem, architecture, implementation, and operational change.</p>
+          </div>
+          <span class="ovgo-status"><span>●</span> VERIFIED PROJECT CONTEXT</span>
+        </div>
+
+        <div class="ovgo-transform-grid">
+          <article class="ovgo-transform-card is-active">
+            <small>HEALTHCARE & WELLNESS</small>
+            <h3>Express Medical Care / Revive</h3>
+            <p><b>Core challenge:</b> acquisition, booking, CRM follow-up, and local visibility needed to operate as one connected journey.</p>
+            <div class="ovgo-card-meta"><span>ROLE</span><strong>Growth Systems & Marketing Operations</strong></div>
+            <div class="ovgo-chip-row"><span>Landing Pages</span><span>CRM</span><span>SMS</span><span>SEO / GBP</span><span>Tracking</span></div>
+            <p class="ovgo-impact">Operational focus: connect lead capture, qualification, follow-up, pipeline visibility, and local acquisition.</p>
+            <button type="button" class="ovgo-text-link" data-transform="revive">View Transformation →</button>
+          </article>
+
+          <article class="ovgo-transform-card">
+            <small>CHIROPRACTIC EDUCATION</small>
+            <h3>CBP / Ideal Spine</h3>
+            <p><b>Core challenge:</b> consolidate member-facing digital experiences while working within platform and custom-code constraints.</p>
+            <div class="ovgo-card-meta"><span>ROLE</span><strong>Digital Systems & Portal Implementation</strong></div>
+            <div class="ovgo-chip-row"><span>Kajabi</span><span>HTML/CSS/JS</span><span>UX</span><span>Content Systems</span></div>
+            <p class="ovgo-impact">Operational focus: create a more connected portal experience and supporting digital infrastructure.</p>
+            <button type="button" class="ovgo-text-link" data-transform="cbp">View Transformation →</button>
+          </article>
+
+          <article class="ovgo-transform-card">
+            <small>CONSULTING & LEARNING SYSTEMS</small>
+            <h3>CJB / LearnX</h3>
+            <p><b>Core challenge:</b> connect content, reporting, prospecting, and marketing operations into clearer growth workflows.</p>
+            <div class="ovgo-card-meta"><span>ROLE</span><strong>Marketing Operations & Growth Systems</strong></div>
+            <div class="ovgo-chip-row"><span>Content</span><span>Dashboards</span><span>Lead Gen</span><span>Automation</span></div>
+            <p class="ovgo-impact">Operational focus: improve visibility, content execution, and day-to-day marketing coordination.</p>
+            <button type="button" class="ovgo-text-link" data-transform="cjb">View Transformation →</button>
+          </article>
+        </div>
+
+        <div class="ovgo-transform-detail" data-transform-detail>
+          <div>
+            <p class="ovgo-kicker" data-transform-kicker>[ TRANSFORMATION INSPECTOR ]</p>
+            <h3 data-transform-title>Express Medical Care / Revive</h3>
+            <p data-transform-summary>Connect paid and organic acquisition to landing experiences, lead capture, CRM routing, automated follow-up, consultation booking, and reporting.</p>
+          </div>
+          <div class="ovgo-flow" data-transform-flow></div>
+        </div>
+      </section>
+
+      <section id="work" class="ovgo-section">
+        <div class="ovgo-section-head">
+          <p class="ovgo-kicker">[ SYSTEMS ARSENAL // WORK LAB ]</p>
+          <h2>Work Lab.</h2>
+          <p>Evidence of execution across acquisition, conversion, CRM, automation, analytics, web, and content systems.</p>
+        </div>
+
+        <div class="ovgo-filter-row" role="group" aria-label="Work filters">
+          <button class="is-active" data-filter="all">All Systems</button>
+          <button data-filter="acquisition">Acquisition</button>
+          <button data-filter="cro">CRO</button>
+          <button data-filter="crm">CRM</button>
+          <button data-filter="automation">Automation</button>
+          <button data-filter="seo">SEO</button>
+          <button data-filter="analytics">Analytics</button>
+          <button data-filter="web">Web / UI</button>
+          <button data-filter="content">Content Systems</button>
+        </div>
+
+        <div class="ovgo-work-layout">
+          <div class="ovgo-work-list">
+            <article class="ovgo-work-item" data-category="crm automation">
+              <small>[ CRM + AUTOMATION ]</small>
+              <h3>Lead Routing & Follow-Up Architecture</h3>
+              <p>Connect form submissions, qualification logic, CRM stages, SMS/email follow-up, and booking progression.</p>
+              <div class="ovgo-chip-row"><span>CRM</span><span>Lead Routing</span><span>SMS</span><span>Email</span></div>
+              <button class="ovgo-text-link" type="button" data-work-title="Lead Routing & Follow-Up Architecture">Inspect System →</button>
+            </article>
+
+            <article class="ovgo-work-item" data-category="web cro">
+              <small>[ CRO + WEB ]</small>
+              <h3>Conversion Landing Experience</h3>
+              <p>Build focused landing experiences around one offer, one intent, clear qualification, and measurable actions.</p>
+              <div class="ovgo-chip-row"><span>Landing Pages</span><span>CRO</span><span>UX</span><span>Tracking</span></div>
+              <button class="ovgo-text-link" type="button" data-work-title="Conversion Landing Experience">Inspect System →</button>
+            </article>
+
+            <article class="ovgo-work-item" data-category="analytics">
+              <small>[ ANALYTICS + TRACKING ]</small>
+              <h3>GA4 / GTM Funnel Measurement</h3>
+              <p>Define the events that matter, connect them to the funnel, and turn reporting into decisions instead of disconnected numbers.</p>
+              <div class="ovgo-chip-row"><span>GA4</span><span>GTM</span><span>Dashboards</span><span>Attribution</span></div>
+              <button class="ovgo-text-link" type="button" data-work-title="GA4 / GTM Funnel Measurement">Inspect System →</button>
+            </article>
+
+            <article class="ovgo-work-item" data-category="seo content">
+              <small>[ SEO + CONTENT SYSTEMS ]</small>
+              <h3>Search & Local Visibility Workflow</h3>
+              <p>Coordinate service pages, search intent, Google Business Profile activity, content, and technical SEO priorities.</p>
+              <div class="ovgo-chip-row"><span>SEO</span><span>GBP</span><span>Search</span><span>Content</span></div>
+              <button class="ovgo-text-link" type="button" data-work-title="Search & Local Visibility Workflow">Inspect System →</button>
+            </article>
+          </div>
+
+          <aside class="ovgo-work-inspector">
+            <p class="ovgo-kicker">SYSTEM INSPECTOR</p>
+            <h3 data-work-inspector-title>Lead Routing & Follow-Up Architecture</h3>
+            <p>Inspect how the pieces connect, where manual work disappears, and which actions become measurable.</p>
+            <div class="ovgo-mini-flow">
+              <span>Capture</span><i>→</i><span>Qualify</span><i>→</i><span>Route</span><i>→</i><span>Follow Up</span><i>→</i><span>Pipeline</span>
+            </div>
+            <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking>Deploy a Similar System</button>
+          </aside>
+        </div>
+      </section>
+
+      <section id="pricing" class="ovgo-section">
+        <div class="ovgo-section-head">
+          <p class="ovgo-kicker">[ COMMERCIAL ARCHITECTURE // INVESTMENT MODELS ]</p>
+          <h2>Choose how far you want to build.</h2>
+          <p>Start with the foundation, build a complete acquisition system, or work with Optivue continuously.</p>
+        </div>
+
+        <div class="ovgo-pricing-grid">
+          <article class="ovgo-price-card" data-price-card>
+            <optivue-spotlight-card bg="#121417" theme="dark"></optivue-spotlight-card>
+            <div class="ovgo-price-card__content">
+              <small>3-MONTH LAUNCH</small>
+              <h3>Growth Starter</h3>
+              <p>Build the foundation for a connected client acquisition system.</p>
+              <div class="ovgo-price"><strong>$2,500</strong><span>/ month</span></div>
+              <span class="ovgo-commitment">3-month minimum</span>
+              <button class="ovgo-btn ovgo-btn--secondary" type="button" data-ovgo-booking>Get Started</button>
+              <div class="ovgo-ownership-block"><b>BUILT IN YOUR STACK</b><span>Systems and accounts remain under your ownership.</span></div>
+              <ul>
+                <li>Growth and funnel audit</li><li>90-day strategic roadmap</li><li>High-converting landing experience</li>
+                <li>SEO + Google Business Profile foundation</li><li>Google + Meta campaign launch</li>
+                <li>CRM integration</li><li>Conversion tracking</li><li>Lead routing foundation</li><li>Monthly performance review</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="ovgo-price-card is-featured" data-price-card>
+            <optivue-spotlight-card bg="#181B20" featured="true" theme="dark"></optivue-spotlight-card>
+            <div class="ovgo-price-card__content">
+              <div class="ovgo-price-card__badge">MOST POPULAR</div>
+              <small>6-MONTH GROWTH PARTNERSHIP</small>
+              <h3>Growth Accelerator</h3>
+              <p>Turn acquisition, conversion, automation, and data into one growth system.</p>
+              <div class="ovgo-price"><strong>$4,500</strong><span>/ month</span></div>
+              <span class="ovgo-commitment">6-month minimum</span>
+              <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking>Get Started</button>
+              <div class="ovgo-ownership-block"><b>YOUR INFRASTRUCTURE</b><span>We integrate with your existing stack or recommend the right architecture.</span></div>
+              <ul>
+                <li>Everything in Growth Starter</li><li>Multi-channel paid acquisition</li><li>SEO growth program</li>
+                <li>2 to 4 CRO experiments monthly</li><li>Landing-page optimization</li><li>CRM + pipeline architecture</li>
+                <li>Email + SMS automation</li><li>Lead qualification and routing</li><li>GA4 + GTM measurement</li>
+                <li>Attribution and reporting</li><li>Monthly growth strategy</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="ovgo-price-card" data-price-card>
+            <optivue-spotlight-card bg="#121417" theme="dark"></optivue-spotlight-card>
+            <div class="ovgo-price-card__content">
+              <small>FLEXIBLE GROWTH PARTNERSHIP</small>
+              <h3>Growth Lab</h3>
+              <p>Embedded growth execution for businesses with more complex systems and goals.</p>
+              <div class="ovgo-price"><strong>From $6,500</strong><span>/ month</span></div>
+              <span class="ovgo-commitment">Scope based</span>
+              <button class="ovgo-btn ovgo-btn--secondary" type="button" data-ovgo-booking>Get Started</button>
+              <div class="ovgo-ownership-block"><b>NO PLATFORM LOCK-IN</b><span>Your business keeps the infrastructure we build.</span></div>
+              <ul>
+                <li>Everything in Growth Accelerator</li><li>Full-funnel optimization</li><li>Advanced CRM architecture</li>
+                <li>Custom integrations</li><li>Advanced workflow automation</li><li>Multi-platform acquisition</li>
+                <li>Analytics and executive reporting</li><li>Ongoing CRO experimentation</li>
+                <li>Growth intelligence and insights</li><li>Priority implementation</li><li>Dedicated growth strategy</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <p class="ovgo-disclosure">Advertising spend, third-party software, media production, and specialist services are quoted separately when required.</p>
+
+        <div class="ovgo-ownership-compare">
+          <div class="ovgo-section-head">
+            <p class="ovgo-kicker">[ OWNERSHIP PROTOCOL ]</p>
+            <h3>Why Optivue builds inside your stack, not ours.</h3>
+          </div>
+          <div class="ovgo-compare-grid">
+            <article>
+              <small>AGENCY-DEPENDENT INFRASTRUCTURE</small>
+              <h4>Provider dependency</h4>
+              <ul><li>Platform portability can be limited</li><li>Infrastructure may remain tied to the provider</li><li>Migration can become a separate project</li><li>Data access may depend on provider configuration</li></ul>
+            </article>
+            <article class="is-positive">
+              <small>OPTIVUE OWNERSHIP MODEL</small>
+              <h4>Your infrastructure</h4>
+              <ul><li>Your accounts and data</li><li>Your CRM and integrations</li><li>Your tracking infrastructure</li><li>Your funnels and workflows</li><li>Your business retains the system</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="diagnosis" class="ovgo-section ovgo-tool-section">
+        <div class="ovgo-section-head ovgo-section-head--split">
+          <div><p class="ovgo-kicker">[ FREE GROWTH AUDIT ]</p><h2>Find the bottleneck slowing your growth.</h2><p>Five focused steps. No fake score. The result identifies the system area that deserves attention first.</p></div>
+          <span class="ovgo-status" data-diagnosis-progress>STEP 1 OF 5</span>
+        </div>
+        <div class="ovgo-tool-shell" data-ovgo-diagnosis></div>
+      </section>
+
+      <section id="estimator" class="ovgo-section ovgo-tool-section">
+        <div class="ovgo-section-head">
+          <p class="ovgo-kicker">[ PROJECT ESTIMATOR ]</p>
+          <h2>Estimate the scope of your growth system.</h2>
+          <p>Select what the business needs. The recommendation updates as complexity increases.</p>
+        </div>
+        <div class="ovgo-tool-shell" data-ovgo-estimator></div>
+      </section>
+
+      <section id="about" class="ovgo-section">
+        <div class="ovgo-section-head">
+          <p class="ovgo-kicker">[ OPERATING MODEL ]</p>
+          <h2>How I work.</h2>
+          <p>Strategy first. Understand the business, find the bottleneck, connect the systems, launch, measure, and improve.</p>
+        </div>
+        <div class="ovgo-process">
+          <span>Understand the Business</span><i>→</i><span>Find the Bottleneck</span><i>→</i><span>Build the Strategy</span><i>→</i><span>Connect the Systems</span><i>→</i><span>Launch</span><i>→</i><span>Measure</span><i>→</i><span>Improve</span>
+        </div>
+      </section>
+
+      <section class="ovgo-final-cta">
+        <p class="ovgo-kicker">[ NEXT STEP ]</p>
+        <h2>Have a growth problem worth solving?</h2>
+        <p>Let’s review your acquisition system, identify the biggest bottleneck, and map the next priority.</p>
+        <div class="ovgo-actions ovgo-actions--inline">
+          <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking>Book A Discovery Call</button>
+          <a class="ovgo-btn ovgo-btn--secondary" href="#diagnosis">Run Growth Diagnosis</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="ovgo-footer">
+      <span>FULL-STACK DIGITAL MARKETING // OPTIVUE GROWTH OS</span>
+      <span>BUILT IN YOUR STACK // OWNED BY YOUR BUSINESS</span>
+    </footer>
+
+    <div class="ovgo-modal" data-ovgo-modal hidden>
+      <div class="ovgo-modal__backdrop" data-ovgo-modal-close></div>
+      <div class="ovgo-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="ovgo-booking-title">
+        <div class="ovgo-modal__header">
+          <div><p class="ovgo-kicker">[ STRATEGY CALL & AUDIT ]</p><h2 id="ovgo-booking-title">Clicks to Clients</h2></div>
+          <button type="button" class="ovgo-icon-btn" aria-label="Close booking modal" data-ovgo-modal-close>×</button>
+        </div>
+        <iframe title="Schedule with Optivue Digital" data-ovgo-calendly loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/components/growth-system.js"></script>
+  <script type="module" src="./js/components/spotlight-card.js"></script>
   <script type="module" src="./js/optivue.js"></script>
 </body>
 </html>

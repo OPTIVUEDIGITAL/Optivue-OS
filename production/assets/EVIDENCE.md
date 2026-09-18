@@ -1,6 +1,6 @@
 # P0 Evidence Intake
 
-This file tracks the human-only evidence required before P1 may begin.
+This file tracks the human-only evidence required before P4 may begin.
 
 The governing specification is `docs/design-direction.md`.
 
@@ -14,7 +14,7 @@ P0 passes only when:
 - each of the three public client projects is represented;
 - one real operator photograph is present.
 
-Do not start P1 until this table is complete.
+P0 blocks P4 only. P1–P3 may proceed while this table is incomplete.
 
 | Client / subject | Asset path | What it proves | Factual caption | Permission / anonymisation | Status |
 | --- | --- | --- | --- | --- | --- |
@@ -24,7 +24,7 @@ Do not start P1 until this table is complete.
 | CBP / Ideal Spine | TBD | TBD | TBD | TBD | Missing |
 | CJB / LearnX | TBD | TBD | TBD | TBD | Missing |
 | CJB / LearnX | TBD | TBD | TBD | TBD | Missing |
-| Rahmel Dela Cruz | TBD | Human trust / operator identity | Real operator photograph | Owner-provided | Available in chat; not yet committed |
+| Rahmel Dela Cruz | TBD | Human trust / operator identity | Real operator photograph | Owner-controlled asset; explicit website-use instruction is present in chat. No separate formal release is recorded. | Supplied in chat; not yet committed |
 
 ## Allowed evidence
 
@@ -36,7 +36,11 @@ Examples named by the design direction:
 - GBP listing
 - automation canvas
 
-If client permission is not available, use a sanitised reconstruction and label it explicitly as a reconstruction.
+For client screenshots, anonymise identities by default **and** obtain written client sign-off. Anonymisation protects exposed third-party data; it does not replace contractual permission.
+
+If written client permission is not available within two weeks, use a sanitised reconstruction and label it explicitly as a reconstruction. Never imply that a reconstruction is a live internal client screen.
+
+Permission status may only be populated from an explicit written source. Asset presence, silence, or inferred conversational intent is not permission.
 
 ## P0 status
 

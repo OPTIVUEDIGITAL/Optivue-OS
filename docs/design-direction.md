@@ -137,11 +137,21 @@ Do not relitigate these without a reason:
 
 ## 5. PASS SEQUENCE
 
-Run in order. Each pass is one PR. Do not start a pass until the previous one's acceptance criteria are met.
+Each pass is one PR. Change one layer at a time.
+
+P1 → P2 → P3 run in sequence and may proceed while P0 evidence intake is still open. **P0 blocks P4 only.** P4 and P3 must both be complete before P5; then P5 → P6 → P7.
+
+```text
+P0 (evidence)  ──────────────┐
+                             ├──► P4 (evidence layer) ──► P5 ──► P6 ──► P7
+P1 (copy) ──► P2 (type) ──► P3 (composition) ───────────┘
+```
+
+Do not combine passes in one PR.
 
 ---
 
-### P0 — EVIDENCE INTAKE *(blocking; human-only, not agent work)*
+### P0 — EVIDENCE INTAKE *(blocks P4 only; human-only, not agent work)*
 
 **Discipline:** art direction
 **This is the pass that actually decides whether the site stops looking generated.**
@@ -325,6 +335,7 @@ Answer each honestly. Any "no" blocks the merge.
 - **Prefer an override file** until a decision is settled, then fold it into the base stylesheet.
 - **Measure before claiming.** Never write "improves contrast" without the computed ratio. Never write "responsive" without a screenshot.
 - **Never invent client facts** to fill a layout. If the evidence is missing, leave the space empty and flag it.
+- **Permission status must come from an explicit written source.** Never infer consent from an asset being present, from silence, or from conversational context that does not explicitly grant use. Client permission and anonymisation are separate requirements: anonymising identities does not substitute for written client permission.
 - **Flag your own judgement calls** separately from fixes, so they can be rejected individually.
 - **Stop and ask** if a change would touch: the Calendly routing rules, published pricing, client names, or the two custom elements.
 

@@ -1,6 +1,13 @@
 name: Design QA
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "production/**"
+      - "scripts/**"
+      - ".github/workflows/design-qa.yml"
   pull_request:
     paths:
       - "production/**"
@@ -14,7 +21,7 @@ permissions:
 jobs:
   design-qa:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,7 +29,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Contrast audit
         run: python3 scripts/contrast.py
@@ -34,7 +41,7 @@ jobs:
 
       - name: Serve production
         run: |
-          python3 -m http.server 8787 --directory production > /tmp/optivue-http.log 2>&1 &
+          node scripts/qa-server.mjs > /tmp/optivue-http.log 2>&1 &
           echo $! > /tmp/optivue-http.pid
           for i in {1..20}; do
             if curl -fsS http://127.0.0.1:8787/ >/dev/null; then exit 0; fi
@@ -46,9 +53,17 @@ jobs:
       - name: Responsive screenshots and overflow checks
         run: node scripts/visual-qa.mjs
 
-      - name: Lighthouse mobile
+      - name: Lighthouse mobile (3 runs)
         run: |
-          npx lighthouse http://127.0.0.1:8787             --output=json             --output-path=lighthouse.json             --only-categories=performance,accessibility             --form-factor=mobile             --screenEmulation.mobile=true             --chrome-flags="--headless --no-sandbox --disable-gpu"
+          for i in 1 2 3; do
+            npx lighthouse http://127.0.0.1:8787 \
+              --output=json \
+              --output-path="lighthouse-$i.json" \
+              --only-categories=performance,accessibility \
+              --form-factor=mobile \
+              --screenEmulation.mobile=true \
+              --chrome-flags="--headless --no-sandbox --disable-gpu"
+          done
 
       - name: Enforce Lighthouse budgets
         run: node scripts/check-lighthouse.mjs
@@ -60,5 +75,5 @@ jobs:
           name: optivue-design-qa
           path: |
             shots/
-            lighthouse.json
+            lighthouse-*.json
           if-no-files-found: warn

@@ -1,0 +1,64 @@
+name: Design QA
+
+on:
+  pull_request:
+    paths:
+      - "production/**"
+      - "scripts/**"
+      - ".github/workflows/design-qa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  design-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Contrast audit
+        run: python3 scripts/contrast.py
+
+      - name: Install browser QA tools
+        run: |
+          npm install --no-save playwright@1.55.0 lighthouse@12.2.1
+          npx playwright install --with-deps chromium
+
+      - name: Serve production
+        run: |
+          python3 -m http.server 8787 --directory production > /tmp/optivue-http.log 2>&1 &
+          echo $! > /tmp/optivue-http.pid
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:8787/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/optivue-http.log
+          exit 1
+
+      - name: Responsive screenshots and overflow checks
+        run: node scripts/visual-qa.mjs
+
+      - name: Lighthouse mobile
+        run: |
+          npx lighthouse http://127.0.0.1:8787             --output=json             --output-path=lighthouse.json             --only-categories=performance,accessibility             --form-factor=mobile             --screenEmulation.mobile=true             --chrome-flags="--headless --no-sandbox --disable-gpu"
+
+      - name: Enforce Lighthouse budgets
+        run: node scripts/check-lighthouse.mjs
+
+      - name: Upload design QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: optivue-design-qa
+          path: |
+            shots/
+            lighthouse.json
+          if-no-files-found: warn

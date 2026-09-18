@@ -1,3 +1,5 @@
+import { updateSection } from './context.js';
+
 const STEPS = [
   { id: 'business', label: 'Business' },
   { id: 'goals', label: 'Goals' },
@@ -76,12 +78,34 @@ export function initDiagnosis(root) {
     if (form.querySelector('input[name="systems"]')) {
       state.answers.systems = [...form.querySelectorAll('input[name="systems"]:checked')].map((el) => el.value);
     }
+
+    updateSection('business', {
+      company: state.answers.businessName || '',
+      website: state.answers.website || '',
+      industry: state.answers.industry || '',
+      primaryOffer: state.answers.offer || '',
+      goal: state.answers.goal || '',
+      challenge: state.answers.challenge || '',
+    });
+
+    updateSection('diagnosis', {
+      channels: state.answers.channels || [],
+      systems: state.answers.systems || [],
+      landing: state.answers.landing || '',
+      qualification: state.answers.qualification || '',
+      followup: state.answers.followup || '',
+    });
   }
 
   function renderResults() {
     progress && (progress.textContent = 'DIAGNOSIS COMPLETE');
     const statuses = score(state.answers);
     const bottleneck = primaryBottleneck(statuses, state.answers);
+    updateSection('diagnosis', {
+      statuses,
+      primaryBottleneck: bottleneck.title,
+      recommendedAction: bottleneck.action,
+    });
     mount.innerHTML = `<div class="ovgo-tool-grid"><div class="ovgo-tool-main"><p class="ovgo-kicker">[ DIAGNOSIS RESULT ]</p><h3>${bottleneck.title}</h3><p>${bottleneck.why}</p><div class="ovgo-result-status">${Object.entries(statuses).map(([key,value]) => `<div><span>${key}</span><b>${value}</b></div>`).join('')}</div><h4>Recommended next action</h4><p>${bottleneck.action}</p><div class="ovgo-actions ovgo-actions--inline"><button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking-result>Book A Discovery Call</button><button class="ovgo-btn ovgo-btn--secondary" type="button" data-diag-restart>Run Again</button></div></div><aside class="ovgo-tool-summary"><p class="ovgo-kicker">INTERPRETATION</p><p>This is a directional diagnosis based on the systems you reported. It is not a financial forecast or automated audit of your accounts.</p></aside></div>`;
     mount.querySelector('[data-diag-restart]')?.addEventListener('click', () => { state.step = 0; render(); });
     mount.querySelector('[data-ovgo-booking-result]')?.addEventListener('click', () => root.querySelector('[data-ovgo-booking]')?.click());

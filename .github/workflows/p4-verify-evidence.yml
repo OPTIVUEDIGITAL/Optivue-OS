@@ -41,6 +41,14 @@ jobs:
             for (const v of [{name:'390',width:390,height:844},{name:'1440',width:1440,height:900}]) {
               const page = await browser.newPage({viewport:{width:v.width,height:v.height}});
               await page.goto('http://127.0.0.1:8787/', {waitUntil:'networkidle'});
+              const evidence = page.locator('.ovgo-case-media img,.ovgo-transform-evidence img,.ovgo-operator-card img');
+              for (let i=0; i<await evidence.count(); i++) {
+                const img=evidence.nth(i);
+                await img.scrollIntoViewIfNeeded();
+                await img.evaluate(async el => {
+                  try { await el.decode(); } catch {}
+                });
+              }
               const result = await page.evaluate(() => {
                 const imgs=[...document.querySelectorAll('.ovgo-case-media img,.ovgo-transform-evidence img,.ovgo-operator-card img')];
                 return {

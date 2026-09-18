@@ -6,6 +6,7 @@ on:
       - evidence/p4-safe-evidence
     paths:
       - ".github/workflows/p4-verify-evidence.yml"
+      - "production/**"
 
 permissions:
   contents: read

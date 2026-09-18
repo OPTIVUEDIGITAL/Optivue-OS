@@ -1,5 +1,5 @@
 name: P4 About Visual Review
-# rerun after mobile portrait refinement
+# rerun after responsive image height fix
 
 on:
   push:

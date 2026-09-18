@@ -92,6 +92,7 @@ The normalized payload should contain:
     "bookingIntent": false
   },
   "consent": {
+    "contactConsent": false,
     "marketingContact": false,
     "submitted": false,
     "timestamp": ""

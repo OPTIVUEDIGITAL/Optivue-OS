@@ -1,0 +1,157 @@
+<!--
+  Optivue Growth OS — Portable Embed Edition
+  Goal: one dependency-light file that can be pasted into Wix HTML Embed,
+  WordPress Custom HTML, GoHighLevel, Kajabi, or similar custom-code areas.
+
+  Rules:
+  - Keep all CSS scoped to #optivue-growth-os.
+  - Keep all DOM ids/classes prefixed with ovgo-.
+  - No framework dependency is required.
+  - Optional external services (Calendly, CRM/webhooks) must fail gracefully.
+-->
+<div id="optivue-growth-os" class="ovgo-app" data-theme="dark">
+  <section class="ovgo-hero" aria-labelledby="ovgo-hero-title">
+    <div class="ovgo-hero__visual" aria-hidden="true">
+      <svg class="ovgo-system-map" viewBox="0 0 1200 700" role="presentation">
+        <g class="ovgo-system-map__connections"></g>
+        <g class="ovgo-system-map__nodes"></g>
+      </svg>
+    </div>
+
+    <div class="ovgo-hero__content">
+      <p class="ovgo-eyebrow">[ OPTIVUE GROWTH OS ]</p>
+      <h1 id="ovgo-hero-title" class="ovgo-hero__title">CLICKS<br>TO CLIENTS.</h1>
+      <p class="ovgo-hero__copy">I build connected growth systems across acquisition, conversion, CRM, automation, SEO, and analytics.</p>
+      <p class="ovgo-system-signature">ACQUIRE → CONVERT → AUTOMATE → MEASURE → OPTIMIZE</p>
+
+      <div class="ovgo-actions">
+        <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-action="proposal">Request a Custom Proposal</button>
+        <a class="ovgo-btn ovgo-btn--secondary" href="#ovgo-diagnosis" data-ovgo-action="audit">Get Your Free Audit</a>
+      </div>
+
+      <p class="ovgo-ownership">Built in your stack. Owned by your business.</p>
+    </div>
+  </section>
+
+  <section id="ovgo-diagnosis" class="ovgo-section" aria-labelledby="ovgo-diagnosis-title">
+    <p class="ovgo-eyebrow">FREE GROWTH AUDIT</p>
+    <h2 id="ovgo-diagnosis-title">Find the bottleneck slowing your growth.</h2>
+    <p>This portable scaffold is ready for the full five-step Growth Diagnosis workflow.</p>
+  </section>
+
+  <div class="ovgo-modal" data-ovgo-modal="calendly" hidden>
+    <div class="ovgo-modal__backdrop" data-ovgo-close></div>
+    <div class="ovgo-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="ovgo-modal-title">
+      <div class="ovgo-modal__header">
+        <h2 id="ovgo-modal-title">Request a Custom Proposal</h2>
+        <button class="ovgo-modal__close" type="button" aria-label="Close booking modal" data-ovgo-close>×</button>
+      </div>
+      <div class="ovgo-modal__body">
+        <iframe
+          title="Optivue Discovery Call Scheduler"
+          src="https://calendly.com/optivue-digital-strategy-call/clicks-to-clients-audit"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #optivue-growth-os {
+    --ovgo-bg: #090a0c;
+    --ovgo-surface: #111317;
+    --ovgo-surface-2: #171a20;
+    --ovgo-text: #f5f7fa;
+    --ovgo-text-muted: #9ca3af;
+    --ovgo-border: rgba(255,255,255,.10);
+    --ovgo-blue: #4c8dff;
+    --ovgo-green: #34d399;
+    --ovgo-radius: 18px;
+    --ovgo-ease: cubic-bezier(.16,1,.3,1);
+    color: var(--ovgo-text);
+    background: var(--ovgo-bg);
+    font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.5;
+    isolation: isolate;
+  }
+  #optivue-growth-os *,
+  #optivue-growth-os *::before,
+  #optivue-growth-os *::after { box-sizing: border-box; }
+  #optivue-growth-os .ovgo-hero {
+    min-height: 100svh;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    align-items: center;
+    padding: clamp(24px, 5vw, 80px);
+    background: radial-gradient(circle at 30% 30%, rgba(76,141,255,.12), transparent 35%), var(--ovgo-bg);
+  }
+  #optivue-growth-os .ovgo-hero__visual { position: absolute; inset: 0; opacity: .85; }
+  #optivue-growth-os .ovgo-system-map { width: 100%; height: 100%; }
+  #optivue-growth-os .ovgo-hero__content { position: relative; z-index: 2; width: min(620px, 100%); margin-left: auto; }
+  #optivue-growth-os .ovgo-eyebrow { font-size: 12px; letter-spacing: .18em; color: var(--ovgo-text-muted); }
+  #optivue-growth-os .ovgo-hero__title { margin: 20px 0 18px; font-size: clamp(54px, 8vw, 108px); line-height: .92; letter-spacing: -.04em; }
+  #optivue-growth-os .ovgo-hero__copy { max-width: 58ch; font-size: clamp(17px, 2vw, 21px); color: var(--ovgo-text-muted); }
+  #optivue-growth-os .ovgo-system-signature { margin-top: 24px; font-size: 12px; letter-spacing: .12em; }
+  #optivue-growth-os .ovgo-actions { display: grid; gap: 12px; margin-top: 36px; }
+  #optivue-growth-os .ovgo-btn { min-height: 54px; display: inline-flex; align-items: center; justify-content: center; border-radius: 12px; padding: 0 22px; text-decoration: none; cursor: pointer; font: inherit; transition: transform 180ms var(--ovgo-ease), background-color 180ms ease, border-color 180ms ease; }
+  #optivue-growth-os .ovgo-btn:active { transform: scale(.985); }
+  #optivue-growth-os .ovgo-btn--primary { border: 1px solid transparent; background: var(--ovgo-blue); color: white; }
+  #optivue-growth-os .ovgo-btn--secondary { border: 1px solid var(--ovgo-border); background: rgba(255,255,255,.04); color: var(--ovgo-text); }
+  #optivue-growth-os .ovgo-ownership { margin-top: 18px; color: var(--ovgo-text-muted); font-size: 13px; }
+  #optivue-growth-os .ovgo-section { padding: clamp(72px, 10vw, 144px) clamp(24px, 5vw, 80px); background: var(--ovgo-surface); }
+  #optivue-growth-os .ovgo-section h2 { max-width: 20ch; font-size: clamp(32px, 5vw, 56px); line-height: 1.05; margin: 10px 0 16px; }
+  #optivue-growth-os .ovgo-modal[hidden] { display: none; }
+  #optivue-growth-os .ovgo-modal { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; padding: 4vh 4vw; }
+  #optivue-growth-os .ovgo-modal__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.72); backdrop-filter: blur(10px); }
+  #optivue-growth-os .ovgo-modal__dialog { position: relative; width: min(960px, 92vw); height: min(85vh, 880px); display: grid; grid-template-rows: auto 1fr; overflow: hidden; border: 1px solid var(--ovgo-border); border-radius: var(--ovgo-radius); background: var(--ovgo-surface); }
+  #optivue-growth-os .ovgo-modal__header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 16px; border-bottom: 1px solid var(--ovgo-border); }
+  #optivue-growth-os .ovgo-modal__header h2 { margin: 0; font-size: 16px; }
+  #optivue-growth-os .ovgo-modal__close { width: 44px; height: 44px; border: 0; border-radius: 10px; background: transparent; color: var(--ovgo-text); cursor: pointer; font-size: 28px; }
+  #optivue-growth-os .ovgo-modal__body iframe { width: 100%; height: 100%; border: 0; background: white; }
+  @media (max-width: 720px) {
+    #optivue-growth-os .ovgo-hero { align-items: end; padding-bottom: 48px; }
+    #optivue-growth-os .ovgo-hero__content { margin: 0; }
+    #optivue-growth-os .ovgo-modal { padding: 0; }
+    #optivue-growth-os .ovgo-modal__dialog { width: 100vw; height: 100svh; border-radius: 0; border-left: 0; border-right: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #optivue-growth-os *, #optivue-growth-os *::before, #optivue-growth-os *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+  }
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById('optivue-growth-os');
+  if (!root || root.dataset.ovgoReady === 'true') return;
+  root.dataset.ovgoReady = 'true';
+
+  const modal = root.querySelector('[data-ovgo-modal="calendly"]');
+  const proposalButtons = root.querySelectorAll('[data-ovgo-action="proposal"]');
+  const closeButtons = root.querySelectorAll('[data-ovgo-close]');
+  let previousFocus = null;
+
+  const openModal = () => {
+    if (!modal) return;
+    previousFocus = document.activeElement;
+    modal.hidden = false;
+    document.documentElement.style.overflow = 'hidden';
+    modal.querySelector('.ovgo-modal__close')?.focus();
+  };
+
+  const closeModal = () => {
+    if (!modal) return;
+    modal.hidden = true;
+    document.documentElement.style.overflow = '';
+    previousFocus?.focus?.();
+  };
+
+  proposalButtons.forEach((button) => button.addEventListener('click', openModal));
+  closeButtons.forEach((button) => button.addEventListener('click', closeModal));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal && !modal.hidden) closeModal();
+  });
+})();
+</script>

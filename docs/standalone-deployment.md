@@ -6,7 +6,7 @@ Optivue Growth OS uses a **standalone, GitHub-controlled architecture**.
 
 GitHub is the source of truth.
 
-**Cloudflare Pages is the primary front-end host.**
+**Cloudflare Workers + Static Assets is the primary front-end host.**
 
 Wix is optional and is not the owner of the Growth OS application code.
 
@@ -14,6 +14,8 @@ Wix is optional and is not the owner of the Growth OS application code.
 
 ```text
 GitHub repository
+      │
+      ├── wrangler.jsonc
       │
       ├── production/
       │      └── Canonical standalone website
@@ -28,22 +30,24 @@ GitHub repository
       │      └── Reusable Web Components
       │
       └── backend/
-             └── Cloudflare Worker / protected integrations
+             └── Protected integrations
 
 GitHub
   ↓
-Cloudflare Pages
+Cloudflare Workers Builds
+  ↓
+Worker + Static Assets
   ↓
 www.optivuedigital.com
 
 Growth OS browser
   ↓
-Cloudflare Worker
+Cloudflare lead-intake Worker
   ↓
 Make / Intelligence Sheet / CRM
 ```
 
-## Why Cloudflare Pages
+## Why Workers Static Assets
 
 The production app is static and browser-native:
 
@@ -58,7 +62,14 @@ The production app is static and browser-native:
 
 It does not require a Node runtime to render.
 
-Cloudflare Pages also provides branch previews, GitHub integration, custom domains, and a natural path to Cloudflare Workers for secure APIs.
+Workers Static Assets gives the project:
+
+- GitHub-connected automatic deployments
+- public `workers.dev` staging
+- version preview URLs
+- custom domains
+- native `_headers` support
+- a direct path to future Worker logic and bindings when needed
 
 ## Deployment settings
 
@@ -66,25 +77,29 @@ Repository:
 
 `OPTIVUEDIGITAL/Optivue-OS`
 
-Staging branch:
+Production branch:
 
-`release/cloudflare-staging`
+`main`
 
 Build command:
 
-`exit 0`
+none
 
-Build output directory:
+Deploy command:
 
-`production`
+`npx wrangler deploy`
 
-Framework preset:
+Non-production deploy command:
 
-None
+`npx wrangler versions upload`
 
-After QA, switch the Pages production branch to:
+Root directory:
 
-`main`
+`/`
+
+Static asset directory:
+
+`./production`
 
 ## Domain
 
@@ -92,11 +107,11 @@ Canonical public domain:
 
 `www.optivuedigital.com`
 
-During the initial rollout, Wix can remain the DNS provider.
+The Worker should remain on its `workers.dev` staging hostname until visual and functional QA is complete.
 
-Associate `www.optivuedigital.com` with the Cloudflare Pages project first, then create the Wix CNAME pointing `www` to the generated `*.pages.dev` hostname.
+Workers Custom Domains require the domain to be inside an active Cloudflare DNS zone. The domain registration may remain with Wix, but authoritative DNS hosting must move to Cloudflare before the Worker can own `www.optivuedigital.com`.
 
-Keep the apex domain on Wix initially and redirect it to the canonical `www` hostname.
+Before any nameserver migration, inventory and preserve all current Wix DNS records.
 
 ## Backend boundary
 
@@ -115,17 +130,17 @@ The lead-intake Worker uses a private environment secret instead.
 ```text
 feature work
    ↓
-release/cloudflare-staging
+feature branch / PR
    ↓
-Cloudflare preview / staging deployment
+Cloudflare version preview
    ↓
 visual + functional QA
    ↓
 merge to main
    ↓
-Cloudflare production deployment
+Cloudflare production Worker deployment
    ↓
-attach www.optivuedigital.com
+attach www.optivuedigital.com after DNS migration
 ```
 
 ## Portable edition
@@ -140,11 +155,11 @@ Edit `production/` first and regenerate the portable bundle after validation.
 
 ## Wix
 
-Wix Premium is useful for:
+Wix Premium can continue to be used for:
 
-- current domain ownership/management
-- current DNS control
-- temporary apex-site redirect
+- domain registration
+- the existing live site until cutover
+- current DNS hosting before the Cloudflare nameserver migration
 - optional future Wix-specific pages
 
 The main Growth OS application remains outside Wix.

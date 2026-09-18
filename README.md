@@ -41,7 +41,8 @@ Each step contributes to one shared prospect context so the visitor does not nee
 
 - GitHub is the source of truth.
 - `production/` is the canonical public application.
-- Cloudflare Pages is the primary static host.
+- Cloudflare Workers + Static Assets is the primary front-end host.
+- `wrangler.jsonc` points Cloudflare at `./production`.
 - `portable/` is the generated one-file edition for custom-code environments.
 - Wix is optional and isolated under `adapters/wix/`.
 - Protected integrations remain behind a separate server-side API/relay boundary.
@@ -78,8 +79,12 @@ See:
 
 ```text
 Optivue-OS/
+├── wrangler.jsonc
 ├── production/
 │   ├── index.html
+│   ├── _headers
+│   ├── robots.txt
+│   ├── sitemap.xml
 │   ├── css/
 │   │   └── optivue.css
 │   ├── js/
@@ -101,22 +106,8 @@ Optivue-OS/
 ├── adapters/
 │   └── wix/
 ├── backend/
-│   ├── README.md
 │   └── lead-intake/
-│       ├── worker.js
-│       └── README.md
-├── docs/
-│   ├── product-spec.md
-│   ├── prospect-journey.md
-│   ├── architecture.md
-│   ├── implementation-plan.md
-│   ├── standalone-deployment.md
-│   ├── cloudflare-deployment.md
-│   ├── integrations/
-│   │   └── make-intake.md
-│   └── reference/
-│       └── source-map.md
-
+└── docs/
 ```
 
 ## Conversion paths

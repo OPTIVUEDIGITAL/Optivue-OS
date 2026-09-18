@@ -5,47 +5,74 @@
 ```text
 GitHub
   ↓
-Cloudflare Pages
+Cloudflare Workers Builds
+  ↓
+Cloudflare Worker + Static Assets
   ↓
 www.optivuedigital.com
 ```
 
 GitHub remains the source of truth.
 
-Cloudflare Pages serves the production front end.
+Cloudflare Workers + Static Assets serves the production front end.
 
-Wix may continue to manage the domain/DNS during the initial launch.
+## Current staging deployment
 
-## Staging deployment
-
-Create a Cloudflare Pages project from:
+Repository:
 
 `OPTIVUEDIGITAL/Optivue-OS`
 
-Use:
+Production branch:
 
-- Framework preset: None
-- Production branch during staging: `release/cloudflare-staging`
-- Build command: `exit 0`
-- Build output directory: `production`
-- Root directory: repository root
+`main`
 
-No Node build is required for the public site.
+Cloudflare build settings:
 
-Cloudflare should provide a temporary hostname similar to:
+- Build command: none
+- Deploy command: `npx wrangler deploy`
+- Root directory: `/`
+- Non-production branch builds: enabled
+- Non-production deploy command: `npx wrangler versions upload`
+- Cloudflare Access protection: off for public staging
+- Build variables: none
 
-`optivue-growth-os.pages.dev`
+Root deployment configuration:
 
-Use that URL for visual and functional QA before connecting the real domain.
+`wrangler.jsonc`
+
+Static asset directory:
+
+`./production`
+
+Staging hostname:
+
+`https://optivue-growth-os.rahmeldc.workers.dev`
+
+## Wrangler configuration
+
+The root Wrangler configuration is the deployment source of truth.
+
+It currently enables:
+
+- Worker name: `optivue-growth-os`
+- `workers.dev`
+- version preview URLs
+- static assets from `./production`
+
+No runtime Worker script is required for the front end because Cloudflare can serve matching static assets directly.
 
 ## Production promotion
 
-After staging QA:
+The `main` branch is the production branch.
 
-1. merge the release PR into `main`
-2. in Cloudflare Pages, change the production branch to `main`
-3. confirm the main deployment succeeds
-4. only then attach the custom domain
+Future workflow:
+
+1. create feature branch
+2. open PR
+3. Cloudflare creates a non-production Worker version / preview
+4. run visual and functional QA
+5. merge to `main`
+6. Cloudflare automatically deploys the production Worker
 
 ## Custom domain
 
@@ -53,52 +80,38 @@ Primary public hostname:
 
 `www.optivuedigital.com`
 
-In Cloudflare Pages:
+Workers custom domains require an active Cloudflare DNS zone.
 
-1. Workers & Pages
-2. select the Optivue Growth OS Pages project
-3. Custom domains
-4. Set up a domain
-5. enter `www.optivuedigital.com`
+Before attaching the domain:
 
-If DNS remains managed by Wix, create the CNAME at Wix only **after** Cloudflare Pages has associated the custom domain.
+1. validate the `workers.dev` deployment
+2. inventory every current Wix DNS record
+3. preserve MX, TXT, verification, SPF, DKIM, and other service records
+4. add `optivuedigital.com` to Cloudflare as a zone
+5. migrate nameserver authority from Wix DNS hosting to Cloudflare
+6. verify DNS and email behavior
+7. attach `www.optivuedigital.com` to the Growth OS Worker as a Custom Domain
+8. configure the preferred apex/www redirect
 
-The CNAME should point:
+Domain registration can remain with Wix; only authoritative DNS hosting needs to move to Cloudflare for the Workers Custom Domain model.
 
-```text
-www.optivuedigital.com
-→ <your-project>.pages.dev
-```
+Do not change nameservers until staging QA is complete and the current DNS inventory is captured.
 
-Do not manually create that CNAME before adding the custom domain in Pages.
-
-## Apex domain
-
-For the initial launch:
-
-`optivuedigital.com`
-
-can remain on Wix and redirect to:
-
-`https://www.optivuedigital.com`
-
-This lets the Growth OS run on Cloudflare without requiring an immediate domain registrar or nameserver migration.
-
-A later infrastructure phase may move the entire DNS zone to Cloudflare if desired.
-
-## Cloudflare Pages security headers
+## Security headers
 
 The production site includes:
 
 `production/_headers`
 
-This currently sets conservative static-site security headers without locking down third-party integrations such as Calendly or future analytics.
+Workers Static Assets interprets this file natively.
+
+It currently sets conservative static-site security headers without locking down third-party integrations such as Calendly or future analytics.
 
 A stricter Content Security Policy should be added only after the final analytics, media, and API domains are known.
 
 ## Lead intake Worker
 
-The secure lead relay is separate from Pages.
+The secure lead relay remains a separate backend deployment.
 
 Source:
 
@@ -116,12 +129,12 @@ Private environment secret:
 
 `MAKE_WEBHOOK_URL`
 
-Do not deploy/enable lead submission until the Make Growth OS scenario is tested and active.
+Do not deploy or enable lead submission until the Make Growth OS scenario is tested and active.
 
 ## Cloudflare connection status
 
-The Cloudflare account exists, but ChatGPT currently does not have an active Cloudflare connector available in this conversation.
+The Cloudflare account and Workers Git deployment are now configured.
 
-Until that connector is available, the Cloudflare dashboard steps above require a one-time manual action by the account owner.
+ChatGPT does not currently have a direct Cloudflare management connector in this conversation, so Cloudflare dashboard-only actions still require the account owner.
 
-The GitHub side is prepared so no code rewrite is required when the Pages project is created.
+GitHub changes can be made from this conversation and Cloudflare should deploy them automatically through Workers Builds.

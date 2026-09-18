@@ -456,3 +456,15 @@
     grid-template-columns: repeat(7, minmax(138px,70vw));
   }
 }
+
+
+/* Keep anchor targets clear of the fixed navigation. */
+#optivue-growth-os section[id] {
+  scroll-margin-top: 82px;
+}
+
+@media (max-width: 760px) {
+  #optivue-growth-os section[id] {
+    scroll-margin-top: 68px;
+  }
+}

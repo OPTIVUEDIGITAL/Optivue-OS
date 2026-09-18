@@ -424,10 +424,17 @@
 
   #optivue-growth-os #estimator .ovgo-choice {
     min-width: 0;
-    min-height: 44px;
-    padding: 8px;
+    min-height: 40px;
+    padding: 6px 8px;
     gap: 7px;
     line-height: 1.25;
+  }
+
+  #optivue-growth-os #estimator .ovgo-choice input {
+    inline-size: 16px;
+    block-size: 16px;
+    flex: 0 0 16px;
+    margin: 0;
   }
 
   #optivue-growth-os #estimator .ovgo-choice span {

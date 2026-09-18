@@ -1,11 +1,16 @@
 <!--
-OPTIVUE GROWTH OS — PORTABLE EMBED
+OPTIVUE GROWTH OS — PORTABLE UNIFIED ECOSYSTEM
 Generated from the modular production implementation.
 
-Use this edition in custom HTML/code environments that allow inline CSS and JavaScript.
-For Wix Studio full-page builds, prefer the dedicated files under adapters/wix plus the shared custom elements.
+Includes:
+- interactive growth portfolio
+- transformation showcase
+- Growth Diagnosis
+- Project Estimator
+- pricing experience
+- contextual lead-generation layer
 
-No npm, React, Tailwind, or build step required.
+The direct lead backend is disabled until a secure relay endpoint is configured.
 -->
 <!doctype html>
 <html lang="en">
@@ -14,7 +19,7 @@ No npm, React, Tailwind, or build step required.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Optivue Growth OS connects acquisition, conversion, CRM, automation, SEO, and analytics into one client acquisition system.">
   <meta name="theme-color" content="#090A0C">
-  <title>Optivue Growth OS — Portable Embed</title>
+  <title>Optivue Growth OS — Portable Unified Ecosystem</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -150,6 +155,10 @@ a{color:inherit}
 .ovgo-price{display:flex;align-items:baseline;gap:7px;padding:18px 0 0;margin-top:12px;border-top:1px solid var(--ovgo-border)}.ovgo-price strong{font:500 clamp(27px,3vw,38px) "JetBrains Mono",monospace}.ovgo-price span,.ovgo-commitment{font-size:11px;color:var(--ovgo-muted)}
 .ovgo-price-card .ovgo-btn{margin:20px 0}.ovgo-ownership-block{padding:14px;border:1px solid var(--ovgo-border);border-radius:9px;background:rgba(255,255,255,.02);display:flex;flex-direction:column;gap:5px}.ovgo-ownership-block b{font:500 10px "JetBrains Mono",monospace;color:var(--ovgo-green)}.ovgo-ownership-block span{font-size:11px;color:var(--ovgo-muted)}
 .ovgo-price-card ul,.ovgo-compare-grid ul{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}.ovgo-price-card li,.ovgo-compare-grid li{position:relative;padding-left:18px;font-size:12px;color:var(--ovgo-muted)}.ovgo-price-card li::before,.ovgo-compare-grid .is-positive li::before{content:"✓";position:absolute;left:0;color:var(--ovgo-green)}.ovgo-compare-grid article:not(.is-positive) li::before{content:"—";position:absolute;left:0;color:var(--ovgo-subtle)}
+
+.ovgo-price-card.is-recommended{outline:1px solid color-mix(in srgb,var(--ovgo-green) 70%,transparent);outline-offset:4px}
+.ovgo-recommended-badge{align-self:flex-start;margin:0 0 12px;padding:6px 9px;border:1px solid color-mix(in srgb,var(--ovgo-green) 45%,transparent);border-radius:999px;color:var(--ovgo-green);background:color-mix(in srgb,var(--ovgo-green) 7%,transparent);font:500 8px "JetBrains Mono",monospace;letter-spacing:.06em}
+
 .ovgo-price-card__badge{align-self:flex-start;margin:-38px 0 14px;padding:6px 9px;border-radius:999px;background:var(--ovgo-blue);color:#fff;font:500 9px "JetBrains Mono",monospace}
 .ovgo-disclosure{max-width:var(--ovgo-max);margin:18px auto 0;padding:13px 16px;border:1px solid var(--ovgo-border);border-radius:10px;color:var(--ovgo-muted);font-size:11px}
 .ovgo-ownership-compare{margin-top:78px}.ovgo-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.ovgo-compare-grid article{padding:26px;border:1px solid var(--ovgo-border);border-radius:14px;background:var(--ovgo-surface)}.ovgo-compare-grid article.is-positive{border-color:color-mix(in srgb,var(--ovgo-green) 35%,var(--ovgo-border))}.ovgo-compare-grid small{font:500 9px "JetBrains Mono",monospace;color:var(--ovgo-subtle)}.ovgo-compare-grid h4{font-size:22px;margin:10px 0}
@@ -158,6 +167,27 @@ a{color:inherit}
 .ovgo-form-row{display:grid;gap:8px;margin-bottom:18px}.ovgo-form-row label{font-size:12px;color:var(--ovgo-muted)}.ovgo-form-row input,.ovgo-form-row select{width:100%;height:46px;padding:0 12px;border:1px solid var(--ovgo-border);background:var(--ovgo-bg);color:var(--ovgo-text);border-radius:9px}
 .ovgo-choice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.ovgo-choice{display:flex;align-items:center;gap:9px;padding:12px;border:1px solid var(--ovgo-border);border-radius:9px;background:var(--ovgo-bg);font-size:12px;cursor:pointer}.ovgo-choice:has(input:checked){border-color:var(--ovgo-blue);background:color-mix(in srgb,var(--ovgo-blue) 8%,var(--ovgo-bg))}
 .ovgo-tool-nav{display:flex;justify-content:space-between;gap:10px;margin-top:22px}.ovgo-result-status{display:grid;gap:8px;margin:20px 0}.ovgo-result-status div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--ovgo-border);padding:9px 0;font-size:12px}.ovgo-result-status b{color:var(--ovgo-green)}
+
+.ovgo-lead-section{background:var(--ovgo-surface)}
+.ovgo-lead-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
+.ovgo-lead-copy,.ovgo-lead-form{padding:clamp(24px,4vw,46px)}
+.ovgo-lead-copy{border-right:1px solid var(--ovgo-border);background:var(--ovgo-surface-2)}
+.ovgo-lead-copy h3{font-size:clamp(26px,3vw,38px);line-height:1.05;letter-spacing:-.035em;margin:8px 0 14px}
+.ovgo-lead-copy>p:not(.ovgo-kicker){color:var(--ovgo-muted);max-width:52ch}
+.ovgo-context-summary{margin-top:28px;display:grid;gap:0;border:1px solid var(--ovgo-border);border-radius:12px;overflow:hidden;background:var(--ovgo-bg)}
+.ovgo-context-summary div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:12px 14px;border-bottom:1px solid var(--ovgo-border)}
+.ovgo-context-summary div:last-child{border-bottom:0}
+.ovgo-context-summary span{font:500 9px "JetBrains Mono",monospace;text-transform:uppercase;color:var(--ovgo-subtle);letter-spacing:.06em}
+.ovgo-context-summary strong{font-size:12px;font-weight:500;color:var(--ovgo-text)}
+.ovgo-context-summary>p{padding:16px;margin:0;color:var(--ovgo-muted);font-size:12px}
+.ovgo-lead-form{background:var(--ovgo-surface)}
+.ovgo-consent{display:flex;align-items:flex-start;gap:10px;margin:14px 0;font-size:11px;color:var(--ovgo-muted);cursor:pointer}
+.ovgo-consent input{margin-top:3px}
+.ovgo-consent--optional{color:var(--ovgo-subtle)}
+.ovgo-lead-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.ovgo-form-note{font-size:10px;color:var(--ovgo-subtle);margin:12px 0 0}
+.ovgo-btn:disabled{opacity:.55;cursor:wait;transform:none}
+
 .ovgo-process{display:flex;flex-wrap:wrap;align-items:center;gap:10px}.ovgo-process span{padding:12px 14px;border:1px solid var(--ovgo-border);border-radius:8px;background:var(--ovgo-surface);font-size:12px}.ovgo-process i{font-style:normal;color:var(--ovgo-blue)}
 .ovgo-final-cta{padding:clamp(90px,12vw,170px) 24px;text-align:center;border-top:1px solid var(--ovgo-border);background:var(--ovgo-surface)}.ovgo-final-cta h2{font-size:clamp(38px,5vw,68px);letter-spacing:-.05em;line-height:1;margin:8px 0 16px}.ovgo-final-cta>p:not(.ovgo-kicker){color:var(--ovgo-muted);max-width:62ch;margin:0 auto}.ovgo-final-cta .ovgo-actions{justify-content:center}
 .ovgo-footer{padding:18px clamp(18px,3vw,42px);border-top:1px solid var(--ovgo-border);display:flex;justify-content:space-between;gap:20px;font-size:8px;color:var(--ovgo-subtle)}
@@ -178,6 +208,7 @@ a{color:inherit}
   .ovgo-stage-grid{grid-template-columns:1fr}.ovgo-stage{min-height:120px}.ovgo-inspector{grid-template-columns:1fr}.ovgo-inspector__side{border-left:0;border-top:1px solid var(--ovgo-border)}
   .ovgo-transform-grid,.ovgo-pricing-grid,.ovgo-compare-grid,.ovgo-work-layout,.ovgo-transform-detail,.ovgo-tool-grid{grid-template-columns:1fr}.ovgo-price-card:last-child{grid-column:auto}.ovgo-price-card.is-featured{transform:none}.ovgo-price-card__badge{margin:-14px 0 14px}
   .ovgo-work-inspector{position:static}.ovgo-tool-summary{border-left:0;border-top:1px solid var(--ovgo-border)}.ovgo-choice-grid{grid-template-columns:1fr}
+  .ovgo-lead-grid{grid-template-columns:1fr}.ovgo-lead-copy{border-right:0;border-bottom:1px solid var(--ovgo-border)}.ovgo-context-summary div{grid-template-columns:1fr}.ovgo-lead-actions{grid-template-columns:1fr}
   .ovgo-actions--inline{display:grid}.ovgo-footer{flex-direction:column}.ovgo-modal{padding:0}.ovgo-modal__dialog{width:100vw;height:100svh;border-radius:0}
 }
 @media(prefers-reduced-motion:reduce){
@@ -210,7 +241,7 @@ a{color:inherit}
         <button class="ovgo-icon-btn" type="button" data-ovgo-theme aria-label="Toggle light and dark mode">
           <span aria-hidden="true">◐</span>
         </button>
-        <button class="ovgo-btn ovgo-btn--primary ovgo-btn--compact" type="button" data-ovgo-booking>
+        <button class="ovgo-btn ovgo-btn--primary ovgo-btn--compact" type="button" data-ovgo-booking data-ovgo-intent="proposal">
           Request a Custom Proposal
         </button>
         <button class="ovgo-menu-btn" type="button" data-ovgo-menu-toggle aria-expanded="false" aria-controls="ovgo-mobile-menu">
@@ -230,7 +261,7 @@ a{color:inherit}
         <a href="#pricing">Pricing</a>
         <a href="#estimator">Estimator</a>
         <a href="#about">About</a>
-        <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking>Request a Custom Proposal</button>
+        <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking data-ovgo-intent="proposal">Request a Custom Proposal</button>
       </nav>
     </div>
 
@@ -245,7 +276,7 @@ a{color:inherit}
             <span>ACQUIRE</span><i>→</i><span>CONVERT</span><i>→</i><span>AUTOMATE</span><i>→</i><span>MEASURE</span><i>→</i><span>OPTIMIZE</span>
           </div>
           <div class="ovgo-actions">
-            <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking>
+            <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking data-ovgo-intent="proposal">
               Request a Custom Proposal <span aria-hidden="true">→</span>
             </button>
             <a class="ovgo-btn ovgo-btn--secondary" href="#diagnosis">
@@ -323,7 +354,7 @@ a{color:inherit}
           <h3>Growth improves when these systems work together.</h3>
           <p>Acquisition, conversion, follow-up, measurement, and optimization should reinforce one another instead of living in separate tools and reports.</p>
           <div class="ovgo-actions ovgo-actions--inline">
-            <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking>Request a Custom Proposal</button>
+            <button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking data-ovgo-intent="proposal">Request a Custom Proposal</button>
             <a class="ovgo-btn ovgo-btn--secondary" href="#diagnosis">Get Your Free Audit</a>
           </div>
         </div>
@@ -455,7 +486,7 @@ a{color:inherit}
         </div>
 
         <div class="ovgo-pricing-grid">
-          <article class="ovgo-price-card" data-price-card>
+          <article class="ovgo-price-card" data-price-card data-price-plan="Growth Starter">
             <optivue-spotlight-card bg="#121417" theme="dark"></optivue-spotlight-card>
             <div class="ovgo-price-card__content">
               <small>3-MONTH LAUNCH</small>
@@ -473,7 +504,7 @@ a{color:inherit}
             </div>
           </article>
 
-          <article class="ovgo-price-card is-featured" data-price-card>
+          <article class="ovgo-price-card is-featured" data-price-card data-price-plan="Growth Accelerator">
             <optivue-spotlight-card bg="#181B20" featured="true" theme="dark"></optivue-spotlight-card>
             <div class="ovgo-price-card__content">
               <div class="ovgo-price-card__badge">MOST POPULAR</div>
@@ -493,7 +524,7 @@ a{color:inherit}
             </div>
           </article>
 
-          <article class="ovgo-price-card" data-price-card>
+          <article class="ovgo-price-card" data-price-card data-price-plan="Growth Lab">
             <optivue-spotlight-card bg="#121417" theme="dark"></optivue-spotlight-card>
             <div class="ovgo-price-card__content">
               <small>FLEXIBLE GROWTH PARTNERSHIP</small>
@@ -541,6 +572,18 @@ a{color:inherit}
           <span class="ovgo-status" data-diagnosis-progress>STEP 1 OF 5</span>
         </div>
         <div class="ovgo-tool-shell" data-ovgo-diagnosis></div>
+      </section>
+
+      <section id="growth-brief" class="ovgo-section ovgo-lead-section">
+        <div class="ovgo-section-head ovgo-section-head--split">
+          <div>
+            <p class="ovgo-kicker">[ CONNECT THE JOURNEY ]</p>
+            <h2>Save your Growth OS context.</h2>
+            <p>Package your diagnosis, project scope, pricing interest, and viewed systems into one brief before you talk with Optivue.</p>
+          </div>
+          <span class="ovgo-status">CONTEXT // SESSION-BASED</span>
+        </div>
+        <div class="ovgo-tool-shell" data-ovgo-lead-capture></div>
       </section>
 
       <section id="estimator" class="ovgo-section ovgo-tool-section">
@@ -853,6 +896,7 @@ if (!customElements.get('optivue-growth-system')) {
   customElements.define('optivue-growth-system', OptivueGrowthSystem);
 }
 
+
 /**
  * Optivue Spotlight Card
  * Framework-independent Web Component adapted from the supplied Wix custom element.
@@ -923,6 +967,180 @@ if (!customElements.get('optivue-spotlight-card')) {
   customElements.define('optivue-spotlight-card', OptivueSpotlightCard);
 }
 
+
+const STORAGE_KEY = 'optivue-prospect-context-v1';
+
+const DEFAULT_CONTEXT = {
+  version: '1.0',
+  source: 'optivue-growth-os',
+  submittedAt: '',
+  identity: {
+    name: '',
+    email: '',
+    company: '',
+    website: '',
+  },
+  business: {
+    industry: '',
+    primaryOffer: '',
+    serviceArea: '',
+    goal: '',
+    challenge: '',
+  },
+  diagnosis: {
+    channels: [],
+    systems: [],
+    landing: '',
+    qualification: '',
+    followup: '',
+    statuses: {},
+    primaryBottleneck: '',
+    recommendedAction: '',
+  },
+  estimator: {
+    primaryNeed: '',
+    complexity: '',
+    channels: [],
+    infrastructure: [],
+    urgency: '',
+    supportModel: '',
+    recommendedPlan: '',
+    startingInvestment: '',
+  },
+  journey: {
+    workItemsViewed: [],
+    transformationsViewed: [],
+    systemStagesViewed: [],
+    pricingPlansViewed: [],
+    proposalIntent: false,
+    bookingIntent: false,
+  },
+  consent: {
+    contactConsent: false,
+    marketingContact: false,
+    submitted: false,
+    timestamp: '',
+  },
+};
+
+let state = createInitialState();
+
+function clone(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function mergeDeep(target, source) {
+  if (!source || typeof source !== 'object') return target;
+  Object.entries(source).forEach(([key, value]) => {
+    if (Array.isArray(value)) {
+      target[key] = [...value];
+    } else if (value && typeof value === 'object') {
+      target[key] = mergeDeep(target[key] && typeof target[key] === 'object' ? target[key] : {}, value);
+    } else {
+      target[key] = value;
+    }
+  });
+  return target;
+}
+
+function createInitialState() {
+  const next = clone(DEFAULT_CONTEXT);
+  try {
+    const stored = sessionStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      mergeDeep(next, parsed);
+    }
+  } catch {}
+  return next;
+}
+
+function persistAnonymous() {
+  try {
+    const safe = {
+      version: state.version,
+      source: state.source,
+      business: state.business,
+      diagnosis: state.diagnosis,
+      estimator: state.estimator,
+      journey: state.journey,
+    };
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(safe));
+  } catch {}
+}
+
+function notify() {
+  window.dispatchEvent(new CustomEvent('ovgo:contextchange', { detail: snapshot() }));
+}
+
+function snapshot() {
+  return clone(state);
+}
+
+function updateSection(section, values, { persist = true } = {}) {
+  state[section] = mergeDeep(state[section] || {}, values || {});
+  if (persist && section !== 'identity' && section !== 'consent') persistAnonymous();
+  notify();
+  return snapshot();
+}
+
+function setIdentity(values) {
+  state.identity = mergeDeep(state.identity, values || {});
+  notify();
+  return snapshot();
+}
+
+function setConsent(values) {
+  state.consent = mergeDeep(state.consent, values || {});
+  notify();
+  return snapshot();
+}
+
+function addJourneyValue(key, value) {
+  if (!value) return snapshot();
+  const current = Array.isArray(state.journey[key]) ? state.journey[key] : [];
+  if (!current.includes(value)) current.push(value);
+  state.journey[key] = current;
+  persistAnonymous();
+  notify();
+  return snapshot();
+}
+
+function setJourneyFlag(key, value = true) {
+  state.journey[key] = Boolean(value);
+  persistAnonymous();
+  notify();
+  return snapshot();
+}
+
+function buildLeadPayload() {
+  const payload = snapshot();
+  payload.submittedAt = new Date().toISOString();
+  payload.consent.submitted = true;
+  payload.consent.timestamp = payload.consent.timestamp || payload.submittedAt;
+  return payload;
+}
+
+function clearIdentity() {
+  state.identity = clone(DEFAULT_CONTEXT.identity);
+  state.consent = clone(DEFAULT_CONTEXT.consent);
+  notify();
+}
+
+
+/**
+ * Public runtime configuration.
+ *
+ * Do not put private API keys or a raw Make webhook URL in this file.
+ * Point leadEndpoint at a server-side relay when the intake backend is live.
+ */
+const RUNTIME_CONFIG = {
+  leadEndpoint: '',
+  leadSubmissionEnabled: false,
+};
+
+
+
 const CALENDLY_URL = 'https://calendly.com/optivue-digital-strategy-call/clicks-to-clients-audit';
 
 function initBooking(root) {
@@ -936,9 +1154,18 @@ function initBooking(root) {
 
   const focusables = () => [...modal.querySelectorAll('button,[href],iframe,[tabindex]:not([tabindex="-1"])')];
 
-  function open() {
+  function open(event) {
     previousFocus = document.activeElement;
-    frame.src = CALENDLY_URL;
+    const source = event?.currentTarget;
+    const proposalIntent = source?.dataset?.ovgoIntent === 'proposal';
+    if (proposalIntent) setJourneyFlag('proposalIntent', true);
+    setJourneyFlag('bookingIntent', true);
+
+    const context = snapshot();
+    const url = new URL(CALENDLY_URL);
+    if (context.identity.name) url.searchParams.set('name', context.identity.name);
+    if (context.identity.email) url.searchParams.set('email', context.identity.email);
+    frame.src = url.toString();
     modal.hidden = false;
     document.documentElement.style.overflow = 'hidden';
     requestAnimationFrame(() => modal.querySelector('[data-ovgo-modal-close]')?.focus());
@@ -969,6 +1196,8 @@ function initBooking(root) {
     }
   });
 }
+
+
 
 const STEPS = [
   { id: 'business', label: 'Business' },
@@ -1048,12 +1277,37 @@ function initDiagnosis(root) {
     if (form.querySelector('input[name="systems"]')) {
       state.answers.systems = [...form.querySelectorAll('input[name="systems"]:checked')].map((el) => el.value);
     }
+
+    setIdentity({
+      company: state.answers.businessName || '',
+      website: state.answers.website || '',
+    });
+
+    updateSection('business', {
+      industry: state.answers.industry || '',
+      primaryOffer: state.answers.offer || '',
+      goal: state.answers.goal || '',
+      challenge: state.answers.challenge || '',
+    });
+
+    updateSection('diagnosis', {
+      channels: state.answers.channels || [],
+      systems: state.answers.systems || [],
+      landing: state.answers.landing || '',
+      qualification: state.answers.qualification || '',
+      followup: state.answers.followup || '',
+    });
   }
 
   function renderResults() {
     progress && (progress.textContent = 'DIAGNOSIS COMPLETE');
     const statuses = score(state.answers);
     const bottleneck = primaryBottleneck(statuses, state.answers);
+    updateSection('diagnosis', {
+      statuses,
+      primaryBottleneck: bottleneck.title,
+      recommendedAction: bottleneck.action,
+    });
     mount.innerHTML = `<div class="ovgo-tool-grid"><div class="ovgo-tool-main"><p class="ovgo-kicker">[ DIAGNOSIS RESULT ]</p><h3>${bottleneck.title}</h3><p>${bottleneck.why}</p><div class="ovgo-result-status">${Object.entries(statuses).map(([key,value]) => `<div><span>${key}</span><b>${value}</b></div>`).join('')}</div><h4>Recommended next action</h4><p>${bottleneck.action}</p><div class="ovgo-actions ovgo-actions--inline"><button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking-result>Book A Discovery Call</button><button class="ovgo-btn ovgo-btn--secondary" type="button" data-diag-restart>Run Again</button></div></div><aside class="ovgo-tool-summary"><p class="ovgo-kicker">INTERPRETATION</p><p>This is a directional diagnosis based on the systems you reported. It is not a financial forecast or automated audit of your accounts.</p></aside></div>`;
     mount.querySelector('[data-diag-restart]')?.addEventListener('click', () => { state.step = 0; render(); });
     mount.querySelector('[data-ovgo-booking-result]')?.addEventListener('click', () => root.querySelector('[data-ovgo-booking]')?.click());
@@ -1089,6 +1343,8 @@ function stepHelp(id) {
   return ({business:'The diagnosis needs the offer and business context before judging the marketing system.',goals:'A system should be evaluated against the business outcome it is meant to create.',acquisition:'Channel count matters less than whether the right demand is entering a measurable journey.',conversion:'Landing, qualification, and follow-up determine whether traffic becomes a real opportunity.',systems:'CRM, automation, and tracking determine whether the journey can be managed and improved consistently.'})[id];
 }
 function escapeAttr(value) { return String(value).replace(/"/g,'&quot;'); }
+
+
 
 const PLANS = {
   starter: { name:'Growth Starter', price:'$2,500 / month', note:'3-month minimum' },
@@ -1132,6 +1388,17 @@ function initEstimator(root) {
     const duration = plan === 'starter' ? 'Approximately 8–12 weeks for the initial build' : plan === 'accelerator' ? '6-month growth partnership' : 'Defined after technical scoping';
     const complexityLabel = plan === 'starter' ? 'Focused' : plan === 'accelerator' ? 'Multi-system' : 'Complex / custom';
 
+    updateSection('estimator', {
+      primaryNeed: need,
+      complexity,
+      channels,
+      infrastructure: infra,
+      urgency,
+      supportModel: support,
+      recommendedPlan: selected.name,
+      startingInvestment: selected.price,
+    });
+
     summary.innerHTML = `<p class="ovgo-kicker">ESTIMATED SCOPE</p><h3>${selected.name}</h3><div class="ovgo-result-status"><div><span>Complexity</span><b>${complexityLabel}</b></div><div><span>Likely duration</span><b>${duration}</b></div><div><span>Urgency</span><b>${urgency}</b></div><div><span>Support</span><b>${support}</b></div></div><p class="ovgo-kicker">STARTING INVESTMENT</p><div class="ovgo-price"><strong>${selected.price}</strong></div><p class="ovgo-commitment">${selected.note}</p><p>This is a planning recommendation, not a guaranteed quote. Final scope depends on the existing stack, integrations, data quality, and implementation requirements.</p><button class="ovgo-btn ovgo-btn--primary" type="button" data-est-booking>Book A Discovery Call</button>`;
     summary.querySelector('[data-est-booking]')?.addEventListener('click', () => root.querySelector('[data-ovgo-booking]')?.click());
   }
@@ -1140,6 +1407,157 @@ function initEstimator(root) {
 function choices(name, values) {
   return `<div class="ovgo-choice-grid">${values.map((value) => `<label class="ovgo-choice"><input type="checkbox" name="${name}" value="${value}"><span>${value}</span></label>`).join('')}</div>`;
 }
+
+
+
+
+function initLeadCapture(root) {
+  const mount = root.querySelector('[data-ovgo-lead-capture]');
+  if (!mount) return;
+
+  render();
+
+  window.addEventListener('ovgo:contextchange', () => updateContextSummary());
+
+  function render() {
+    const context = snapshot();
+    mount.innerHTML = `
+      <div class="ovgo-lead-grid">
+        <div class="ovgo-lead-copy">
+          <p class="ovgo-kicker">[ SAVE YOUR GROWTH CONTEXT ]</p>
+          <h3>Turn your diagnosis and estimate into a conversation.</h3>
+          <p>Your Growth OS activity can be packaged into one prospect brief, so you do not need to repeat the same information on a discovery call.</p>
+          <div class="ovgo-context-summary" data-lead-context-summary></div>
+        </div>
+        <form class="ovgo-lead-form" data-lead-form>
+          <div class="ovgo-form-row">
+            <label for="lead-name">Your name</label>
+            <input id="lead-name" name="name" autocomplete="name" required value="${escapeLeadAttr(context.identity.name)}">
+          </div>
+          <div class="ovgo-form-row">
+            <label for="lead-email">Email</label>
+            <input id="lead-email" name="email" type="email" autocomplete="email" required value="${escapeLeadAttr(context.identity.email)}">
+          </div>
+          <div class="ovgo-form-row">
+            <label for="lead-company">Company</label>
+            <input id="lead-company" name="company" autocomplete="organization" value="${escapeLeadAttr(context.identity.company || context.business.company || '')}">
+          </div>
+          <div class="ovgo-form-row">
+            <label for="lead-website">Website</label>
+            <input id="lead-website" name="website" type="url" autocomplete="url" placeholder="https://" value="${escapeLeadAttr(context.identity.website || context.business.website || '')}">
+          </div>
+          <label class="ovgo-consent">
+            <input type="checkbox" name="contactConsent" required>
+            <span>I agree to send this Growth OS context to Optivue Digital so I can be contacted about this request.</span>
+          </label>
+          <label class="ovgo-consent ovgo-consent--optional">
+            <input type="checkbox" name="marketingContact">
+            <span>Optivue may also send me relevant growth insights or follow-up information.</span>
+          </label>
+          <div class="ovgo-lead-actions">
+            <button class="ovgo-btn ovgo-btn--primary" type="submit" data-lead-submit>
+              ${RUNTIME_CONFIG.leadSubmissionEnabled ? 'Save My Growth Brief' : 'Continue With My Context'}
+            </button>
+            <button class="ovgo-btn ovgo-btn--secondary" type="button" data-lead-book>
+              Book A Discovery Call
+            </button>
+          </div>
+          <p class="ovgo-form-note" data-lead-status>
+            ${RUNTIME_CONFIG.leadSubmissionEnabled
+              ? 'Your submitted context will be sent securely to Optivue Digital.'
+              : 'The live intake connection is being prepared. Your contact details remain in this browser session unless you continue to Calendly.'}
+          </p>
+        </form>
+      </div>
+    `;
+
+    mount.querySelector('[data-lead-form]')?.addEventListener('submit', submit);
+    mount.querySelector('[data-lead-book]')?.addEventListener('click', () => {
+      captureForm();
+      root.querySelector('[data-ovgo-booking]')?.click();
+    });
+    updateContextSummary();
+  }
+
+  function captureForm() {
+    const form = mount.querySelector('[data-lead-form]');
+    if (!form) return null;
+    const data = new FormData(form);
+    setIdentity({
+      name: String(data.get('name') || '').trim(),
+      email: String(data.get('email') || '').trim(),
+      company: String(data.get('company') || '').trim(),
+      website: String(data.get('website') || '').trim(),
+    });
+    setConsent({
+      contactConsent: data.get('contactConsent') === 'on',
+      marketingContact: data.get('marketingContact') === 'on',
+      timestamp: new Date().toISOString(),
+    });
+    return form;
+  }
+
+  async function submit(event) {
+    event.preventDefault();
+    const form = captureForm();
+    if (!form || !form.reportValidity()) return;
+
+    const status = mount.querySelector('[data-lead-status]');
+    const button = mount.querySelector('[data-lead-submit]');
+    const payload = buildLeadPayload();
+
+    if (!RUNTIME_CONFIG.leadSubmissionEnabled || !RUNTIME_CONFIG.leadEndpoint) {
+      status.textContent = 'Your Growth OS context is ready for the discovery call. The direct intake connection is not active yet, so no data was sent from this form.';
+      root.querySelector('[data-ovgo-booking]')?.focus();
+      return;
+    }
+
+    button.disabled = true;
+    status.textContent = 'Saving your Growth OS brief…';
+
+    try {
+      const response = await fetch(RUNTIME_CONFIG.leadEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!response.ok) throw new Error(`Submission failed (${response.status})`);
+      setConsent({ submitted: true, timestamp: new Date().toISOString() });
+      status.textContent = 'Your Growth OS brief was saved. You can continue to a discovery call without starting over.';
+    } catch (error) {
+      status.textContent = 'We could not save the brief right now. Your answers are still available in this browser session; you can continue to Calendly or try again.';
+    } finally {
+      button.disabled = false;
+    }
+  }
+
+  function updateContextSummary() {
+    const target = mount.querySelector('[data-lead-context-summary]');
+    if (!target) return;
+    const context = snapshot();
+    const items = [
+      context.diagnosis.primaryBottleneck ? ['Diagnosis', context.diagnosis.primaryBottleneck] : null,
+      context.estimator.recommendedPlan ? ['Likely engagement', context.estimator.recommendedPlan] : null,
+      context.estimator.startingInvestment ? ['Starting investment', context.estimator.startingInvestment] : null,
+      context.journey.transformationsViewed.length ? ['Transformations viewed', context.journey.transformationsViewed.join(', ')] : null,
+    ].filter(Boolean);
+
+    target.innerHTML = items.length
+      ? items.map(([label, value]) => `<div><span>${label}</span><strong>${escapeLeadHtml(value)}</strong></div>`).join('')
+      : '<p>Complete the diagnosis or estimator and your context will appear here.</p>';
+  }
+}
+
+function escapeLeadAttr(value = '') {
+  return String(value).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function escapeLeadHtml(value = '') {
+  return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+
+
 
 
 
@@ -1158,6 +1576,8 @@ if (root) {
   initBooking(root);
   initDiagnosis(root);
   initEstimator(root);
+  initLeadCapture(root);
+  initPricingRecommendation(root);
 }
 
 function initTheme(root) {
@@ -1280,6 +1700,7 @@ function initSystemInspector(root) {
     purpose.textContent = item.purpose;
     tools.innerHTML = item.tools.map((tool) => `<span>${tool}</span>`).join('');
     capabilities.innerHTML = item.capabilities.map((capability) => `<li>${capability}</li>`).join('');
+    addJourneyValue('systemStagesViewed', item.name);
   }
 
   buttons.forEach((button) => button.addEventListener('click', () => select(button.dataset.stage)));
@@ -1322,6 +1743,7 @@ function initTransformations(root) {
     title.textContent = item.title;
     summary.textContent = item.summary;
     flow.innerHTML = item.flow.map((label, index) => `<span>${label}</span>${index < item.flow.length - 1 ? '<i>→</i>' : ''}`).join('');
+    addJourneyValue('transformationsViewed', item.title);
   }
 
   root.querySelectorAll('[data-transform]').forEach((button) => button.addEventListener('click', () => select(button.dataset.transform)));
@@ -1346,6 +1768,7 @@ function initWorkLab(root) {
   root.querySelectorAll('[data-work-title]').forEach((button) => {
     button.addEventListener('click', () => {
       inspectorTitle.textContent = button.dataset.workTitle;
+      addJourneyValue('workItemsViewed', button.dataset.workTitle);
       root.querySelector('.ovgo-work-inspector')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
   });
@@ -1355,6 +1778,10 @@ function initSpotlights(root) {
   root.querySelectorAll('[data-price-card]').forEach((card) => {
     const spotlight = card.querySelector('optivue-spotlight-card');
     if (!spotlight) return;
+    card.addEventListener('click', () => {
+      const plan = card.dataset.pricePlan || card.querySelector('h3')?.textContent?.trim();
+      if (plan) addJourneyValue('pricingPlansViewed', plan);
+    });
     card.addEventListener('pointermove', (event) => {
       const rect = card.getBoundingClientRect();
       spotlight.style.setProperty('--spot-x', `${event.clientX - rect.left}px`);
@@ -1380,6 +1807,32 @@ function initReveal(root) {
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
   sections.forEach((element) => observer.observe(element));
+}
+
+
+function initPricingRecommendation(root) {
+  const cards = [...root.querySelectorAll('[data-price-card]')];
+
+  const apply = () => {
+    const recommended = snapshot().estimator.recommendedPlan;
+    cards.forEach((card) => {
+      const match = Boolean(recommended) && card.dataset.pricePlan === recommended;
+      card.classList.toggle('is-recommended', match);
+      let badge = card.querySelector('[data-recommended-badge]');
+      if (match && !badge) {
+        badge = document.createElement('div');
+        badge.className = 'ovgo-recommended-badge';
+        badge.dataset.recommendedBadge = '';
+        badge.textContent = 'LIKELY FIT BASED ON YOUR ESTIMATE';
+        card.querySelector('.ovgo-price-card__content')?.prepend(badge);
+      } else if (!match && badge) {
+        badge.remove();
+      }
+    });
+  };
+
+  apply();
+  window.addEventListener('ovgo:contextchange', apply);
 }
 
 })();

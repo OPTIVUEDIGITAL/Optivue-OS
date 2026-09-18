@@ -1,49 +1,31 @@
 # P0 Evidence Intake
 
-This file tracks the human-only evidence required before P4 may begin.
+This file tracks the publication-safe evidence used by the P4 evidence layer.
 
 The governing specification is `docs/design-direction.md`.
 
-## Acceptance gate
+## Privacy rule
 
-P0 passes only when:
+No raw client-system screenshot is published in this repository unless written client permission is recorded separately.
 
-- at least six real client-work artefacts are present under `production/assets/`;
-- each artefact has a factual one-line caption;
-- each artefact has a permission status;
-- each of the three public client projects is represented;
-- one real operator photograph is present.
+The current public evidence uses **sanitised reconstructions**. They show workflow shape and interface mechanics only. They intentionally exclude patient/member/worker information, personal data, account identifiers, credentials, private URLs, campaign IDs, webhook URLs, and other security-sensitive details.
 
-P0 blocks P4 only. P1–P3 may proceed while this table is incomplete.
+A reconstruction is always labelled as a reconstruction on the image and in its page caption.
+
+## Evidence register
 
 | Client / subject | Asset path | What it proves | Factual caption | Permission / anonymisation | Status |
 | --- | --- | --- | --- | --- | --- |
-| Express Medical Care / Revive | TBD | TBD | TBD | TBD | Missing |
-| Express Medical Care / Revive | TBD | TBD | TBD | TBD | Missing |
-| CBP / Ideal Spine | TBD | TBD | TBD | TBD | Missing |
-| CBP / Ideal Spine | TBD | TBD | TBD | TBD | Missing |
-| CJB / LearnX | TBD | TBD | TBD | TBD | Missing |
-| CJB / LearnX | TBD | TBD | TBD | TBD | Missing |
-| Rahmel Dela Cruz | TBD | Human trust / operator identity | Real operator photograph | Owner-controlled asset; explicit website-use instruction is present in chat. No separate formal release is recorded. | Supplied in chat; not yet committed |
-
-## Allowed evidence
-
-Examples named by the design direction:
-
-- CRM workflow
-- GA4 or dashboard view
-- landing page
-- GBP listing
-- automation canvas
-
-For client screenshots, anonymise identities by default **and** obtain written client sign-off. Anonymisation protects exposed third-party data; it does not replace contractual permission.
-
-If written client permission is not available within two weeks, use a sanitised reconstruction and label it explicitly as a reconstruction. Never imply that a reconstruction is a live internal client screen.
-
-Permission status may only be populated from an explicit written source. Asset presence, silence, or inferred conversational intent is not permission.
+| Express Medical Care / Revive | `production/assets/evidence/revive-workflow-reconstruction.webp` | Lead-routing workflow shape | Stage changes determine what follow-up happens next. | Sanitised reconstruction; no raw client screen or personal data published. Written client sign-off not recorded. | Committed |
+| Express Medical Care / Revive | `production/assets/evidence/revive-measurement-reconstruction.webp` | Acquisition-to-consultation measurement path | Measurement connects acquisition activity to the consultation outcome. | Sanitised reconstruction; no account IDs, campaign IDs, private URLs, or client records published. Written client sign-off not recorded. | Committed |
+| CBP / Ideal Spine | `production/assets/evidence/cbp-portal-reconstruction.webp` | Member-portal information structure | One member entry point keeps live sessions and supporting content in the same portal. | Sanitised reconstruction; no member information or private portal data published. Written client sign-off not recorded. | Committed |
+| CBP / Ideal Spine | `production/assets/evidence/cbp-content-flow-reconstruction.webp` | Content-to-member workflow | One source session is reused across several member-facing formats. | Sanitised reconstruction; no member records or private content URLs published. Written client sign-off not recorded. | Committed |
+| CJB / LearnX | `production/assets/evidence/cjb-scorecard-reconstruction.webp` | Daily scorecard structure | A daily scorecard makes marketing activity and status easier to review. | Sanitised reconstruction; illustrative dummy values only, with no worker, prospect, or company record data. Written client sign-off not recorded. | Committed |
+| CJB / LearnX | `production/assets/evidence/cjb-content-workflow-reconstruction.webp` | Content and follow-up workflow | One source idea can feed publishing and follow-up work. | Sanitised reconstruction; no prospect database, worker record, private URL, or account data published. Written client sign-off not recorded. | Committed |
+| Rahmel Dela Cruz | `production/assets/rahmel-dela-cruz.webp` | Human trust / operator identity | Portrait of Rahmel Dela Cruz used in the How I work section. | Owner-controlled asset; explicit website-use instruction is present in chat. | Committed |
 
 ## P0 status
 
-**BLOCKED — 0/6 client artefacts committed.**
+**PASS FOR THE PUBLICATION-SAFE P4 PATH — six labelled reconstructions and one real operator photograph are committed.**
 
-The operator photograph has been supplied in the working conversation, but the current GitHub connector does not support binary repository uploads. It should be committed as a WebP with an explicit width/height during the evidence intake.
+This status does **not** claim written client permission for publishing raw internal screenshots. Raw internal client evidence remains intentionally excluded until explicit written permission exists.

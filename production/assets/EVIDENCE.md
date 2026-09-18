@@ -24,7 +24,7 @@ P0 blocks P4 only. P1–P3 may proceed while this table is incomplete.
 | CBP / Ideal Spine | TBD | TBD | TBD | TBD | Missing |
 | CJB / LearnX | TBD | TBD | TBD | TBD | Missing |
 | CJB / LearnX | TBD | TBD | TBD | TBD | Missing |
-| Rahmel Dela Cruz | TBD | Human trust / operator identity | Real operator photograph | Owner-controlled asset; explicit website-use instruction is present in chat. No separate formal release is recorded. | Supplied in chat; not yet committed |
+| Rahmel Dela Cruz | `production/assets/rahmel-dela-cruz.webp` | Human trust / operator identity | Rahmel Dela Cruz portrait supplied for the Optivue website. 640×640 WebP. | Owner-controlled asset; explicit website-use instruction is present in chat. No separate formal release is recorded. | Committed |
 
 ## Allowed evidence
 
@@ -46,4 +46,4 @@ Permission status may only be populated from an explicit written source. Asset p
 
 **BLOCKED — 0/6 client artefacts committed.**
 
-The operator photograph has been supplied in the working conversation, but the current GitHub connector does not support binary repository uploads. It should be committed as a WebP with an explicit width/height during the evidence intake.
+The operator photograph is committed at `production/assets/rahmel-dela-cruz.webp` as a 640×640 WebP. Client evidence remains the blocking requirement for P4.

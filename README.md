@@ -46,11 +46,21 @@ Optivue-OS/
 │   │   └── estimator.js
 │   └── assets/
 │       └── README.md
+├── shared/
+│   └── elements/
+│       ├── optivue-growth-system.js
+│       └── optivue-spotlight-card.js
+├── adapters/
+│   └── wix/
+│       ├── home-page-code.js
+│       └── pricing-page-code.js
 ├── backend/
 │   └── README.md
 ├── docs/
 │   ├── architecture.md
-│   └── implementation-plan.md
+│   ├── implementation-plan.md
+│   └── reference/
+│       └── source-map.md
 ├── .gitignore
 └── README.md
 ```
@@ -75,4 +85,19 @@ See:
 
 ## Status
 
-Repository scaffold created. The current UI files establish architecture and safe embed conventions; full Optivue Growth OS implementation follows in subsequent feature branches.
+The repository now includes an integrated first-pass Growth OS UI based on the supplied Stitch exports and custom JavaScript references.
+
+Implemented in the current feature work:
+- cinematic connected-system hero
+- responsive navigation and theme handling
+- five-stage Growth System inspector
+- verified-project Transformation layout
+- filterable Work Lab
+- pricing and ownership model
+- five-step qualitative Growth Diagnosis
+- interactive Project Estimator
+- accessible Calendly booking modal
+- generated one-file portable bundle
+- Wix/Velo adapter layer
+
+See `docs/reference/source-map.md` for how visual/code exports are mapped into production and which generated claims must remain reference-only.

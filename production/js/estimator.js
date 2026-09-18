@@ -1,3 +1,5 @@
+import { updateSection } from './context.js';
+
 const PLANS = {
   starter: { name:'Growth Starter', price:'$2,500 / month', note:'3-month minimum' },
   accelerator: { name:'Growth Accelerator', price:'$4,500 / month', note:'6-month minimum' },
@@ -39,6 +41,17 @@ export function initEstimator(root) {
     const selected = PLANS[plan];
     const duration = plan === 'starter' ? 'Approximately 8–12 weeks for the initial build' : plan === 'accelerator' ? '6-month growth partnership' : 'Defined after technical scoping';
     const complexityLabel = plan === 'starter' ? 'Focused' : plan === 'accelerator' ? 'Multi-system' : 'Complex / custom';
+
+    updateSection('estimator', {
+      primaryNeed: need,
+      complexity,
+      channels,
+      infrastructure: infra,
+      urgency,
+      supportModel: support,
+      recommendedPlan: selected.name,
+      startingInvestment: selected.price,
+    });
 
     summary.innerHTML = `<p class="ovgo-kicker">ESTIMATED SCOPE</p><h3>${selected.name}</h3><div class="ovgo-result-status"><div><span>Complexity</span><b>${complexityLabel}</b></div><div><span>Likely duration</span><b>${duration}</b></div><div><span>Urgency</span><b>${urgency}</b></div><div><span>Support</span><b>${support}</b></div></div><p class="ovgo-kicker">STARTING INVESTMENT</p><div class="ovgo-price"><strong>${selected.price}</strong></div><p class="ovgo-commitment">${selected.note}</p><p>This is a planning recommendation, not a guaranteed quote. Final scope depends on the existing stack, integrations, data quality, and implementation requirements.</p><button class="ovgo-btn ovgo-btn--primary" type="button" data-est-booking>Book A Discovery Call</button>`;
     summary.querySelector('[data-est-booking]')?.addEventListener('click', () => root.querySelector('[data-ovgo-booking]')?.click());

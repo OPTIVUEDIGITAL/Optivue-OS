@@ -1,0 +1,35 @@
+#optivue-growth-os {
+  --ovgo-bg: #090a0c;
+  --ovgo-surface: #111317;
+  --ovgo-surface-2: #171a20;
+  --ovgo-text: #f5f7fa;
+  --ovgo-text-muted: #9ca3af;
+  --ovgo-border: rgba(255,255,255,.10);
+  --ovgo-blue: #4c8dff;
+  --ovgo-green: #34d399;
+  --ovgo-violet: #8b83ff;
+  --ovgo-ease: cubic-bezier(.16,1,.3,1);
+  color: var(--ovgo-text);
+  background: var(--ovgo-bg);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+#optivue-growth-os *, #optivue-growth-os *::before, #optivue-growth-os *::after { box-sizing: border-box; }
+body { margin: 0; background: #090a0c; }
+.ovgo-hero { min-height: 100svh; position: relative; overflow: hidden; display: grid; align-items: center; padding: clamp(24px,5vw,80px); }
+.ovgo-hero__visual { position: absolute; inset: 0; background: radial-gradient(circle at 24% 32%, rgba(76,141,255,.15), transparent 32%), radial-gradient(circle at 50% 68%, rgba(52,211,153,.08), transparent 30%); }
+.ovgo-hero__content { position: relative; z-index: 2; width: min(620px,100%); margin-left: auto; }
+.ovgo-eyebrow { font: 500 12px/1.2 "JetBrains Mono", monospace; letter-spacing: .16em; color: var(--ovgo-text-muted); }
+.ovgo-hero h1 { margin: 20px 0 18px; font-size: clamp(54px,8vw,108px); line-height: .92; letter-spacing: -.04em; }
+.ovgo-lede { font-size: clamp(17px,2vw,21px); color: var(--ovgo-text-muted); max-width: 58ch; }
+.ovgo-system-signature { margin-top: 24px; font: 500 12px/1.5 "JetBrains Mono", monospace; letter-spacing: .10em; }
+.ovgo-actions { display: grid; gap: 12px; margin-top: 36px; }
+.ovgo-btn { min-height: 54px; display: inline-flex; align-items: center; justify-content: center; padding: 0 22px; border-radius: 12px; text-decoration: none; font: inherit; cursor: pointer; transition: transform 180ms var(--ovgo-ease), background-color 180ms ease; }
+.ovgo-btn:active { transform: scale(.985); }
+.ovgo-btn--primary { border: 1px solid transparent; background: var(--ovgo-blue); color: white; }
+.ovgo-btn--secondary { border: 1px solid var(--ovgo-border); background: rgba(255,255,255,.04); color: var(--ovgo-text); }
+.ovgo-ownership { margin-top: 18px; color: var(--ovgo-text-muted); font-size: 13px; }
+.ovgo-section { min-height: 70vh; padding: clamp(72px,10vw,144px) clamp(24px,5vw,80px); border-top: 1px solid var(--ovgo-border); background: var(--ovgo-surface); }
+.ovgo-section:nth-of-type(even) { background: var(--ovgo-bg); }
+.ovgo-section h2 { max-width: 20ch; font-size: clamp(32px,5vw,56px); line-height: 1.05; margin: 12px 0 18px; }
+@media (max-width:720px) { .ovgo-hero { align-items: end; padding-bottom: 48px; } .ovgo-hero__content { margin: 0; } }
+@media (prefers-reduced-motion: reduce) { #optivue-growth-os *, #optivue-growth-os *::before, #optivue-growth-os *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }

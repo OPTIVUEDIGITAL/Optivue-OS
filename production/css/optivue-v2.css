@@ -202,3 +202,269 @@
   letter-spacing: 0.02em;
   text-transform: none;
 }
+
+
+/* ==========================================================================
+   P3 — Composition
+   Distinct archetypes: full-bleed hero, numbered paper list, dense system block,
+   asymmetric client mosaic, split tool, horizontal process strip, statement CTA.
+   ========================================================================== */
+
+/* Full-bleed editorial hero: the only glass surface on the page. */
+#optivue-growth-os .ovgo-hero__content {
+  width: min(640px, 46vw);
+  margin-right: clamp(24px, 5vw, 88px);
+  padding: clamp(26px, 3.2vw, 42px);
+  background: color-mix(in srgb, var(--ovgo-bg) 76%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ovgo-text) 16%, transparent);
+  border-radius: var(--ovgo-radius-structural);
+  backdrop-filter: blur(22px) saturate(125%);
+  -webkit-backdrop-filter: blur(22px) saturate(125%);
+  box-shadow: 0 28px 80px rgba(0,0,0,.34);
+}
+
+#optivue-growth-os .ovgo-hero__content .ovgo-actions {
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+}
+
+#optivue-growth-os .ovgo-hero__content .ovgo-btn {
+  width: 100%;
+}
+
+#optivue-growth-os .ovgo-hero__lede {
+  max-width: 48ch;
+}
+
+/* Numbered paper section: editorial list rather than generic card wall. */
+#optivue-growth-os .ovgo-audience .ovgo-problem-grid {
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  border: 0;
+  gap: 1px;
+  background: var(--ovgo-paper-border);
+}
+
+#optivue-growth-os .ovgo-audience .ovgo-problem-grid article {
+  min-height: 150px;
+  border: 0;
+}
+
+#optivue-growth-os .ovgo-audience .ovgo-problem-grid article:nth-child(1),
+#optivue-growth-os .ovgo-audience .ovgo-problem-grid article:nth-child(4) {
+  background: #EEF1F5;
+}
+
+/* Dense system block: keep the controls compact and make the close statement asymmetric. */
+#optivue-growth-os .ovgo-system-close {
+  text-align: left;
+  display: grid;
+  grid-template-columns: minmax(0,1.25fr) minmax(260px,.75fr);
+  column-gap: clamp(28px,5vw,72px);
+  align-items: end;
+}
+
+#optivue-growth-os .ovgo-system-close > .ovgo-kicker,
+#optivue-growth-os .ovgo-system-close > h3 {
+  grid-column: 1;
+}
+
+#optivue-growth-os .ovgo-system-close > p:not(.ovgo-kicker) {
+  grid-column: 1;
+  margin: 0;
+}
+
+#optivue-growth-os .ovgo-system-close .ovgo-actions {
+  grid-column: 2;
+  grid-row: 1 / 4;
+  align-self: center;
+  justify-content: stretch;
+}
+
+/* Asymmetric client-work mosaic: 62/38 with one dominant case. */
+#optivue-growth-os .ovgo-transform-grid {
+  grid-template-columns: minmax(0,1.62fr) minmax(280px,1fr);
+  grid-template-rows: repeat(2, minmax(0,auto));
+  gap: 14px;
+}
+
+#optivue-growth-os .ovgo-transform-card:first-child {
+  grid-row: 1 / 3;
+  min-height: 100%;
+  padding: clamp(26px,3vw,40px);
+}
+
+#optivue-growth-os .ovgo-transform-card:first-child h3 {
+  font-size: var(--ovgo-type-title-lg);
+}
+
+#optivue-growth-os .ovgo-transform-card:nth-child(2),
+#optivue-growth-os .ovgo-transform-card:nth-child(3) {
+  padding: 20px;
+}
+
+/* Exactly one deliberate grid violation: the active project detail hangs left. */
+#optivue-growth-os .ovgo-transform-detail {
+  --ovgo-grid-break: clamp(24px,4vw,58px);
+  width: calc(100% + var(--ovgo-grid-break));
+  margin-left: calc(var(--ovgo-grid-break) * -1);
+  padding-left: calc(30px + var(--ovgo-grid-break));
+}
+
+/* Work Lab is the explicit 60/40-plus asymmetric split. */
+#optivue-growth-os .ovgo-work-layout {
+  grid-template-columns: minmax(0,1.65fr) minmax(280px,.75fr);
+  gap: clamp(18px,3vw,34px);
+}
+
+/* Split-tool archetype: explanation rail + working diagnosis surface. */
+@media (min-width: 761px) {
+  #optivue-growth-os #diagnosis {
+    display: grid;
+    grid-template-columns: minmax(260px,.58fr) minmax(0,1.42fr);
+    gap: clamp(32px,5vw,76px);
+    align-items: start;
+  }
+
+  #optivue-growth-os #diagnosis > * {
+    max-width: none;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #optivue-growth-os #diagnosis > .ovgo-section-head {
+    display: block;
+    position: sticky;
+    top: 96px;
+    margin-bottom: 0;
+  }
+
+  #optivue-growth-os #diagnosis .ovgo-status {
+    margin-top: 20px;
+  }
+}
+
+/* Horizontal process strip instead of another card grid. */
+#optivue-growth-os .ovgo-process {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(150px,1fr));
+  gap: 0;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+  padding-bottom: 8px;
+}
+
+#optivue-growth-os .ovgo-process span {
+  min-height: 92px;
+  display: flex;
+  align-items: flex-end;
+  border-right: 0;
+}
+
+/* Mobile: reduce density instead of shrinking the desktop matrix. */
+@media (max-width: 760px) {
+  #optivue-growth-os .ovgo-hero {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  #optivue-growth-os .ovgo-hero__content {
+    width: 100%;
+    margin: 0;
+    padding: 22px 18px;
+    background: color-mix(in srgb, var(--ovgo-bg) 84%, transparent);
+    backdrop-filter: blur(18px) saturate(115%);
+    -webkit-backdrop-filter: blur(18px) saturate(115%);
+  }
+
+  #optivue-growth-os .ovgo-hero__content .ovgo-actions {
+    grid-template-columns: 1fr;
+  }
+
+  #optivue-growth-os .ovgo-audience .ovgo-problem-grid,
+  #optivue-growth-os .ovgo-transform-grid,
+  #optivue-growth-os .ovgo-system-close {
+    grid-template-columns: 1fr;
+  }
+
+  #optivue-growth-os .ovgo-transform-card:first-child {
+    grid-row: auto;
+    padding: 22px;
+  }
+
+  #optivue-growth-os .ovgo-transform-card:first-child h3 {
+    font-size: var(--ovgo-type-title-sm);
+  }
+
+  #optivue-growth-os .ovgo-transform-detail {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 20px;
+  }
+
+  #optivue-growth-os .ovgo-system-close .ovgo-actions {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 24px;
+  }
+
+  #optivue-growth-os #estimator .ovgo-tool-main,
+  #optivue-growth-os #estimator .ovgo-tool-summary {
+    padding: 16px;
+  }
+
+  #optivue-growth-os #estimator .ovgo-form-row {
+    margin-bottom: 14px;
+  }
+
+  #optivue-growth-os #estimator .ovgo-choice-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 6px;
+  }
+
+  #optivue-growth-os #estimator .ovgo-choice {
+    min-width: 0;
+    min-height: 40px;
+    padding: 6px 8px;
+    gap: 7px;
+    line-height: 1.25;
+  }
+
+  #optivue-growth-os #estimator .ovgo-choice input {
+    inline-size: 16px;
+    block-size: 16px;
+    flex: 0 0 16px;
+    margin: 0;
+  }
+
+  #optivue-growth-os #estimator .ovgo-choice span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  #optivue-growth-os #estimator .ovgo-result-status div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  #optivue-growth-os #estimator .ovgo-result-status b {
+    overflow-wrap: anywhere;
+  }
+
+  #optivue-growth-os .ovgo-process {
+    grid-template-columns: repeat(7, minmax(138px,70vw));
+  }
+}
+
+
+/* Keep anchor targets clear of the fixed navigation. */
+#optivue-growth-os section[id] {
+  scroll-margin-top: 82px;
+}
+
+@media (max-width: 760px) {
+  #optivue-growth-os section[id] {
+    scroll-margin-top: 68px;
+  }
+}

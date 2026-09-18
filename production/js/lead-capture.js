@@ -49,7 +49,7 @@ export function initLeadCapture(root) {
               ${RUNTIME_CONFIG.leadSubmissionEnabled ? 'Save My Growth Brief' : 'Continue With My Context'}
             </button>
             <button class="ovgo-btn ovgo-btn--secondary" type="button" data-lead-book>
-              Book A Discovery Call
+              Request a Custom Proposal
             </button>
           </div>
           <p class="ovgo-form-note" data-lead-status>

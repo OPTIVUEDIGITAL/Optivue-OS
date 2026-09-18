@@ -36,11 +36,13 @@ The six client rows above are **private source candidates only**. They are delib
 - If permission is unavailable after the agreed waiting period, create an explicitly labelled sanitised reconstruction from the real work; remove identities and confidential values while preserving the actual workflow/interface structure.
 - Never describe a reconstruction as a live client screenshot.
 
-### P0 status
+## P0 status
 
-**SOURCE INTAKE COMPLETE; PUBLICATION GATE OPEN.**
+**SOURCE INTAKE COMPLETE; P4 PUBLICATION GATE BLOCKED.**
 
-Six real client-work source artefacts have been identified privately across the three named client projects, plus the operator portrait is committed. P0 is still **not publishable/complete for P4** until each client row has either written publication permission or an approved sanitised-reconstruction path under the governing permission rule.
+Six real client-work source artefacts have been identified privately across the three named client projects, plus the operator portrait is committed. P4 may not begin until each client row has either written publication permission or reaches the documented sanitised-reconstruction path.
+
+Current public-evidence count: **0/6 client artefacts committed**.
 
 ## Allowed evidence
 
@@ -57,9 +59,5 @@ For client screenshots, anonymise identities by default **and** obtain written c
 If written client permission is not available within two weeks, use a sanitised reconstruction and label it explicitly as a reconstruction. Never imply that a reconstruction is a live internal client screen.
 
 Permission status may only be populated from an explicit written source. Asset presence, silence, or inferred conversational intent is not permission.
-
-## P0 status
-
-**BLOCKED — 0/6 client artefacts committed.**
 
 The operator photograph is committed at `production/assets/rahmel-dela-cruz.webp` as a 640×640 WebP. Client evidence remains the blocking requirement for P4.

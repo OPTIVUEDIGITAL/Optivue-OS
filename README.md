@@ -2,6 +2,19 @@
 
 Optivue Growth OS is the codebase for Optivue Digital's portable growth platform, interactive portfolio, diagnosis workflow, project estimator, pricing experience, and client-acquisition system showcase.
 
+## Production hosting decision
+
+**Primary architecture: standalone, GitHub-controlled website.**
+
+- GitHub is the source of truth.
+- `production/` is the canonical public application.
+- GitHub Pages is the initial static host.
+- Wix is optional and isolated under `adapters/wix/`.
+- `portable/` remains the copy/paste edition for custom-code environments.
+- Protected integrations stay behind a separate backend/API boundary.
+
+See `docs/standalone-deployment.md` for deployment and custom-domain guidance.
+
 ## Repository strategy
 
 This repository supports two delivery modes from one product specification.

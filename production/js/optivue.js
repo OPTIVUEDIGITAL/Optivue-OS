@@ -156,18 +156,27 @@ function initTransformations(root) {
       title: 'Express Medical Care / Revive',
       summary: 'Connect acquisition, landing experiences, qualification, CRM routing, automated follow-up, consultation booking, and performance visibility.',
       flow: ['Search / Ads / GBP','Landing Experience','Lead Capture','Qualification','CRM','SMS + Email','Consultation Pipeline','Customer','Analytics'],
+      image: './assets/evidence/revive-measurement-reconstruction.webp',
+      imageAlt: 'Sanitised reconstruction of the measurement path from acquisition source through landing page, lead form, CRM, and consultation.',
+      imageCaption: 'Sanitised reconstruction — the measurement path connects acquisition activity to the consultation outcome without publishing client data.',
     },
     cbp: {
       kicker: 'Education & membership',
       title: 'CBP / Ideal Spine',
       summary: 'Create a connected member-facing experience across portal UX, custom front-end implementation, content access, and supporting digital systems.',
       flow: ['Member Entry','Portal Experience','Content Access','Custom UI','Live / Recorded Resources','Member Journey'],
+      image: './assets/evidence/cbp-content-flow-reconstruction.webp',
+      imageAlt: 'Sanitised reconstruction showing one live session becoming transcript, audio recap, portal card, and member access.',
+      imageCaption: 'Sanitised reconstruction — one source session is reused across formats while the portal remains the member destination.',
     },
     cjb: {
       kicker: 'Consulting & learning',
       title: 'CJB / LearnX',
       summary: 'Connect content, prospecting, performance reporting, dashboards, and marketing execution into clearer operational workflows.',
       flow: ['Market / Prospects','Content','Lead Generation','Scorecards','Reporting','Marketing Decisions'],
+      image: './assets/evidence/cjb-content-workflow-reconstruction.webp',
+      imageAlt: 'Sanitised reconstruction showing a content idea moving through draft, review, publishing, and follow-up.',
+      imageCaption: 'Sanitised reconstruction — one source idea can feed publishing and follow-up work without exposing internal records.',
     },
   };
 
@@ -176,6 +185,8 @@ function initTransformations(root) {
   const title = root.querySelector('[data-transform-title]');
   const summary = root.querySelector('[data-transform-summary]');
   const flow = root.querySelector('[data-transform-flow]');
+  const image = root.querySelector('[data-transform-image]');
+  const caption = root.querySelector('[data-transform-caption]');
 
   function select(key) {
     const item = data[key];
@@ -185,6 +196,11 @@ function initTransformations(root) {
     title.textContent = item.title;
     summary.textContent = item.summary;
     flow.innerHTML = item.flow.map((label, index) => `<span>${label}</span>${index < item.flow.length - 1 ? '<i>→</i>' : ''}`).join('');
+    if (image) {
+      image.src = item.image;
+      image.alt = item.imageAlt;
+    }
+    if (caption) caption.textContent = item.imageCaption;
     addJourneyValue('transformationsViewed', item.title);
   }
 

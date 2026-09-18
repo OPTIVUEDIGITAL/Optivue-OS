@@ -22,19 +22,19 @@ export function initLeadCapture(root) {
         <form class="ovgo-lead-form" data-lead-form>
           <div class="ovgo-form-row">
             <label for="lead-name">Your name</label>
-            <input id="lead-name" name="name" autocomplete="name" required value="${escapeAttr(context.identity.name)}">
+            <input id="lead-name" name="name" autocomplete="name" required value="${escapeLeadAttr(context.identity.name)}">
           </div>
           <div class="ovgo-form-row">
             <label for="lead-email">Email</label>
-            <input id="lead-email" name="email" type="email" autocomplete="email" required value="${escapeAttr(context.identity.email)}">
+            <input id="lead-email" name="email" type="email" autocomplete="email" required value="${escapeLeadAttr(context.identity.email)}">
           </div>
           <div class="ovgo-form-row">
             <label for="lead-company">Company</label>
-            <input id="lead-company" name="company" autocomplete="organization" value="${escapeAttr(context.identity.company || context.business.company || '')}">
+            <input id="lead-company" name="company" autocomplete="organization" value="${escapeLeadAttr(context.identity.company || context.business.company || '')}">
           </div>
           <div class="ovgo-form-row">
             <label for="lead-website">Website</label>
-            <input id="lead-website" name="website" type="url" autocomplete="url" placeholder="https://" value="${escapeAttr(context.identity.website || context.business.website || '')}">
+            <input id="lead-website" name="website" type="url" autocomplete="url" placeholder="https://" value="${escapeLeadAttr(context.identity.website || context.business.website || '')}">
           </div>
           <label class="ovgo-consent">
             <input type="checkbox" name="contactConsent" required>
@@ -133,15 +133,15 @@ export function initLeadCapture(root) {
     ].filter(Boolean);
 
     target.innerHTML = items.length
-      ? items.map(([label, value]) => `<div><span>${label}</span><strong>${escapeHtml(value)}</strong></div>`).join('')
+      ? items.map(([label, value]) => `<div><span>${label}</span><strong>${escapeLeadHtml(value)}</strong></div>`).join('')
       : '<p>Complete the diagnosis or estimator and your context will appear here.</p>';
   }
 }
 
-function escapeAttr(value = '') {
+function escapeLeadAttr(value = '') {
   return String(value).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-function escapeHtml(value = '') {
+function escapeLeadHtml(value = '') {
   return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }

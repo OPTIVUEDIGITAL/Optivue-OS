@@ -4,8 +4,6 @@ This directory is the canonical standalone front-end implementation of the unifi
 
 ## Six connected functions
 
-The production app simultaneously provides:
-
 - Interactive Digital Growth Portfolio
 - Business Transformation Showcase
 - Growth Diagnosis Platform
@@ -13,43 +11,43 @@ The production app simultaneously provides:
 - Pricing Experience
 - Lead-Generation System
 
-These functions share one prospect context through:
+These functions share prospect context through:
 
 `js/context.js`
-
-## Entry point
-
-`index.html`
 
 ## Runtime
 
 No build step is required.
 
-The application uses:
+The application uses HTML5, CSS3, ES modules, Web Components, and browser-native APIs.
 
-- HTML5
-- CSS3
-- ES modules
-- Web Components
-- browser-native APIs
+## Cloudflare Pages
 
-## Important modules
+This directory is the Cloudflare Pages output directory.
 
-- `js/context.js` — shared prospect context
-- `js/diagnosis.js` — Growth Diagnosis
-- `js/estimator.js` — Project Estimator
-- `js/lead-capture.js` — contextual lead capture
-- `js/booking.js` — Calendly experience and booking intent
-- `js/runtime-config.js` — public integration flags/endpoints
-- `js/optivue.js` — page-level orchestration
+Staging configuration:
+
+- repository: `OPTIVUEDIGITAL/Optivue-OS`
+- branch: `release/cloudflare-staging`
+- framework preset: None
+- build command: `exit 0`
+- output directory: `production`
+
+After QA, use `main` as the production branch.
+
+See:
+
+`../docs/cloudflare-deployment.md`
+
+## Security headers
+
+`_headers` is interpreted by Cloudflare Pages and adds static-site security headers.
 
 ## Lead submission
 
-Direct lead submission is disabled by default.
+Direct lead submission remains disabled until the secure Worker relay and Make intake scenario are verified.
 
-Do not put a raw Make webhook URL in `runtime-config.js`.
-
-When the backend is ready, configure a public server-side relay endpoint and then enable lead submission.
+Do not place the raw Make webhook URL in `runtime-config.js`.
 
 See:
 
@@ -58,18 +56,12 @@ See:
 
 ## Local preview
 
-Serve this directory through a static HTTP server.
+Serve this directory over HTTP.
 
 Do not use `file://` when testing ES modules.
-
-## Deployment
-
-GitHub Pages publishes this directory after approved changes reach `main`.
-
-See `../docs/standalone-deployment.md`.
 
 ## Editing rule
 
 Make product changes here first.
 
-Regenerate `../portable/optivue-growth-os.html` only after the modular production implementation validates.
+Regenerate `../portable/optivue-growth-os.html` after the modular production implementation validates.

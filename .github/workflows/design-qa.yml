@@ -1,6 +1,13 @@
 name: Design QA
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "production/**"
+      - "scripts/**"
+      - ".github/workflows/design-qa.yml"
   pull_request:
     paths:
       - "production/**"

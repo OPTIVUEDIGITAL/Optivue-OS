@@ -827,7 +827,7 @@
     grid-column: auto;
   }
 
-  /* Filters remain one horizontal strip with real touch targets. */
+  /* Filters stay in one native horizontal strip with phone-sized touch targets. */
   #optivue-growth-os .ovgo-filter-row {
     flex-wrap: nowrap;
     gap: 8px;

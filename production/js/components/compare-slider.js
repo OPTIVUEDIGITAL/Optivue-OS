@@ -1,6 +1,6 @@
 class OptivueCompare extends HTMLElement {
   static get observedAttributes() {
-    return ['start', 'label-before', 'label-after'];
+    return ['start', 'label-before', 'label-after', 'labels'];
   }
 
   connectedCallback() {
@@ -25,6 +25,7 @@ class OptivueCompare extends HTMLElement {
   render() {
     const before = this.getAttribute('label-before') || 'Before';
     const after = this.getAttribute('label-after') || 'After';
+    const labelsHidden = this.getAttribute('labels') === 'hidden';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -43,6 +44,9 @@ class OptivueCompare extends HTMLElement {
         }
         :host([ratio="portrait"]) .frame {
           aspect-ratio: 4 / 3;
+        }
+        :host([ratio="portrait-45"]) .frame {
+          aspect-ratio: 4 / 5;
         }
         .before,
         .after {
@@ -123,8 +127,8 @@ class OptivueCompare extends HTMLElement {
       <div class="frame">
         <div class="before"><slot name="before"></slot></div>
         <div class="after"><slot name="after"></slot></div>
-        <span class="label before-label">${before}</span>
-        <span class="label after-label">${after}</span>
+        ${labelsHidden ? '' : `<span class="label before-label">${before}</span>
+        <span class="label after-label">${after}</span>`}
         <div class="divider" aria-hidden="true"></div>
         <div class="handle" role="slider" tabindex="0"
              aria-label="Compare ${before} and ${after}"

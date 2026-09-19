@@ -319,7 +319,6 @@ jobs:
 
           const cssText = await page.evaluate(() => fetch("./css/optivue-v2.css").then(r => r.text()));
           if (!cssText.includes("env(safe-area-inset-bottom)")) results.failures.push("phone CSS: safe-area inset missing");
-          if (getComputedStyle ? false : false) {}
 
           await context.close();
 

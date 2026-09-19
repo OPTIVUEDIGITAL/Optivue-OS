@@ -276,6 +276,57 @@
         </div>
       </section>
 
+
+      <section id="reporting" class="ovgo-section ovgo-reporting">
+        <div class="ovgo-section-head ovgo-section-head--split">
+          <div>
+            <p class="ovgo-reporting-label">Measurement</p>
+            <h2>Reporting, before and after tracking.</h2>
+            <p>Same dashboard idea, different evidence. Before tracking, the important actions are disconnected. After tracking, events, sources, and funnel steps form one measurable path.</p>
+          </div>
+          <span class="ovgo-status">Starts at 35% so the after state leads</span>
+        </div>
+
+        <div class="ovgo-reporting-grid">
+          <figure class="ovgo-reporting-evidence">
+            <optivue-compare label-before="No tracking" label-after="Tracked" start="35">
+              <img slot="before" src="./assets/tracking-before.svg" width="1600" height="1000"
+                   alt="Illustrative analytics dashboard before tracking, with events, sources, funnel and attribution not yet mapped"
+                   loading="lazy" decoding="async">
+              <img slot="after" src="./assets/tracking-after.svg" width="1600" height="1000"
+                   alt="Illustrative analytics dashboard after tracking, with mapped events, connected sources, a visible funnel and attribution ready"
+                   loading="lazy" decoding="async">
+            </optivue-compare>
+            <figcaption>Illustrative tracking view. Replace with approved client screenshots when available.</figcaption>
+          </figure>
+
+          <div class="ovgo-reporting-copy">
+            <h3>Tracking changes what the report can prove.</h3>
+            <p>Without event mapping, reporting stops at traffic. Once the important actions are named and connected, the report follows the path from source to conversion and shows where handoffs break.</p>
+            <ul class="ovgo-reporting-points">
+              <li><span>Before</span><strong>Traffic exists, but the conversion path is incomplete.</strong></li>
+              <li><span>After</span><strong>Events, sources, funnel steps, and attribution are connected.</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <figure class="ovgo-rahmel-compare">
+          <figcaption>
+            <span class="ovgo-reporting-label">Operator view</span>
+            <h3>From candid desk shot to focused working frame.</h3>
+            <p>Drag the divider to compare Rahmel's original candid frame with the working-at-the-monitor view.</p>
+          </figcaption>
+          <optivue-compare label-before="Candid" label-after="Working" start="35" ratio="portrait">
+            <img slot="before" src="./assets/rahmel-candid-before.webp" width="640" height="480"
+                 alt="Rahmel Dela Cruz seated at his desk in a candid selfie, with laptops and a whiteboard behind him"
+                 loading="lazy" decoding="async">
+            <img slot="after" src="./assets/rahmel-working-after.webp" width="640" height="480"
+                 alt="Rahmel Dela Cruz seated at his desk wearing headphones and reviewing analytics on a large monitor"
+                 loading="lazy" decoding="async">
+          </optivue-compare>
+        </figure>
+      </section>
+
       <section id="pricing" class="ovgo-section">
         <div class="ovgo-section-head">
           <p class="ovgo-kicker">Pricing</p>
@@ -447,6 +498,7 @@
 
   <script type="module" src="./js/components/growth-system.js"></script>
   <script type="module" src="./js/components/spotlight-card.js"></script>
+  <script type="module" src="./js/components/compare-slider.js"></script>
   <script type="module" src="./js/optivue.js"></script>
 </body>
 </html>

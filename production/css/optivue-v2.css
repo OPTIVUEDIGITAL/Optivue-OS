@@ -859,3 +859,124 @@
     scroll-snap-type: x proximity;
   }
 }
+
+
+/* --- REPORTING: before / after evidence -------------------------- */
+#optivue-growth-os .ovgo-reporting {
+  border-top: 1px solid var(--ovgo-border);
+}
+
+#optivue-growth-os .ovgo-reporting-label {
+  margin: 0 0 10px;
+  color: var(--ovgo-blue);
+  font-size: var(--ovgo-type-sm);
+  font-weight: 600;
+}
+
+#optivue-growth-os .ovgo-reporting-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, .55fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: start;
+}
+
+#optivue-growth-os .ovgo-reporting-evidence,
+#optivue-growth-os .ovgo-rahmel-compare {
+  margin: 0;
+  min-width: 0;
+}
+
+#optivue-growth-os .ovgo-reporting-evidence optivue-compare,
+#optivue-growth-os .ovgo-rahmel-compare optivue-compare {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--ovgo-border-strong);
+  border-radius: var(--ovgo-radius-structural);
+  background: var(--ovgo-surface);
+}
+
+#optivue-growth-os .ovgo-reporting-evidence figcaption {
+  margin-top: 12px;
+  max-width: 54ch;
+  color: var(--ovgo-subtle);
+  font-size: var(--ovgo-type-sm);
+}
+
+#optivue-growth-os .ovgo-reporting-copy {
+  padding-top: clamp(4px, 2vw, 24px);
+}
+
+#optivue-growth-os .ovgo-reporting-copy h3,
+#optivue-growth-os .ovgo-rahmel-compare h3 {
+  max-width: 16ch;
+  margin: 0 0 14px;
+}
+
+#optivue-growth-os .ovgo-reporting-copy > p,
+#optivue-growth-os .ovgo-rahmel-compare figcaption > p {
+  max-width: 48ch;
+  color: var(--ovgo-muted);
+}
+
+#optivue-growth-os .ovgo-reporting-points {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 0;
+  border-top: 1px solid var(--ovgo-border);
+}
+
+#optivue-growth-os .ovgo-reporting-points li {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--ovgo-border);
+}
+
+#optivue-growth-os .ovgo-reporting-points span {
+  color: var(--ovgo-subtle);
+  font-size: var(--ovgo-type-sm);
+}
+
+#optivue-growth-os .ovgo-reporting-points strong {
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+#optivue-growth-os .ovgo-rahmel-compare {
+  display: grid;
+  grid-template-columns: minmax(220px, .55fr) minmax(0, 1.45fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+  margin-top: clamp(56px, 8vw, 108px);
+  padding-top: clamp(28px, 5vw, 56px);
+  border-top: 1px solid var(--ovgo-border);
+}
+
+#optivue-growth-os .ovgo-rahmel-compare optivue-compare {
+  width: min(100%, 760px);
+  justify-self: end;
+}
+
+@media (max-width: 760px) {
+  #optivue-growth-os .ovgo-reporting-grid,
+  #optivue-growth-os .ovgo-rahmel-compare {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  #optivue-growth-os .ovgo-reporting-copy {
+    padding-top: 0;
+  }
+
+  #optivue-growth-os .ovgo-reporting-points li {
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  #optivue-growth-os .ovgo-rahmel-compare optivue-compare {
+    width: 100%;
+    justify-self: stretch;
+  }
+}

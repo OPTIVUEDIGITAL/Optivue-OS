@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<style>text{font-family:Inter,Arial,sans-serif}.s{fill:#aab2bd;font-size:22px}.v{fill:#e9edf2;font-size:34px;font-weight:700}.m{fill:#6e7681}.e{fill:#6e7681;font-size:28px}</style>
+<rect width="1600" height="1000" fill="#101316"/><rect width="250" height="1000" fill="#14181d"/>
+<rect x="46" y="58" width="120" height="18" rx="4" fill="#4a515a"/><g fill="#474e57"><rect x="46" y="145" width="112" height="14" rx="4"/><rect x="46" y="210" width="150" height="14" rx="4"/><rect x="46" y="275" width="95" height="14" rx="4"/><rect x="46" y="340" width="142" height="14" rx="4"/><rect x="46" y="405" width="128" height="14" rx="4"/></g>
+<g fill="#171b20"><rect x="300" y="70" width="1260" height="190" rx="10"/><rect x="300" y="300" width="1260" height="360" rx="10"/><rect x="300" y="700" width="1260" height="230" rx="10"/></g>
+<g stroke="#242b32" stroke-width="2"><line x1="610" y1="95" x2="610" y2="235"/><line x1="910" y1="95" x2="910" y2="235"/><line x1="1210" y1="95" x2="1210" y2="235"/></g>
+<text x="420" y="175" class="s">Events</text><text x="420" y="215" class="v m">—</text><text x="720" y="175" class="s">Sources</text><text x="720" y="215" class="v m">—</text><text x="1020" y="175" class="s">Funnel</text><text x="1020" y="215" class="v m">—</text><text x="1320" y="175" class="s">Attribution</text><text x="1320" y="215" class="v m">—</text>
+<text x="330" y="345" class="s">Conversion path</text><line x1="430" y1="505" x2="1470" y2="505" stroke="#343b44" stroke-width="4" stroke-dasharray="14 18"/><text x="950" y="440" class="e" text-anchor="middle">No conversion path defined</text>
+<text x="330" y="745" class="s">Event detail</text><g fill="#3b424b"><rect x="430" y="730" width="310" height="14" rx="4"/><rect x="430" y="785" width="260" height="14" rx="4"/><rect x="430" y="840" width="220" height="14" rx="4"/></g>
+</svg>

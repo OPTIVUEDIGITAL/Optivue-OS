@@ -49,7 +49,7 @@ jobs:
 
       - name: Run phone interaction and visual QA
         run: |
-          cat > /tmp/mobile-qa.mjs <<'JS'
+          cat > mobile-qa-temp.mjs <<'JS'
           import { chromium } from "playwright";
           import fs from "node:fs/promises";
 
@@ -353,7 +353,7 @@ jobs:
           console.log(JSON.stringify(results, null, 2));
           if (results.failures.length) process.exit(1);
           JS
-          node /tmp/mobile-qa.mjs
+          node mobile-qa-temp.mjs
 
       - name: Prove tablet and desktop pixels unchanged
         run: |

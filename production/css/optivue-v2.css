@@ -549,3 +549,313 @@
     font-size: var(--ovgo-type-body);
   }
 }
+
+
+/* --- P3 MOBILE EXPERIENCE: phones only -------------------------- */
+@media (max-width: 760px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+
+  /* The sticky CTA is the only blurred surface on phones. */
+  #optivue-growth-os .ovgo-hero__content,
+  #optivue-growth-os .ovgo-mobile-menu {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  #optivue-growth-os .ovgo-mobile-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: color-mix(in srgb, var(--ovgo-bg) 92%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--ovgo-border);
+    transform: translateY(110%);
+    transition: transform .28s cubic-bezier(.22,.61,.36,1);
+  }
+
+  #optivue-growth-os .ovgo-mobile-cta.is-visible {
+    transform: translateY(0);
+  }
+
+  #optivue-growth-os .ovgo-mobile-cta .ovgo-btn {
+    width: 100%;
+    min-height: 48px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* iOS target and form-size floor. */
+  #optivue-growth-os .ovgo-icon-btn,
+  #optivue-growth-os .ovgo-menu-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  #optivue-growth-os .ovgo-brand,
+  #optivue-growth-os .ovgo-btn,
+  #optivue-growth-os .ovgo-text-link,
+  #optivue-growth-os .ovgo-filter-row button,
+  #optivue-growth-os .ovgo-choice,
+  #optivue-growth-os .ovgo-consent,
+  #optivue-growth-os .ovgo-mobile-menu a,
+  #optivue-growth-os .ovgo-mobile-menu button {
+    min-height: 44px;
+  }
+
+  #optivue-growth-os .ovgo-header__actions,
+  #optivue-growth-os .ovgo-actions,
+  #optivue-growth-os .ovgo-lead-actions {
+    gap: 8px;
+  }
+
+  #optivue-growth-os .ovgo-form-row input,
+  #optivue-growth-os .ovgo-form-row select,
+  #optivue-growth-os .ovgo-form-row textarea {
+    font-size: var(--ovgo-type-body);
+  }
+
+  #optivue-growth-os #estimator .ovgo-choice {
+    min-height: 44px;
+  }
+
+  /* Restore the hero footer as a compact, single-line mobile row. */
+  #optivue-growth-os .ovgo-hero__footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    left: 18px;
+    right: 18px;
+    bottom: 10px;
+    min-width: 0;
+  }
+
+  #optivue-growth-os .ovgo-hero__footer span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #optivue-growth-os .ovgo-hero__footer a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  /* Stage sequence: native horizontal snap with a visible next-card peek. */
+  #optivue-growth-os .ovgo-stage-grid {
+    display: grid;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 78%;
+    gap: 12px;
+    width: calc(100% + 32px);
+    margin-inline: -16px;
+    padding-inline: 16px;
+    scroll-padding-inline: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  #optivue-growth-os .ovgo-stage-grid::-webkit-scrollbar,
+  #optivue-growth-os .ovgo-pricing-grid::-webkit-scrollbar,
+  #optivue-growth-os .ovgo-filter-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  #optivue-growth-os .ovgo-stage {
+    min-height: 160px;
+    scroll-snap-align: start;
+  }
+
+  #optivue-growth-os .ovgo-carousel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    min-height: 24px;
+    margin: 10px 0 6px;
+  }
+
+  #optivue-growth-os .ovgo-carousel-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ovgo-border-strong);
+    opacity: .55;
+    transition: transform 120ms ease, opacity 120ms ease, background-color 120ms ease;
+  }
+
+  #optivue-growth-os .ovgo-carousel-dot.is-active {
+    background: var(--ovgo-blue);
+    opacity: 1;
+    transform: scale(1.35);
+  }
+
+  /* Client proof remains visible and stacked; no evidence is hidden behind taps. */
+  #optivue-growth-os .ovgo-transform-grid {
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    gap: 18px;
+  }
+
+  #optivue-growth-os .ovgo-transform-card,
+  #optivue-growth-os .ovgo-transform-card:first-child {
+    min-height: 0;
+    padding: 26px 22px;
+  }
+
+  #optivue-growth-os .ovgo-transform-card .ovgo-impact {
+    margin-top: 22px;
+    padding-top: 18px;
+  }
+
+  /* Work Lab: detail opens inline under the tapped item on phones. */
+  #optivue-growth-os .ovgo-work-layout {
+    grid-template-columns: minmax(0,1fr);
+  }
+
+  #optivue-growth-os .ovgo-work-detail {
+    display: none;
+  }
+
+  #optivue-growth-os .ovgo-work-item {
+    scroll-margin-top: 72px;
+  }
+
+  #optivue-growth-os .ovgo-work-item > .ovgo-text-link {
+    width: 100%;
+    min-height: 56px;
+    margin-top: 18px;
+    padding: 12px 0 0;
+    border-top: 1px solid var(--ovgo-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    text-align: left;
+  }
+
+  #optivue-growth-os .ovgo-work-item > .ovgo-text-link::after {
+    content: "+";
+    flex: 0 0 auto;
+    font-size: var(--ovgo-type-body);
+  }
+
+  #optivue-growth-os .ovgo-work-item > .ovgo-text-link[aria-expanded="true"]::after {
+    content: "−";
+  }
+
+  #optivue-growth-os .ovgo-work-mobile-detail {
+    margin: 4px -10px -10px;
+    padding: 20px 10px 10px;
+    border-top: 1px solid var(--ovgo-border);
+  }
+
+  #optivue-growth-os .ovgo-work-mobile-detail[hidden] {
+    display: none;
+  }
+
+  #optivue-growth-os .ovgo-work-mobile-detail > .ovgo-kicker {
+    display: none;
+  }
+
+  #optivue-growth-os .ovgo-work-mobile-detail h3 {
+    margin: 0 0 10px;
+  }
+
+  #optivue-growth-os .ovgo-work-mobile-detail > p:not(.ovgo-kicker) {
+    color: var(--ovgo-muted);
+  }
+
+  #optivue-growth-os .ovgo-work-mobile-detail .ovgo-mini-flow {
+    margin: 18px 0;
+  }
+
+  #optivue-growth-os .ovgo-work-mobile-detail .ovgo-btn {
+    width: 100%;
+  }
+
+  /* Pricing: comparison stays side-by-side in memory via native snap. */
+  #optivue-growth-os .ovgo-pricing-grid {
+    display: grid;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 84%;
+    gap: 14px;
+    width: calc(100% + 32px);
+    margin-inline: -16px;
+    padding: 8px 16px 12px;
+    scroll-padding-inline: 16px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    align-items: stretch;
+  }
+
+  #optivue-growth-os .ovgo-price-card {
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+
+  #optivue-growth-os .ovgo-price-card.is-featured {
+    order: -1;
+    transform: none;
+  }
+
+  #optivue-growth-os .ovgo-price-card:last-child {
+    grid-column: auto;
+  }
+
+  /* Filters remain one horizontal strip with real touch targets. */
+  #optivue-growth-os .ovgo-filter-row {
+    flex-wrap: nowrap;
+    gap: 8px;
+    width: calc(100% + 32px);
+    margin-inline: -16px;
+    padding: 0 16px 8px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  #optivue-growth-os .ovgo-filter-row button {
+    flex: 0 0 auto;
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: var(--ovgo-type-sm);
+  }
+}
+
+@media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+  #optivue-growth-os .ovgo-mobile-cta,
+  #optivue-growth-os .ovgo-carousel-dot {
+    transition: none;
+  }
+
+  #optivue-growth-os .ovgo-stage-grid,
+  #optivue-growth-os .ovgo-pricing-grid {
+    scroll-behavior: auto;
+    scroll-snap-type: x proximity;
+  }
+}

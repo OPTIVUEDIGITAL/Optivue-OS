@@ -41,6 +41,9 @@ class OptivueCompare extends HTMLElement {
           touch-action: none;
           user-select: none;
         }
+        :host([ratio="portrait"]) .frame {
+          aspect-ratio: 4 / 3;
+        }
         .before,
         .after {
           position: absolute;

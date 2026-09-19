@@ -310,21 +310,6 @@
           </div>
         </div>
 
-        <figure class="ovgo-rahmel-compare">
-          <figcaption>
-            <span class="ovgo-reporting-label">Operator view</span>
-            <h3>From candid desk shot to focused working frame.</h3>
-            <p>Drag the divider to compare Rahmel's original candid frame with the working-at-the-monitor view.</p>
-          </figcaption>
-          <optivue-compare label-before="Candid" label-after="Working" start="35" ratio="portrait">
-            <img slot="before" src="./assets/rahmel-candid-before.webp" width="640" height="480"
-                 alt="Rahmel Dela Cruz seated at his desk in a candid selfie, with laptops and a whiteboard behind him"
-                 loading="lazy" decoding="async">
-            <img slot="after" src="./assets/rahmel-working-after.webp" width="640" height="480"
-                 alt="Rahmel Dela Cruz seated at his desk wearing headphones and reviewing analytics on a large monitor"
-                 loading="lazy" decoding="async">
-          </optivue-compare>
-        </figure>
       </section>
 
       <section id="pricing" class="ovgo-section">
@@ -447,16 +432,22 @@
       <section id="about" class="ovgo-section ovgo-about">
         <div class="ovgo-shell ovgo-about__grid">
           <figure class="ovgo-portrait">
-            <img src="./assets/rahmel-dela-cruz.webp"
-                 width="880" height="1100"
-                 alt="Portrait of Rahmel Dela Cruz against a neutral gray background"
-                 loading="lazy" decoding="async">
+            <optivue-compare start="50" ratio="portrait-45" labels="hidden" label-before="Portrait" label-after="Working">
+              <img slot="before" src="./assets/rahmel-dela-cruz.webp"
+                   width="880" height="1100"
+                   alt="Portrait of Rahmel Dela Cruz against a neutral gray background"
+                   loading="lazy" decoding="async">
+              <img slot="after" src="./assets/rahmel-working-after.webp"
+                   width="640" height="480"
+                   alt="Rahmel Dela Cruz seated at his desk wearing headphones and reviewing analytics on a large monitor"
+                   loading="lazy" decoding="async">
+            </optivue-compare>
             <figcaption>Rahmel Dela Cruz · Optivue Digital</figcaption>
           </figure>
 
           <div class="ovgo-about__body">
             <p class="ovgo-kicker">How I work</p>
-            <h2>Strategy first, then systems.</h2>
+            <h2>Audit first. Strategy next. Then systems.</h2>
             <div class="ovgo-about__bio">
               <p>I'm Rahmel. I build and run the work myself — the site, the tracking, the CRM, and the follow-up. There’s no account manager in between, and no junior taking over after you’ve met me.</p>
               <p>I’ve spent eight years working with medical and wellness practices and consulting businesses — and more broadly, service businesses where a booked appointment is the sale. Most of the day-to-day work is practical: connecting the pieces you already use, fixing the handoffs, and making it clear what changed and why.</p>

@@ -15,6 +15,9 @@ if (root) {
   initWorkLab(root);
   initSpotlights(root);
   initReveal(root);
+  if (window.matchMedia('(max-width: 760px)').matches) {
+    initMobileExperience(root);
+  }
   initBooking(root);
   initDiagnosis(root);
   initEstimator(root);
@@ -251,6 +254,190 @@ function initReveal(root) {
   sections.forEach((element) => observer.observe(element));
 }
 
+
+
+function initMobileExperience(root) {
+  const mobileQuery = window.matchMedia('(max-width: 760px)');
+  if (!mobileQuery.matches) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const hero = root.querySelector('.ovgo-hero');
+  const modal = root.querySelector('[data-ovgo-modal]');
+  const menuToggle = root.querySelector('[data-ovgo-menu-toggle]');
+  const stageGrid = root.querySelector('.ovgo-stage-grid');
+  const pricingGrid = root.querySelector('.ovgo-pricing-grid');
+  const workList = root.querySelector('.ovgo-work-list');
+  const desktopWorkDetail = root.querySelector('.ovgo-work-detail');
+  const cleanup = [];
+
+  // Persistent phone CTA. Booking.js initializes after this function, so it
+  // attaches the existing Calendly behavior without duplicating routing logic.
+  const mobileCta = document.createElement('div');
+  mobileCta.className = 'ovgo-mobile-cta';
+  mobileCta.innerHTML = '<button class="ovgo-btn ovgo-btn--primary" type="button" data-ovgo-booking data-ovgo-intent="proposal">Book a discovery call</button>';
+  root.append(mobileCta);
+
+  let heroVisible = true;
+  let formFocused = false;
+
+  const updateCta = () => {
+    const modalOpen = Boolean(modal && !modal.hidden);
+    const menuOpen = menuToggle?.getAttribute('aria-expanded') === 'true';
+    mobileCta.classList.toggle('is-visible', !heroVisible && !modalOpen && !menuOpen && !formFocused);
+  };
+
+  if (hero) {
+    const heroObserver = new IntersectionObserver((entries) => {
+      heroVisible = entries[0]?.isIntersecting ?? true;
+      updateCta();
+    }, { threshold: 0.01 });
+    heroObserver.observe(hero);
+    cleanup.push(() => heroObserver.disconnect());
+  }
+
+  const stateObserver = new MutationObserver(updateCta);
+  if (modal) stateObserver.observe(modal, { attributes: true, attributeFilter: ['hidden'] });
+  if (menuToggle) stateObserver.observe(menuToggle, { attributes: true, attributeFilter: ['aria-expanded'] });
+  cleanup.push(() => stateObserver.disconnect());
+
+  const onFocusIn = (event) => {
+    formFocused = Boolean(event.target instanceof Element && event.target.closest('form'));
+    updateCta();
+  };
+  const onFocusOut = () => {
+    requestAnimationFrame(() => {
+      formFocused = Boolean(document.activeElement instanceof Element && document.activeElement.closest('form'));
+      updateCta();
+    });
+  };
+  document.addEventListener('focusin', onFocusIn, true);
+  document.addEventListener('focusout', onFocusOut, true);
+  cleanup.push(() => {
+    document.removeEventListener('focusin', onFocusIn, true);
+    document.removeEventListener('focusout', onFocusOut, true);
+  });
+
+  // Native snap carousel indicators for the five live system stages.
+  if (stageGrid) {
+    const stageCards = [...stageGrid.querySelectorAll('.ovgo-stage')];
+    stageGrid.tabIndex = 0;
+
+    const dots = document.createElement('div');
+    dots.className = 'ovgo-carousel-dots';
+    dots.setAttribute('aria-hidden', 'true');
+    dots.innerHTML = stageCards.map((_, index) => '<span class="ovgo-carousel-dot' + (index === 0 ? ' is-active' : '') + '"></span>').join('');
+    stageGrid.insertAdjacentElement('afterend', dots);
+    const dotEls = [...dots.children];
+
+    let scrollFrame = 0;
+    const updateDots = () => {
+      scrollFrame = 0;
+      const gridLeft = stageGrid.getBoundingClientRect().left;
+      let activeIndex = 0;
+      let activeDistance = Number.POSITIVE_INFINITY;
+      stageCards.forEach((card, index) => {
+        const distance = Math.abs(card.getBoundingClientRect().left - gridLeft);
+        if (distance < activeDistance) {
+          activeDistance = distance;
+          activeIndex = index;
+        }
+      });
+      dotEls.forEach((dot, index) => dot.classList.toggle('is-active', index === activeIndex));
+    };
+    const onStageScroll = () => {
+      if (scrollFrame) return;
+      scrollFrame = requestAnimationFrame(updateDots);
+    };
+    stageGrid.addEventListener('scroll', onStageScroll, { passive: true });
+    cleanup.push(() => {
+      stageGrid.removeEventListener('scroll', onStageScroll);
+      if (scrollFrame) cancelAnimationFrame(scrollFrame);
+      dots.remove();
+      stageGrid.removeAttribute('tabindex');
+    });
+  }
+
+  // Give native horizontal scrollers a keyboard focus target without adding
+  // any swipe handler or carousel library.
+  if (pricingGrid) {
+    pricingGrid.tabIndex = 0;
+    pricingGrid.setAttribute('role', 'region');
+    pricingGrid.setAttribute('aria-label', 'Pricing plans');
+    cleanup.push(() => {
+      pricingGrid.removeAttribute('tabindex');
+      pricingGrid.removeAttribute('role');
+      pricingGrid.removeAttribute('aria-label');
+    });
+  }
+
+  // Work detail becomes an inline one-open-at-a-time accordion on phones.
+  if (workList && desktopWorkDetail) {
+    const workButtons = [...workList.querySelectorAll('[data-work-title]')];
+    const panels = new Map();
+
+    workButtons.forEach((button, index) => {
+      const panel = desktopWorkDetail.cloneNode(true);
+      panel.className = 'ovgo-work-mobile-detail';
+      panel.id = 'ovgo-work-mobile-detail-' + (index + 1);
+      panel.hidden = index !== 0;
+      panel.querySelector('[data-work-detail-title]')?.replaceChildren(document.createTextNode(button.dataset.workTitle || 'Work detail'));
+      button.setAttribute('aria-expanded', String(index === 0));
+      button.setAttribute('aria-controls', panel.id);
+      button.insertAdjacentElement('afterend', panel);
+      panels.set(button, panel);
+    });
+
+    const onWorkClick = (event) => {
+      const button = event.target instanceof Element ? event.target.closest('[data-work-title]') : null;
+      if (!button || !workList.contains(button)) return;
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+
+      const panel = panels.get(button);
+      const willOpen = button.getAttribute('aria-expanded') !== 'true';
+
+      panels.forEach((candidatePanel, candidateButton) => {
+        candidatePanel.hidden = true;
+        candidateButton.setAttribute('aria-expanded', 'false');
+      });
+
+      if (willOpen && panel) {
+        panel.hidden = false;
+        button.setAttribute('aria-expanded', 'true');
+        addJourneyValue('workItemsViewed', button.dataset.workTitle);
+        requestAnimationFrame(() => {
+          button.closest('.ovgo-work-item')?.scrollIntoView({
+            behavior: reducedMotion.matches ? 'auto' : 'smooth',
+            block: 'start',
+          });
+        });
+      }
+    };
+
+    workList.addEventListener('click', onWorkClick, true);
+    cleanup.push(() => {
+      workList.removeEventListener('click', onWorkClick, true);
+      panels.forEach((panel, button) => {
+        panel.remove();
+        button.removeAttribute('aria-expanded');
+        button.removeAttribute('aria-controls');
+      });
+    });
+  }
+
+  updateCta();
+
+  const destroy = () => {
+    cleanup.splice(0).forEach((fn) => fn());
+    mobileCta.remove();
+    mobileQuery.removeEventListener('change', onMediaChange);
+  };
+  const onMediaChange = (event) => {
+    if (!event.matches) destroy();
+  };
+  mobileQuery.addEventListener('change', onMediaChange);
+}
 
 function initPricingRecommendation(root) {
   const cards = [...root.querySelectorAll('[data-price-card]')];

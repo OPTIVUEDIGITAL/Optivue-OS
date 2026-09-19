@@ -75,12 +75,20 @@ class OptivueGrowthSystem extends HTMLElement {
 
   connectedCallback() {
     this._reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._mobile = window.matchMedia('(max-width: 760px)').matches;
     this._render();
     this._io = new IntersectionObserver((entries) => {
       this._visible = entries[0].isIntersecting;
       if (this._visible) this._start(); else this._stop();
     }, { threshold: 0 });
     this._io.observe(this);
+    if (this._mobile) {
+      this._onVisibilityChange = () => {
+        if (document.hidden) this._stop();
+        else if (this._visible) this._start();
+      };
+      document.addEventListener('visibilitychange', this._onVisibilityChange);
+    }
     window.addEventListener('scroll', this._onScroll, { passive: true });
     window.addEventListener('resize', this._onScroll, { passive: true });
     const isTouch = window.matchMedia('(hover: none)').matches;
@@ -101,6 +109,9 @@ class OptivueGrowthSystem extends HTMLElement {
     window.removeEventListener('scroll', this._onScroll);
     window.removeEventListener('resize', this._onScroll);
     window.removeEventListener('pointermove', this._onPointer);
+    if (this._mobile && this._onVisibilityChange) {
+      document.removeEventListener('visibilitychange', this._onVisibilityChange);
+    }
   }
 
   attributeChangedCallback(name) {
@@ -124,6 +135,7 @@ class OptivueGrowthSystem extends HTMLElement {
   }
 
   _start() {
+    if (this._mobile && document.hidden) return;
     if (!this._raf && !this._reduced) this._raf = requestAnimationFrame(this._tick);
   }
 
@@ -135,7 +147,8 @@ class OptivueGrowthSystem extends HTMLElement {
   }
 
   _tick() {
-    this._progress += (this._target - this._progress) * 0.12;
+    const response = this._mobile ? 0.065 : 0.12;
+    this._progress += (this._target - this._progress) * response;
     this._paint();
     this._raf = requestAnimationFrame(this._tick);
   }
@@ -143,8 +156,13 @@ class OptivueGrowthSystem extends HTMLElement {
   _render() {
     const nodeMap = Object.fromEntries(NODES.map((node) => [node.id, node]));
     const center = (node) => ({ x: node.x + node.w / 2, y: node.y + NODE_H / 2 });
+    const renderNodes = this._mobile ? NODES.filter((node) => node.tier === 1) : NODES;
+    const renderEdges = this._mobile
+      ? [['traffic','capture'],['landing','capture'],['capture','crm'],['crm','customer'],['customer','analytics']]
+      : EDGES;
+    this._renderEdges = renderEdges;
 
-    const edges = EDGES.map(([a, b], index) => {
+    const edges = renderEdges.map(([a, b], index) => {
       const A = center(nodeMap[a]);
       const B = center(nodeMap[b]);
       const mx = (A.x + B.x) / 2;
@@ -152,7 +170,7 @@ class OptivueGrowthSystem extends HTMLElement {
       return `<path class="edge${loop}" data-i="${index}" d="M ${A.x} ${A.y} C ${mx} ${A.y}, ${mx} ${B.y}, ${B.x} ${B.y}" />`;
     }).join('');
 
-    const nodes = NODES.map((node) => `
+    const nodes = renderNodes.map((node) => `
       <g class="node" data-id="${node.id}" data-tier="${node.tier}" transform="translate(${node.x} ${node.y})">
         <rect class="node__bg" width="${node.w}" height="${NODE_H}" rx="10" />
         <circle class="node__dot" cx="16" cy="22" r="3.5" />
@@ -239,7 +257,7 @@ class OptivueGrowthSystem extends HTMLElement {
       path.style.strokeDashoffset = len * (1 - local);
       path.classList.toggle('edge--active', local > 0.02);
       if (local > 0.75) {
-        const [a, b] = EDGES[index];
+        const [a, b] = this._renderEdges[index];
         connected.add(a); connected.add(b);
       }
     });

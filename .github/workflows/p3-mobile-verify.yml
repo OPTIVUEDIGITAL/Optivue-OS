@@ -344,8 +344,8 @@ jobs:
           });
           results.phone.reducedMotion = reducedState;
           if (!reducedState.heroReduced || reducedState.heroRaf !== null) results.failures.push("reduced motion: hero is still animating");
-          if (reducedState.ctaTransition && reducedState.ctaTransition !== "0s") results.failures.push("reduced motion: sticky CTA transition still enabled");
-          if (reducedState.stageSnap !== "x proximity") results.failures.push("reduced motion: carousel snap was not relaxed");
+          if (reducedState.ctaTransition && Math.max(...reducedState.ctaTransition.split(",").map(v => parseFloat(v) || 0)) > 0.001) results.failures.push("reduced motion: sticky CTA transition still enabled");
+          if (!["x","x proximity"].includes(reducedState.stageSnap)) results.failures.push("reduced motion: carousel snap was not relaxed");
           await reduced.close();
 
           await browser.close();

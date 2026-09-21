@@ -357,13 +357,19 @@ function initMobileExperience(root) {
     });
   }
 
-  // Give native horizontal scrollers a keyboard focus target without adding
-  // any swipe handler or carousel library.
+  // Give the native pricing scroller a keyboard focus target and put the
+  // featured plan first in DOM order on phones only. Restore source order if
+  // this mobile initializer is destroyed.
   if (pricingGrid) {
+    const pricingCards = [...pricingGrid.querySelectorAll('[data-price-card]')];
+    const featuredCard = pricingGrid.querySelector('.ovgo-price-card.is-featured');
+    if (featuredCard && pricingCards[0] !== featuredCard) pricingGrid.prepend(featuredCard);
+
     pricingGrid.tabIndex = 0;
     pricingGrid.setAttribute('role', 'region');
     pricingGrid.setAttribute('aria-label', 'Pricing plans');
     cleanup.push(() => {
+      pricingCards.forEach((card) => pricingGrid.append(card));
       pricingGrid.removeAttribute('tabindex');
       pricingGrid.removeAttribute('role');
       pricingGrid.removeAttribute('aria-label');

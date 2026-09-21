@@ -646,7 +646,9 @@
 
   #optivue-growth-os .ovgo-form-row input,
   #optivue-growth-os .ovgo-form-row select,
-  #optivue-growth-os .ovgo-form-row textarea {
+  #optivue-growth-os .ovgo-form-row textarea,
+  #optivue-growth-os input[type="checkbox"],
+  #optivue-growth-os input[type="radio"] {
     font-size: var(--ovgo-type-body);
   }
 

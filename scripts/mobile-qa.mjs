@@ -62,6 +62,25 @@ for (const viewport of phones) {
 
     const smallTargets = actions.filter((a) => a.width < 43.5 || a.height < 43.5);
 
+    const closePairs = [];
+    for (let i = 0; i < actions.length; i += 1) {
+      for (let j = i + 1; j < actions.length; j += 1) {
+        const a = actions[i];
+        const b = actions[j];
+        const horizontalOverlap = Math.min(a.right, b.right) - Math.max(a.left, b.left);
+        const verticalOverlap = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+        const xGap = Math.max(0, Math.max(a.left, b.left) - Math.min(a.right, b.right));
+        const yGap = Math.max(0, Math.max(a.top, b.top) - Math.min(a.bottom, b.bottom));
+
+        // Only compare separate, sibling-like targets aligned on the same row or column.
+        if (horizontalOverlap > 8 && yGap > 0 && yGap < 8) {
+          closePairs.push({ a: a.text, b: b.text, gap: yGap, axis: "vertical" });
+        } else if (verticalOverlap > 8 && xGap > 0 && xGap < 8) {
+          closePairs.push({ a: a.text, b: b.text, gap: xGap, axis: "horizontal" });
+        }
+      }
+    }
+
     const formControls = [...document.querySelectorAll("input:not([type=hidden]),select,textarea")]
       .filter((el) => {
         if (el.closest("[hidden]")) return false;
@@ -87,6 +106,7 @@ for (const viewport of phones) {
       bodyScrollWidth: document.body.scrollWidth,
       horizontalOverflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) > innerWidth + 1,
       smallTargets,
+      closePairs,
       tooSmallInputs,
       ctaPresent: Boolean(cta),
       ctaInitiallyVisible: Boolean(cta?.classList.contains("is-visible")),
@@ -203,6 +223,7 @@ const failures = [];
 for (const r of results) {
   if (r.horizontalOverflow) failures.push(`${r.viewport}: page horizontal overflow`);
   if (r.smallTargets.length) failures.push(`${r.viewport}: ${r.smallTargets.length} tappable targets below 44x44`);
+  if (r.closePairs.length) failures.push(`${r.viewport}: ${r.closePairs.length} adjacent tappable pairs under 8px separation`);
   if (r.tooSmallInputs.length) failures.push(`${r.viewport}: form controls below 16px`);
   if (!r.ctaPresent || r.ctaInitiallyVisible) failures.push(`${r.viewport}: sticky CTA initial state incorrect`);
   if (!r.ctaAfterHero) failures.push(`${r.viewport}: sticky CTA did not appear after hero`);

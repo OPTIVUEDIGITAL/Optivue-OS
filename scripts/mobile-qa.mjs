@@ -126,7 +126,7 @@ for (const viewport of phones) {
   await page.waitForTimeout(100);
   const ctaDuringModal = await page.locator(".ovgo-mobile-cta").evaluate(el => el.classList.contains("is-visible"));
   const modalOpen = await page.locator("[data-ovgo-modal]").evaluate(el => !el.hidden);
-  await page.locator("[data-ovgo-modal-close]").click();
+  await page.getByRole("button", { name: "Close booking modal" }).click();
 
   // Mobile menu suppresses sticky CTA.
   await page.locator("[data-ovgo-menu-toggle]").click();

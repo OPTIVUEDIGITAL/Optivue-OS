@@ -117,6 +117,7 @@ for (const viewport of phones) {
       stageScrollable: Boolean(stageGrid && stageGrid.scrollWidth > stageGrid.clientWidth),
       pricingScrollable: Boolean(pricingGrid && pricingGrid.scrollWidth > pricingGrid.clientWidth),
       pricingFirst: pricingCards[0]?.name || null,
+      pricingDomFirst: pricingGrid?.querySelector("[data-price-card]")?.dataset.pricePlan || null,
       growthRunningInitially: Boolean(growth?._raf),
       stageTabIndex: stageGrid?.tabIndex ?? null,
       pricingTabIndex: pricingGrid?.tabIndex ?? null,
@@ -234,6 +235,7 @@ for (const r of results) {
   if (!r.stageScrollable || !r.pricingScrollable) failures.push(`${r.viewport}: phone carousel not internally scrollable`);
   if (!r.stageKeyboardScroll || !r.pricingKeyboardScroll) failures.push(`${r.viewport}: keyboard scrolling failed`);
   if (r.pricingFirst !== "Growth Accelerator") failures.push(`${r.viewport}: featured pricing plan not visually first`);
+  if (r.pricingDomFirst !== "Growth Accelerator") failures.push(`${r.viewport}: featured pricing plan not first in mobile DOM order`);
   if (!r.firstWorkOpen || !r.secondWorkOpen || !r.secondPanelVisible) failures.push(`${r.viewport}: inline work accordion failed`);
   if (!r.growthStoppedOffscreen) failures.push(`${r.viewport}: hero graph RAF still running offscreen`);
   if (String(r.heroBackdrop).includes("blur")) failures.push(`${r.viewport}: hero still uses backdrop blur`);

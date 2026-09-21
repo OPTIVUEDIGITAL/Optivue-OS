@@ -9,14 +9,18 @@ Cloudflare Workers Builds
   ↓
 Cloudflare Worker + Static Assets
   ↓
-www.optivuedigital.com
+growth.optivuedigital.com
 ```
 
 GitHub remains the source of truth.
 
-Cloudflare Workers + Static Assets serves the production front end.
+Cloudflare Workers + Static Assets serves the Growth OS front end.
 
-## Current staging deployment
+The existing Wix marketing site remains on:
+
+`https://www.optivuedigital.com/`
+
+## Current deployment
 
 Repository:
 
@@ -44,28 +48,72 @@ Static asset directory:
 
 `./production`
 
-Staging hostname:
+Fallback hostname:
 
 `https://optivue-growth-os.rahmeldc.workers.dev`
+
+Branded production hostname:
+
+`https://growth.optivuedigital.com`
 
 ## Wrangler configuration
 
 The root Wrangler configuration is the deployment source of truth.
 
-It currently enables:
+It enables:
 
 - Worker name: `optivue-growth-os`
-- `workers.dev`
+- `workers.dev` as a fallback
 - version preview URLs
 - static assets from `./production`
+- custom domain: `growth.optivuedigital.com`
 
-No runtime Worker script is required for the front end because Cloudflare can serve matching static assets directly.
+No runtime Worker script is required for the front end because Cloudflare serves the matching static assets directly.
+
+## Verified domain state
+
+The connected Wix account reports:
+
+- Domain: `optivuedigital.com`
+- Registrar: GoDaddy
+- Current authoritative nameservers:
+  - `ns47.domaincontrol.com`
+  - `ns48.domaincontrol.com`
+- Wix connection method: pointing
+- Apex A record used by Wix: `185.230.63.107`
+- `www` CNAME used by Wix: `pointing.wixdns.net`
+
+This means the domain is not registered at Wix and does not need to be transferred away from Wix.
+
+## Custom-domain activation
+
+Cloudflare Workers Custom Domains require an active Cloudflare DNS zone.
+
+Before merging the custom-domain configuration to `main`:
+
+1. Inventory all current GoDaddy DNS records, especially MX, TXT, SPF, DKIM, DMARC, verification, SRV, and any existing subdomains.
+2. Add `optivuedigital.com` as a Cloudflare DNS zone.
+3. Recreate or confirm every required DNS record in Cloudflare.
+4. Preserve the Wix website records:
+   - apex A → `185.230.63.107`
+   - `www` CNAME → `pointing.wixdns.net`
+5. Change the domain nameservers at GoDaddy from the current GoDaddy nameservers to the two nameservers assigned by Cloudflare.
+6. Wait until Cloudflare marks the zone Active.
+7. Merge the branded-domain PR.
+8. Cloudflare Workers Builds deploys `main` and Wrangler attaches `growth.optivuedigital.com` to the Worker.
+9. Verify:
+   - `https://www.optivuedigital.com/` still loads the Wix site
+   - business email still sends and receives
+   - `https://growth.optivuedigital.com/` loads the Growth OS
+10. Keep `workers.dev` enabled until the branded hostname has been verified from multiple networks.
+
+Do not change nameservers before the complete current DNS inventory has been captured.
 
 ## Production promotion
 
 The `main` branch is the production branch.
 
-Future workflow:
+Workflow:
 
 1. create feature branch
 2. open PR
@@ -73,29 +121,6 @@ Future workflow:
 4. run visual and functional QA
 5. merge to `main`
 6. Cloudflare automatically deploys the production Worker
-
-## Custom domain
-
-Primary public hostname:
-
-`www.optivuedigital.com`
-
-Workers custom domains require an active Cloudflare DNS zone.
-
-Before attaching the domain:
-
-1. validate the `workers.dev` deployment
-2. inventory every current Wix DNS record
-3. preserve MX, TXT, verification, SPF, DKIM, and other service records
-4. add `optivuedigital.com` to Cloudflare as a zone
-5. migrate nameserver authority from Wix DNS hosting to Cloudflare
-6. verify DNS and email behavior
-7. attach `www.optivuedigital.com` to the Growth OS Worker as a Custom Domain
-8. configure the preferred apex/www redirect
-
-Domain registration can remain with Wix; only authoritative DNS hosting needs to move to Cloudflare for the Workers Custom Domain model.
-
-Do not change nameservers until staging QA is complete and the current DNS inventory is captured.
 
 ## Security headers
 
@@ -133,8 +158,6 @@ Do not deploy or enable lead submission until the Make Growth OS scenario is tes
 
 ## Cloudflare connection status
 
-The Cloudflare account and Workers Git deployment are now configured.
+The Cloudflare account and Workers Git deployment are configured.
 
-ChatGPT does not currently have a direct Cloudflare management connector in this conversation, so Cloudflare dashboard-only actions still require the account owner.
-
-GitHub changes can be made from this conversation and Cloudflare should deploy them automatically through Workers Builds.
+ChatGPT does not currently have a direct Cloudflare DNS/account management connector in this conversation. GitHub deployment configuration can be updated here, but creating the Cloudflare DNS zone and changing GoDaddy nameservers still require access to those provider controls.

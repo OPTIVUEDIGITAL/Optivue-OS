@@ -1,4 +1,4 @@
-import { chromium } from "playwright";
+// Phone-only acceptance suite. Keep this aligned with docs/passes/p3-mobile.md.\nimport { chromium } from "playwright";
 import fs from "node:fs/promises";
 
 const base = "http://127.0.0.1:8787";

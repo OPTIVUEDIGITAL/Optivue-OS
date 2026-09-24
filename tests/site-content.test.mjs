@@ -8,8 +8,8 @@ const sitemap = await readFile(new URL('../production/sitemap.xml', import.meta.
 const robots = await readFile(new URL('../production/robots.txt', import.meta.url), 'utf8');
 
 test('uses the clinic positioning and required hero message', () => {
-  assert.match(html, /FOR CHIROPRACTIC CLINICS/);
-  assert.match(html, /Turn More Leads Into New Patients/);
+  assert.match(html, /FOR HEALTH, WELLNESS &amp; AESTHETICS/);
+  assert.match(html, /Turn more leads into booked visits/);
   assert.match(html, /20 minutes · No pressure · Find out if a Diagnostic makes sense/);
   assert.match(html, /8 years working with medical and wellness practices/);
 });
@@ -23,7 +23,7 @@ test('publishes approved offers and binds shared estimator prices', () => {
     assert.ok(html.includes(copy), `missing ${copy}`);
   }
   for (const key of Object.keys(ESTIMATOR_CONFIG.prices)) assert.match(html, new RegExp(`data-price-key=["']${key}["']`));
-  assert.match(html, /Most clinics continue here/);
+  assert.match(html, /Ongoing growth work/);
 });
 
 test('has the required sections and one H1', () => {
@@ -36,7 +36,7 @@ test('has the required sections and one H1', () => {
 test('uses Growth OS canonical and social metadata', () => {
   assert.match(html, /<link rel="canonical" href="https:\/\/growth\.optivuedigital\.com\/">/);
   assert.match(html, /<meta property="og:url" content="https:\/\/growth\.optivuedigital\.com\/">/);
-  assert.match(html, /<title>Optivue Growth OS \| Turn More Leads Into New Patients<\/title>/);
+  assert.match(html, /<title>Optivue Growth OS \| Turn more leads into booked visits<\/title>/);
   assert.match(html, /ProfessionalService/);
   assert.doesNotMatch(html, /aggregateRating|reviewRating/);
   assert.match(sitemap, /https:\/\/growth\.optivuedigital\.com\//);

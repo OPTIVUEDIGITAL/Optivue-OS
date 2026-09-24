@@ -62,11 +62,11 @@ function initMobileMenu(root) {
 }
 
 const STAGES = {
-  acquire: { index:'STAGE 01', name:'Acquire', title:'Get the right local leads.', purpose:'The clinic problem: local demand reaches disconnected pages or channels. What I build: focused Google, local search, Google Business Profile, and paid campaign paths where they make sense.', tools:['Google Ads','Local Search','Google Business Profile'], capabilities:['Which sources produce leads','Where local demand enters','Which campaign paths deserve attention'] },
-  convert: { index:'STAGE 02', name:'Convert', title:'Give every prospect a clear next step.', purpose:'The clinic problem: people reach the site but the booking path creates friction. What I build: focused pages, clear calls to action, and an easier booking path.', tools:['Landing Pages','Booking','Conversion Review'], capabilities:['Where prospects stop','Which steps create friction','How each lead reaches booking'] },
-  automate: { index:'STAGE 03', name:'Automate', title:'Route and follow up consistently.', purpose:'The clinic problem: follow-up depends on memory or whoever sees a message. What I build: lead routing and consent-based follow-up connected to clear CRM stages.', tools:['CRM','Email','SMS','Lead Routing'], capabilities:['Which leads need action','How quickly follow-up starts','Where each lead sits in the process'] },
-  measure: { index:'STAGE 04', name:'Measure', title:'See what becomes a new patient.', purpose:'The clinic problem: reports stop at clicks and form fills. What I build: tracking from source through booking and patient outcome, where technically and legally possible.', tools:['GA4','GTM','Call Tracking','Reporting'], capabilities:['Which leads book','Which leads show up','Which sources connect to new patients'] },
-  optimize: { index:'STAGE 05', name:'Optimize', title:'Fix the biggest bottleneck first.', purpose:'The clinic problem: effort gets spread across too many priorities. What I build: a measured improvement cycle focused on the clearest constraint.', tools:['CRO','Campaign Review','Funnel Analysis'], capabilities:['The current priority','Evidence behind the decision','What gets fixed next'] },
+  acquire: { index:'STAGE 01', name:'Acquire', title:'Get the right local leads.', purpose:"I connect local search, Google Business Profile and paid campaigns to clear booking pages. Your plan sets the channels.", tools:['Google Ads','Local Search','Google Business Profile'], capabilities:['Which sources produce leads','Where local demand enters','Which campaign paths deserve attention'] },
+  convert: { index:'STAGE 02', name:'Convert', title:'Give every prospect a clear next step.', purpose:"I build pages with clear next steps. Your visitors get a simpler path to booking.", tools:['Landing Pages','Booking','Conversion Review'], capabilities:['Where prospects stop','Which steps create friction','How each lead reaches booking'] },
+  automate: { index:'STAGE 03', name:'Automate', title:'Route leads and set follow-up steps.', purpose:"I set lead routing and consent-based follow-up in your CRM. Your team sees who needs a reply.", tools:['CRM','Email','SMS','Lead Routing'], capabilities:['Which leads need action','How quickly follow-up starts','Where each lead sits in the process'] },
+  measure: { index:'STAGE 04', name:'Measure', title:'See which leads become clients.', purpose:'The clinic problem: reports stop at clicks and form fills. What I build: tracking from source through booking and patient outcome, where technically and legally possible.', tools:['GA4','GTM','Call Tracking','Reporting'], capabilities:['Which leads book','Which leads show up','Which sources connect to new patients'] },
+  optimize: { index:'STAGE 05', name:'Optimize', title:'Fix the biggest bottleneck first.', purpose:"I use your results to choose the next fix. Your team gets one clear priority.", tools:['CRO','Campaign Review','Funnel Analysis'], capabilities:['The current priority','Evidence behind the decision','What gets fixed next'] },
 };
 
 function initSystemDetail(root) {
@@ -106,7 +106,7 @@ function initFoundingClinic(root) {
   if (!section || !RUNTIME_CONFIG.foundingClinicEnabled) return;
   section.hidden = false;
   section.querySelector('#founding-title').textContent = `Founding Clinic Program · ${RUNTIME_CONFIG.foundingClinicSpots} spots`;
-  section.querySelector('[data-founding-copy]').textContent = `I'm documenting results for my first chiropractic case studies. Founding clinics receive ${RUNTIME_CONFIG.foundingClinicTerms} in exchange for permission to publish approved or anonymized results and access to measurement data.`;
+  section.querySelector('[data-founding-copy]').textContent = `I'm documenting results for my first health, wellness and aesthetics case studies. Founding clinics receive ${RUNTIME_CONFIG.foundingClinicTerms} in exchange for permission to publish approved or anonymized results and access to measurement data.`;
 }
 
 function initMobileCta(root) {

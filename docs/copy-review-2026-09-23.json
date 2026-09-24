@@ -1,0 +1,2304 @@
+{
+  "method": "Flesch-Kincaid with CMU syllables and fallback estimates",
+  "sections": [
+    {
+      "section": "Audience",
+      "before": {
+        "grade": 3.5,
+        "words": 62,
+        "max": 13,
+        "under12": 3,
+        "sentences": 6
+      },
+      "after": {
+        "grade": 4.0,
+        "words": 47,
+        "max": 11,
+        "under12": 6,
+        "sentences": 6
+      }
+    },
+    {
+      "section": "Follow-up",
+      "before": {
+        "grade": 4.5,
+        "words": 76,
+        "max": 15,
+        "under12": 7,
+        "sentences": 9
+      },
+      "after": {
+        "grade": 1.4,
+        "words": 63,
+        "max": 12,
+        "under12": 8,
+        "sentences": 9
+      }
+    },
+    {
+      "section": "Growth system",
+      "before": {
+        "grade": -0.5,
+        "words": 31,
+        "max": 9,
+        "under12": 9,
+        "sentences": 9
+      },
+      "after": {
+        "grade": -0.5,
+        "words": 30,
+        "max": 8,
+        "under12": 9,
+        "sentences": 9
+      }
+    },
+    {
+      "section": "Process",
+      "before": {
+        "grade": 5.5,
+        "words": 66,
+        "max": 22,
+        "under12": 8,
+        "sentences": 11
+      },
+      "after": {
+        "grade": 3.4,
+        "words": 59,
+        "max": 12,
+        "under12": 12,
+        "sentences": 13
+      }
+    },
+    {
+      "section": "Client work",
+      "before": {
+        "grade": 12.6,
+        "words": 104,
+        "max": 17,
+        "under12": 12,
+        "sentences": 16
+      },
+      "after": {
+        "grade": 8.6,
+        "words": 96,
+        "max": 11,
+        "under12": 19,
+        "sentences": 19
+      }
+    },
+    {
+      "section": "Work lab",
+      "before": {
+        "grade": 8.5,
+        "words": 43,
+        "max": 13,
+        "under12": 6,
+        "sentences": 7
+      },
+      "after": {
+        "grade": 3.3,
+        "words": 47,
+        "max": 11,
+        "under12": 7,
+        "sentences": 7
+      }
+    },
+    {
+      "section": "Reporting",
+      "before": {
+        "grade": 6.9,
+        "words": 26,
+        "max": 18,
+        "under12": 2,
+        "sentences": 3
+      },
+      "after": {
+        "grade": 3.9,
+        "words": 21,
+        "max": 8,
+        "under12": 4,
+        "sentences": 4
+      }
+    },
+    {
+      "section": "Pricing",
+      "before": {
+        "grade": 7.2,
+        "words": 284,
+        "max": 18,
+        "under12": 46,
+        "sentences": 51
+      },
+      "after": {
+        "grade": 5.6,
+        "words": 269,
+        "max": 13,
+        "under12": 52,
+        "sentences": 53
+      }
+    },
+    {
+      "section": "Fit",
+      "before": {
+        "grade": 4.8,
+        "words": 93,
+        "max": 11,
+        "under12": 13,
+        "sentences": 13
+      },
+      "after": {
+        "grade": 4.3,
+        "words": 95,
+        "max": 12,
+        "under12": 12,
+        "sentences": 13
+      }
+    },
+    {
+      "section": "About",
+      "before": {
+        "grade": 6.3,
+        "words": 100,
+        "max": 26,
+        "under12": 9,
+        "sentences": 12
+      },
+      "after": {
+        "grade": 4.3,
+        "words": 79,
+        "max": 13,
+        "under12": 12,
+        "sentences": 13
+      }
+    },
+    {
+      "section": "FAQ",
+      "before": {
+        "grade": 4.2,
+        "words": 154,
+        "max": 16,
+        "under12": 10,
+        "sentences": 18
+      },
+      "after": {
+        "grade": 4.1,
+        "words": 132,
+        "max": 15,
+        "under12": 13,
+        "sentences": 18
+      }
+    },
+    {
+      "section": "Final CTA",
+      "before": {
+        "grade": 3.3,
+        "words": 36,
+        "max": 13,
+        "under12": 2,
+        "sentences": 4
+      },
+      "after": {
+        "grade": 3.1,
+        "words": 30,
+        "max": 11,
+        "under12": 4,
+        "sentences": 4
+      }
+    },
+    {
+      "section": "Labels",
+      "before": {
+        "grade": 2.1,
+        "words": 15,
+        "max": 8,
+        "under12": 3,
+        "sentences": 3
+      },
+      "after": {
+        "grade": 1.3,
+        "words": 9,
+        "max": 4,
+        "under12": 3,
+        "sentences": 3
+      }
+    },
+    {
+      "section": "Metadata",
+      "before": {
+        "grade": 10.6,
+        "words": 32,
+        "max": 24,
+        "under12": 1,
+        "sentences": 2
+      },
+      "after": {
+        "grade": 3.7,
+        "words": 34,
+        "max": 9,
+        "under12": 5,
+        "sentences": 5
+      }
+    },
+    {
+      "section": "Hero option A",
+      "before": {
+        "grade": 15.8,
+        "words": 36,
+        "max": 36,
+        "under12": 0,
+        "sentences": 1
+      },
+      "after": {
+        "grade": 3.3,
+        "words": 30,
+        "max": 8,
+        "under12": 5,
+        "sentences": 5
+      }
+    },
+    {
+      "section": "Hero option B",
+      "before": {
+        "grade": 15.8,
+        "words": 36,
+        "max": 36,
+        "under12": 0,
+        "sentences": 1
+      },
+      "after": {
+        "grade": 2.1,
+        "words": 29,
+        "max": 10,
+        "under12": 5,
+        "sentences": 5
+      }
+    },
+    {
+      "section": "Hero option C",
+      "before": {
+        "grade": 15.8,
+        "words": 36,
+        "max": 36,
+        "under12": 0,
+        "sentences": 1
+      },
+      "after": {
+        "grade": 4.1,
+        "words": 27,
+        "max": 8,
+        "under12": 4,
+        "sentences": 4
+      }
+    },
+    {
+      "section": "Hero supporting copy",
+      "before": {
+        "grade": 3.5,
+        "words": 16,
+        "max": 8,
+        "under12": 3,
+        "sentences": 3
+      },
+      "after": {
+        "grade": 3.3,
+        "words": 17,
+        "max": 8,
+        "under12": 3,
+        "sentences": 3
+      }
+    },
+    {
+      "section": "Estimator questions",
+      "before": {
+        "grade": 4.6,
+        "words": 295,
+        "max": 12,
+        "under12": 65,
+        "sentences": 66
+      },
+      "after": {
+        "grade": 3.5,
+        "words": 294,
+        "max": 11,
+        "under12": 66,
+        "sentences": 66
+      }
+    },
+    {
+      "section": "Quick wins",
+      "before": {
+        "grade": 5.8,
+        "words": 82,
+        "max": 15,
+        "under12": 6,
+        "sentences": 8
+      },
+      "after": {
+        "grade": 2.7,
+        "words": 71,
+        "max": 10,
+        "under12": 11,
+        "sentences": 11
+      }
+    },
+    {
+      "section": "Result A",
+      "before": {
+        "grade": 8.6,
+        "words": 69,
+        "max": 24,
+        "under12": 2,
+        "sentences": 5
+      },
+      "after": {
+        "grade": 4.1,
+        "words": 48,
+        "max": 14,
+        "under12": 4,
+        "sentences": 5
+      }
+    },
+    {
+      "section": "Result B",
+      "before": {
+        "grade": 8.2,
+        "words": 65,
+        "max": 17,
+        "under12": 2,
+        "sentences": 5
+      },
+      "after": {
+        "grade": 4.4,
+        "words": 51,
+        "max": 12,
+        "under12": 4,
+        "sentences": 5
+      }
+    },
+    {
+      "section": "Result C",
+      "before": {
+        "grade": 10.7,
+        "words": 48,
+        "max": 24,
+        "under12": 2,
+        "sentences": 4
+      },
+      "after": {
+        "grade": 5.8,
+        "words": 44,
+        "max": 11,
+        "under12": 5,
+        "sentences": 5
+      }
+    },
+    {
+      "section": "Result D",
+      "before": {
+        "grade": 6.0,
+        "words": 55,
+        "max": 13,
+        "under12": 5,
+        "sentences": 6
+      },
+      "after": {
+        "grade": 4.0,
+        "words": 36,
+        "max": 13,
+        "under12": 3,
+        "sentences": 4
+      }
+    },
+    {
+      "section": "Result E",
+      "before": {
+        "grade": 5.4,
+        "words": 71,
+        "max": 24,
+        "under12": 2,
+        "sentences": 5
+      },
+      "after": {
+        "grade": 4.9,
+        "words": 48,
+        "max": 11,
+        "under12": 5,
+        "sentences": 5
+      }
+    },
+    {
+      "section": "Estimator intro",
+      "before": {
+        "grade": 7.3,
+        "words": 41,
+        "max": 17,
+        "under12": 1,
+        "sentences": 3
+      },
+      "after": {
+        "grade": 4.4,
+        "words": 33,
+        "max": 15,
+        "under12": 2,
+        "sentences": 3
+      }
+    },
+    {
+      "section": "Noted insights",
+      "before": {
+        "grade": 4.2,
+        "words": 71,
+        "max": 14,
+        "under12": 10,
+        "sentences": 12
+      },
+      "after": {
+        "grade": 2.4,
+        "words": 60,
+        "max": 10,
+        "under12": 9,
+        "sentences": 9
+      }
+    },
+    {
+      "section": "Estimator supporting copy",
+      "before": {
+        "grade": 3.9,
+        "words": 62,
+        "max": 27,
+        "under12": 3,
+        "sentences": 5
+      },
+      "after": {
+        "grade": 1.5,
+        "words": 39,
+        "max": 11,
+        "under12": 6,
+        "sentences": 6
+      }
+    },
+    {
+      "section": "Estimator metadata",
+      "before": {
+        "grade": 6.4,
+        "words": 22,
+        "max": 11,
+        "under12": 2,
+        "sentences": 2
+      },
+      "after": {
+        "grade": 5.4,
+        "words": 20,
+        "max": 11,
+        "under12": 2,
+        "sentences": 2
+      }
+    },
+    {
+      "section": "Dynamic stages",
+      "before": {
+        "grade": 8.2,
+        "words": 105,
+        "max": 18,
+        "under12": 2,
+        "sentences": 8
+      },
+      "after": {
+        "grade": 3.9,
+        "words": 68,
+        "max": 14,
+        "under12": 6,
+        "sentences": 8
+      }
+    }
+  ],
+  "changes": [
+    {
+      "section": "Audience",
+      "source": "production/index.html:32",
+      "before": "Who this is for",
+      "after": "Who this is for",
+      "status": "Keep"
+    },
+    {
+      "section": "Audience",
+      "source": "production/index.html:32",
+      "before": "Built for clinics where leads come in but new patients don't follow.",
+      "after": "For health, wellness and aesthetics businesses ready to book more visits.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Audience",
+      "source": "production/index.html:32",
+      "before": "You get calls and form fills, but too few turn into booked visits.",
+      "after": "Turn more calls and form responses into booked visits.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Audience",
+      "source": "production/index.html:32",
+      "before": "Follow-up depends on who happens to see the message.",
+      "after": "Give each lead a clear owner and next step.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Audience",
+      "source": "production/index.html:32",
+      "before": "You spend on ads but can't see which ones bring new patients.",
+      "after": "See which ads lead to booked visits.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Audience",
+      "source": "production/index.html:32",
+      "before": "Your website, booking, CRM, and reporting don't talk to each other.",
+      "after": "Connect your website, booking, CRM and reports.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Follow-up",
+      "source": "production/index.html:33",
+      "before": "The real constraint",
+      "after": "Where to start",
+      "status": "Proposed"
+    },
+    {
+      "section": "Follow-up",
+      "source": "production/index.html:33",
+      "before": "More Leads Won't Fix a Broken Follow-Up Process",
+      "after": "Fix follow-up before adding more leads.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Follow-up",
+      "source": "production/index.html:33",
+      "before": "If leads slip away after they reach out, more traffic means more leads slipping away. The fix usually sits between the first call and the first visit.",
+      "after": "Slow replies cost you bookings. Give your team a clear path from first contact to first visit.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Follow-up",
+      "source": "production/index.html:33",
+      "before": "Leads aren't contacted consistently or quickly.",
+      "after": "Set a reply target for each new lead.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Follow-up",
+      "source": "production/index.html:33",
+      "before": "Calls and forms aren't visible in one place.",
+      "after": "Keep calls and forms in one place.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Follow-up",
+      "source": "production/index.html:33",
+      "before": "Booking friction makes prospects disappear.",
+      "after": "Make the next booking step clear.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Follow-up",
+      "source": "production/index.html:33",
+      "before": "Your team can't see which leads need action.",
+      "after": "Show your team which leads need a reply.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Follow-up",
+      "source": "production/index.html:33",
+      "before": "Reports stop at clicks and form fills, not new patients.",
+      "after": "Track which leads book and attend visits.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Growth system",
+      "source": "production/index.html:34",
+      "before": "The Optivue Growth System",
+      "after": "The Optivue Growth System",
+      "status": "Keep"
+    },
+    {
+      "section": "Growth system",
+      "source": "production/index.html:34",
+      "before": "Connect the full path from lead to new patient.",
+      "after": "Connect each step from lead to booked visit.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Growth system",
+      "source": "production/index.html:34",
+      "before": "Stage 1",
+      "after": "Stage 1",
+      "status": "Keep"
+    },
+    {
+      "section": "Growth system",
+      "source": "production/index.html:34",
+      "before": "Stage 2",
+      "after": "Stage 2",
+      "status": "Keep"
+    },
+    {
+      "section": "Growth system",
+      "source": "production/index.html:34",
+      "before": "Stage 3",
+      "after": "Stage 3",
+      "status": "Keep"
+    },
+    {
+      "section": "Growth system",
+      "source": "production/index.html:34",
+      "before": "Stage 4",
+      "after": "Stage 4",
+      "status": "Keep"
+    },
+    {
+      "section": "Growth system",
+      "source": "production/index.html:34",
+      "before": "Stage 5",
+      "after": "Stage 5",
+      "status": "Keep"
+    },
+    {
+      "section": "Growth system",
+      "source": "production/index.html:34",
+      "before": "Get the right local leads.",
+      "after": "Get the right local leads.",
+      "status": "Keep"
+    },
+    {
+      "section": "Growth system",
+      "source": "production/index.html:34",
+      "before": "What you'll see",
+      "after": "What you'll see",
+      "status": "Keep"
+    },
+    {
+      "section": "Process",
+      "source": "production/index.html:35",
+      "before": "How it works",
+      "after": "How it works",
+      "status": "Keep"
+    },
+    {
+      "section": "Process",
+      "source": "production/index.html:35",
+      "before": "Diagnose. Build. Improve.",
+      "after": "Diagnose. Build. Improve.",
+      "status": "Keep"
+    },
+    {
+      "section": "Process",
+      "source": "production/index.html:35",
+      "before": "Diagnose",
+      "after": "Diagnose",
+      "status": "Keep"
+    },
+    {
+      "section": "Process",
+      "source": "production/index.html:35",
+      "before": "I review how your clinic handles leads from first contact to first visit: website, calls, forms, CRM, follow-up, booking, and tracking. You get a prioritized 90-day plan.",
+      "after": "I review your website, calls, forms, CRM, follow-up, booking and tracking. You get a 90-day plan with clear priorities.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Process",
+      "source": "production/index.html:35",
+      "before": "Build",
+      "after": "Build",
+      "status": "Keep"
+    },
+    {
+      "section": "Process",
+      "source": "production/index.html:35",
+      "before": "I implement the highest-priority fixes: booking path, tracking, routing, CRM stages, and follow-up.",
+      "after": "I build the fixes your plan puts first. These cover booking, tracking, lead routing, CRM stages and follow-up.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Process",
+      "source": "production/index.html:35",
+      "before": "Improve",
+      "after": "Improve",
+      "status": "Keep"
+    },
+    {
+      "section": "Process",
+      "source": "production/index.html:35",
+      "before": "Each month I review the evidence with you and fix the next bottleneck.",
+      "after": "Each month, we review results. I fix the next gap.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Client work",
+      "source": "production/index.html:36",
+      "before": "Client work",
+      "after": "Client work",
+      "status": "Keep"
+    },
+    {
+      "section": "Client work",
+      "source": "production/index.html:36",
+      "before": "Selected client work",
+      "after": "Selected client work",
+      "status": "Keep"
+    },
+    {
+      "section": "Client work",
+      "source": "production/index.html:36",
+      "before": "Implementation case studies. Outcome figures are added only when documented and approved by the client. [CONFIRM permission for each]",
+      "after": "Client projects. I share figures after clients approve them and records support them. [CONFIRM permission for each]",
+      "status": "Proposed"
+    },
+    {
+      "section": "Client work",
+      "source": "production/index.html:36",
+      "before": "IMPLEMENTATION CASE STUDY",
+      "after": "CLIENT PROJECT",
+      "status": "Proposed"
+    },
+    {
+      "section": "Client work",
+      "source": "production/index.html:36",
+      "before": "Revive Medical Wellness & Aesthetics",
+      "after": "Revive Medical Wellness & Aesthetics",
+      "status": "Keep"
+    },
+    {
+      "section": "Client work",
+      "source": "production/index.html:36",
+      "before": "Hagerstown, Maryland \u00b7 Medical wellness clinic",
+      "after": "Hagerstown, Maryland \u00b7 Medical wellness clinic",
+      "status": "Keep"
+    },
+    {
+      "section": "Client work",
+      "source": "production/index.html:36",
+      "before": "Work delivered: local SEO, geo-targeted website and Google Business Profile copy, and GBP visual asset planning. [CONFIRM exact scope]",
+      "after": "SEO and website copy for local searches. Copy and image plans for Google Business Profile. [CONFIRM exact scope]",
+      "status": "Proposed"
+    },
+    {
+      "section": "Client work",
+      "source": "production/index.html:36",
+      "before": "IMPLEMENTATION CASE STUDY",
+      "after": "CLIENT PROJECT",
+      "status": "Proposed"
+    },
+    {
+      "section": "Client work",
+      "source": "production/index.html:36",
+      "before": "CBP Online Institute / Ideal Spine",
+      "after": "CBP Online Institute / Ideal Spine",
+      "status": "Keep"
+    },
+    {
+      "section": "Client work",
+      "source": "production/index.html:36",
+      "before": "Chiropractic education platform",
+      "after": "Chiropractic education platform",
+      "status": "Keep"
+    },
+    {
+      "section": "Client work",
+      "source": "production/index.html:36",
+      "before": "Work delivered: custom Kajabi landing page and member dashboard with custom HTML, CSS, and JavaScript front-end.",
+      "after": "A custom page and member hub in Kajabi. I use HTML, CSS and JavaScript for the page design.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Client work",
+      "source": "production/index.html:36",
+      "before": "IMPLEMENTATION CASE STUDY",
+      "after": "CLIENT PROJECT",
+      "status": "Proposed"
+    },
+    {
+      "section": "Client work",
+      "source": "production/index.html:36",
+      "before": "LearnX by CJB Systems",
+      "after": "LearnX by CJB Systems",
+      "status": "Keep"
+    },
+    {
+      "section": "Client work",
+      "source": "production/index.html:36",
+      "before": "Western Australia \u00b7 Compliance onboarding product",
+      "after": "Western Australia \u00b7 Compliance onboarding product",
+      "status": "Keep"
+    },
+    {
+      "section": "Client work",
+      "source": "production/index.html:36",
+      "before": "Work delivered: content and SEO strategy, long-form content, technical SEO, marketing operations, and reporting.",
+      "after": "Plans for content and search. Blog posts, technical SEO, work processes and reports.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Work lab",
+      "source": "production/index.html:37",
+      "before": "Work lab",
+      "after": "Work lab",
+      "status": "Keep"
+    },
+    {
+      "section": "Work lab",
+      "source": "production/index.html:37",
+      "before": "What the system looks like in practice.",
+      "after": "See how the system works.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Work lab",
+      "source": "production/index.html:37",
+      "before": "Illustrative views show how clinic acquisition, follow-up, conversion, and reporting fit together.",
+      "after": "Example views show how leads, follow-up, bookings and reports connect.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Work lab",
+      "source": "production/index.html:37",
+      "before": "Lead routing and consent-based follow-up",
+      "after": "Lead routing and consent-based follow-up",
+      "status": "Keep"
+    },
+    {
+      "section": "Work lab",
+      "source": "production/index.html:37",
+      "before": "Conversion landing experience",
+      "after": "Landing pages with a clear next step",
+      "status": "Proposed"
+    },
+    {
+      "section": "Work lab",
+      "source": "production/index.html:37",
+      "before": "GA4 and GTM funnel measurement",
+      "after": "Track the booking path with GA4 and GTM",
+      "status": "Proposed"
+    },
+    {
+      "section": "Work lab",
+      "source": "production/index.html:37",
+      "before": "Search and local visibility workflow",
+      "after": "Help local clients find your business",
+      "status": "Proposed"
+    },
+    {
+      "section": "Reporting",
+      "source": "production/index.html:38",
+      "before": "Illustrative tracking view",
+      "after": "Sample tracking view",
+      "status": "Proposed"
+    },
+    {
+      "section": "Reporting",
+      "source": "production/index.html:38",
+      "before": "Reporting before and after tracking.",
+      "after": "Reporting before and after tracking.",
+      "status": "Keep"
+    },
+    {
+      "section": "Reporting",
+      "source": "production/index.html:38",
+      "before": "Connect the click, call, form, booking, and CRM outcome so you can see which leads become new patients.",
+      "after": "Link clicks, calls and forms to each booking. See which leads become clients.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:23",
+      "before": "Pricing",
+      "after": "Pricing",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:39",
+      "before": "Build the system before you scale the traffic.",
+      "after": "Build the system before you spend more on ads.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:39",
+      "before": "Start with a Diagnostic. Build what the Diagnostic shows you need. Then keep improving.",
+      "after": "Start with a Diagnostic. Build the fixes your plan puts first. Review results and improve.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:40",
+      "before": "ONE-TIME",
+      "after": "ONE-TIME",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:40",
+      "before": "Growth Systems Diagnostic",
+      "after": "Growth Systems Diagnostic",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:40",
+      "before": "A fixed-scope review of how leads move from first contact to first visit.",
+      "after": "A fixed-scope review of your lead-to-visit process.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:40",
+      "before": "Lead-to-patient journey map",
+      "after": "Lead-to-patient journey map",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:40",
+      "before": "Website, call, form, booking, CRM, follow-up, and tracking review",
+      "after": "Website, call, form, booking, CRM, follow-up, and tracking review",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:40",
+      "before": "Top three bottlenecks",
+      "after": "Top three bottlenecks",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:40",
+      "before": "Prioritized 90-day plan and build estimate",
+      "after": "Prioritized 90-day plan and build estimate",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:41",
+      "before": "FIXED SCOPE",
+      "after": "FIXED SCOPE",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:41",
+      "before": "90-Day Growth Foundation Launch",
+      "after": "90-Day Growth Foundation Launch",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:41",
+      "before": "The connected system, built once and owned by your clinic.",
+      "after": "I build the connected system. You own the setup.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:41",
+      "before": "One booking path",
+      "after": "One booking path",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:41",
+      "before": "Call, form, and booking setup",
+      "after": "Call, form, and booking setup",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:41",
+      "before": "CRM stages and lead routing",
+      "after": "CRM stages and lead routing",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:41",
+      "before": "Consent-based email and SMS follow-up",
+      "after": "Consent-based email and SMS follow-up",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:41",
+      "before": "Conversion tracking, reporting, documentation, and handoff",
+      "after": "Conversion tracking, reporting, documentation, and handoff",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:42",
+      "before": "ONGOING",
+      "after": "ONGOING",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:42",
+      "before": "Growth Operations",
+      "after": "Growth Operations",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:42",
+      "before": "Ongoing work on the part of the system most likely to improve next.",
+      "after": "Each month, I work on the next growth priority.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:42",
+      "before": "Monthly acquisition, conversion, follow-up, and tracking priorities",
+      "after": "Monthly acquisition, conversion, follow-up, and tracking priorities",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:42",
+      "before": "Campaign management where justified",
+      "after": "Campaign management where justified",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:42",
+      "before": "Monthly reporting and decision review",
+      "after": "Monthly reporting and decision review",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:43",
+      "before": "MAINTENANCE",
+      "after": "MAINTENANCE",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:43",
+      "before": "Systems Care",
+      "after": "Systems Care",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:43",
+      "before": "For clinics no longer needing active growth work.",
+      "after": "Keep your systems working after active growth work ends.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:43",
+      "before": "Monthly system health check",
+      "after": "Monthly system health check",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:43",
+      "before": "Testing forms, booking, and automations",
+      "after": "Testing forms, booking, and automations",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:43",
+      "before": "Small fixes within a set support allowance",
+      "after": "Small fixes within a set support allowance",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:44",
+      "before": "This isn't a cheap, high-volume marketing subscription.",
+      "after": "Your tools work together. You own the system.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:44",
+      "before": "Fixing lost leads means your landing page, calls, forms, CRM, follow-up, booking, and reporting working together. Your clinic owns the resulting system.",
+      "after": "I connect your landing page, calls, forms, CRM, follow-up, booking and reports. Your team gets one clear process.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:44",
+      "before": "You pay for diagnosis, priorities, and implementation.",
+      "after": "Know what to fix. Get the work done.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:44",
+      "before": "If a simpler fix solves the problem, I'll recommend the simpler fix. If follow-up isn't ready for more leads, I'll tell you before you spend another dollar on ads.",
+      "after": "I recommend the smallest fix which solves the problem. We check follow-up before you spend more on ads.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:44",
+      "before": "Provider dependency vs. your infrastructure",
+      "after": "Who controls your systems?",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:44",
+      "before": "PROVIDER DEPENDENCY",
+      "after": "PROVIDER DEPENDENCY",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:44",
+      "before": "Access disappears when the contract ends.",
+      "after": "Access disappears when the contract ends.",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:44",
+      "before": "Accounts controlled elsewhere",
+      "after": "Your provider controls the accounts",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:44",
+      "before": "Limited process visibility",
+      "after": "You see little of the process",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:44",
+      "before": "Reports stop at marketing activity",
+      "after": "Reports show marketing activity without sales outcomes",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:44",
+      "before": "YOUR INFRASTRUCTURE",
+      "after": "YOUR INFRASTRUCTURE",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:44",
+      "before": "Your clinic owns the working system.",
+      "after": "You own the working system.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:44",
+      "before": "Your accounts and data",
+      "after": "Your accounts and data",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:44",
+      "before": "Documented workflows",
+      "after": "Documented workflows",
+      "status": "Keep"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:44",
+      "before": "Lead-to-new-patient visibility",
+      "after": "See which leads become clients",
+      "status": "Proposed"
+    },
+    {
+      "section": "Pricing",
+      "source": "production/index.html:44",
+      "before": "Founding Clinic Program",
+      "after": "Founding Clinic Program",
+      "status": "Keep"
+    },
+    {
+      "section": "Fit",
+      "source": "production/index.html:45",
+      "before": "Working fit",
+      "after": "Working fit",
+      "status": "Keep"
+    },
+    {
+      "section": "Fit",
+      "source": "production/index.html:45",
+      "before": "Clear expectations before work begins.",
+      "after": "Clear expectations before work begins.",
+      "status": "Keep"
+    },
+    {
+      "section": "Fit",
+      "source": "production/index.html:45",
+      "before": "Optivue is a fit if",
+      "after": "Optivue is a fit if",
+      "status": "Keep"
+    },
+    {
+      "section": "Fit",
+      "source": "production/index.html:45",
+      "before": "You run an appointment-based clinic with booking capacity.",
+      "after": "You run a health, wellness or aesthetics business with space for bookings.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Fit",
+      "source": "production/index.html:45",
+      "before": "You get leads or plan to generate them.",
+      "after": "You get leads or plan to generate them.",
+      "status": "Keep"
+    },
+    {
+      "section": "Fit",
+      "source": "production/index.html:45",
+      "before": "You provide access to your website, CRM, booking, and call data.",
+      "after": "You provide access to your website, CRM, booking, and call data.",
+      "status": "Keep"
+    },
+    {
+      "section": "Fit",
+      "source": "production/index.html:45",
+      "before": "Your team is willing to improve follow-up.",
+      "after": "Your team wants to improve follow-up.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Fit",
+      "source": "production/index.html:45",
+      "before": "You want systems you own and honest reporting.",
+      "after": "You want systems you own and honest reporting.",
+      "status": "Keep"
+    },
+    {
+      "section": "Fit",
+      "source": "production/index.html:45",
+      "before": "Optivue is not a fit if",
+      "after": "Optivue is not a fit if",
+      "status": "Keep"
+    },
+    {
+      "section": "Fit",
+      "source": "production/index.html:45",
+      "before": "You only want a website or ads in isolation.",
+      "after": "You only want a website or ads in isolation.",
+      "status": "Keep"
+    },
+    {
+      "section": "Fit",
+      "source": "production/index.html:45",
+      "before": "You want guaranteed patient numbers.",
+      "after": "You want guaranteed patient numbers.",
+      "status": "Keep"
+    },
+    {
+      "section": "Fit",
+      "source": "production/index.html:45",
+      "before": "You can't provide access to your systems.",
+      "after": "You can't provide access to your systems.",
+      "status": "Keep"
+    },
+    {
+      "section": "Fit",
+      "source": "production/index.html:45",
+      "before": "You can't answer or book the leads you already get.",
+      "after": "Your team lacks time to answer leads or book visits.",
+      "status": "Proposed"
+    },
+    {
+      "section": "About",
+      "source": "production/index.html:46",
+      "before": "Rahmel Dela Cruz \u00b7 Optivue Digital",
+      "after": "Rahmel Dela Cruz \u00b7 Optivue Digital",
+      "status": "Keep"
+    },
+    {
+      "section": "About",
+      "source": "production/index.html:46",
+      "before": "How I work",
+      "after": "How I work",
+      "status": "Keep"
+    },
+    {
+      "section": "About",
+      "source": "production/index.html:46",
+      "before": "Audit first. Strategy next. Then systems.",
+      "after": "Audit first. Strategy next. Then systems.",
+      "status": "Keep"
+    },
+    {
+      "section": "About",
+      "source": "production/index.html:46",
+      "before": "I'm Rahmel. I build and run the work myself: the site, tracking, CRM, and follow-up. You work directly with the person responsible for your system.",
+      "after": "I'm Rahmel. I build and manage your website, tracking, CRM and follow-up. You work with me throughout the project.",
+      "status": "Proposed"
+    },
+    {
+      "section": "About",
+      "source": "production/index.html:46",
+      "before": "I've spent eight years working with medical and wellness practices and consulting companies, and more broadly with service companies where a booked appointment is the sale.",
+      "after": "My eight years of work cover medical, wellness, consulting and other service businesses. I focus on the path to a booked visit.",
+      "status": "Proposed"
+    },
+    {
+      "section": "About",
+      "source": "production/index.html:46",
+      "before": "I limit active work to four clinics at a time so every system gets built properly and every question gets a direct answer. No unannounced handoffs. I stay accountable for the work I control.",
+      "after": "I work with up to four businesses at once. I handle your build and answer your questions. I tell you before any handoff.",
+      "status": "Proposed"
+    },
+    {
+      "section": "FAQ",
+      "source": "production/index.html:47",
+      "before": "FAQ",
+      "after": "FAQ",
+      "status": "Keep"
+    },
+    {
+      "section": "FAQ",
+      "source": "production/index.html:47",
+      "before": "Questions before you start.",
+      "after": "Questions before you start.",
+      "status": "Keep"
+    },
+    {
+      "section": "FAQ",
+      "source": "production/index.html:47",
+      "before": "Why is the Diagnostic paid?",
+      "after": "Why is the Diagnostic paid?",
+      "status": "Keep"
+    },
+    {
+      "section": "FAQ",
+      "source": "production/index.html:47",
+      "before": "Because it's real work: a decision-ready plan, not a sales pitch. It tells you what to fix first, and what not to spend on yet.",
+      "after": "You pay for a plan based on your systems and data. The plan shows what to fix first and which spending to delay.",
+      "status": "Proposed"
+    },
+    {
+      "section": "FAQ",
+      "source": "production/index.html:47",
+      "before": "Why not run more ads?",
+      "after": "When should I spend more on ads?",
+      "status": "Proposed"
+    },
+    {
+      "section": "FAQ",
+      "source": "production/index.html:47",
+      "before": "If leads are lost after they reach out, more ads mean more lost leads. The Diagnostic shows whether traffic or follow-up is the real constraint.",
+      "after": "Check the booking path first. The Diagnostic shows whether you need more leads or better follow-up.",
+      "status": "Proposed"
+    },
+    {
+      "section": "FAQ",
+      "source": "production/index.html:47",
+      "before": "Do I own everything you build?",
+      "after": "Do I own everything you build?",
+      "status": "Keep"
+    },
+    {
+      "section": "FAQ",
+      "source": "production/index.html:47",
+      "before": "Yes. Your ad accounts, website, CRM, tracking, workflows, data, and documentation stay yours.",
+      "after": "Yes. Your ad accounts, website, CRM, tracking, workflows, data, and documentation stay yours.",
+      "status": "Keep"
+    },
+    {
+      "section": "FAQ",
+      "source": "production/index.html:47",
+      "before": "What do you need from my team?",
+      "after": "What do you need from my team?",
+      "status": "Keep"
+    },
+    {
+      "section": "FAQ",
+      "source": "production/index.html:47",
+      "before": "Access to your systems, timely approvals, and a front desk willing to follow the new process.",
+      "after": "Access to your systems, prompt approvals, and a team ready to follow the new process.",
+      "status": "Proposed"
+    },
+    {
+      "section": "FAQ",
+      "source": "production/index.html:47",
+      "before": "Another provider quoted $999 a month. Why the difference?",
+      "after": "Another provider quoted $999 a month. Why the difference?",
+      "status": "Keep"
+    },
+    {
+      "section": "FAQ",
+      "source": "production/index.html:47",
+      "before": "Many low-cost plans manage ads or post content. I diagnose, build, and connect the full path from lead to new patient. If you only need ad management, a lower-cost provider might suit you better.",
+      "after": "Scope affects price. I review and build the full path from lead to booked visit. For ads alone, consider a provider focused on ad management.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Final CTA",
+      "source": "production/index.html:48",
+      "before": "Next step",
+      "after": "Next step",
+      "status": "Keep"
+    },
+    {
+      "section": "Final CTA",
+      "source": "production/index.html:48",
+      "before": "Find out where your new patients are slipping away.",
+      "after": "Find the next step toward more booked visits.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Final CTA",
+      "source": "production/index.html:48",
+      "before": "Tell me how leads currently move from first contact to first visit. In 20 minutes, we'll see if a Diagnostic is the right next step.",
+      "after": "Tell me how your team handles leads and bookings. In 20 minutes, we'll discuss whether a Diagnostic fits your needs.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Labels",
+      "source": "production/index.html",
+      "before": "Most clinics continue here",
+      "after": "Ongoing growth work",
+      "status": "Proposed"
+    },
+    {
+      "section": "Labels",
+      "source": "production/index.html",
+      "before": "Built in your stack \u00b7 Owned by your clinic",
+      "after": "Your tools \u00b7 Your systems",
+      "status": "Proposed"
+    },
+    {
+      "section": "Labels",
+      "source": "production/index.html",
+      "before": "Clinic Fit Call",
+      "after": "Fit Call",
+      "status": "Proposed"
+    },
+    {
+      "section": "Metadata",
+      "source": "production/index.html:6,12,14",
+      "before": "I help chiropractic clinics connect ads, calls, follow-up, booking, and reporting so you can see where new patients are lost and fix it.",
+      "after": "For health, wellness and aesthetics teams. I connect your ads, follow-up and booking tools. See which leads become clients.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Metadata",
+      "source": "production/index.html:16",
+      "before": "Marketing systems and implementation support for chiropractic clinics.",
+      "after": "Marketing tools for health, wellness and aesthetics teams. See which leads book a visit.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Hero option A",
+      "source": "production/index.html:30",
+      "before": "FOR CHIROPRACTIC CLINICS Turn More Leads Into New Patients I help chiropractic clinics connect ads, website, calls, follow-up, booking, and reporting, so you can see where leads are lost and fix the biggest gap first.",
+      "after": "For health, wellness & aesthetics. Turn more leads into booked visits. I connect your marketing, follow-up and booking. Your team gets clear next steps. You see which leads become clients.",
+      "status": "Hero proposal only"
+    },
+    {
+      "section": "Hero option B",
+      "source": "production/index.html:30",
+      "before": "FOR CHIROPRACTIC CLINICS Turn More Leads Into New Patients I help chiropractic clinics connect ads, website, calls, follow-up, booking, and reporting, so you can see where leads are lost and fix the biggest gap first.",
+      "after": "For health, wellness & aesthetics. See where bookings stall. Know what to fix. I review your marketing and booking process. You get a clear plan, then help with the build.",
+      "status": "Hero proposal only"
+    },
+    {
+      "section": "Hero option C",
+      "source": "production/index.html:30",
+      "before": "FOR CHIROPRACTIC CLINICS Turn More Leads Into New Patients I help chiropractic clinics connect ads, website, calls, follow-up, booking, and reporting, so you can see where leads are lost and fix the biggest gap first.",
+      "after": "For health, wellness & aesthetics. Give every lead a clear path to booking. I connect your website, CRM and follow-up. Your team knows who to contact next.",
+      "status": "Hero proposal only"
+    },
+    {
+      "section": "Hero supporting copy",
+      "source": "production/index.html:30",
+      "before": "Built in your stack. Owned by your clinic. \u00b7 8 years working with medical and wellness practices",
+      "after": "I build in your tools. You own the system. \u00b7 8 years working with medical and wellness practices",
+      "status": "Hero proposal only"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q1",
+      "before": "What kind of business do you run?",
+      "after": "What kind of business do you run?",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q1",
+      "before": "Medical wellness, aesthetics, or med spa",
+      "after": "Medical wellness, aesthetics, or med spa",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q1",
+      "before": "Chiropractic, physio, or allied health",
+      "after": "Chiropractic, physio, or allied health",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q1",
+      "before": "Other health & wellness (IV therapy, functional medicine, etc.)",
+      "after": "Other health and wellness, such as IV therapy or functional medicine",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q1",
+      "before": "Consulting or professional services",
+      "after": "Consulting or professional services",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q1",
+      "before": "Training, education, or membership",
+      "after": "Training, education, or membership",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q1",
+      "before": "Local service business",
+      "after": "Local service business",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q1",
+      "before": "Online store only (ecommerce)",
+      "after": "Online store only (ecommerce)",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q1",
+      "before": "Something else",
+      "after": "Something else",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q2",
+      "before": "How many locations do you have?",
+      "after": "How many locations do you have?",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q2",
+      "before": "One",
+      "after": "One",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q2",
+      "before": "Two to five",
+      "after": "Two to five",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q2",
+      "before": "Six or more",
+      "after": "Six or more",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q2",
+      "before": "Online / remote only",
+      "after": "Online / remote only",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q2",
+      "before": "Not sure",
+      "after": "Not sure",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q3",
+      "before": "About how many new inquiries do you get each month?",
+      "after": "How many new leads contact you each month?",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q3",
+      "before": "Calls, forms, bookings, and messages combined.",
+      "after": "Calls, forms, bookings, and messages combined.",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q3",
+      "before": "Fewer than 10",
+      "after": "Fewer than 10",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q3",
+      "before": "10\u201325",
+      "after": "10\u201325",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q3",
+      "before": "26\u201350",
+      "after": "26\u201350",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q3",
+      "before": "51\u2013100",
+      "after": "51\u2013100",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q3",
+      "before": "More than 100",
+      "after": "More than 100",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q3",
+      "before": "Not sure",
+      "after": "Not sure",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q4",
+      "before": "What's the biggest thing you want to fix?",
+      "after": "What's the biggest thing you want to fix?",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q4",
+      "before": "We need more inquiries",
+      "after": "We need more leads",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q4",
+      "before": "We get inquiries, but not enough book",
+      "after": "Too few leads book a visit",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q4",
+      "before": "People book, but don't show up or don't convert",
+      "after": "People book but miss visits or choose not to buy",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q4",
+      "before": "We can't tell which marketing actually works",
+      "after": "We don't know which marketing brings clients",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q4",
+      "before": "Our website, CRM, booking, and follow-up don't connect",
+      "after": "Our website, CRM, booking, and follow-up don't connect",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q4",
+      "before": "We're launching a new offer or location",
+      "after": "We're launching a new offer or location",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q4",
+      "before": "Things work. We want ongoing improvement",
+      "after": "Things work. We want ongoing improvement",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q4",
+      "before": "Not sure",
+      "after": "Not sure",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q5",
+      "before": "When a new inquiry comes in, what usually happens?",
+      "after": "What happens when a new lead contacts you?",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q5",
+      "before": "It goes into a CRM, gets assigned, and follow-up is automatic",
+      "after": "Our CRM assigns the lead and sends follow-up messages",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q5",
+      "before": "Someone on the team replies manually",
+      "after": "Someone on the team writes each reply",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q5",
+      "before": "It depends on who sees it first",
+      "after": "Whoever sees the lead first handles the reply",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q5",
+      "before": "They book online themselves",
+      "after": "They book online themselves",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q5",
+      "before": "Not sure",
+      "after": "Not sure",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q6",
+      "before": "How quickly do new inquiries usually get a reply?",
+      "after": "How long do new leads wait for a reply?",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q6",
+      "before": "Within an hour",
+      "after": "Within an hour",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q6",
+      "before": "Same day",
+      "after": "Same day",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q6",
+      "before": "Next day or later",
+      "after": "Next day or later",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q6",
+      "before": "Not sure",
+      "after": "Not sure",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q7",
+      "before": "Which of these do you have?",
+      "after": "Which of these do you have?",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q7",
+      "before": "Select all that apply.",
+      "after": "Select all that apply.",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q7",
+      "before": "CRM",
+      "after": "CRM",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q7",
+      "before": "Online booking",
+      "after": "Online booking",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q7",
+      "before": "Conversion tracking (GA4 / Tag Manager)",
+      "after": "Conversion tracking (GA4 / Tag Manager)",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q7",
+      "before": "Call tracking",
+      "after": "Call tracking",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q7",
+      "before": "Automated email or SMS follow-up",
+      "after": "Automated email or SMS follow-up",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q7",
+      "before": "Running Google or Meta ads",
+      "after": "Running Google or Meta ads",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q7",
+      "before": "None of these",
+      "after": "None of these",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q7",
+      "before": "Not sure",
+      "after": "Not sure",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q8",
+      "before": "Roughly what do you spend on marketing and ads each month?",
+      "after": "What do you spend on marketing and ads each month?",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q8",
+      "before": "Nothing right now",
+      "after": "Nothing right now",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q8",
+      "before": "Under $1,000",
+      "after": "Under $1,000",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q8",
+      "before": "$1,000\u2013$2,499",
+      "after": "$1,000\u2013$2,499",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q8",
+      "before": "$2,500\u2013$4,999",
+      "after": "$2,500\u2013$4,999",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q8",
+      "before": "$5,000\u2013$9,999",
+      "after": "$5,000\u2013$9,999",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q8",
+      "before": "$10,000+",
+      "after": "$10,000+",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q8",
+      "before": "Prefer not to say",
+      "after": "Prefer not to say",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q9",
+      "before": "What's your role in this decision?",
+      "after": "What's your role in this decision?",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q9",
+      "before": "I'm the owner or decision-maker",
+      "after": "I'm the owner or decision-maker",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q9",
+      "before": "I influence the decision",
+      "after": "I influence the decision",
+      "status": "Keep"
+    },
+    {
+      "section": "Estimator questions",
+      "source": "production/js/estimator-config.js Q9",
+      "before": "I'm researching for someone else",
+      "after": "I'm researching for someone else",
+      "status": "Keep"
+    },
+    {
+      "section": "Quick wins",
+      "source": "production/js/estimator-config.js automate",
+      "before": "This week, write down when each new inquiry arrives and when it gets a reply. That one number shows whether follow-up is your bottleneck.",
+      "after": "Log when each lead arrives and when your team replies. Use the gap to set a reply target.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Quick wins",
+      "source": "production/js/estimator-config.js measure",
+      "before": "Ask 'How did you hear about us?' at every booking and log answers in one place.",
+      "after": "Ask each new client how they found you. Keep the answers in one place.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Quick wins",
+      "source": "production/js/estimator-config.js convert",
+      "before": "Try booking on your own website from your phone. Count the taps and note anywhere you hesitate.",
+      "after": "Try booking on your website from your phone. Count the taps. Note any step which feels unclear.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Quick wins",
+      "source": "production/js/estimator-config.js acquire",
+      "before": "Check your Google Business Profile: hours, services, photos, and whether recent reviews have replies.",
+      "after": "Check your Google Business Profile. Update hours, services and photos. Reply to recent reviews.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Quick wins",
+      "source": "production/js/estimator-config.js optimize",
+      "before": "Pick one number to review monthly: inquiries that became bookings.",
+      "after": "Each month, check how many leads became bookings.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Result A",
+      "source": "production/js/estimator-config.js A.summary",
+      "before": "The most useful next step is finding exactly where leads are being lost before spending more.",
+      "after": "Find the gaps in your booking process before you spend more.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Result A",
+      "source": "production/js/estimator-config.js A.heading",
+      "before": "Recommended next step: Growth Systems Diagnostic",
+      "after": "Recommended next step: Growth Systems Diagnostic",
+      "status": "Keep"
+    },
+    {
+      "section": "Result A",
+      "source": "production/js/estimator-config.js A.body",
+      "before": "Before I recommend more ads, SEO, automation, or a rebuild, I map how inquiries move from first contact through follow-up, booking, and reporting. You get a clear view of the biggest bottleneck and a prioritized 90-day plan.",
+      "after": "I map each step from first contact to booking and reporting. You get a clear view of the main gap and a 90-day plan.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Result A",
+      "source": "production/js/estimator-config.js A.nextStage",
+      "before": "Next step decided by what the Diagnostic finds",
+      "after": "The Diagnostic guides your next step",
+      "status": "Proposed"
+    },
+    {
+      "section": "Result B",
+      "source": "production/js/estimator-config.js B.summary",
+      "before": "Your answers suggest the path from inquiry to booking needs building before more marketing will pay off.",
+      "after": "Your answers point to gaps in the path to booking.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Result B",
+      "source": "production/js/estimator-config.js B.heading",
+      "before": "Likely path: Diagnostic, then a 90-Day Foundation Launch",
+      "after": "Likely path: Diagnostic, then a 90-Day Foundation Launch",
+      "status": "Keep"
+    },
+    {
+      "section": "Result B",
+      "source": "production/js/estimator-config.js B.body",
+      "before": "The Foundation Launch connects your booking path, lead capture, CRM, routing, follow-up, tracking, and reporting. It isn't the fastest or cheapest option. It's designed so you don't spend more on traffic before the process after an inquiry works.",
+      "after": "The Foundation Launch gives your team a clear way to handle leads. I connect forms, CRM, follow-up, booking and reports. Your team sees who needs a reply and what comes next.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Result C",
+      "source": "production/js/estimator-config.js C.summary",
+      "before": "You have a working foundation and may be ready for ongoing improvement.",
+      "after": "Your answers suggest a working base for the next growth phase.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Result C",
+      "source": "production/js/estimator-config.js C.heading",
+      "before": "Likely path: Diagnostic, then Growth Operations",
+      "after": "Likely path: Diagnostic, then Growth Operations",
+      "status": "Keep"
+    },
+    {
+      "section": "Result C",
+      "source": "production/js/estimator-config.js C.body",
+      "before": "Growth Operations is active monthly work: I review the evidence, find the highest-impact constraint, and improve acquisition, conversion, follow-up, booking, or reporting. It's ongoing growth work, not maintenance.",
+      "after": "Growth Operations gives you a clear focus each month. I review results and work on the main gap. Work covers lead generation, booking, follow-up or tracking.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Result D",
+      "source": "production/js/estimator-config.js D.summary",
+      "before": "More traffic may not be your first priority. What happens after someone reaches out matters more right now.",
+      "after": "Focus on replies and follow-up before adding more traffic.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Result D",
+      "source": "production/js/estimator-config.js D.heading",
+      "before": "Start with what happens after the inquiry",
+      "after": "Start with the response to each lead",
+      "status": "Proposed"
+    },
+    {
+      "section": "Result D",
+      "source": "production/js/estimator-config.js D.body",
+      "before": "Your answers point to a gap in reply speed, ownership, or follow-up. More traffic can mean more missed opportunities until that's fixed. A Diagnostic shows exactly where to start.",
+      "after": "Your answers point to gaps in reply times, team roles or follow-up. A Diagnostic shows where to start.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Result E",
+      "source": "production/js/estimator-config.js E.summary",
+      "before": "Optivue may not be the right fit for what you need right now.",
+      "after": "Your answers suggest a different service fits your needs.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Result E",
+      "source": "production/js/estimator-config.js E.heading",
+      "before": "A different kind of help may suit you better",
+      "after": "Consider a specialist for your next step",
+      "status": "Proposed"
+    },
+    {
+      "section": "Result E",
+      "source": "production/js/estimator-config.js E.body",
+      "before": "Optivue is built for businesses improving the full path from inquiry to booked client. If you mainly need an online store, a one-off website, or a single campaign, a specialist in that area may serve you better. If your needs change, I'd be glad to hear from you.",
+      "after": "Optivue focuses on the full path from lead to booked client. For a store, single website or campaign, consider a specialist. If your needs change, I'd be glad to hear from you.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator intro",
+      "source": "production/js/estimator.js",
+      "before": "See where your leads slip away, and what fixing it involves.",
+      "after": "See what stands between a lead and a booking.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator intro",
+      "source": "production/js/estimator.js",
+      "before": "Answer 9 quick questions about how inquiries reach you and what happens next. You'll get a snapshot of your growth system, a recommended next step, and a realistic investment range.",
+      "after": "Answer 9 questions about your leads and follow-up. Get a snapshot of your growth system, a next step and an estimated cost range.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Noted insights",
+      "source": "production/js/estimator.js",
+      "before": "Not knowing is useful information too. It usually means a review should come before spending more.",
+      "after": "Unsure answers help show what to review. Check those gaps before spending more.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Noted insights",
+      "source": "production/js/estimator.js",
+      "before": "Noted. When follow-up depends on who's around, some leads wait much longer than others. I'll factor that in.",
+      "after": "Some leads wait longer when no one owns follow-up. I'll include this in your snapshot.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Noted insights",
+      "source": "production/js/estimator.js",
+      "before": "Noted. Reply speed is one of the easiest gaps to check and fix.",
+      "after": "Reply times give you a clear place to start.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Noted insights",
+      "source": "production/js/estimator.js",
+      "before": "Noted. That usually points to tracking, not the marketing itself.",
+      "after": "Your answers suggest a tracking gap. Check this before changing your marketing.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Noted insights",
+      "source": "production/js/estimator.js",
+      "before": "That's fine. Many strong businesses start here. It just changes what comes first.",
+      "after": "No tools yet? Your next step starts with the basics.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator supporting copy",
+      "source": "production/js/estimator.js",
+      "before": "Start here, even if you don't work with me",
+      "after": "Try these steps this week",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator supporting copy",
+      "source": "production/js/estimator.js",
+      "before": "Why I'm suggesting this",
+      "after": "Why this fits your answers",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator supporting copy",
+      "source": "production/js/estimator.js",
+      "before": "It's a good fit if you're not sure where leads are being lost, you're about to spend more on ads, or your team disagrees about what's broken.",
+      "after": "A Diagnostic helps when you need to find the main gap. Use the plan before spending more on ads.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator supporting copy",
+      "source": "production/js/estimator.js",
+      "before": "It may not be needed if you already know the exact fix and only need it built. Mention that on the call.",
+      "after": "Already know the fix? Explain the scope on your call.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Estimator metadata",
+      "source": "production/estimator/index.html:6",
+      "before": "See where your leads slip away and what fixing it involves. 9 quick questions, an instant snapshot, and a realistic investment range.",
+      "after": "See what stands between a lead and a booking. Answer 9 questions for a system snapshot and estimated cost range.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Dynamic stages",
+      "source": "production/js/optivue.js Acquire",
+      "before": "The clinic problem: local demand reaches disconnected pages or channels. What I build: focused Google, local search, Google Business Profile, and paid campaign paths where they make sense.",
+      "after": "I connect local search, Google Business Profile and paid campaigns to clear booking pages. Your plan sets the channels.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Dynamic stages",
+      "source": "production/js/optivue.js Convert",
+      "before": "The clinic problem: people reach the site but the booking path creates friction. What I build: focused pages, clear calls to action, and an easier booking path.",
+      "after": "I build pages with clear next steps. Your visitors get a simpler path to booking.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Dynamic stages",
+      "source": "production/js/optivue.js Automate",
+      "before": "The clinic problem: follow-up depends on memory or whoever sees a message. What I build: lead routing and consent-based follow-up connected to clear CRM stages.",
+      "after": "I set lead routing and consent-based follow-up in your CRM. Your team sees who needs a reply.",
+      "status": "Proposed"
+    },
+    {
+      "section": "Dynamic stages",
+      "source": "production/js/optivue.js Optimize",
+      "before": "The clinic problem: effort gets spread across too many priorities. What I build: a measured improvement cycle focused on the clearest constraint.",
+      "after": "I use your results to choose the next fix. Your team gets one clear priority.",
+      "status": "Proposed"
+    }
+  ],
+  "protected": [
+    [
+      "Process",
+      "Results depend on access to your systems, your team's follow-up, booking capacity, and budget. I'll be clear about what I control and what I don't."
+    ],
+    [
+      "Pricing",
+      "7\u201310 business days after access and intake."
+    ],
+    [
+      "Pricing",
+      "Fixed scope, paid in milestones."
+    ],
+    [
+      "Pricing",
+      "3-month minimum, then quarterly."
+    ],
+    [
+      "Pricing",
+      "Excludes ad management, new pages, new automations, and major CRM work."
+    ],
+    [
+      "Pricing",
+      "Complex or multi-location clinics receive a custom proposal. Ad spend, software, SMS/email usage, and call tracking are paid directly by your clinic."
+    ],
+    [
+      "About",
+      "[CONFIRM: Based in the Philippines. I hold calls during US Eastern business hours.]"
+    ],
+    [
+      "FAQ",
+      "Do you guarantee more patients?"
+    ],
+    [
+      "FAQ",
+      "No one responsibly does. Results depend on demand, your offer, booking capacity, and how your team follows up. I commit to a defined process, clear scope, systems you own, and honest reporting."
+    ],
+    [
+      "FAQ",
+      "[CONFIRM: What hours are Fit Calls available?]"
+    ],
+    [
+      "FAQ",
+      "[CONFIRM: Calls are available during US Eastern business hours.]"
+    ],
+    [
+      "Result E",
+      "If your needs change, I'd be glad to hear from you."
+    ],
+    [
+      "Measure stage",
+      "The clinic problem: reports stop at clicks and form fills. What I build: tracking from source through booking and patient outcome, where technically and legally possible."
+    ],
+    [
+      "Footer",
+      "Optivue provides marketing systems and implementation support, not legal or medical advice. Advertising claims, consent requirements, privacy obligations, and tracking setups should be reviewed against your clinic's professional, platform, and legal requirements."
+    ]
+  ]
+}

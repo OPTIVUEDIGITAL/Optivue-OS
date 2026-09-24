@@ -314,7 +314,7 @@
 
 #optivue-growth-os .ovgo-estimator :focus-visible,
 #optivue-growth-os .ovgo-estimator-option input:focus-visible + span {
-  outline: 2px solid var(--ovgo-blue);
+  outline: 2px solid var(--ovgo-text);
   outline-offset: calc(var(--ovgo-estimator-space-unit) / 2);
 }
 

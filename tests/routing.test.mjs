@@ -14,7 +14,7 @@ test('diagnosis redirects permanently to estimator', () => {
 
 test('estimator is a standalone statically tagged page', () => {
   assert.match(estimator, /<title>Growth System Scope Estimator \| Optivue Growth OS<\/title>/);
-  assert.match(estimator, /<meta name="description" content="See where your leads slip away and what fixing it involves\. 9 quick questions, an instant snapshot, and a realistic investment range\.">/);
+  assert.match(estimator, /<meta name="description" content="See what stands between a lead and a booking\. Answer 9 questions for a system snapshot and estimated cost range\.">/);
   assert.match(estimator, /<meta name="robots" content="noindex">/);
   assert.match(estimator, /<link rel="canonical" href="https:\/\/growth\.optivuedigital\.com\/estimator">/);
   assert.match(estimator, /data-ovgo-estimator/);

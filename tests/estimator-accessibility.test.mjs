@@ -38,7 +38,7 @@ test('status colors and focus ring use existing theme tokens', () => {
   for (const [status, token] of [['green', 'green'], ['amber', 'amber'], ['danger', 'danger'], ['subtle', 'subtle']]) {
     assert.match(css, new RegExp(`data-status-token=["']${status}["'][^}]*var\\(--ovgo-${token}\\)`));
   }
-  assert.match(css, /\.ovgo-estimator[^}]*:focus-visible[^}]*var\(--ovgo-blue\)/s);
+  assert.match(css, /\.ovgo-estimator[^}]*:focus-visible[^}]*var\(--ovgo-text\)/s);
 });
 
 test('responsive layouts cover 390px, tablet, desktop, and safe areas', () => {

@@ -83,10 +83,10 @@ test('quick wins follow Automate, Measure, Convert, Acquire priority and stop at
 });
 
 test('noted insights stop after three and detect three unsure answers', () => {
-  assert.match(getNotedInsight(personas.medSpaReadiness, {}, 0)?.text ?? '', /follow-up depends/);
+  assert.match(getNotedInsight(personas.medSpaReadiness, {}, 0)?.text ?? '', /owns follow-up/);
   assert.equal(getNotedInsight(personas.medSpaReadiness, {}, 3), null);
-  assert.match(getNotedInsight(personas.consultingUnsure, {}, 0)?.text ?? '', /Not knowing is useful information/);
-  assert.match(getNotedInsight({ current_systems: ['none'] }, { current_systems: [] }, 0)?.text ?? '', /Many strong businesses start here/);
+  assert.match(getNotedInsight(personas.consultingUnsure, {}, 0)?.text ?? '', /Unsure answers/);
+  assert.match(getNotedInsight({ current_systems: ['none'] }, { current_systems: [] }, 0)?.text ?? '', /next step starts with the basics/);
 });
 
 test('default result becomes Standard Growth Scope only with CRM and tracking', () => {

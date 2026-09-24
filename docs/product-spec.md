@@ -171,9 +171,9 @@ Purpose:
 Help prospects understand how far they want to build and what they retain ownership of.
 
 Core plans:
-- Growth Starter
-- Growth Accelerator
-- Growth Lab
+- Clinic Growth Systems Diagnostic
+- Growth Operations
+- 90-Day Foundation Build
 
 The pricing experience should connect to:
 - Diagnosis result
@@ -310,3 +310,9 @@ The system succeeds when a prospect can arrive knowing little about Optivue and 
 - a contextual path into a discovery call
 
 Optivue should receive the lead with enough context to begin the sales conversation intelligently rather than asking the prospect to repeat everything.
+
+## Growth System Scope Estimator v2
+
+The standalone `/estimator` experience replaces the former diagnosis and project estimator. Nine guided questions produce a five-stage snapshot, a preliminary path starting with the Growth Systems Diagnostic, and one or two practical quick wins without requiring contact details.
+
+Results A–D offer a Fit Call, local clipboard copy, and a low-pressure exit. Result E offers only a homepage link. Email capture and Send a Note belong to Phase 2.

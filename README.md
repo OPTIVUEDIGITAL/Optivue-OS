@@ -63,8 +63,7 @@ The production experience shares context across:
 - Work Lab
 - Transformations
 - Growth System stages
-- Growth Diagnosis
-- Project Estimator
+- Growth System Scope Estimator
 - Pricing
 - Proposal intent
 - Booking intent
@@ -99,8 +98,8 @@ Optivue-OS/
 │   │   ├── runtime-config.js
 │   │   ├── lead-capture.js
 │   │   ├── booking.js
-│   │   ├── diagnosis.js
 │   │   ├── estimator.js
+│   │   ├── estimator-config.js
 │   │   └── components/
 │   │       ├── growth-system.js
 │   │       └── spotlight-card.js
@@ -122,10 +121,10 @@ Optivue-OS/
 **Request a Custom Proposal** → booking experience
 
 ### Lower-friction entry
-**Get Your Free Audit** → Growth Diagnosis → Results → save context / estimate → booking
+**Use the Growth System Scope Estimator** → nine questions → snapshot → recommendation → clipboard or booking
 
 ### Commercial exploration
-Estimator recommendation → likely-fit pricing plan → contextual lead capture → booking
+Estimator recommendation → shared-price path → clipboard or booking
 
 Calendly:
 
@@ -158,3 +157,9 @@ Never publish invented:
 Where no verified metric exists, describe the operational transformation instead.
 
 See `docs/reference/source-map.md`.
+
+## Growth System Scope Estimator v2
+
+The guided estimator lives at `/estimator`. `/diagnosis` permanently redirects there. The homepage links to the tool and does not embed it.
+
+Phase 1 runs entirely through static assets and client-side JavaScript on the Cloudflare Workers Free plan. See `docs/estimator-admin.md` for configuration, privacy, Phase 2 boundaries, and owner controls.

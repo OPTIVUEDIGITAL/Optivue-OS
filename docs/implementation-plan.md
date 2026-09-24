@@ -11,20 +11,17 @@
 - Transformations
 - Work Lab
 - pricing and ownership comparison
-- five-step Growth Diagnosis
-- Project Estimator
+- nine-step Growth System Scope Estimator
 - Calendly booking modal
 - generated portable one-file edition
 
 ### Completed unified ecosystem layer
 - shared prospect-context store
-- Diagnosis → shared context
-- Estimator → shared context
+- Estimator → local session state
 - Work Lab → journey context
 - Transformations → journey context
 - Growth System → journey context
 - Pricing → journey context
-- estimator-informed likely-fit pricing state
 - proposal and booking intent
 - contextual lead-capture experience
 - privacy-safe session persistence
@@ -42,8 +39,8 @@ Next:
 
 Next:
 - refine estimator pricing logic and assumptions
-- connect diagnosis categories to recommended system capabilities
-- improve pricing explanation based on diagnosed/estimated needs
+- refine estimator thresholds against observed completion data
+- improve pricing explanation based on estimated needs
 - define proposal-scope payload from prospect context
 
 ## Phase 3 — Real-time lead intake
@@ -72,11 +69,10 @@ Add GA4/GTM event schema for:
 - work_item_viewed
 - transformation_viewed
 - system_stage_viewed
-- diagnosis_started
-- diagnosis_completed
-- bottleneck_identified
-- estimator_started
-- estimator_completed
+- estimator_view
+- estimator_start
+- estimator_question_answered
+- estimator_result_view
 - pricing_plan_viewed
 - lead_capture_started
 - lead_submitted

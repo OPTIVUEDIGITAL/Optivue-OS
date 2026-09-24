@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE_CSS = (ROOT / "production/css/optivue.css").read_text(encoding="utf-8")
+BASE_CSS = (ROOT / "production/css/tokens.generated.css").read_text(encoding="utf-8")
 V2_CSS = (ROOT / "production/css/optivue-v2.css").read_text(encoding="utf-8")
 
 VAR_PATTERN = re.compile(r"(--ovgo-[\w-]+)\s*:\s*(#[0-9A-Fa-f]{6})\s*;")

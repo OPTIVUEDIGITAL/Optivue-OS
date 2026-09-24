@@ -6,13 +6,10 @@
 Hero
 → Growth System
 → Transformations / Work Lab
-→ Growth Diagnosis
-→ Diagnosis Result
-→ Save / Request Full Roadmap
-→ Project Estimator
-→ Pricing Recommendation
-→ Request Custom Proposal
-→ Calendly
+→ Growth System Scope Estimator
+→ Five-stage snapshot
+→ Recommendation and preliminary path
+→ Copy snapshot or open Calendly
 ```
 
 Visitors may enter at any point. The experience should preserve context rather than force a fixed funnel.
@@ -24,14 +21,9 @@ Visitors may enter at any point. The experience should preserve context rather t
 - transformation_viewed
 - system_stage_viewed
 
-### Diagnostic signals
-- diagnosis_started
-- diagnosis_completed
-- bottleneck_identified
-
 ### Commercial signals
-- estimator_started
-- estimator_completed
+- estimator_start
+- estimator_result_view
 - pricing_plan_viewed
 - pricing_plan_selected
 
@@ -63,26 +55,6 @@ The normalized payload should contain:
     "goal": "",
     "challenge": ""
   },
-  "diagnosis": {
-    "channels": [],
-    "systems": [],
-    "landing": "",
-    "qualification": "",
-    "followup": "",
-    "statuses": {},
-    "primaryBottleneck": "",
-    "recommendedAction": ""
-  },
-  "estimator": {
-    "primaryNeed": "",
-    "complexity": "",
-    "channels": [],
-    "infrastructure": [],
-    "urgency": "",
-    "supportModel": "",
-    "recommendedPlan": "",
-    "startingInvestment": ""
-  },
   "journey": {
     "workItemsViewed": [],
     "transformationsViewed": [],
@@ -107,3 +79,7 @@ Anonymous interaction context may be stored locally in the browser.
 Do not transmit identity or PII until the visitor explicitly submits a form.
 
 The site should make it clear what is being submitted and why.
+
+## Estimator journey
+
+The Phase 1 estimator stores progress in versioned session storage. Results appear without identity fields. Clipboard sharing stays on the visitor's device. Fit Call clicks retain approved UTM parameters, and analytics receive categorical allowlisted values only.

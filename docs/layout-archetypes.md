@@ -9,10 +9,9 @@ This file records the composition classification required by `docs/design-direct
 | Growth System | Dense interactive system block | Five-stage selector |
 | Client Work | Asymmetric 62/38 mosaic | Express Medical Care / Revive case |
 | Work Lab | 68/32 list + sticky detail rail | Work list |
-| Pricing | Commercial comparison cards | Growth Accelerator |
-| Diagnosis | Split explanation rail + working tool | Diagnosis tool |
+| Pricing | Commercial comparison cards | Growth Operations |
 | Saved Context | Form / context brief | Context capture surface |
-| Estimator | Working tool + recommendation summary | Estimator controls |
+| Estimator route | Mobile guided flow, desktop question + live snapshot | One question per screen |
 | How I work | Horizontal scrolling process strip | Seven-step process |
 | Final CTA | Single oversized statement | Final question |
 
@@ -22,4 +21,4 @@ Exactly one element breaks the normal content container: `.ovgo-transform-detail
 
 ## Responsive rule
 
-The estimator does not shrink the desktop matrix mechanically. At `760px` and below, controls become compact two-column choice rows with the recommendation summary stacked underneath.
+The estimator starts as a single-column 390px flow. At 640px, short options use two columns. At 1024px, the question sits beside a sticky live snapshot.

@@ -65,3 +65,9 @@ Do not use `file://` when testing ES modules.
 Make product changes here first.
 
 Regenerate `../portable/optivue-growth-os.html` after the modular production implementation validates.
+
+## Estimator route
+
+`estimator/index.html` owns the static title, description, noindex directive, and canonical URL for `/estimator`. `_headers` adds `X-Robots-Tag: noindex`, and `_redirects` sends `/diagnosis` to `/estimator` with status 301.
+
+Estimator questions, prices, status mappings, quick wins, and Phase 2 acceptance items live in `js/estimator-config.js`. No Phase 1 estimator form sends data to a server.

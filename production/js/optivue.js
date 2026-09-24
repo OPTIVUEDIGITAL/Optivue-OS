@@ -4,21 +4,6 @@ import { ESTIMATOR_CONFIG } from './estimator-config.js';
 import { RUNTIME_CONFIG } from './runtime-config.js';
 import { addJourneyValue } from './context.js';
 
-const root = document.getElementById('optivue-growth-os');
-if (root) {
-  initTheme(root);
-  initHeader(root);
-  initMobileMenu(root);
-  initSystemDetail(root);
-  initSpotlights(root);
-  initReveal(root);
-  initFoundingClinic(root);
-  initMobileCta(root);
-  initFaq(root);
-  initBooking(root);
-  initPricing(root);
-  initEstimator(root);
-}
 
 function initPricing(root) {
   root.querySelectorAll('[data-price-key]').forEach((element) => {
@@ -122,4 +107,20 @@ function initMobileCta(root) {
 function initFaq(root) {
   const items = [...root.querySelectorAll('.ovgo-faq-list details')];
   items.forEach((item) => item.addEventListener('toggle', () => { if (item.open) items.forEach((other) => { if (other !== item) other.open = false; }); }));
+}
+
+const root = document.getElementById('optivue-growth-os');
+if (root) {
+  initTheme(root);
+  initHeader(root);
+  initMobileMenu(root);
+  initSystemDetail(root);
+  initSpotlights(root);
+  initReveal(root);
+  initFoundingClinic(root);
+  initMobileCta(root);
+  initFaq(root);
+  initBooking(root);
+  initPricing(root);
+  initEstimator(root);
 }

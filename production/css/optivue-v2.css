@@ -162,7 +162,7 @@
   }
 }
 
-/* Growth System Scope Estimator v2 */
+/* Growth OS Scope Estimator v2 */
 #optivue-growth-os.ovgo-estimator-app {
   min-height: 100svh;
   background: var(--ovgo-bg);
@@ -1281,3 +1281,98 @@
   }
 
 }
+
+/* Review fix pass: content-first layout. No hidden-by-default reading surfaces. */
+#optivue-growth-os [data-ovgo-reveal] { opacity: 1; transform: none; }
+#optivue-growth-os .ovgo-hero {
+  min-height: 0;
+  padding: 114px clamp(20px,4vw,58px) 64px;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap: 32px;
+  align-items: center;
+  overflow: visible;
+}
+#optivue-growth-os .ovgo-hero__system {
+  position: relative; inset: auto; width: 100%; height: auto;
+  min-height: 0; aspect-ratio: 1090 / 790; opacity: 1;
+}
+#optivue-growth-os .ovgo-hero__content {
+  width: 100%; min-width: 0; margin: 0;
+  padding: clamp(22px,3vw,42px);
+}
+#optivue-growth-os .ovgo-hero h1 { font-size: clamp(2.5rem,4.8vw,5rem); line-height: 1; }
+#optivue-growth-os .ovgo-symptom-list { width: 100%; max-width: var(--ovgo-max); margin-inline: auto; }
+#optivue-growth-os .ovgo-symptom-list li:first-child { padding-left: 0; }
+#optivue-growth-os .ovgo-audience-cta { margin-top: 28px; color: var(--ovgo-paper-text); }
+#optivue-growth-os .ovgo-audience-cta a { display: inline-block; margin-left: 12px; text-underline-offset: 4px; }
+#optivue-growth-os .ovgo-stage-grid {
+  display: grid; grid-template-columns: repeat(5,minmax(0,1fr));
+  grid-auto-flow: row; grid-auto-columns: auto; gap: 10px;
+  width: 100%; margin-inline: auto; padding-inline: 0; overflow: visible;
+}
+#optivue-growth-os .ovgo-stage { display: grid; grid-template-rows: auto auto 1fr; align-content: start; gap: 12px; min-height: 180px; }
+#optivue-growth-os .ovgo-stage strong { margin: 0; line-height: 1.2; }
+#optivue-growth-os .ovgo-stage-detail { position: relative; clear: both; height: auto; min-height: 0; transform: none; }
+#optivue-growth-os .ovgo-process-section { position: relative; clear: both; }
+#optivue-growth-os .ovgo-transform-grid { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: auto; align-items: start; }
+#optivue-growth-os .ovgo-transform-card,
+#optivue-growth-os .ovgo-transform-card:first-child,
+#optivue-growth-os .ovgo-transform-card:nth-child(2),
+#optivue-growth-os .ovgo-transform-card:nth-child(3) { grid-row: auto; min-height: 0; padding: 24px; }
+#optivue-growth-os .ovgo-transform-card:first-child h3 { font-size: var(--ovgo-type-title-sm); }
+#optivue-growth-os .ovgo-price-card { min-width: 0; height: auto; }
+#optivue-growth-os .ovgo-price-card__content { position: relative; z-index: 1; height: 100%; }
+#optivue-growth-os .ovgo-price-card optivue-spotlight-card { z-index: 0; }
+#optivue-growth-os .ovgo-pricing-grid { grid-template-columns: repeat(2,minmax(0,1fr)); grid-auto-flow: row; grid-auto-columns: auto; width: 100%; margin-inline: auto; padding-inline: 0; overflow: visible; }
+#optivue-growth-os .ovgo-faq-list summary { list-style: none; }
+#optivue-growth-os .ovgo-faq-list summary::-webkit-details-marker { display: none; }
+#optivue-growth-os .ovgo-faq-list summary::marker { content: ''; }
+#optivue-growth-os .ovgo-final-cta h2 { margin-inline: auto; text-align: center; }
+#optivue-growth-os .ovgo-final-cta .ovgo-actions { margin-inline: auto; justify-content: center; }
+#optivue-growth-os .ovgo-reporting-grid { display: grid; grid-template-columns: minmax(0,1.6fr) minmax(0,1fr); gap: 36px; align-items: center; }
+#optivue-growth-os .ovgo-reporting-evidence { min-width: 0; margin: 0; }
+#optivue-growth-os .ovgo-reporting-evidence figcaption { margin-top: 12px; color: var(--ovgo-muted); }
+#optivue-growth-os .ovgo-reporting-points li { display: grid; gap: 8px; }
+#optivue-growth-os .ovgo-about__grid { grid-template-columns: minmax(0,4fr) minmax(0,6fr); align-items: stretch; }
+#optivue-growth-os .ovgo-about__media { margin: 0; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
+#optivue-growth-os .ovgo-about__media optivue-compare { width: 100%; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--ovgo-radius-structural); }
+#optivue-growth-os .ovgo-about__media figcaption { margin-top: 12px; color: var(--ovgo-muted); font-size: var(--ovgo-type-xs); }
+#optivue-growth-os .ovgo-about__body { display: flex; flex-direction: column; justify-content: center; }
+#optivue-growth-os .ovgo-footer { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 32px; text-transform: none; letter-spacing: normal; font-size: var(--ovgo-type-sm); }
+#optivue-growth-os .ovgo-footer__identity p { max-width: 60ch; }
+#optivue-growth-os .ovgo-footer nav { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
+#optivue-growth-os .ovgo-footer nav a, #optivue-growth-os .ovgo-footer__booking { min-height: 44px; display: inline-flex; align-items: center; }
+#optivue-growth-os .ovgo-footer__booking { border: 0; padding: 0; background: transparent; color: inherit; cursor: pointer; text-decoration: underline; }
+#optivue-growth-os .ovgo-footer__disclaimer { margin: 0; max-width: 70ch; }
+/* A custom element must not require successful registration to show its media. */
+optivue-compare:not(:defined) { display: block; position: relative; aspect-ratio: 8 / 5; overflow: hidden; }
+optivue-compare[ratio="portrait-45"]:not(:defined) { aspect-ratio: 4 / 5; }
+optivue-compare:not(:defined) img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+optivue-compare:not(:defined) img[slot="after"] { clip-path: inset(0 0 0 50%); }
+optivue-compare[start="35"]:not(:defined) img[slot="after"] { clip-path: inset(0 0 0 35%); }
+@media (max-width: 1100px) {
+  #optivue-growth-os .ovgo-hero { grid-template-columns: 1fr; }
+  #optivue-growth-os .ovgo-hero__content { grid-row: 1; max-width: 780px; margin-inline: auto; }
+  #optivue-growth-os .ovgo-hero__system { max-width: 780px; margin-inline: auto; }
+  #optivue-growth-os .ovgo-stage-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+}
+@media (max-width: 760px) {
+  #optivue-growth-os .ovgo-hero { padding: 106px 20px 48px; gap: 24px; }
+  #optivue-growth-os .ovgo-hero h1 { font-size: var(--ovgo-type-display-mobile); }
+  #optivue-growth-os .ovgo-hero__content { padding: 22px 18px; }
+  #optivue-growth-os .ovgo-stage-grid { grid-template-columns: 1fr; }
+  #optivue-growth-os .ovgo-stage { min-height: 0; padding: 18px; }
+  #optivue-growth-os .ovgo-transform-grid, #optivue-growth-os .ovgo-pricing-grid,
+  #optivue-growth-os .ovgo-reporting-grid, #optivue-growth-os .ovgo-about__grid,
+  #optivue-growth-os .ovgo-footer { grid-template-columns: minmax(0,1fr); }
+  #optivue-growth-os .ovgo-audience-cta a { display: block; margin: 8px 0 0; }
+  #optivue-growth-os .ovgo-symptom-list li { padding-inline: 0; }
+}
+#optivue-growth-os .ovgo-audience .ovgo-kicker,
+#optivue-growth-os #who-i-work-with .ovgo-kicker { display: block; }
+#optivue-growth-os .ovgo-hero__system > img { display: block; width: 100%; height: auto; }
+#optivue-growth-os .ovgo-price-card { background: var(--ovgo-surface); border: 1px solid var(--ovgo-border); }
+#optivue-growth-os .ovgo-price-card.is-featured { transform: none; }
+#optivue-growth-os .ovgo-price-card__badge { margin: 0 0 14px; }
+#optivue-growth-os .ovgo-price strong { font-size: clamp(1.2rem,2.1vw,2rem); overflow-wrap: anywhere; }

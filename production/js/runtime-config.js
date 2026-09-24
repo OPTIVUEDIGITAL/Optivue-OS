@@ -8,6 +8,6 @@ export const RUNTIME_CONFIG = {
   leadEndpoint: '',
   leadSubmissionEnabled: false,
   foundingClinicEnabled: false,
-  foundingClinicSpots: '[CONFIRM: 2]',
-  foundingClinicTerms: '[CONFIRM: Diagnostic fee fully credited toward the Foundation Build]',
+  foundingClinicSpots: null,
+  foundingClinicTerms: null,
 };

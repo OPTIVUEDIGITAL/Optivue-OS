@@ -1,0 +1,27 @@
+Optivue contrast audit
+
+[dark]
+PASS --ovgo-text #F5F7FA on --ovgo-bg #090A0C = 18.45:1
+PASS --ovgo-muted #9CA3AF on --ovgo-bg #090A0C = 7.80:1
+PASS --ovgo-subtle #99A1AE on --ovgo-bg #090A0C = 7.60:1
+PASS --ovgo-text #F5F7FA on --ovgo-surface #111317 = 17.33:1
+PASS --ovgo-muted #9CA3AF on --ovgo-surface #111317 = 7.32:1
+PASS --ovgo-subtle #99A1AE on --ovgo-surface #111317 = 7.14:1
+PASS --ovgo-text #F5F7FA on --ovgo-surface-2 #171A20 = 16.24:1
+PASS --ovgo-muted #9CA3AF on --ovgo-surface-2 #171A20 = 6.86:1
+PASS --ovgo-subtle #99A1AE on --ovgo-surface-2 #171A20 = 6.69:1
+
+[light]
+PASS --ovgo-text #101114 on --ovgo-bg #F7F8FA = 17.77:1
+PASS --ovgo-muted #60646C on --ovgo-bg #F7F8FA = 5.59:1
+PASS --ovgo-subtle #686E77 on --ovgo-bg #F7F8FA = 4.84:1
+PASS --ovgo-text #101114 on --ovgo-surface #FFFFFF = 18.88:1
+PASS --ovgo-muted #60646C on --ovgo-surface #FFFFFF = 5.94:1
+PASS --ovgo-subtle #686E77 on --ovgo-surface #FFFFFF = 5.14:1
+PASS --ovgo-text #101114 on --ovgo-surface-2 #F0F2F5 = 16.83:1
+PASS --ovgo-muted #60646C on --ovgo-surface-2 #F0F2F5 = 5.29:1
+PASS --ovgo-subtle #686E77 on --ovgo-surface-2 #F0F2F5 = 4.58:1
+
+[paper sections]
+PASS --ovgo-paper-text #101114 on --ovgo-paper #F7F8FA = 17.77:1
+PASS --ovgo-paper-muted #60646C on --ovgo-paper #F7F8FA = 5.59:1

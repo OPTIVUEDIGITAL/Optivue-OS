@@ -6,5 +6,5 @@
 <g stroke="#242b32" stroke-width="2"><line x1="610" y1="95" x2="610" y2="235"/><line x1="910" y1="95" x2="910" y2="235"/><line x1="1210" y1="95" x2="1210" y2="235"/></g>
 <text x="420" y="175" class="s">Events</text><text x="420" y="215" class="v m">—</text><text x="720" y="175" class="s">Sources</text><text x="720" y="215" class="v m">—</text><text x="1020" y="175" class="s">Funnel</text><text x="1020" y="215" class="v m">—</text><text x="1320" y="175" class="s">Attribution</text><text x="1320" y="215" class="v m">—</text>
 <text x="330" y="345" class="s">Conversion path</text><line x1="430" y1="505" x2="1470" y2="505" stroke="#343b44" stroke-width="4" stroke-dasharray="14 18"/><text x="950" y="440" class="e" text-anchor="middle">No conversion path defined</text>
-<text x="330" y="745" class="s">Event detail</text><g fill="#3b424b"><rect x="430" y="730" width="310" height="14" rx="4"/><rect x="430" y="785" width="260" height="14" rx="4"/><rect x="430" y="840" width="220" height="14" rx="4"/></g>
+<text x="330" y="725" class="s">Event detail</text><g fill="#3b424b"><rect x="430" y="760" width="310" height="14" rx="4"/><rect x="430" y="815" width="260" height="14" rx="4"/><rect x="430" y="870" width="220" height="14" rx="4"/></g>
 </svg>

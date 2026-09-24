@@ -5,6 +5,7 @@
   "workers_dev": true,
   "preview_urls": true,
   "assets": {
-    "directory": "./production"
+    "directory": "./production",
+    "html_handling": "drop-trailing-slash"
   }
 }

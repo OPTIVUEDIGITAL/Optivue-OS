@@ -7,6 +7,11 @@ const estimator = await readFile(new URL('../production/estimator/index.html', i
 const headers = await readFile(new URL('../production/_headers', import.meta.url), 'utf8');
 const redirects = await readFile(new URL('../production/_redirects', import.meta.url), 'utf8');
 const sitemap = await readFile(new URL('../production/sitemap.xml', import.meta.url), 'utf8');
+const worker = JSON.parse(await readFile(new URL('../wrangler.jsonc', import.meta.url), 'utf8'));
+
+test('Workers serves the canonical estimator path without adding a slash', () => {
+  assert.equal(worker.assets.html_handling, 'drop-trailing-slash');
+});
 
 test('diagnosis redirects permanently to estimator', () => {
   assert.match(redirects, /^\/diagnosis \/estimator 301$/m);

@@ -57,3 +57,20 @@ test('a missing or throwing IntersectionObserver does not abort page setup', () 
     assert.doesNotThrow(()=>vm.runInNewContext(source+'\ninitReveal(testRoot); initMobileCta(testRoot);',context));
   }
 });
+
+test('About uses the approved portrait pair with no image tags or process strip', () => {
+  const about = html.match(/<section id="about"[\s\S]*?<\/section>/)[0];
+  assert.match(about, /start="50" ratio="portrait-45" labels="hidden"/);
+  assert.match(about, /slot="before" src="\.\/assets\/rahmel-dela-cruz\.webp"/);
+  assert.match(about, /slot="after" src="\.\/assets\/rahmel-working-after\.webp"/);
+  assert.doesNotMatch(about, /rahmel-candid-before|class="ovgo-process"/);
+  assert.match(about, /Rahmel Dela Cruz · Founder, Optivue Digital/);
+});
+
+test('Reporting preserves approved labels, start and caption', () => {
+  const reporting = html.match(/<section id="reporting"[\s\S]*?<\/section>/)[0];
+  assert.match(reporting, /start="35" label-before="No tracking" label-after="Tracked"/);
+  assert.match(reporting, /<figcaption>Illustrative tracking view\.<\/figcaption>/);
+  assert.match(reporting, /Tracking changes what the report can prove\./);
+  assert.doesNotMatch(reporting, /Starts at 35/);
+});

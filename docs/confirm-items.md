@@ -10,8 +10,6 @@ These items do not render in public HTML. Do not restore them until Rahmel appro
 | Call availability | [CONFIRM: Calls are available during US Eastern business hours.] | Omit the FAQ item and About availability paragraph. |
 | Founding Clinic Program | [CONFIRM: 2] spots; [CONFIRM: Diagnostic fee fully credited toward the Foundation Build] | Feature stays off, values are null. Runtime also requires confirmed values. |
 | Privacy page | [CONFIRM: privacy page] | Omit footer link until a real page exists. |
-| Face photo | Rahmel will supply the portrait for the left side of the About slider. | Keep current candid image as a temporary asset. Do not call it the approved face portrait. |
-| Slider reference images | Two approved screenshots mentioned in the fix request were not attached in the available files. | Written slider specification implemented. Exact visual comparison awaits references. |
 
 The new request confirms the footer location and service regions: Baguio City, Philippines, serving the US, UK, Canada and Australia. The old unconfirmed areaServed property was omitted from structured data.
 
@@ -24,4 +22,8 @@ Remaining `we` options in the estimator describe the visitor's business, not Opt
 
 ## Approval boundary
 
-This fix pass is local on feat/estimator-v2. No push, merge, or deployment is authorized for this pass. A branch push previously triggered Cloudflare, so do not push before the owner approves the visual review and deployment.
+The owner authorized a GitHub-plugin push to feat/estimator-v2 for Cloudflare preview review. Never modify main or run a deployment. No merge before visual approval.
+
+## Slider references resolved
+
+The supplied image.png shows About, and image(1).png shows Reporting. The approved face portrait already exists as production/assets/rahmel-dela-cruz.webp. The matching right image is rahmel-working-after.webp. No replacement image is needed for this reference.

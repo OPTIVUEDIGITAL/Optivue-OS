@@ -78,8 +78,9 @@ class OptivueCompare extends HTMLElement {
           z-index: 6;
           top: 50%;
           left: var(--position);
-          width: 46px;
-          height: 46px;
+          box-sizing: border-box;
+          width: 44px;
+          height: 44px;
           border: 2px solid #f5f7fa;
           border-radius: 50%;
           background: #101316;
@@ -87,7 +88,7 @@ class OptivueCompare extends HTMLElement {
           display: grid;
           place-items: center;
           transform: translate(-50%, -50%);
-          box-shadow: 0 0 0 3px var(--ovgo-blue, #4c8dff);
+          box-shadow: 0 0 0 2px var(--ovgo-blue, #4c8dff);
           cursor: ew-resize;
         }
         .handle:focus-visible {

@@ -84,3 +84,14 @@ The two referenced approval images were not attached in the available message/fi
 ## Local review
 
 Apply the supplied patch to a clean checkout of current main using `git apply --check` first, then `git apply`. Stay on `feat/estimator-v2`. Run `node --test` and `node scripts/qa-server.mjs`; open http://127.0.0.1:8787 locally. Review at 390, 768 and 1440 pixels with JavaScript on/off before approval. Do not push yet: the branch previously triggered Cloudflare builds.
+
+
+## Slider reference follow-up
+
+The owner supplied both screenshots after this initial review. File order is reversed from the first description: image.png is About, image(1).png is Reporting. Their contents were visually inspected alongside the existing repository assets.
+
+The follow-up restores the exact committed face portrait, keeps the matching working photo, restores the Reporting reference column ratio and copy, matches the compact handle/ring, and retains all explicit exclusions: no process strip, no About image tags, caption only Illustrative tracking view, and no start-position badge. The Event detail overlap fix remains.
+
+The owner now authorizes pushing feat/estimator-v2 through the GitHub plugin to obtain the Cloudflare preview. Main must remain untouched. No manual deployment or merge. The earlier no-push and missing-reference statements above describe the initial pass, not this follow-up.
+
+Local source snapshots transfer through the GitHub Git Data API. Commit hashes differ because the plugin creates commit metadata. File tree hashes must match the local commits exactly, including all changes from 7896ab6. Visual approval still belongs to the owner on the preview.

@@ -17,26 +17,6 @@ const DEFAULT_CONTEXT = {
     goal: '',
     challenge: '',
   },
-  diagnosis: {
-    channels: [],
-    systems: [],
-    landing: '',
-    qualification: '',
-    followup: '',
-    statuses: {},
-    primaryBottleneck: '',
-    recommendedAction: '',
-  },
-  estimator: {
-    primaryNeed: '',
-    complexity: '',
-    channels: [],
-    infrastructure: [],
-    urgency: '',
-    supportModel: '',
-    recommendedPlan: '',
-    startingInvestment: '',
-  },
   journey: {
     workItemsViewed: [],
     transformationsViewed: [],
@@ -91,8 +71,6 @@ function persistAnonymous() {
       version: state.version,
       source: state.source,
       business: state.business,
-      diagnosis: state.diagnosis,
-      estimator: state.estimator,
       journey: state.journey,
     };
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(safe));

@@ -77,18 +77,13 @@ Primary UI: Transformations.
 
 Purpose: explain business-level before → diagnosis → architecture → operational change.
 
-### Growth Diagnosis Platform
-Primary UI: Growth Diagnosis.
+### Growth System Scope Estimator
+Primary UI: standalone `/estimator` route.
 
-Purpose: classify bottlenecks and recommend the next system priority.
-
-### Project Estimation Tool
-Primary UI: Project Estimator.
-
-Purpose: generate planning guidance about likely engagement, complexity, duration, and starting investment.
+Purpose: classify likely gaps, show a five-stage snapshot, and explain the preliminary Diagnostic-first path.
 
 ### Pricing Experience
-Primary UI: Growth Starter / Accelerator / Lab.
+Primary UI: Clinic Growth Systems Diagnostic / Accelerator / Lab.
 
 Purpose: explain commercial models and ownership while responding to estimator context.
 
@@ -159,3 +154,11 @@ The Growth OS real-time intake should feed that same intelligence system through
 - Respect reduced motion.
 - Optional integrations must fail gracefully.
 - Never put private webhook URLs, credentials, or secret keys in browser code.
+
+## Estimator v2 architecture
+
+- `production/estimator/index.html` is a standalone static route with static SEO directives.
+- `production/js/estimator-config.js` owns public configuration and price display values.
+- `production/js/estimator.js` owns pure result logic, session state, rendering, and clipboard output.
+- `production/js/analytics.js` allowlists estimator parameters and removes personal data.
+- Phase 1 uses no Worker backend or paid Cloudflare storage product.

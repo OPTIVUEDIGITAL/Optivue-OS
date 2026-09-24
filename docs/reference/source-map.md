@@ -14,7 +14,7 @@ Used for:
 - system-node visual language
 - hero footer telemetry
 - "CLICKS TO CLIENTS." positioning
-- Request a Custom Proposal / Get Your Free Audit hierarchy
+- Request a Custom Proposal / Take the Lead Leak Check hierarchy
 
 Do not publish generated capacity, compliance, fake schedule, or telemetry claims from the export.
 
@@ -58,12 +58,12 @@ Source archive: `stitch_optivue_growth_os_design_system (3).zip`
 
 Used for:
 - three-column pricing architecture
-- featured Growth Accelerator emphasis
+- featured Growth Operations emphasis
 - ownership comparison
 - disclosure positioning
 - technical/editorial visual language
 
-Production pricing copy follows the approved Growth Starter / Growth Accelerator / Growth Lab specification rather than the more aggressive generated engineering copy.
+Production pricing copy follows the approved Clinic Growth Systems Diagnostic / Growth Operations / 90-Day Foundation Build specification rather than the more aggressive generated engineering copy.
 
 ## Shared design system
 

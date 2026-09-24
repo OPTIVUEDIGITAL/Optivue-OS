@@ -1,0 +1,1055 @@
+Growth OS copy review | PROPOSALS ONLY
+Source: feat/estimator-v2 at 83bb7c7. No production edits, commit, push, merge or deployment in this copy pass.
+Positioning: health, wellness and aesthetics. The previous chiropractic-only positioning still exists in source pending approval.
+The report includes every proposed edit, unchanged reviewed text, hero alternatives, and protected exceptions.
+Method: Flesch-Kincaid Grade Level using CMU pronunciation dictionary syllables, with explicit estimates for unknown words. This is not a Hemingway result. Each heading, label, or list item counts as its own sentence. Short UI sections are noisy. Scores include immutable offer headings and prices in the selected section text. Legal, contractual and CONFIRM passages appear separately and are excluded from editable-copy scores. Scores below 5 mean easier text, not a reason to add words.
+Historical experience/capacity claims stay unchanged in substance and need owner verification. Proposed client copy states delivered scope without inventing results. The proposed badge removes the unsupported claim that most clinics continue into Growth Operations.
+READABILITY: section | before → after grade | max words after | sentences under 12 after
+Audience | 3.5 → 4.0 | 11 | 6/6
+Follow-up | 4.5 → 1.4 | 12 | 8/9
+Growth system | -0.5 → -0.5 | 8 | 9/9
+Process | 5.5 → 3.4 | 12 | 12/13
+Client work | 12.6 → 8.6 | 11 | 19/19
+Work lab | 8.5 → 3.3 | 11 | 7/7
+Reporting | 6.9 → 3.9 | 8 | 4/4
+Pricing | 7.2 → 5.6 | 13 | 52/53
+Fit | 4.8 → 4.3 | 12 | 12/13
+About | 6.3 → 4.3 | 13 | 12/13
+FAQ | 4.2 → 4.1 | 15 | 13/18
+Final CTA | 3.3 → 3.1 | 11 | 4/4
+Labels | 2.1 → 1.3 | 4 | 3/3
+Metadata | 10.6 → 3.7 | 9 | 5/5
+Hero option A | 15.8 → 3.3 | 8 | 5/5
+Hero option B | 15.8 → 2.1 | 10 | 5/5
+Hero option C | 15.8 → 4.1 | 8 | 4/4
+Hero supporting copy | 3.5 → 3.3 | 8 | 3/3
+Estimator questions | 4.6 → 3.5 | 11 | 66/66
+Quick wins | 5.8 → 2.7 | 10 | 11/11
+Result A | 8.6 → 4.1 | 14 | 4/5
+Result B | 8.2 → 4.4 | 12 | 4/5
+Result C | 10.7 → 5.8 | 11 | 5/5
+Result D | 6.0 → 4.0 | 13 | 3/4
+Result E | 5.4 → 4.9 | 11 | 5/5
+Estimator intro | 7.3 → 4.4 | 15 | 2/3
+Noted insights | 4.2 → 2.4 | 10 | 9/9
+Estimator supporting copy | 3.9 → 1.5 | 11 | 6/6
+Estimator metadata | 6.4 → 5.4 | 11 | 2/2
+Dynamic stages | 8.2 → 3.9 | 14 | 6/8
+
+BEFORE → AFTER
+
+1. Audience | production/index.html:32 | Keep
+Who this is for
+→ Who this is for
+
+2. Audience | production/index.html:32 | Proposed
+Built for clinics where leads come in but new patients don't follow.
+→ For health, wellness and aesthetics businesses ready to book more visits.
+
+3. Audience | production/index.html:32 | Proposed
+You get calls and form fills, but too few turn into booked visits.
+→ Turn more calls and form responses into booked visits.
+
+4. Audience | production/index.html:32 | Proposed
+Follow-up depends on who happens to see the message.
+→ Give each lead a clear owner and next step.
+
+5. Audience | production/index.html:32 | Proposed
+You spend on ads but can't see which ones bring new patients.
+→ See which ads lead to booked visits.
+
+6. Audience | production/index.html:32 | Proposed
+Your website, booking, CRM, and reporting don't talk to each other.
+→ Connect your website, booking, CRM and reports.
+
+7. Follow-up | production/index.html:33 | Proposed
+The real constraint
+→ Where to start
+
+8. Follow-up | production/index.html:33 | Proposed
+More Leads Won't Fix a Broken Follow-Up Process
+→ Fix follow-up before adding more leads.
+
+9. Follow-up | production/index.html:33 | Proposed
+If leads slip away after they reach out, more traffic means more leads slipping away. The fix usually sits between the first call and the first visit.
+→ Slow replies cost you bookings. Give your team a clear path from first contact to first visit.
+
+10. Follow-up | production/index.html:33 | Proposed
+Leads aren't contacted consistently or quickly.
+→ Set a reply target for each new lead.
+
+11. Follow-up | production/index.html:33 | Proposed
+Calls and forms aren't visible in one place.
+→ Keep calls and forms in one place.
+
+12. Follow-up | production/index.html:33 | Proposed
+Booking friction makes prospects disappear.
+→ Make the next booking step clear.
+
+13. Follow-up | production/index.html:33 | Proposed
+Your team can't see which leads need action.
+→ Show your team which leads need a reply.
+
+14. Follow-up | production/index.html:33 | Proposed
+Reports stop at clicks and form fills, not new patients.
+→ Track which leads book and attend visits.
+
+15. Growth system | production/index.html:34 | Keep
+The Optivue Growth System
+→ The Optivue Growth System
+
+16. Growth system | production/index.html:34 | Proposed
+Connect the full path from lead to new patient.
+→ Connect each step from lead to booked visit.
+
+17. Growth system | production/index.html:34 | Keep
+Stage 1
+→ Stage 1
+
+18. Growth system | production/index.html:34 | Keep
+Stage 2
+→ Stage 2
+
+19. Growth system | production/index.html:34 | Keep
+Stage 3
+→ Stage 3
+
+20. Growth system | production/index.html:34 | Keep
+Stage 4
+→ Stage 4
+
+21. Growth system | production/index.html:34 | Keep
+Stage 5
+→ Stage 5
+
+22. Growth system | production/index.html:34 | Keep
+Get the right local leads.
+→ Get the right local leads.
+
+23. Growth system | production/index.html:34 | Keep
+What you'll see
+→ What you'll see
+
+24. Process | production/index.html:35 | Keep
+How it works
+→ How it works
+
+25. Process | production/index.html:35 | Keep
+Diagnose. Build. Improve.
+→ Diagnose. Build. Improve.
+
+26. Process | production/index.html:35 | Keep
+Diagnose
+→ Diagnose
+
+27. Process | production/index.html:35 | Proposed
+I review how your clinic handles leads from first contact to first visit: website, calls, forms, CRM, follow-up, booking, and tracking. You get a prioritized 90-day plan.
+→ I review your website, calls, forms, CRM, follow-up, booking and tracking. You get a 90-day plan with clear priorities.
+
+28. Process | production/index.html:35 | Keep
+Build
+→ Build
+
+29. Process | production/index.html:35 | Proposed
+I implement the highest-priority fixes: booking path, tracking, routing, CRM stages, and follow-up.
+→ I build the fixes your plan puts first. These cover booking, tracking, lead routing, CRM stages and follow-up.
+
+30. Process | production/index.html:35 | Keep
+Improve
+→ Improve
+
+31. Process | production/index.html:35 | Proposed
+Each month I review the evidence with you and fix the next bottleneck.
+→ Each month, we review results. I fix the next gap.
+
+32. Client work | production/index.html:36 | Keep
+Client work
+→ Client work
+
+33. Client work | production/index.html:36 | Keep
+Selected client work
+→ Selected client work
+
+34. Client work | production/index.html:36 | Proposed
+Implementation case studies. Outcome figures are added only when documented and approved by the client. [CONFIRM permission for each]
+→ Client projects. I share figures after clients approve them and records support them. [CONFIRM permission for each]
+
+35. Client work | production/index.html:36 | Proposed
+IMPLEMENTATION CASE STUDY
+→ CLIENT PROJECT
+
+36. Client work | production/index.html:36 | Keep
+Revive Medical Wellness & Aesthetics
+→ Revive Medical Wellness & Aesthetics
+
+37. Client work | production/index.html:36 | Keep
+Hagerstown, Maryland · Medical wellness clinic
+→ Hagerstown, Maryland · Medical wellness clinic
+
+38. Client work | production/index.html:36 | Proposed
+Work delivered: local SEO, geo-targeted website and Google Business Profile copy, and GBP visual asset planning. [CONFIRM exact scope]
+→ SEO and website copy for local searches. Copy and image plans for Google Business Profile. [CONFIRM exact scope]
+
+39. Client work | production/index.html:36 | Proposed
+IMPLEMENTATION CASE STUDY
+→ CLIENT PROJECT
+
+40. Client work | production/index.html:36 | Keep
+CBP Online Institute / Ideal Spine
+→ CBP Online Institute / Ideal Spine
+
+41. Client work | production/index.html:36 | Keep
+Chiropractic education platform
+→ Chiropractic education platform
+
+42. Client work | production/index.html:36 | Proposed
+Work delivered: custom Kajabi landing page and member dashboard with custom HTML, CSS, and JavaScript front-end.
+→ A custom page and member hub in Kajabi. I use HTML, CSS and JavaScript for the page design.
+
+43. Client work | production/index.html:36 | Proposed
+IMPLEMENTATION CASE STUDY
+→ CLIENT PROJECT
+
+44. Client work | production/index.html:36 | Keep
+LearnX by CJB Systems
+→ LearnX by CJB Systems
+
+45. Client work | production/index.html:36 | Keep
+Western Australia · Compliance onboarding product
+→ Western Australia · Compliance onboarding product
+
+46. Client work | production/index.html:36 | Proposed
+Work delivered: content and SEO strategy, long-form content, technical SEO, marketing operations, and reporting.
+→ Plans for content and search. Blog posts, technical SEO, work processes and reports.
+
+47. Work lab | production/index.html:37 | Keep
+Work lab
+→ Work lab
+
+48. Work lab | production/index.html:37 | Proposed
+What the system looks like in practice.
+→ See how the system works.
+
+49. Work lab | production/index.html:37 | Proposed
+Illustrative views show how clinic acquisition, follow-up, conversion, and reporting fit together.
+→ Example views show how leads, follow-up, bookings and reports connect.
+
+50. Work lab | production/index.html:37 | Keep
+Lead routing and consent-based follow-up
+→ Lead routing and consent-based follow-up
+
+51. Work lab | production/index.html:37 | Proposed
+Conversion landing experience
+→ Landing pages with a clear next step
+
+52. Work lab | production/index.html:37 | Proposed
+GA4 and GTM funnel measurement
+→ Track the booking path with GA4 and GTM
+
+53. Work lab | production/index.html:37 | Proposed
+Search and local visibility workflow
+→ Help local clients find your business
+
+54. Reporting | production/index.html:38 | Proposed
+Illustrative tracking view
+→ Sample tracking view
+
+55. Reporting | production/index.html:38 | Keep
+Reporting before and after tracking.
+→ Reporting before and after tracking.
+
+56. Reporting | production/index.html:38 | Proposed
+Connect the click, call, form, booking, and CRM outcome so you can see which leads become new patients.
+→ Link clicks, calls and forms to each booking. See which leads become clients.
+
+57. Pricing | production/index.html:23 | Keep
+Pricing
+→ Pricing
+
+58. Pricing | production/index.html:39 | Proposed
+Build the system before you scale the traffic.
+→ Build the system before you spend more on ads.
+
+59. Pricing | production/index.html:39 | Proposed
+Start with a Diagnostic. Build what the Diagnostic shows you need. Then keep improving.
+→ Start with a Diagnostic. Build the fixes your plan puts first. Review results and improve.
+
+60. Pricing | production/index.html:40 | Keep
+ONE-TIME
+→ ONE-TIME
+
+61. Pricing | production/index.html:40 | Keep
+Growth Systems Diagnostic
+→ Growth Systems Diagnostic
+
+62. Pricing | production/index.html:40 | Proposed
+A fixed-scope review of how leads move from first contact to first visit.
+→ A fixed-scope review of your lead-to-visit process.
+
+63. Pricing | production/index.html:40 | Keep
+Lead-to-patient journey map
+→ Lead-to-patient journey map
+
+64. Pricing | production/index.html:40 | Keep
+Website, call, form, booking, CRM, follow-up, and tracking review
+→ Website, call, form, booking, CRM, follow-up, and tracking review
+
+65. Pricing | production/index.html:40 | Keep
+Top three bottlenecks
+→ Top three bottlenecks
+
+66. Pricing | production/index.html:40 | Keep
+Prioritized 90-day plan and build estimate
+→ Prioritized 90-day plan and build estimate
+
+67. Pricing | production/index.html:41 | Keep
+FIXED SCOPE
+→ FIXED SCOPE
+
+68. Pricing | production/index.html:41 | Keep
+90-Day Growth Foundation Launch
+→ 90-Day Growth Foundation Launch
+
+69. Pricing | production/index.html:41 | Proposed
+The connected system, built once and owned by your clinic.
+→ I build the connected system. You own the setup.
+
+70. Pricing | production/index.html:41 | Keep
+One booking path
+→ One booking path
+
+71. Pricing | production/index.html:41 | Keep
+Call, form, and booking setup
+→ Call, form, and booking setup
+
+72. Pricing | production/index.html:41 | Keep
+CRM stages and lead routing
+→ CRM stages and lead routing
+
+73. Pricing | production/index.html:41 | Keep
+Consent-based email and SMS follow-up
+→ Consent-based email and SMS follow-up
+
+74. Pricing | production/index.html:41 | Keep
+Conversion tracking, reporting, documentation, and handoff
+→ Conversion tracking, reporting, documentation, and handoff
+
+75. Pricing | production/index.html:42 | Keep
+ONGOING
+→ ONGOING
+
+76. Pricing | production/index.html:42 | Keep
+Growth Operations
+→ Growth Operations
+
+77. Pricing | production/index.html:42 | Proposed
+Ongoing work on the part of the system most likely to improve next.
+→ Each month, I work on the next growth priority.
+
+78. Pricing | production/index.html:42 | Keep
+Monthly acquisition, conversion, follow-up, and tracking priorities
+→ Monthly acquisition, conversion, follow-up, and tracking priorities
+
+79. Pricing | production/index.html:42 | Keep
+Campaign management where justified
+→ Campaign management where justified
+
+80. Pricing | production/index.html:42 | Keep
+Monthly reporting and decision review
+→ Monthly reporting and decision review
+
+81. Pricing | production/index.html:43 | Keep
+MAINTENANCE
+→ MAINTENANCE
+
+82. Pricing | production/index.html:43 | Keep
+Systems Care
+→ Systems Care
+
+83. Pricing | production/index.html:43 | Proposed
+For clinics no longer needing active growth work.
+→ Keep your systems working after active growth work ends.
+
+84. Pricing | production/index.html:43 | Keep
+Monthly system health check
+→ Monthly system health check
+
+85. Pricing | production/index.html:43 | Keep
+Testing forms, booking, and automations
+→ Testing forms, booking, and automations
+
+86. Pricing | production/index.html:43 | Keep
+Small fixes within a set support allowance
+→ Small fixes within a set support allowance
+
+87. Pricing | production/index.html:44 | Proposed
+This isn't a cheap, high-volume marketing subscription.
+→ Your tools work together. You own the system.
+
+88. Pricing | production/index.html:44 | Proposed
+Fixing lost leads means your landing page, calls, forms, CRM, follow-up, booking, and reporting working together. Your clinic owns the resulting system.
+→ I connect your landing page, calls, forms, CRM, follow-up, booking and reports. Your team gets one clear process.
+
+89. Pricing | production/index.html:44 | Proposed
+You pay for diagnosis, priorities, and implementation.
+→ Know what to fix. Get the work done.
+
+90. Pricing | production/index.html:44 | Proposed
+If a simpler fix solves the problem, I'll recommend the simpler fix. If follow-up isn't ready for more leads, I'll tell you before you spend another dollar on ads.
+→ I recommend the smallest fix which solves the problem. We check follow-up before you spend more on ads.
+
+91. Pricing | production/index.html:44 | Proposed
+Provider dependency vs. your infrastructure
+→ Who controls your systems?
+
+92. Pricing | production/index.html:44 | Keep
+PROVIDER DEPENDENCY
+→ PROVIDER DEPENDENCY
+
+93. Pricing | production/index.html:44 | Keep
+Access disappears when the contract ends.
+→ Access disappears when the contract ends.
+
+94. Pricing | production/index.html:44 | Proposed
+Accounts controlled elsewhere
+→ Your provider controls the accounts
+
+95. Pricing | production/index.html:44 | Proposed
+Limited process visibility
+→ You see little of the process
+
+96. Pricing | production/index.html:44 | Proposed
+Reports stop at marketing activity
+→ Reports show marketing activity without sales outcomes
+
+97. Pricing | production/index.html:44 | Keep
+YOUR INFRASTRUCTURE
+→ YOUR INFRASTRUCTURE
+
+98. Pricing | production/index.html:44 | Proposed
+Your clinic owns the working system.
+→ You own the working system.
+
+99. Pricing | production/index.html:44 | Keep
+Your accounts and data
+→ Your accounts and data
+
+100. Pricing | production/index.html:44 | Keep
+Documented workflows
+→ Documented workflows
+
+101. Pricing | production/index.html:44 | Proposed
+Lead-to-new-patient visibility
+→ See which leads become clients
+
+102. Pricing | production/index.html:44 | Keep
+Founding Clinic Program
+→ Founding Clinic Program
+
+103. Fit | production/index.html:45 | Keep
+Working fit
+→ Working fit
+
+104. Fit | production/index.html:45 | Keep
+Clear expectations before work begins.
+→ Clear expectations before work begins.
+
+105. Fit | production/index.html:45 | Keep
+Optivue is a fit if
+→ Optivue is a fit if
+
+106. Fit | production/index.html:45 | Proposed
+You run an appointment-based clinic with booking capacity.
+→ You run a health, wellness or aesthetics business with space for bookings.
+
+107. Fit | production/index.html:45 | Keep
+You get leads or plan to generate them.
+→ You get leads or plan to generate them.
+
+108. Fit | production/index.html:45 | Keep
+You provide access to your website, CRM, booking, and call data.
+→ You provide access to your website, CRM, booking, and call data.
+
+109. Fit | production/index.html:45 | Proposed
+Your team is willing to improve follow-up.
+→ Your team wants to improve follow-up.
+
+110. Fit | production/index.html:45 | Keep
+You want systems you own and honest reporting.
+→ You want systems you own and honest reporting.
+
+111. Fit | production/index.html:45 | Keep
+Optivue is not a fit if
+→ Optivue is not a fit if
+
+112. Fit | production/index.html:45 | Keep
+You only want a website or ads in isolation.
+→ You only want a website or ads in isolation.
+
+113. Fit | production/index.html:45 | Keep
+You want guaranteed patient numbers.
+→ You want guaranteed patient numbers.
+
+114. Fit | production/index.html:45 | Keep
+You can't provide access to your systems.
+→ You can't provide access to your systems.
+
+115. Fit | production/index.html:45 | Proposed
+You can't answer or book the leads you already get.
+→ Your team lacks time to answer leads or book visits.
+
+116. About | production/index.html:46 | Keep
+Rahmel Dela Cruz · Optivue Digital
+→ Rahmel Dela Cruz · Optivue Digital
+
+117. About | production/index.html:46 | Keep
+How I work
+→ How I work
+
+118. About | production/index.html:46 | Keep
+Audit first. Strategy next. Then systems.
+→ Audit first. Strategy next. Then systems.
+
+119. About | production/index.html:46 | Proposed
+I'm Rahmel. I build and run the work myself: the site, tracking, CRM, and follow-up. You work directly with the person responsible for your system.
+→ I'm Rahmel. I build and manage your website, tracking, CRM and follow-up. You work with me throughout the project.
+
+120. About | production/index.html:46 | Proposed
+I've spent eight years working with medical and wellness practices and consulting companies, and more broadly with service companies where a booked appointment is the sale.
+→ My eight years of work cover medical, wellness, consulting and other service businesses. I focus on the path to a booked visit.
+
+121. About | production/index.html:46 | Proposed
+I limit active work to four clinics at a time so every system gets built properly and every question gets a direct answer. No unannounced handoffs. I stay accountable for the work I control.
+→ I work with up to four businesses at once. I handle your build and answer your questions. I tell you before any handoff.
+
+122. FAQ | production/index.html:47 | Keep
+FAQ
+→ FAQ
+
+123. FAQ | production/index.html:47 | Keep
+Questions before you start.
+→ Questions before you start.
+
+124. FAQ | production/index.html:47 | Keep
+Why is the Diagnostic paid?
+→ Why is the Diagnostic paid?
+
+125. FAQ | production/index.html:47 | Proposed
+Because it's real work: a decision-ready plan, not a sales pitch. It tells you what to fix first, and what not to spend on yet.
+→ You pay for a plan based on your systems and data. The plan shows what to fix first and which spending to delay.
+
+126. FAQ | production/index.html:47 | Proposed
+Why not run more ads?
+→ When should I spend more on ads?
+
+127. FAQ | production/index.html:47 | Proposed
+If leads are lost after they reach out, more ads mean more lost leads. The Diagnostic shows whether traffic or follow-up is the real constraint.
+→ Check the booking path first. The Diagnostic shows whether you need more leads or better follow-up.
+
+128. FAQ | production/index.html:47 | Keep
+Do I own everything you build?
+→ Do I own everything you build?
+
+129. FAQ | production/index.html:47 | Keep
+Yes. Your ad accounts, website, CRM, tracking, workflows, data, and documentation stay yours.
+→ Yes. Your ad accounts, website, CRM, tracking, workflows, data, and documentation stay yours.
+
+130. FAQ | production/index.html:47 | Keep
+What do you need from my team?
+→ What do you need from my team?
+
+131. FAQ | production/index.html:47 | Proposed
+Access to your systems, timely approvals, and a front desk willing to follow the new process.
+→ Access to your systems, prompt approvals, and a team ready to follow the new process.
+
+132. FAQ | production/index.html:47 | Keep
+Another provider quoted $999 a month. Why the difference?
+→ Another provider quoted $999 a month. Why the difference?
+
+133. FAQ | production/index.html:47 | Proposed
+Many low-cost plans manage ads or post content. I diagnose, build, and connect the full path from lead to new patient. If you only need ad management, a lower-cost provider might suit you better.
+→ Scope affects price. I review and build the full path from lead to booked visit. For ads alone, consider a provider focused on ad management.
+
+134. Final CTA | production/index.html:48 | Keep
+Next step
+→ Next step
+
+135. Final CTA | production/index.html:48 | Proposed
+Find out where your new patients are slipping away.
+→ Find the next step toward more booked visits.
+
+136. Final CTA | production/index.html:48 | Proposed
+Tell me how leads currently move from first contact to first visit. In 20 minutes, we'll see if a Diagnostic is the right next step.
+→ Tell me how your team handles leads and bookings. In 20 minutes, we'll discuss whether a Diagnostic fits your needs.
+
+137. Labels | production/index.html | Proposed
+Most clinics continue here
+→ Ongoing growth work
+
+138. Labels | production/index.html | Proposed
+Built in your stack · Owned by your clinic
+→ Your tools · Your systems
+
+139. Labels | production/index.html | Proposed
+Clinic Fit Call
+→ Fit Call
+
+140. Metadata | production/index.html:6,12,14 | Proposed
+I help chiropractic clinics connect ads, calls, follow-up, booking, and reporting so you can see where new patients are lost and fix it.
+→ For health, wellness and aesthetics teams. I connect your ads, follow-up and booking tools. See which leads become clients.
+
+141. Metadata | production/index.html:16 | Proposed
+Marketing systems and implementation support for chiropractic clinics.
+→ Marketing tools for health, wellness and aesthetics teams. See which leads book a visit.
+
+142. Hero option A | production/index.html:30 | Hero proposal only
+FOR CHIROPRACTIC CLINICS Turn More Leads Into New Patients I help chiropractic clinics connect ads, website, calls, follow-up, booking, and reporting, so you can see where leads are lost and fix the biggest gap first.
+→ For health, wellness & aesthetics. Turn more leads into booked visits. I connect your marketing, follow-up and booking. Your team gets clear next steps. You see which leads become clients.
+
+143. Hero option B | production/index.html:30 | Hero proposal only
+FOR CHIROPRACTIC CLINICS Turn More Leads Into New Patients I help chiropractic clinics connect ads, website, calls, follow-up, booking, and reporting, so you can see where leads are lost and fix the biggest gap first.
+→ For health, wellness & aesthetics. See where bookings stall. Know what to fix. I review your marketing and booking process. You get a clear plan, then help with the build.
+
+144. Hero option C | production/index.html:30 | Hero proposal only
+FOR CHIROPRACTIC CLINICS Turn More Leads Into New Patients I help chiropractic clinics connect ads, website, calls, follow-up, booking, and reporting, so you can see where leads are lost and fix the biggest gap first.
+→ For health, wellness & aesthetics. Give every lead a clear path to booking. I connect your website, CRM and follow-up. Your team knows who to contact next.
+
+145. Hero supporting copy | production/index.html:30 | Hero proposal only
+Built in your stack. Owned by your clinic. · 8 years working with medical and wellness practices
+→ I build in your tools. You own the system. · 8 years working with medical and wellness practices
+
+146. Estimator questions | production/js/estimator-config.js Q1 | Keep
+What kind of business do you run?
+→ What kind of business do you run?
+
+147. Estimator questions | production/js/estimator-config.js Q1 | Keep
+Medical wellness, aesthetics, or med spa
+→ Medical wellness, aesthetics, or med spa
+
+148. Estimator questions | production/js/estimator-config.js Q1 | Keep
+Chiropractic, physio, or allied health
+→ Chiropractic, physio, or allied health
+
+149. Estimator questions | production/js/estimator-config.js Q1 | Proposed
+Other health & wellness (IV therapy, functional medicine, etc.)
+→ Other health and wellness, such as IV therapy or functional medicine
+
+150. Estimator questions | production/js/estimator-config.js Q1 | Keep
+Consulting or professional services
+→ Consulting or professional services
+
+151. Estimator questions | production/js/estimator-config.js Q1 | Keep
+Training, education, or membership
+→ Training, education, or membership
+
+152. Estimator questions | production/js/estimator-config.js Q1 | Keep
+Local service business
+→ Local service business
+
+153. Estimator questions | production/js/estimator-config.js Q1 | Keep
+Online store only (ecommerce)
+→ Online store only (ecommerce)
+
+154. Estimator questions | production/js/estimator-config.js Q1 | Keep
+Something else
+→ Something else
+
+155. Estimator questions | production/js/estimator-config.js Q2 | Keep
+How many locations do you have?
+→ How many locations do you have?
+
+156. Estimator questions | production/js/estimator-config.js Q2 | Keep
+One
+→ One
+
+157. Estimator questions | production/js/estimator-config.js Q2 | Keep
+Two to five
+→ Two to five
+
+158. Estimator questions | production/js/estimator-config.js Q2 | Keep
+Six or more
+→ Six or more
+
+159. Estimator questions | production/js/estimator-config.js Q2 | Keep
+Online / remote only
+→ Online / remote only
+
+160. Estimator questions | production/js/estimator-config.js Q2 | Keep
+Not sure
+→ Not sure
+
+161. Estimator questions | production/js/estimator-config.js Q3 | Proposed
+About how many new inquiries do you get each month?
+→ How many new leads contact you each month?
+
+162. Estimator questions | production/js/estimator-config.js Q3 | Keep
+Calls, forms, bookings, and messages combined.
+→ Calls, forms, bookings, and messages combined.
+
+163. Estimator questions | production/js/estimator-config.js Q3 | Keep
+Fewer than 10
+→ Fewer than 10
+
+164. Estimator questions | production/js/estimator-config.js Q3 | Keep
+10–25
+→ 10–25
+
+165. Estimator questions | production/js/estimator-config.js Q3 | Keep
+26–50
+→ 26–50
+
+166. Estimator questions | production/js/estimator-config.js Q3 | Keep
+51–100
+→ 51–100
+
+167. Estimator questions | production/js/estimator-config.js Q3 | Keep
+More than 100
+→ More than 100
+
+168. Estimator questions | production/js/estimator-config.js Q3 | Keep
+Not sure
+→ Not sure
+
+169. Estimator questions | production/js/estimator-config.js Q4 | Keep
+What's the biggest thing you want to fix?
+→ What's the biggest thing you want to fix?
+
+170. Estimator questions | production/js/estimator-config.js Q4 | Proposed
+We need more inquiries
+→ We need more leads
+
+171. Estimator questions | production/js/estimator-config.js Q4 | Proposed
+We get inquiries, but not enough book
+→ Too few leads book a visit
+
+172. Estimator questions | production/js/estimator-config.js Q4 | Proposed
+People book, but don't show up or don't convert
+→ People book but miss visits or choose not to buy
+
+173. Estimator questions | production/js/estimator-config.js Q4 | Proposed
+We can't tell which marketing actually works
+→ We don't know which marketing brings clients
+
+174. Estimator questions | production/js/estimator-config.js Q4 | Keep
+Our website, CRM, booking, and follow-up don't connect
+→ Our website, CRM, booking, and follow-up don't connect
+
+175. Estimator questions | production/js/estimator-config.js Q4 | Keep
+We're launching a new offer or location
+→ We're launching a new offer or location
+
+176. Estimator questions | production/js/estimator-config.js Q4 | Keep
+Things work. We want ongoing improvement
+→ Things work. We want ongoing improvement
+
+177. Estimator questions | production/js/estimator-config.js Q4 | Keep
+Not sure
+→ Not sure
+
+178. Estimator questions | production/js/estimator-config.js Q5 | Proposed
+When a new inquiry comes in, what usually happens?
+→ What happens when a new lead contacts you?
+
+179. Estimator questions | production/js/estimator-config.js Q5 | Proposed
+It goes into a CRM, gets assigned, and follow-up is automatic
+→ Our CRM assigns the lead and sends follow-up messages
+
+180. Estimator questions | production/js/estimator-config.js Q5 | Proposed
+Someone on the team replies manually
+→ Someone on the team writes each reply
+
+181. Estimator questions | production/js/estimator-config.js Q5 | Proposed
+It depends on who sees it first
+→ Whoever sees the lead first handles the reply
+
+182. Estimator questions | production/js/estimator-config.js Q5 | Keep
+They book online themselves
+→ They book online themselves
+
+183. Estimator questions | production/js/estimator-config.js Q5 | Keep
+Not sure
+→ Not sure
+
+184. Estimator questions | production/js/estimator-config.js Q6 | Proposed
+How quickly do new inquiries usually get a reply?
+→ How long do new leads wait for a reply?
+
+185. Estimator questions | production/js/estimator-config.js Q6 | Keep
+Within an hour
+→ Within an hour
+
+186. Estimator questions | production/js/estimator-config.js Q6 | Keep
+Same day
+→ Same day
+
+187. Estimator questions | production/js/estimator-config.js Q6 | Keep
+Next day or later
+→ Next day or later
+
+188. Estimator questions | production/js/estimator-config.js Q6 | Keep
+Not sure
+→ Not sure
+
+189. Estimator questions | production/js/estimator-config.js Q7 | Keep
+Which of these do you have?
+→ Which of these do you have?
+
+190. Estimator questions | production/js/estimator-config.js Q7 | Keep
+Select all that apply.
+→ Select all that apply.
+
+191. Estimator questions | production/js/estimator-config.js Q7 | Keep
+CRM
+→ CRM
+
+192. Estimator questions | production/js/estimator-config.js Q7 | Keep
+Online booking
+→ Online booking
+
+193. Estimator questions | production/js/estimator-config.js Q7 | Keep
+Conversion tracking (GA4 / Tag Manager)
+→ Conversion tracking (GA4 / Tag Manager)
+
+194. Estimator questions | production/js/estimator-config.js Q7 | Keep
+Call tracking
+→ Call tracking
+
+195. Estimator questions | production/js/estimator-config.js Q7 | Keep
+Automated email or SMS follow-up
+→ Automated email or SMS follow-up
+
+196. Estimator questions | production/js/estimator-config.js Q7 | Keep
+Running Google or Meta ads
+→ Running Google or Meta ads
+
+197. Estimator questions | production/js/estimator-config.js Q7 | Keep
+None of these
+→ None of these
+
+198. Estimator questions | production/js/estimator-config.js Q7 | Keep
+Not sure
+→ Not sure
+
+199. Estimator questions | production/js/estimator-config.js Q8 | Proposed
+Roughly what do you spend on marketing and ads each month?
+→ What do you spend on marketing and ads each month?
+
+200. Estimator questions | production/js/estimator-config.js Q8 | Keep
+Nothing right now
+→ Nothing right now
+
+201. Estimator questions | production/js/estimator-config.js Q8 | Keep
+Under $1,000
+→ Under $1,000
+
+202. Estimator questions | production/js/estimator-config.js Q8 | Keep
+$1,000–$2,499
+→ $1,000–$2,499
+
+203. Estimator questions | production/js/estimator-config.js Q8 | Keep
+$2,500–$4,999
+→ $2,500–$4,999
+
+204. Estimator questions | production/js/estimator-config.js Q8 | Keep
+$5,000–$9,999
+→ $5,000–$9,999
+
+205. Estimator questions | production/js/estimator-config.js Q8 | Keep
+$10,000+
+→ $10,000+
+
+206. Estimator questions | production/js/estimator-config.js Q8 | Keep
+Prefer not to say
+→ Prefer not to say
+
+207. Estimator questions | production/js/estimator-config.js Q9 | Keep
+What's your role in this decision?
+→ What's your role in this decision?
+
+208. Estimator questions | production/js/estimator-config.js Q9 | Keep
+I'm the owner or decision-maker
+→ I'm the owner or decision-maker
+
+209. Estimator questions | production/js/estimator-config.js Q9 | Keep
+I influence the decision
+→ I influence the decision
+
+210. Estimator questions | production/js/estimator-config.js Q9 | Keep
+I'm researching for someone else
+→ I'm researching for someone else
+
+211. Quick wins | production/js/estimator-config.js automate | Proposed
+This week, write down when each new inquiry arrives and when it gets a reply. That one number shows whether follow-up is your bottleneck.
+→ Log when each lead arrives and when your team replies. Use the gap to set a reply target.
+
+212. Quick wins | production/js/estimator-config.js measure | Proposed
+Ask 'How did you hear about us?' at every booking and log answers in one place.
+→ Ask each new client how they found you. Keep the answers in one place.
+
+213. Quick wins | production/js/estimator-config.js convert | Proposed
+Try booking on your own website from your phone. Count the taps and note anywhere you hesitate.
+→ Try booking on your website from your phone. Count the taps. Note any step which feels unclear.
+
+214. Quick wins | production/js/estimator-config.js acquire | Proposed
+Check your Google Business Profile: hours, services, photos, and whether recent reviews have replies.
+→ Check your Google Business Profile. Update hours, services and photos. Reply to recent reviews.
+
+215. Quick wins | production/js/estimator-config.js optimize | Proposed
+Pick one number to review monthly: inquiries that became bookings.
+→ Each month, check how many leads became bookings.
+
+216. Result A | production/js/estimator-config.js A.summary | Proposed
+The most useful next step is finding exactly where leads are being lost before spending more.
+→ Find the gaps in your booking process before you spend more.
+
+217. Result A | production/js/estimator-config.js A.heading | Keep
+Recommended next step: Growth Systems Diagnostic
+→ Recommended next step: Growth Systems Diagnostic
+
+218. Result A | production/js/estimator-config.js A.body | Proposed
+Before I recommend more ads, SEO, automation, or a rebuild, I map how inquiries move from first contact through follow-up, booking, and reporting. You get a clear view of the biggest bottleneck and a prioritized 90-day plan.
+→ I map each step from first contact to booking and reporting. You get a clear view of the main gap and a 90-day plan.
+
+219. Result A | production/js/estimator-config.js A.nextStage | Proposed
+Next step decided by what the Diagnostic finds
+→ The Diagnostic guides your next step
+
+220. Result B | production/js/estimator-config.js B.summary | Proposed
+Your answers suggest the path from inquiry to booking needs building before more marketing will pay off.
+→ Your answers point to gaps in the path to booking.
+
+221. Result B | production/js/estimator-config.js B.heading | Keep
+Likely path: Diagnostic, then a 90-Day Foundation Launch
+→ Likely path: Diagnostic, then a 90-Day Foundation Launch
+
+222. Result B | production/js/estimator-config.js B.body | Proposed
+The Foundation Launch connects your booking path, lead capture, CRM, routing, follow-up, tracking, and reporting. It isn't the fastest or cheapest option. It's designed so you don't spend more on traffic before the process after an inquiry works.
+→ The Foundation Launch gives your team a clear way to handle leads. I connect forms, CRM, follow-up, booking and reports. Your team sees who needs a reply and what comes next.
+
+223. Result C | production/js/estimator-config.js C.summary | Proposed
+You have a working foundation and may be ready for ongoing improvement.
+→ Your answers suggest a working base for the next growth phase.
+
+224. Result C | production/js/estimator-config.js C.heading | Keep
+Likely path: Diagnostic, then Growth Operations
+→ Likely path: Diagnostic, then Growth Operations
+
+225. Result C | production/js/estimator-config.js C.body | Proposed
+Growth Operations is active monthly work: I review the evidence, find the highest-impact constraint, and improve acquisition, conversion, follow-up, booking, or reporting. It's ongoing growth work, not maintenance.
+→ Growth Operations gives you a clear focus each month. I review results and work on the main gap. Work covers lead generation, booking, follow-up or tracking.
+
+226. Result D | production/js/estimator-config.js D.summary | Proposed
+More traffic may not be your first priority. What happens after someone reaches out matters more right now.
+→ Focus on replies and follow-up before adding more traffic.
+
+227. Result D | production/js/estimator-config.js D.heading | Proposed
+Start with what happens after the inquiry
+→ Start with the response to each lead
+
+228. Result D | production/js/estimator-config.js D.body | Proposed
+Your answers point to a gap in reply speed, ownership, or follow-up. More traffic can mean more missed opportunities until that's fixed. A Diagnostic shows exactly where to start.
+→ Your answers point to gaps in reply times, team roles or follow-up. A Diagnostic shows where to start.
+
+229. Result E | production/js/estimator-config.js E.summary | Proposed
+Optivue may not be the right fit for what you need right now.
+→ Your answers suggest a different service fits your needs.
+
+230. Result E | production/js/estimator-config.js E.heading | Proposed
+A different kind of help may suit you better
+→ Consider a specialist for your next step
+
+231. Result E | production/js/estimator-config.js E.body | Proposed
+Optivue is built for businesses improving the full path from inquiry to booked client. If you mainly need an online store, a one-off website, or a single campaign, a specialist in that area may serve you better. If your needs change, I'd be glad to hear from you.
+→ Optivue focuses on the full path from lead to booked client. For a store, single website or campaign, consider a specialist. If your needs change, I'd be glad to hear from you.
+
+232. Estimator intro | production/js/estimator.js | Proposed
+See where your leads slip away, and what fixing it involves.
+→ See what stands between a lead and a booking.
+
+233. Estimator intro | production/js/estimator.js | Proposed
+Answer 9 quick questions about how inquiries reach you and what happens next. You'll get a snapshot of your growth system, a recommended next step, and a realistic investment range.
+→ Answer 9 questions about your leads and follow-up. Get a snapshot of your growth system, a next step and an estimated cost range.
+
+234. Noted insights | production/js/estimator.js | Proposed
+Not knowing is useful information too. It usually means a review should come before spending more.
+→ Unsure answers help show what to review. Check those gaps before spending more.
+
+235. Noted insights | production/js/estimator.js | Proposed
+Noted. When follow-up depends on who's around, some leads wait much longer than others. I'll factor that in.
+→ Some leads wait longer when no one owns follow-up. I'll include this in your snapshot.
+
+236. Noted insights | production/js/estimator.js | Proposed
+Noted. Reply speed is one of the easiest gaps to check and fix.
+→ Reply times give you a clear place to start.
+
+237. Noted insights | production/js/estimator.js | Proposed
+Noted. That usually points to tracking, not the marketing itself.
+→ Your answers suggest a tracking gap. Check this before changing your marketing.
+
+238. Noted insights | production/js/estimator.js | Proposed
+That's fine. Many strong businesses start here. It just changes what comes first.
+→ No tools yet? Your next step starts with the basics.
+
+239. Estimator supporting copy | production/js/estimator.js | Proposed
+Start here, even if you don't work with me
+→ Try these steps this week
+
+240. Estimator supporting copy | production/js/estimator.js | Proposed
+Why I'm suggesting this
+→ Why this fits your answers
+
+241. Estimator supporting copy | production/js/estimator.js | Proposed
+It's a good fit if you're not sure where leads are being lost, you're about to spend more on ads, or your team disagrees about what's broken.
+→ A Diagnostic helps when you need to find the main gap. Use the plan before spending more on ads.
+
+242. Estimator supporting copy | production/js/estimator.js | Proposed
+It may not be needed if you already know the exact fix and only need it built. Mention that on the call.
+→ Already know the fix? Explain the scope on your call.
+
+243. Estimator metadata | production/estimator/index.html:6 | Proposed
+See where your leads slip away and what fixing it involves. 9 quick questions, an instant snapshot, and a realistic investment range.
+→ See what stands between a lead and a booking. Answer 9 questions for a system snapshot and estimated cost range.
+
+244. Dynamic stages | production/js/optivue.js Acquire | Proposed
+The clinic problem: local demand reaches disconnected pages or channels. What I build: focused Google, local search, Google Business Profile, and paid campaign paths where they make sense.
+→ I connect local search, Google Business Profile and paid campaigns to clear booking pages. Your plan sets the channels.
+
+245. Dynamic stages | production/js/optivue.js Convert | Proposed
+The clinic problem: people reach the site but the booking path creates friction. What I build: focused pages, clear calls to action, and an easier booking path.
+→ I build pages with clear next steps. Your visitors get a simpler path to booking.
+
+246. Dynamic stages | production/js/optivue.js Automate | Proposed
+The clinic problem: follow-up depends on memory or whoever sees a message. What I build: lead routing and consent-based follow-up connected to clear CRM stages.
+→ I set lead routing and consent-based follow-up in your CRM. Your team sees who needs a reply.
+
+247. Dynamic stages | production/js/optivue.js Optimize | Proposed
+The clinic problem: effort gets spread across too many priorities. What I build: a measured improvement cycle focused on the clearest constraint.
+→ I use your results to choose the next fix. Your team gets one clear priority.
+
+PROTECTED TEXT: retained verbatim, including rule exceptions
+Process: Results depend on access to your systems, your team's follow-up, booking capacity, and budget. I'll be clear about what I control and what I don't.
+Pricing: 7–10 business days after access and intake.
+Pricing: Fixed scope, paid in milestones.
+Pricing: 3-month minimum, then quarterly.
+Pricing: Excludes ad management, new pages, new automations, and major CRM work.
+Pricing: Complex or multi-location clinics receive a custom proposal. Ad spend, software, SMS/email usage, and call tracking are paid directly by your clinic.
+About: [CONFIRM: Based in the Philippines. I hold calls during US Eastern business hours.]
+FAQ: Do you guarantee more patients?
+FAQ: No one responsibly does. Results depend on demand, your offer, booking capacity, and how your team follows up. I commit to a defined process, clear scope, systems you own, and honest reporting.
+FAQ: [CONFIRM: What hours are Fit Calls available?]
+FAQ: [CONFIRM: Calls are available during US Eastern business hours.]
+Result E: If your needs change, I'd be glad to hear from you.
+Measure stage: The clinic problem: reports stop at clicks and form fills. What I build: tracking from source through booking and patient outcome, where technically and legally possible.
+Footer: Optivue provides marketing systems and implementation support, not legal or medical advice. Advertising claims, consent requirements, privacy obligations, and tracking setups should be reviewed against your clinic's professional, platform, and legal requirements.
+
+Protected globally: all prices, exact offer names, commitment/payment terms, legal/privacy/results disclaimers, and every [CONFIRM] placeholder. Protected text overrides sentence length, active voice and -ly rules.
+Unchanged short controls include navigation, answer status labels, progress, resume, clipboard and booking actions. They do not need filler to reach grade 5.
+No new em dashes or not-X-but-Y constructions in proposed copy. All proposed slip-away uses removed. The untouched hero source comment contains a Slip Away variant, and the estimator metadata contains another instance. Remove that unused hero comment only after hero approval. Estimator metadata should mirror the proposed intro: See what stands between a lead and a booking. Answer 9 questions for a system snapshot and estimated cost range.
+Inactive founding-clinic and lead-capture copy awaits the separate positioning/Phase 2 work. No change to disabled program terms proposed.
+Dictionary fallback tokens: 1,000, 10,000, 2,499, 2,500, 4,999, 5,000, 9,999, automations, cbp, cjb, css, ecommerce, faq, gbp, gtm, handoff, handoffs, iv, kajabi, learnx, onboarding, optivue, rahmel
+
+READABILITY EXCEPTION
+Client work scores 8.6 with client names, location labels and technical terms. Revised descriptive prose scores 6.5. The full section does not meet the grade 5–7 target. Do not report full compliance. Proper names and scope terms remain accurate.
+
+GITHUB ACCESS
+The connected account is OPTIVUEDIGITAL. Repository metadata confirms pull and push permission for OPTIVUEDIGITAL/Optivue-OS. Email login was not used. Local commit 83bb7c7 is absent from GitHub. Local Git credentials remain unavailable. No branch publication occurred in this pass.

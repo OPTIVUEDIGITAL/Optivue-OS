@@ -15,7 +15,7 @@ export function initLeadCapture(root) {
       <div class="ovgo-lead-grid">
         <div class="ovgo-lead-copy">
           <p class="ovgo-kicker">Save your growth context</p>
-          <h3>Turn your diagnosis and estimate into a conversation.</h3>
+          <h3>Turn your growth context into a conversation.</h3>
           <p>Your Growth OS activity can be packaged into one prospect brief, so you do not need to repeat the same information on a discovery call.</p>
           <div class="ovgo-context-summary" data-lead-context-summary></div>
         </div>
@@ -115,7 +115,7 @@ export function initLeadCapture(root) {
       setConsent({ submitted: true, timestamp: new Date().toISOString() });
       status.textContent = 'Your Growth OS brief was saved. You can continue to a discovery call without starting over.';
     } catch (error) {
-      status.textContent = 'We could not save the brief right now. Your answers are still available in this browser session; you can continue to Calendly or try again.';
+      status.textContent = 'The brief could not be saved right now. Your answers remain in this browser session. Continue to Calendly or try again.';
     } finally {
       button.disabled = false;
     }
@@ -126,15 +126,12 @@ export function initLeadCapture(root) {
     if (!target) return;
     const context = snapshot();
     const items = [
-      context.diagnosis.primaryBottleneck ? ['Diagnosis', context.diagnosis.primaryBottleneck] : null,
-      context.estimator.recommendedPlan ? ['Likely engagement', context.estimator.recommendedPlan] : null,
-      context.estimator.startingInvestment ? ['Starting investment', context.estimator.startingInvestment] : null,
       context.journey.transformationsViewed.length ? ['Transformations viewed', context.journey.transformationsViewed.join(', ')] : null,
     ].filter(Boolean);
 
     target.innerHTML = items.length
       ? items.map(([label, value]) => `<div><span>${label}</span><strong>${escapeLeadHtml(value)}</strong></div>`).join('')
-      : '<p>Complete the diagnosis or estimator and your context will appear here.</p>';
+      : '<p>Explore the Growth OS and your context will appear here.</p>';
   }
 }
 

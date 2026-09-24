@@ -56,8 +56,7 @@ The production app is static and browser-native:
 - vanilla ES modules
 - Web Components
 - Calendly iframe integration
-- client-side Growth Diagnosis
-- client-side Project Estimator
+- client-side Growth System Scope Estimator
 - shared prospect-context state
 
 It does not require a Node runtime to render.

@@ -41,6 +41,12 @@ function resolveFile(urlPath) {
 }
 
 const server = http.createServer((req, res) => {
+  const requestPath = new URL(req.url || '/', 'http://127.0.0.1').pathname;
+  if (requestPath === '/diagnosis') {
+    res.writeHead(301, { location: '/estimator', 'cache-control': 'no-cache' });
+    res.end();
+    return;
+  }
   const file = resolveFile(req.url || "/");
   if (!file || !fs.existsSync(file) || !fs.statSync(file).isFile()) {
     res.writeHead(404, {"content-type":"text/plain; charset=utf-8"});
@@ -55,6 +61,7 @@ const server = http.createServer((req, res) => {
     "cache-control": "no-cache",
     "vary": "Accept-Encoding",
   };
+  if (requestPath === '/estimator' || requestPath.startsWith('/estimator/')) headers['x-robots-tag'] = 'noindex';
 
   const acceptsGzip = /\bgzip\b/.test(req.headers["accept-encoding"] || "");
   if (acceptsGzip && COMPRESSIBLE.has(ext)) {

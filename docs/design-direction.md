@@ -59,7 +59,7 @@ You are **not** applying "visual design" as a general skill. Each pass below nam
 **Business rules**
 
 - "Request a Custom Proposal", "Book A Discovery Call", "Get Started" all open the same Calendly modal.
-- "Get Your Free Audit" routes to `/diagnosis` only. It never opens Calendly.
+- Estimator entry links route to `/estimator` only. They never open Calendly.
 - **No invented metrics, testimonials, client counts, logos, or awards.** Ever. Not as placeholder, not as "example".
 - No signup / login / account creation.
 - Audience: clinic and SMB owners, roughly 35–60, first touch is usually mobile.
@@ -178,7 +178,7 @@ Also collect: one photograph of the operator. Real, not a headshot template. Wor
 - Convert category language into instance language. "SEO / GBP" becomes the actual thing that was done.
 - Every case card: replace template frames with one specific sentence about what changed operationally.
 - Enforce first-person singular throughout.
-- Cut CTA labels to **two** distinct strings sitewide (one Calendly, one `/diagnosis`).
+- Keep CTA labels concise and distinguish Calendly actions from `/estimator` entry links.
 
 **Acceptance criteria**
 
@@ -254,10 +254,10 @@ Also collect: one photograph of the operator. Real, not a headshot template. Wor
 **Discipline:** IA + conversion
 **Do not run this pass on taste. Run it on data.**
 
-- Instrument the diagnosis tool and estimator first. Measure start rate and completion rate for 2–4 weeks.
+- Instrument the estimator first. Measure start rate and completion rate for 2–4 weeks.
 - Then cut: target 11 sections → 7.
 - The estimator currently outputs a price that the pricing section already states. Resolve the duplication.
-- Reduce the four conversion mechanisms (Calendly, diagnosis, estimator, context brief) to two primary and one secondary.
+- Keep the estimator and Calendly as the two primary conversion mechanisms.
 
 **Acceptance criteria**
 
@@ -308,7 +308,7 @@ npx lighthouse http://localhost:8787 --only-categories=performance,accessibility
 - Lighthouse performance ≥ 90 on mobile
 - CLS < 0.05
 - Zero horizontal overflow at 390px
-- Full keyboard traversal of the diagnosis and estimator tools
+- Full keyboard traversal of the estimator
 
 ---
 

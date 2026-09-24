@@ -40,17 +40,6 @@
  * removable until the design direction is fully validated.
  */
 
-#optivue-growth-os {
-  --ovgo-subtle: #99A1AE;
-  --ovgo-radius-structural: 6px;
-  --ovgo-radius-chip: 3px;
-  --ovgo-paper: #F7F8FA;
-  --ovgo-paper-card: #FFFFFF;
-  --ovgo-paper-text: #101114;
-  --ovgo-paper-muted: #60646C;
-  --ovgo-paper-border: rgba(16, 17, 20, 0.12);
-}
-
 /* Typography baseline: Inter everywhere unless explicitly display or mono. */
 #optivue-growth-os *,
 #optivue-growth-os *::before,
@@ -121,8 +110,6 @@
 #optivue-growth-os #systems > .ovgo-section-head .ovgo-kicker,
 #optivue-growth-os #transformations > .ovgo-section-head .ovgo-kicker,
 #optivue-growth-os #pricing > .ovgo-section-head .ovgo-kicker,
-#optivue-growth-os #diagnosis > .ovgo-section-head .ovgo-kicker,
-#optivue-growth-os #estimator > .ovgo-section-head .ovgo-kicker,
 #optivue-growth-os #about > .ovgo-section-head .ovgo-kicker {
   display: block;
 }
@@ -173,6 +160,348 @@
   #optivue-growth-os .ovgo-modal__dialog {
     border-radius: 0;
   }
+}
+
+/* Growth System Scope Estimator v2 */
+#optivue-growth-os.ovgo-estimator-app {
+  min-height: 100svh;
+  background: var(--ovgo-bg);
+}
+
+#optivue-growth-os .ovgo-estimator {
+  min-height: 100svh;
+  padding: calc(var(--ovgo-estimator-space-unit) * 12) var(--ovgo-space-page) calc(var(--ovgo-estimator-space-unit) * 6);
+}
+
+#optivue-growth-os .ovgo-estimator .ovgo-kicker { display: block; }
+
+#optivue-growth-os .ovgo-estimator > [data-ovgo-estimator],
+#optivue-growth-os .ovgo-estimator-intro,
+#optivue-growth-os .ovgo-estimator-result {
+  width: 100%;
+  max-width: var(--ovgo-estimator-content-max);
+  margin-inline: auto;
+}
+
+#optivue-growth-os .ovgo-estimator-intro {
+  padding-block: calc(var(--ovgo-estimator-space-unit) * 6);
+}
+
+#optivue-growth-os .ovgo-estimator-intro h2,
+#optivue-growth-os .ovgo-estimator-result > header h2 {
+  margin: 0 0 calc(var(--ovgo-estimator-space-unit) * 2);
+  font-size: var(--ovgo-type-title-lg);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+#optivue-growth-os .ovgo-estimator-intro > p:not(.ovgo-kicker) {
+  color: var(--ovgo-muted);
+  font-size: var(--ovgo-type-body);
+  line-height: 1.6;
+}
+
+#optivue-growth-os .ovgo-estimator-intro > .ovgo-btn { margin-top: calc(var(--ovgo-estimator-space-unit) * 3); }
+
+#optivue-growth-os .ovgo-estimator-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ovgo-estimator-space-unit);
+  margin: calc(var(--ovgo-estimator-space-unit) * 3) 0;
+  padding: 0;
+  list-style: none;
+}
+
+#optivue-growth-os .ovgo-estimator-facts li {
+  padding: var(--ovgo-estimator-space-unit) calc(var(--ovgo-estimator-space-unit) * 1.5);
+  border: 1px solid var(--ovgo-border);
+  border-radius: var(--ovgo-radius-chip);
+  color: var(--ovgo-muted);
+  font-size: var(--ovgo-type-xs);
+}
+
+#optivue-growth-os .ovgo-estimator-progress {
+  display: grid;
+  grid-template-columns: var(--ovgo-tap-target-min) auto 1fr;
+  gap: calc(var(--ovgo-estimator-space-unit) * 1.5);
+  align-items: center;
+  max-width: var(--ovgo-estimator-content-max);
+  margin: 0 auto calc(var(--ovgo-estimator-space-unit) * 4);
+  color: var(--ovgo-muted);
+  font-size: var(--ovgo-type-sm);
+}
+
+#optivue-growth-os .ovgo-estimator-progress .ovgo-icon-btn {
+  width: var(--ovgo-tap-target-min);
+  height: var(--ovgo-tap-target-min);
+}
+
+#optivue-growth-os .ovgo-estimator-progress [role="progressbar"] {
+  height: var(--ovgo-estimator-progress-height);
+  overflow: hidden;
+  border-radius: var(--ovgo-radius-chip);
+  background: var(--ovgo-border-strong);
+}
+
+#optivue-growth-os .ovgo-estimator-progress [role="progressbar"] i {
+  display: block;
+  width: var(--progress);
+  height: 100%;
+  background: var(--ovgo-blue);
+  transition: width var(--ovgo-motion-selection) var(--ovgo-ease);
+}
+
+#optivue-growth-os .ovgo-estimator-layout { max-width: var(--ovgo-estimator-content-max); margin-inline: auto; }
+#optivue-growth-os .ovgo-estimator-question { max-width: var(--ovgo-estimator-question-max); }
+#optivue-growth-os .ovgo-estimator-question fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+
+#optivue-growth-os .ovgo-estimator-question legend {
+  max-width: 24ch;
+  margin-bottom: calc(var(--ovgo-estimator-space-unit) * 2);
+  color: var(--ovgo-text);
+  font-family: Archivo, Inter, ui-sans-serif, sans-serif !important;
+  font-size: var(--ovgo-type-question);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+#optivue-growth-os .ovgo-estimator-helper { margin: 0 0 calc(var(--ovgo-estimator-space-unit) * 2); color: var(--ovgo-muted); }
+#optivue-growth-os .ovgo-estimator-options { display: grid; gap: var(--ovgo-estimator-space-unit); }
+
+#optivue-growth-os .ovgo-estimator-option {
+  display: block;
+  min-height: var(--ovgo-estimator-option-min-height);
+  cursor: pointer;
+}
+
+#optivue-growth-os .ovgo-estimator-option input { position: absolute; opacity: 0; pointer-events: none; }
+
+#optivue-growth-os .ovgo-estimator-option > span {
+  display: flex;
+  min-height: var(--ovgo-estimator-option-min-height);
+  align-items: center;
+  gap: calc(var(--ovgo-estimator-space-unit) * 1.5);
+  padding: calc(var(--ovgo-estimator-space-unit) * 1.5) calc(var(--ovgo-estimator-space-unit) * 2);
+  border: 1px solid var(--ovgo-border);
+  border-radius: var(--ovgo-radius-structural);
+  background: var(--ovgo-surface);
+  color: var(--ovgo-text);
+  font-size: var(--ovgo-type-control);
+  line-height: 1.4;
+  transition: border-color var(--ovgo-motion-feedback) var(--ovgo-ease), background var(--ovgo-motion-feedback) var(--ovgo-ease), transform var(--ovgo-motion-feedback) var(--ovgo-ease);
+}
+
+#optivue-growth-os .ovgo-estimator-option > span > i {
+  display: grid;
+  flex: 0 0 calc(var(--ovgo-estimator-space-unit) * 3);
+  width: calc(var(--ovgo-estimator-space-unit) * 3);
+  height: calc(var(--ovgo-estimator-space-unit) * 3);
+  place-items: center;
+  border: 1px solid var(--ovgo-border-strong);
+  border-radius: 50%;
+  color: transparent;
+  font-style: normal;
+}
+
+#optivue-growth-os .ovgo-estimator-option input:checked + span {
+  border-color: var(--ovgo-blue);
+  background: color-mix(in srgb, var(--ovgo-blue) 10%, var(--ovgo-surface));
+}
+
+#optivue-growth-os .ovgo-estimator-option input:checked + span > i { border-color: var(--ovgo-blue); background: var(--ovgo-blue); color: var(--ovgo-bg); }
+#optivue-growth-os .ovgo-estimator-option.is-lighter > span { color: var(--ovgo-muted); background: var(--ovgo-surface-2); }
+
+#optivue-growth-os .ovgo-estimator :focus-visible,
+#optivue-growth-os .ovgo-estimator-option input:focus-visible + span {
+  outline: 2px solid var(--ovgo-text);
+  outline-offset: calc(var(--ovgo-estimator-space-unit) / 2);
+}
+
+#optivue-growth-os .ovgo-estimator-continue { position: sticky; bottom: 0; z-index: 5; margin: calc(var(--ovgo-estimator-space-unit) * 3) calc(var(--ovgo-space-page) * -1) 0; padding: calc(var(--ovgo-estimator-space-unit) * 1.5) var(--ovgo-space-page) calc(var(--ovgo-estimator-space-unit) * 1.5 + env(safe-area-inset-bottom)); border-top: 1px solid var(--ovgo-border); background: color-mix(in srgb, var(--ovgo-bg) 94%, transparent); backdrop-filter: blur(calc(var(--ovgo-estimator-space-unit) * 2)); }
+#optivue-growth-os .ovgo-estimator-continue .ovgo-btn { width: 100%; }
+#optivue-growth-os .ovgo-estimator-live { display: none; }
+
+#optivue-growth-os .ovgo-estimator-insight {
+  position: fixed;
+  right: var(--ovgo-space-page);
+  bottom: calc(var(--ovgo-estimator-space-unit) * 3 + env(safe-area-inset-bottom));
+  z-index: 20;
+  max-width: var(--ovgo-estimator-question-max);
+  padding: calc(var(--ovgo-estimator-space-unit) * 2);
+  border: 1px solid var(--ovgo-border-strong);
+  border-radius: var(--ovgo-radius-structural);
+  background: var(--ovgo-surface-2);
+  box-shadow: 0 calc(var(--ovgo-estimator-space-unit) * 2) calc(var(--ovgo-estimator-space-unit) * 6) color-mix(in srgb, var(--ovgo-bg) 70%, transparent);
+  transition: opacity var(--ovgo-motion-feedback) var(--ovgo-ease);
+}
+
+#optivue-growth-os .ovgo-estimator-loader { display: grid; min-height: 60svh; place-items: center; align-content: center; gap: calc(var(--ovgo-estimator-space-unit) * 2); }
+#optivue-growth-os .ovgo-estimator-loader span { width: calc(var(--ovgo-estimator-space-unit) * 5); height: calc(var(--ovgo-estimator-space-unit) * 5); border: calc(var(--ovgo-estimator-space-unit) / 2) solid var(--ovgo-border-strong); border-top-color: var(--ovgo-blue); border-radius: 50%; animation: ovgo-estimator-spin var(--ovgo-motion-loader) linear infinite; }
+@keyframes ovgo-estimator-spin { to { transform: rotate(1turn); } }
+
+#optivue-growth-os .ovgo-estimator-result { display: grid; gap: calc(var(--ovgo-estimator-space-unit) * 5); }
+#optivue-growth-os .ovgo-estimator-result section { padding-top: calc(var(--ovgo-estimator-space-unit) * 3); border-top: 1px solid var(--ovgo-border); }
+#optivue-growth-os .ovgo-estimator-result h3 { margin: 0 0 calc(var(--ovgo-estimator-space-unit) * 2); font-size: var(--ovgo-type-title-sm); }
+#optivue-growth-os .ovgo-estimator-stages { display: grid; gap: var(--ovgo-estimator-space-unit); }
+#optivue-growth-os .ovgo-estimator-stage { border: 1px solid var(--ovgo-border); border-radius: var(--ovgo-radius-structural); background: var(--ovgo-surface); }
+#optivue-growth-os .ovgo-estimator-stage button { display: grid; width: 100%; min-height: var(--ovgo-estimator-option-min-height); grid-template-columns: calc(var(--ovgo-estimator-space-unit) * 3) 1fr auto; gap: var(--ovgo-estimator-space-unit); align-items: center; padding: calc(var(--ovgo-estimator-space-unit) * 1.5); border: 0; background: transparent; color: inherit; text-align: left; cursor: pointer; }
+#optivue-growth-os .ovgo-estimator-stage p { margin: 0; padding: 0 calc(var(--ovgo-estimator-space-unit) * 1.5) calc(var(--ovgo-estimator-space-unit) * 1.5); color: var(--ovgo-muted); }
+#optivue-growth-os [data-status-token="green"] { color: var(--ovgo-green); }
+#optivue-growth-os [data-status-token="amber"] { color: var(--ovgo-amber); }
+#optivue-growth-os [data-status-token="danger"] { color: var(--ovgo-danger); }
+#optivue-growth-os [data-status-token="subtle"] { color: var(--ovgo-subtle); }
+
+#optivue-growth-os .ovgo-estimator-recommendation { padding: calc(var(--ovgo-estimator-space-unit) * 3); border: 1px solid var(--ovgo-border-strong); border-radius: var(--ovgo-radius-structural); background: var(--ovgo-surface); }
+#optivue-growth-os .ovgo-estimator-recommendation > p:not(.ovgo-status) { color: var(--ovgo-muted); line-height: 1.6; }
+#optivue-growth-os .ovgo-estimator-path { display: flex; flex-direction: column; gap: var(--ovgo-estimator-space-unit); margin: calc(var(--ovgo-estimator-space-unit) * 3) 0; }
+#optivue-growth-os .ovgo-estimator-path span { display: grid; gap: calc(var(--ovgo-estimator-space-unit) / 2); padding: calc(var(--ovgo-estimator-space-unit) * 2); border: 1px solid var(--ovgo-border); border-radius: var(--ovgo-radius-structural); }
+#optivue-growth-os .ovgo-estimator-path small { color: var(--ovgo-muted); }
+#optivue-growth-os .ovgo-estimator-path i { color: var(--ovgo-subtle); font-style: normal; }
+#optivue-growth-os .ovgo-estimator-wins { display: grid; gap: var(--ovgo-estimator-space-unit); }
+#optivue-growth-os .ovgo-estimator-wins article { padding: calc(var(--ovgo-estimator-space-unit) * 2); border: 1px solid var(--ovgo-border); border-radius: var(--ovgo-radius-structural); }
+#optivue-growth-os .ovgo-estimator-wins p { margin-bottom: 0; color: var(--ovgo-muted); }
+#optivue-growth-os .ovgo-estimator-actions { display: grid; gap: var(--ovgo-estimator-space-unit); }
+#optivue-growth-os .ovgo-estimator-actions .ovgo-text-link { text-align: center; }
+#optivue-growth-os .ovgo-estimator-fine { color: var(--ovgo-muted); }
+
+@media (min-width: 640px) {
+  #optivue-growth-os .ovgo-estimator-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #optivue-growth-os .ovgo-estimator-stages { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  #optivue-growth-os .ovgo-estimator-stage button { grid-template-columns: 1fr; align-content: start; }
+  #optivue-growth-os .ovgo-estimator-actions { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; }
+  #optivue-growth-os .ovgo-estimator-path { flex-direction: row; align-items: center; }
+  #optivue-growth-os .ovgo-estimator-path span { flex: 1; }
+}
+
+@media (min-width: 1024px) {
+  #optivue-growth-os .ovgo-estimator > [data-ovgo-estimator],
+  #optivue-growth-os .ovgo-estimator-progress,
+  #optivue-growth-os .ovgo-estimator-layout,
+  #optivue-growth-os .ovgo-estimator-result { max-width: var(--ovgo-max); }
+  #optivue-growth-os .ovgo-estimator-layout { display: grid; grid-template-columns: minmax(0, var(--ovgo-estimator-question-max)) minmax(0, 1fr); gap: calc(var(--ovgo-estimator-space-unit) * 6); align-items: start; }
+  #optivue-growth-os .ovgo-estimator-live { position: sticky; top: calc(var(--ovgo-estimator-space-unit) * 12); display: grid; gap: var(--ovgo-estimator-space-unit); padding: calc(var(--ovgo-estimator-space-unit) * 3); border: 1px solid var(--ovgo-border); border-radius: var(--ovgo-radius-structural); background: var(--ovgo-surface); }
+  #optivue-growth-os .ovgo-estimator-live-row { display: grid; grid-template-columns: calc(var(--ovgo-estimator-space-unit) * 3) 1fr auto; gap: var(--ovgo-estimator-space-unit); padding-block: calc(var(--ovgo-estimator-space-unit) * 1.5); border-bottom: 1px solid var(--ovgo-border); }
+  #optivue-growth-os .ovgo-estimator-continue { position: static; margin-inline: 0; padding-inline: 0; border-top: 0; background: transparent; backdrop-filter: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #optivue-growth-os .ovgo-estimator *,
+  #optivue-growth-os .ovgo-estimator *::before,
+  #optivue-growth-os .ovgo-estimator *::after { transition: none !important; scroll-behavior: auto !important; }
+  #optivue-growth-os .ovgo-estimator-loader span { animation: none; }
+}
+
+/* Chiropractic clinic commercial update */
+#optivue-growth-os .ovgo-microcopy,
+#optivue-growth-os .ovgo-inline-link {
+  display: block;
+  margin: 10px 0 0;
+  color: var(--ovgo-muted);
+  font-size: var(--ovgo-type-sm);
+}
+
+#optivue-growth-os .ovgo-inline-link {
+  width: fit-content;
+  color: var(--ovgo-text);
+  text-underline-offset: 4px;
+}
+
+#optivue-growth-os .ovgo-symptom-list,
+#optivue-growth-os .ovgo-fit-grid ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#optivue-growth-os .ovgo-symptom-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 1px solid var(--ovgo-border);
+}
+
+#optivue-growth-os .ovgo-symptom-list li {
+  padding: 22px;
+  border-right: 1px solid var(--ovgo-border);
+  color: var(--ovgo-muted);
+  font-size: var(--ovgo-type-body);
+}
+
+#optivue-growth-os .ovgo-step-grid,
+#optivue-growth-os .ovgo-value-grid,
+#optivue-growth-os .ovgo-fit-grid {
+  display: grid;
+  gap: 14px;
+}
+
+#optivue-growth-os .ovgo-step-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#optivue-growth-os .ovgo-value-grid,
+#optivue-growth-os .ovgo-fit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 32px; }
+
+#optivue-growth-os .ovgo-step-grid article,
+#optivue-growth-os .ovgo-value-grid article,
+#optivue-growth-os .ovgo-fit-grid article {
+  padding: 26px;
+  border: 1px solid var(--ovgo-border);
+  border-radius: var(--ovgo-radius-structural);
+  background: var(--ovgo-surface);
+}
+
+#optivue-growth-os .ovgo-step-grid span { color: var(--ovgo-green); font-size: var(--ovgo-type-sm); }
+#optivue-growth-os .ovgo-step-grid h3,
+#optivue-growth-os .ovgo-value-grid h3,
+#optivue-growth-os .ovgo-fit-grid h3 { margin: 28px 0 10px; font-size: var(--ovgo-type-title-sm); }
+#optivue-growth-os .ovgo-step-grid p,
+#optivue-growth-os .ovgo-value-grid p,
+#optivue-growth-os .ovgo-fit-grid li { color: var(--ovgo-muted); font-size: var(--ovgo-type-body); line-height: 1.6; }
+#optivue-growth-os .ovgo-fit-grid li { padding: 10px 0 10px 22px; border-bottom: 1px solid var(--ovgo-border); position: relative; }
+#optivue-growth-os .ovgo-fit-grid li::before { content: "✓"; position: absolute; left: 0; color: var(--ovgo-green); }
+#optivue-growth-os .ovgo-fit-grid article:last-child li::before { content: "×"; color: var(--ovgo-danger); }
+
+#optivue-growth-os .ovgo-reporting-compare optivue-compare { display: block; border: 1px solid var(--ovgo-border); border-radius: var(--ovgo-radius-structural); overflow: hidden; }
+#optivue-growth-os .ovgo-faq-list { border-top: 1px solid var(--ovgo-border); }
+#optivue-growth-os .ovgo-faq-list details { border-bottom: 1px solid var(--ovgo-border); }
+#optivue-growth-os .ovgo-faq-list summary { min-height: 64px; padding: 20px 44px 20px 0; cursor: pointer; font-weight: 600; position: relative; }
+#optivue-growth-os .ovgo-faq-list summary::after { content: "+"; position: absolute; right: 8px; }
+#optivue-growth-os .ovgo-faq-list details[open] summary::after { content: "−"; }
+#optivue-growth-os .ovgo-faq-list details p { max-width: 70ch; margin: 0; padding: 0 44px 24px 0; color: var(--ovgo-muted); }
+#optivue-growth-os .ovgo-footer { line-height: 1.5; text-transform: none; letter-spacing: 0; }
+#optivue-growth-os .ovgo-footer span:first-child { max-width: 86ch; }
+
+@media (max-width: 760px) {
+  #optivue-growth-os .ovgo-hero {
+    min-height: 650px;
+    height: 650px;
+    padding: 76px 20px 24px;
+    align-items: start;
+  }
+  #optivue-growth-os .ovgo-hero__content { padding: 18px; }
+  #optivue-growth-os .ovgo-hero h1 { margin: 10px 0 12px; font-size: var(--ovgo-type-display-mobile); line-height: 1; letter-spacing: -.035em; }
+  #optivue-growth-os .ovgo-hero__lede { font-size: var(--ovgo-type-body); line-height: 1.5; }
+  #optivue-growth-os .ovgo-hero__content .ovgo-actions { margin-top: 16px; }
+  #optivue-growth-os .ovgo-hero__content .ovgo-btn { min-height: var(--ovgo-control-height); }
+  #optivue-growth-os .ovgo-ownership { margin-top: 12px; font-size: var(--ovgo-type-xs); }
+  #optivue-growth-os .ovgo-signature { margin-top: 8px; }
+  #optivue-growth-os .ovgo-symptom-list,
+  #optivue-growth-os .ovgo-step-grid,
+  #optivue-growth-os .ovgo-value-grid,
+  #optivue-growth-os .ovgo-fit-grid { grid-template-columns: 1fr; }
+  #optivue-growth-os .ovgo-symptom-list li { border-right: 0; border-bottom: 1px solid var(--ovgo-border); padding: 18px 0; }
+  #optivue-growth-os .ovgo-pricing-grid { grid-auto-columns: 88%; }
+  #optivue-growth-os .ovgo-price strong { font-size: 28px; }
+}
+
+@media (min-width: 761px) {
+  #optivue-growth-os .ovgo-mobile-cta { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #optivue-growth-os [data-ovgo-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  #optivue-growth-os .ovgo-header,
+  #optivue-growth-os .ovgo-mobile-cta { background: var(--ovgo-bg); backdrop-filter: none; }
 }
 
 
@@ -313,34 +642,6 @@
 #optivue-growth-os .ovgo-work-layout {
   grid-template-columns: minmax(0,1.65fr) minmax(280px,.75fr);
   gap: clamp(18px,3vw,34px);
-}
-
-/* Split-tool archetype: explanation rail + working diagnosis surface. */
-@media (min-width: 761px) {
-  #optivue-growth-os #diagnosis {
-    display: grid;
-    grid-template-columns: minmax(260px,.58fr) minmax(0,1.42fr);
-    gap: clamp(32px,5vw,76px);
-    align-items: start;
-  }
-
-  #optivue-growth-os #diagnosis > * {
-    max-width: none;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  #optivue-growth-os #diagnosis > .ovgo-section-head {
-    display: block;
-    position: sticky;
-    top: 96px;
-    margin-bottom: 0;
-  }
-
-  #optivue-growth-os #diagnosis .ovgo-status {
-    margin-top: 20px;
-  }
 }
 
 /* Horizontal process strip instead of another card grid. */

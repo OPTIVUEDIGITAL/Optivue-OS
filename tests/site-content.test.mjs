@@ -27,7 +27,7 @@ test('publishes approved offers and binds shared estimator prices', () => {
 });
 
 test('has the required sections and one H1', () => {
-  for (const id of ['overview', 'how-it-works', 'transformations', 'pricing', 'fit', 'about', 'faq']) {
+  for (const id of ['overview', 'how-it-works', 'who-i-work-with', 'pricing', 'fit', 'about', 'faq']) {
     assert.match(html, new RegExp(`id=["']${id}["']`));
   }
   assert.equal((html.match(/<h1\b/g) || []).length, 1);

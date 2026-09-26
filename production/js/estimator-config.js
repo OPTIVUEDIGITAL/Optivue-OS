@@ -1,4 +1,12 @@
 export const ESTIMATOR_CONFIG = Object.freeze({
+  founding: {
+    enabled: true, spotsTotal: 3, spotsRemaining: 3, endDate: '2027-01-31',
+    prices: { diagnostic: 750, foundation: 5000, operations: 2500 },
+    standardAmounts: { diagnostic: 1500, foundation: 7500, operations: 3500, care: 350 },
+    operationsFoundingMonths: 6,
+    heroEnabled: true,
+    countries: ['US', 'UK', 'Canada', 'Australia'],
+  },
   prices: {
     care: { label: 'Systems Care', display: 'From $350/month' },
     diagnostic: { label: 'Growth Systems Diagnostic', display: '$1,500' },

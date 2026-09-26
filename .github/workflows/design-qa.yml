@@ -56,6 +56,9 @@ jobs:
       - name: Pricing breakdown acceptance
         run: node scripts/pricing-qa.mjs
 
+      - name: Founding program ON and OFF acceptance
+        run: node scripts/founding-qa.mjs
+
       - name: Phone experience acceptance
         run: node scripts/mobile-qa.mjs
 

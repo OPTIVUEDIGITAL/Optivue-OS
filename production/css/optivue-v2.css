@@ -471,7 +471,7 @@
 @media (max-width: 760px) {
   #optivue-growth-os .ovgo-hero {
     min-height: 650px;
-    height: 650px;
+    height: auto; /* Let stacked hero content determine mobile section height. */
     padding: 76px 20px 24px;
     align-items: start;
   }

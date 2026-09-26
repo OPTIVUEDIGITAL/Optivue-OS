@@ -8,8 +8,23 @@ import { addJourneyValue } from './context.js';
 function initPricing(root) {
   root.querySelectorAll('[data-price-key]').forEach((element) => {
     const price = ESTIMATOR_CONFIG.prices[element.dataset.priceKey];
-    if (price) element.textContent = price.display;
+    if (price) element.textContent = 'priceLowercase' in element.dataset ? price.display.replace(/^From /, 'from ') : price.display;
   });
+}
+
+function initPricingPolicies(root, config = RUNTIME_CONFIG) {
+  const container = root.querySelector('[data-pricing-policies]');
+  if (!container) return;
+  const policies = [];
+  if (config.diagnosticCreditEnabled === true) policies.push("Your Diagnostic fee is credited toward the Foundation Launch if you go ahead within 30 days.");
+  if (config.diagnosticGuaranteeEnabled === true) policies.push("If the Diagnostic doesn't give you a clear 90-day plan, I'll refund it.");
+  container.replaceChildren();
+  for (const text of policies) {
+    const paragraph = document.createElement('p');
+    paragraph.textContent = text;
+    container.append(paragraph);
+  }
+  container.hidden = policies.length === 0;
 }
 
 function initTheme(root) {
@@ -130,5 +145,6 @@ if (root) {
   initFaq(root);
   initBooking(root);
   initPricing(root);
+  initPricingPolicies(root);
   initEstimator(root);
 }

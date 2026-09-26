@@ -19,11 +19,11 @@ test('removes legacy packages and free audit language', () => {
 });
 
 test('publishes approved offers and binds shared estimator prices', () => {
-  for (const copy of ['Growth Systems Diagnostic', '90-Day Growth Foundation Launch', 'Growth Operations', 'Systems Care', 'From $350/month']) {
+  for (const copy of ['Growth Systems Diagnostic', '90-Day Growth Foundation Launch', 'Growth Operations', 'Systems Care', 'from $350/month']) {
     assert.ok(html.includes(copy), `missing ${copy}`);
   }
   for (const key of Object.keys(ESTIMATOR_CONFIG.prices)) assert.match(html, new RegExp(`data-price-key=["']${key}["']`));
-  assert.match(html, /Ongoing growth work/);
+  assert.match(html, /After the build/);
 });
 
 test('has the required sections and one H1', () => {

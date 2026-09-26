@@ -1403,3 +1403,29 @@ optivue-compare[start="35"]:not(:defined) img[slot="after"] { clip-path: inset(0
   #optivue-growth-os .ovgo-about__grid { grid-template-columns: minmax(0,1fr); gap: 24px; }
   #optivue-growth-os .ovgo-reporting-copy { padding-top: 0; }
 }
+
+/* Three-step pricing. Keep the reading order consistent across widths. */
+#optivue-growth-os #pricing .ovgo-pricing-grid { grid-template-columns: repeat(3,minmax(0,1fr)); align-items: start; }
+#optivue-growth-os .ovgo-pricing-column { min-width: 0; }
+#optivue-growth-os #pricing .ovgo-price-card { order: 0; }
+#optivue-growth-os #pricing .ovgo-price-card__content { display: flex; flex-direction: column; gap: 16px; height: auto; }
+#optivue-growth-os #pricing .ovgo-price-card__content > * { margin: 0; }
+#optivue-growth-os #pricing .ovgo-price-card h3 { min-height: 3.6em; }
+#optivue-growth-os #pricing .ovgo-price-card ul { min-height: 10em; }
+#optivue-growth-os #pricing .ovgo-commitment { min-height: 4.5em; }
+#optivue-growth-os .ovgo-pricing-path { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; padding: 0; margin: 0 0 32px; list-style: none; }
+#optivue-growth-os .ovgo-pricing-path li { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px; border: 1px solid var(--ovgo-border); border-radius: var(--ovgo-radius-structural); }
+#optivue-growth-os .ovgo-pricing-path li:not(:last-child)::after { content: '→'; color: var(--ovgo-muted); }
+#optivue-growth-os .ovgo-care-note { margin: 16px 0 0; font-size: var(--ovgo-type-sm); color: var(--ovgo-muted); }
+#optivue-growth-os .ovgo-pricing-reassurance { margin-top: 32px; border-top: 1px solid var(--ovgo-border); padding-top: 24px; }
+#optivue-growth-os .ovgo-pricing-reassurance p { max-width: 80ch; }
+@media (max-width: 1000px) {
+  #optivue-growth-os #pricing .ovgo-pricing-grid { grid-template-columns: 1fr; }
+  #optivue-growth-os #pricing .ovgo-price-card h3,
+  #optivue-growth-os #pricing .ovgo-price-card ul,
+  #optivue-growth-os #pricing .ovgo-commitment { min-height: 0; }
+}
+@media (max-width: 760px) {
+  #optivue-growth-os .ovgo-pricing-path { grid-template-columns: 1fr; gap: 16px; }
+  #optivue-growth-os .ovgo-pricing-path li:not(:last-child)::after { content: '↓'; }
+}

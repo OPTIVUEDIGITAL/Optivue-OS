@@ -15,11 +15,11 @@ test('uses the clinic positioning and required hero message', () => {
 });
 
 test('removes legacy packages and free audit language', () => {
-  assert.doesNotMatch(html, /Growth Starter|Growth Accelerator|Growth Lab|\$2,500|free audit/i);
+  assert.doesNotMatch(html, /Growth Starter|Growth Accelerator|Growth Lab|free audit/i);
 });
 
 test('publishes approved offers and binds shared estimator prices', () => {
-  for (const copy of ['Growth Systems Diagnostic', '90-Day Growth Foundation Launch', 'Growth Operations', 'Systems Care', 'from $350/month']) {
+  for (const copy of ['Growth Systems Diagnostic', '90-Day Growth Foundation Launch', 'Growth Operations', 'Systems Care', '$350/month']) {
     assert.ok(html.includes(copy), `missing ${copy}`);
   }
   for (const key of Object.keys(ESTIMATOR_CONFIG.prices)) assert.match(html, new RegExp(`data-price-key=["']${key}["']`));

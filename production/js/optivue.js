@@ -1,3 +1,5 @@
+import { initFounding } from './founding.js';
+import { displayPrice } from './founding-program.js';
 import { initPricingBreakdowns } from './pricing.js';
 import { initBooking } from './booking.js';
 import { initEstimator } from './estimator.js';
@@ -9,7 +11,7 @@ import { addJourneyValue } from './context.js';
 function initPricing(root) {
   root.querySelectorAll('[data-price-key]').forEach((element) => {
     const price = ESTIMATOR_CONFIG.prices[element.dataset.priceKey];
-    if (price) element.textContent = 'priceLowercase' in element.dataset ? price.display.replace(/^From /, 'from ') : 'priceAmount' in element.dataset ? price.display.replace('/month', '') : price.display;
+    if (price) element.textContent = displayPrice(element.dataset.priceKey,element.dataset);
   });
 }
 
@@ -108,13 +110,7 @@ function initReveal(root) {
   } catch { /* Optional enhancement. Static content stays readable. */ }
 }
 
-function initFoundingClinic(root) {
-  const section = root.querySelector('[data-founding-clinic]');
-  if (!section || !RUNTIME_CONFIG.foundingClinicEnabled || !RUNTIME_CONFIG.foundingClinicSpots || !RUNTIME_CONFIG.foundingClinicTerms) return;
-  section.hidden = false;
-  section.querySelector('#founding-title').textContent = `Founding Clinic Program · ${RUNTIME_CONFIG.foundingClinicSpots} spots`;
-  section.querySelector('[data-founding-copy]').textContent = `I'm documenting results for my first health, wellness and aesthetics case studies. Founding clinics receive ${RUNTIME_CONFIG.foundingClinicTerms} in exchange for permission to publish approved or anonymized results and access to measurement data.`;
-}
+
 
 function initMobileCta(root) {
   const bar = root.querySelector('[data-mobile-cta]');
@@ -141,11 +137,12 @@ if (root) {
   initSystemDetail(root);
   initSpotlights(root);
   initReveal(root);
-  initFoundingClinic(root);
+
   initMobileCta(root);
   initFaq(root);
   initBooking(root);
   initPricing(root);
+  initFounding(root);
   initPricingPolicies(root);
   initPricingBreakdowns(root);
   initEstimator(root);

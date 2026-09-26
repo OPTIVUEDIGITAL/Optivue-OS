@@ -1,3 +1,4 @@
+import { displayPrice } from '../production/js/founding-program.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -9,9 +10,9 @@ test('three pricing cards and the care note contain static prices matching share
   assert.equal((html.match(/data-price-card\b/g)||[]).length, 3);
   for (const [key, price] of Object.entries(ESTIMATOR_CONFIG.prices)) {
     const match = html.match(new RegExp(`data-price-key="${key}"[^>]*>([^<]+)<`));
-    assert.equal(match?.[1].toLowerCase(), (key === 'operations' ? price.display.replace('/month', '') : price.display).toLowerCase(), `${key} needs a static price`);
+    assert.equal(match?.[1].toLowerCase(), displayPrice(key,key==='operations'?{priceAmount:''}:key==='care'?{priceExact:''}:{}).toLowerCase(), `${key} needs a static price`);
   }
-  assert.ok(html.includes('from $350/month'));
+  assert.ok(html.includes('$350/month'));
   assert.doesNotMatch(html, /<optivue-spotlight-card[^>]*>\s*<div class="ovgo-price-card__content"/);
 });
 test('public HTML contains no unresolved placeholders or unapproved client names', () => {

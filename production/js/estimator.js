@@ -1,10 +1,12 @@
+import { foundingActive, priceFor, programLine, first90Days } from './founding-program.js';
+import { initFounding } from './founding.js';
 import { trackEvent } from './analytics.js';
 import { ESTIMATOR_CONFIG, RESULT_COPY } from './estimator-config.js';
 
 const STORAGE_KEY = 'optivue-estimator-v2';
 const STATE_VERSION = 2;
 
-export function getEstimatorResult(answers = {}) {
+export function getEstimatorResult(answers = {}, options = {}) {
   const flags = deriveFlags(answers);
   let id = 'A';
   let scopeLabel = flags.has_crm && flags.has_tracking ? 'Standard Growth Scope' : 'Foundation Scope';
@@ -27,7 +29,7 @@ export function getEstimatorResult(answers = {}) {
   }
   const copy = RESULT_COPY[id];
   const body = scopeLabel === 'Custom Scope' ? `${copy.body} With multiple locations or a larger setup, a Diagnostic comes before any estimate.` : copy.body;
-  return { id, scopeLabel, ...copy, body, flags, action: id === 'E' ? null : { type: 'calendly', label: 'Book a 20-Minute Fit Call' }, homeLink: id === 'E' ? { label: 'Back to Optivue Growth OS', href: '/' } : null, path: buildPath(copy.nextStage) };
+  return { id, scopeLabel, ...copy, body, flags, action: id === 'E' ? null : { type: 'calendly', label: 'Book a 20-Minute Fit Call' }, homeLink: id === 'E' ? { label: 'Back to Optivue Growth OS', href: '/' } : null, path: buildPath(copy.nextStage, scopeLabel, options), founding: foundingActive(options.config, options.now), foundingLine: foundingActive(options.config, options.now) ? programLine(options.config) : '', total: ['B','D'].includes(id) ? first90Days(options.config, options.now) : '' };
 }
 
 export function getStageSnapshot(answers = {}, result = getEstimatorResult(answers)) {
@@ -77,8 +79,8 @@ export function createEstimatorState(saved) {
 
 export function getAutoAdvanceDelay(reducedMotion) { return reducedMotion ? 0 : 250; }
 
-export function buildResultViewModel(answers = {}) {
-  const result = getEstimatorResult(answers);
+export function buildResultViewModel(answers = {}, options = {}) {
+  const result = getEstimatorResult(answers, options);
   const snapshot = getStageSnapshot(answers, result);
   const quickWins = getQuickWins(snapshot);
   if (result.id === 'E' && quickWins.length === 0) quickWins.push({ stage: 'optimize', text: ESTIMATOR_CONFIG.quickWins.optimize });
@@ -90,11 +92,11 @@ export function buildResultViewModel(answers = {}) {
   return { result, snapshot, quickWins, actions };
 }
 
-export function buildSnapshotText(answers = {}) {
-  const model = buildResultViewModel(answers);
+export function buildSnapshotText(answers = {}, options = {}) {
+  const model = buildResultViewModel(answers, options);
   const stages = Object.values(model.snapshot).map((stage) => `${title(stage.label)}: ${stage.status}`).join('\n');
-  const path = model.result.path.map((step) => [step.label, step.display].filter(Boolean).join(' ')).join(' → ');
-  return `Optivue Growth System Snapshot\n\n${stages}\n\nRecommendation: ${model.result.heading}\nPath: ${path || 'Review the Growth OS guidance'}\n\nBased on your answers. A starting point, not an assessment.`;
+  const path = model.result.path.map((step) => [step.label, step.display, step.founding ? '(founding)' : '', step.note].filter(Boolean).join(' ')).join(' → ');
+  return `Optivue Growth System Snapshot\n\n${stages}\n\nRecommendation: ${model.result.heading}\nPath: ${path || 'Review the Growth OS guidance'}${model.result.id !== 'E' ? '\n'+[model.result.total,model.result.foundingLine].filter(Boolean).join('\n') : ''}\n\nBased on your answers. A starting point, not an assessment.`;
 }
 
 export function initEstimator(root) {
@@ -112,6 +114,8 @@ export function initEstimator(root) {
   function reset() { sessionStorage.removeItem(STORAGE_KEY); state = createEstimatorState(); }
   function clearInsight() { activeInsight = null; const current = mount.querySelector('[data-estimator-insight]'); if (current) current.hidden = true; }
 
+  initFounding(root);
+  window.addEventListener('optivue:pricing-state', () => { if (state.screen === 'result') renderResult(); });
   function renderIntro() {
     mount.innerHTML = `<div class="ovgo-estimator-intro"><p class="ovgo-kicker">Growth OS Scope Estimator</p><h2>See what stands between a lead and a booking.</h2><p>Answer 9 questions about your leads and follow-up. Get a snapshot of your growth system, a next step and an estimated cost range.</p><button class="ovgo-btn ovgo-btn--primary" type="button" data-estimator-start>Start the Estimate</button><ul class="ovgo-estimator-facts"><li>About 90 seconds</li><li>No email needed to see results</li><li>Not a fixed quote</li></ul><p class="ovgo-form-note">Please don't enter patient information or passwords anywhere in this tool.</p></div>`;
     mount.querySelector('[data-estimator-start]').addEventListener('click', () => { state.screen = 'question'; state.step = 0; persist(); trackEvent('estimator_start'); renderQuestion(); });
@@ -169,7 +173,7 @@ export function initEstimator(root) {
     state.screen = 'result'; persist();
     const model = buildResultViewModel(state.answers);
     trackEvent('estimator_result_view', { result: model.result.id, scope_label: model.result.scopeLabel });
-    mount.innerHTML = `<article class="ovgo-estimator-result"><header><p class="ovgo-kicker">Your Growth System Snapshot</p><h2>${model.result.summary}</h2></header><section aria-labelledby="snapshot-heading"><h3 id="snapshot-heading">Five-stage snapshot</h3><div class="ovgo-estimator-stages">${Object.values(model.snapshot).map(stageMarkup).join('')}</div><p class="ovgo-form-note">Based on your answers. A starting point, not an assessment.</p></section><section class="ovgo-estimator-recommendation"><p class="ovgo-status">${model.result.scopeLabel}</p><h3>${model.result.heading}</h3><p>${model.result.body}</p>${model.result.id === 'E' ? '' : `<h4>Why this fits your answers</h4><ul>${reasonBullets(state.answers, model).map((item) => `<li>${item}</li>`).join('')}</ul><div class="ovgo-estimator-path">${model.result.path.map((step) => `<span><b>${step.label}</b>${step.display ? `<small>${step.display}</small>` : ''}</span>`).join('<i aria-hidden="true">→</i>')}</div><details><summary>Is a Diagnostic right for me?</summary><p>A Diagnostic helps when you need to find the main gap. Use the plan before spending more on ads.</p><p>Already know the fix? Explain the scope on your call.</p></details>`}</section>${model.quickWins.length ? `<section><h3>Try these steps this week</h3><div class="ovgo-estimator-wins">${model.quickWins.map((win) => `<article><b>${title(win.stage)}</b><p>${win.text}</p></article>`).join('')}</div></section>` : ''}<section class="ovgo-estimator-actions" data-estimator-actions>${actionsMarkup(model.actions)}</section>${model.result.id === 'E' ? '' : `<details class="ovgo-estimator-fine"><summary>Details & fine print</summary><p>Investment guidance is preliminary and covers Optivue service fees only. Ad spend, software, CRM, SMS/email usage, call tracking, and booking tools are separate.</p><p>This isn't a proposal, fixed quote, performance guarantee, or legal, medical, privacy, or compliance advice. Final scope is confirmed after a Fit Call and, where appropriate, a Diagnostic.</p></details><button class="ovgo-text-link" type="button" data-estimator-restart>Start over</button>`}<p class="ovgo-form-note" data-estimator-copy-status role="status"></p></article>`;
+    mount.innerHTML = `<article class="ovgo-estimator-result"><header><p class="ovgo-kicker">Your Growth System Snapshot</p><h2>${model.result.summary}</h2></header><section aria-labelledby="snapshot-heading"><h3 id="snapshot-heading">Five-stage snapshot</h3><div class="ovgo-estimator-stages">${Object.values(model.snapshot).map(stageMarkup).join('')}</div><p class="ovgo-form-note">Based on your answers. A starting point, not an assessment.</p></section><section class="ovgo-estimator-recommendation"><p class="ovgo-status">${model.result.scopeLabel}</p><h3>${model.result.heading}</h3><p>${model.result.body}</p>${model.result.id === 'E' ? '' : `<h4>Why this fits your answers</h4><ul>${reasonBullets(state.answers, model).map((item) => `<li>${item}</li>`).join('')}</ul>${renderPricePath(model.result)}<details><summary>Is a Diagnostic right for me?</summary><p>A Diagnostic helps when you need to find the main gap. Use the plan before spending more on ads.</p><p>Already know the fix? Explain the scope on your call.</p></details>`}</section>${model.quickWins.length ? `<section><h3>Try these steps this week</h3><div class="ovgo-estimator-wins">${model.quickWins.map((win) => `<article><b>${title(win.stage)}</b><p>${win.text}</p></article>`).join('')}</div></section>` : ''}<section class="ovgo-estimator-actions" data-estimator-actions>${actionsMarkup(model.actions)}</section>${model.result.id === 'E' ? '' : `<details class="ovgo-estimator-fine"><summary>Details & fine print</summary><p>Investment guidance is preliminary and covers Optivue service fees only. Ad spend, software, CRM, SMS/email usage, call tracking, and booking tools are separate.</p><p>This isn't a proposal, fixed quote, performance guarantee, or legal, medical, privacy, or compliance advice. Final scope is confirmed after a Fit Call and, where appropriate, a Diagnostic.</p></details><button class="ovgo-text-link" type="button" data-estimator-restart>Start over</button>`}<p class="ovgo-form-note" data-estimator-copy-status role="status"></p></article>`;
     mount.querySelectorAll('[data-stage-expand]').forEach((button) => button.addEventListener('click', () => { const open = button.getAttribute('aria-expanded') !== 'true'; button.setAttribute('aria-expanded', String(open)); button.nextElementSibling.hidden = !open; trackEvent('estimator_stage_expand', { stage: button.dataset.stageExpand }); }));
     mount.querySelector('[data-estimator-copy]')?.addEventListener('click', async () => { const status = mount.querySelector('[data-estimator-copy-status]'); try { await navigator.clipboard.writeText(buildSnapshotText(state.answers)); status.textContent = 'Snapshot copied.'; trackEvent('estimator_cta_click', { cta: 'copy_snapshot' }); } catch { status.textContent = 'Copy failed. Select the snapshot text and copy it manually.'; } });
     mount.querySelector('[data-estimator-dismiss]')?.addEventListener('click', () => { mount.querySelector('[data-estimator-actions]').innerHTML = '<p>Thanks for taking the estimator. <a href="/">Back to Optivue Growth OS</a></p>'; trackEvent('estimator_cta_click', { cta: 'not_now' }); });
@@ -188,7 +192,16 @@ function stageExplanation(stage) { return ({ acquire: 'This reflects your inquir
 function deriveFlags(answers) { const systems = new Set(answers.current_systems || []); const flags = Object.fromEntries(Object.values(ESTIMATOR_CONFIG.systemFlags).map((flag) => [flag, false])); for (const [option, flag] of Object.entries(ESTIMATOR_CONFIG.systemFlags)) flags[flag] = systems.has(option); flags.unsure_count = countUnsure(answers); return flags; }
 function countUnsure(answers) { return Object.values(answers).filter((value) => value === 'not_sure' || Array.isArray(value) && value.includes('not_sure')).length; }
 function presentStage(label, status) { const presentation = ESTIMATOR_CONFIG.statusPresentation[status]; return { label, status, icon: presentation.icon, colorToken: presentation.colorToken }; }
-function buildPath(nextStage) { const diagnostic = ESTIMATOR_CONFIG.prices.diagnostic; if (!nextStage) return []; if (nextStage === 'foundation' || nextStage === 'operations') return [diagnostic, ESTIMATOR_CONFIG.prices[nextStage]]; return [diagnostic, { label: nextStage, display: '' }]; }
+function buildPath(nextStage,scopeLabel,options={}) {
+ const diagnostic=priceFor('diagnostic',options.config,options.now);
+ if(!nextStage)return [];
+ if(scopeLabel==='Custom Scope')return [diagnostic];
+ if(nextStage==='foundation'||nextStage==='operations')return [diagnostic,priceFor(nextStage,options.config,options.now)];
+ return [diagnostic,{label:nextStage,display:''}];
+}
+export function renderPricePath(result) {
+ return `<h4>Your likely path</h4><table class="ovgo-estimator-price-table"><thead><tr><th scope="col">Stage</th><th scope="col">Price</th></tr></thead><tbody>${result.path.map(step=>`<tr><th scope="row">${step.label}</th><td>${step.display||'Scope after Diagnostic'}${step.founding?` <small>founding</small><small>${step.note}</small>`:''}</td></tr>`).join('')}</tbody></table>${result.total?`<p>${result.total}</p>`:''}${result.foundingLine?`<p>${result.foundingLine}</p><p class="ovgo-form-note">For eligible single-location clinics in the US, UK, Canada, or Australia. Multi-location setups receive a standard custom proposal.</p>`:''}`;
+}
 function readStoredState() { try { return JSON.parse(sessionStorage.getItem(STORAGE_KEY)); } catch { return null; } }
 function title(value) { return String(value).charAt(0).toUpperCase() + String(value).slice(1); }
 function icon(name) { return ({ check: '✓', review: '◐', alert: '!', question: '?', next: '→' })[name] || '•'; }

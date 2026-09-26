@@ -1466,3 +1466,17 @@ optivue-compare[start="35"]:not(:defined) img[slot="after"] { clip-path: inset(0
  #optivue-growth-os #pricing .ovgo-pricing-grid { grid-template-columns: 1fr; }
  #optivue-growth-os .ovgo-breakdown { padding: 16px; }
 }
+
+/* Founding surfaces use only the approved token values. */
+#optivue-growth-os [data-founding-region][hidden] { display: none !important; }
+#optivue-growth-os [data-founding-region="hero"] { margin-block: calc(var(--ovgo-estimator-space-unit) * 2); font-size: var(--ovgo-type-sm); }
+#optivue-growth-os .ovgo-founding-banner { padding: calc(var(--ovgo-estimator-space-unit) * 3); margin-bottom: calc(var(--ovgo-estimator-space-unit) * 3); border: 1px solid var(--ovgo-border); border-radius: var(--ovgo-radius-structural); background: var(--ovgo-surface); }
+#optivue-growth-os [data-founding-terms] summary { cursor: pointer; min-height: var(--ovgo-tap-target-min); list-style: none; }
+#optivue-growth-os [data-founding-terms] summary::-webkit-details-marker { display:none; }
+#optivue-growth-os [data-founding-region^="card-"] { display: grid; gap: var(--ovgo-estimator-space-unit); }
+#optivue-growth-os .ovgo-founding-label { color: var(--ovgo-text); }
+#optivue-growth-os .ovgo-founding-panel { padding: calc(var(--ovgo-estimator-space-unit) * 2); background: var(--ovgo-surface-2); }
+#optivue-growth-os .ovgo-estimator-price-table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+#optivue-growth-os .ovgo-estimator-price-table th,
+#optivue-growth-os .ovgo-estimator-price-table td { padding: var(--ovgo-estimator-space-unit); border-bottom: 1px solid var(--ovgo-border); vertical-align: top; text-align: left; overflow-wrap: anywhere; }
+#optivue-growth-os .ovgo-estimator-price-table small { display: block; margin-top: var(--ovgo-estimator-space-unit); }

@@ -10,7 +10,4 @@ export const RUNTIME_CONFIG = {
   diagnosticGuaranteeEnabled: false,
   leadEndpoint: '',
   leadSubmissionEnabled: false,
-  foundingClinicEnabled: false,
-  foundingClinicSpots: null,
-  foundingClinicTerms: null,
 };

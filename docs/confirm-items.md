@@ -27,3 +27,8 @@ The owner authorized a GitHub-plugin push to feat/estimator-v2 for Cloudflare pr
 ## Slider references resolved
 
 The supplied image.png shows About, and image(1).png shows Reporting. The approved face portrait already exists as production/assets/rahmel-dela-cruz.webp. The matching right image is rahmel-working-after.webp. No replacement image is needed for this reference.
+
+## Optional Diagnostic policies
+- Diagnostic credit: awaiting owner confirmation. `diagnosticCreditEnabled` defaults to `false` in `production/js/runtime-config.js`.
+- Deliverable guarantee: awaiting owner confirmation. `diagnosticGuaranteeEnabled` defaults to `false` in the same config.
+- Both statements stay absent from rendered content until their individual flags are set to `true`. No payment or refund automation is enabled.

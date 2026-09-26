@@ -471,7 +471,7 @@
 @media (max-width: 760px) {
   #optivue-growth-os .ovgo-hero {
     min-height: 650px;
-    height: 650px;
+    height: auto; /* Let stacked hero content determine mobile section height. */
     padding: 76px 20px 24px;
     align-items: start;
   }
@@ -1403,3 +1403,80 @@ optivue-compare[start="35"]:not(:defined) img[slot="after"] { clip-path: inset(0
   #optivue-growth-os .ovgo-about__grid { grid-template-columns: minmax(0,1fr); gap: 24px; }
   #optivue-growth-os .ovgo-reporting-copy { padding-top: 0; }
 }
+
+/* Three-step pricing. Keep the reading order consistent across widths. */
+#optivue-growth-os #pricing .ovgo-pricing-grid { grid-template-columns: repeat(3,minmax(0,1fr)); align-items: start; }
+#optivue-growth-os .ovgo-pricing-column { min-width: 0; }
+#optivue-growth-os #pricing .ovgo-price-card { order: 0; }
+#optivue-growth-os #pricing .ovgo-price-card__content { display: flex; flex-direction: column; gap: 16px; height: auto; }
+#optivue-growth-os #pricing .ovgo-price-card__content > * { margin: 0; }
+#optivue-growth-os #pricing .ovgo-price-card h3 { min-height: 3.6em; }
+#optivue-growth-os #pricing .ovgo-price-card ul { min-height: 10em; }
+#optivue-growth-os #pricing .ovgo-commitment { min-height: 4.5em; }
+#optivue-growth-os .ovgo-pricing-path { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; padding: 0; margin: 0 0 32px; list-style: none; }
+#optivue-growth-os .ovgo-pricing-path li { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px; border: 1px solid var(--ovgo-border); border-radius: var(--ovgo-radius-structural); }
+#optivue-growth-os .ovgo-pricing-path li:not(:last-child)::after { content: '→'; color: var(--ovgo-muted); }
+#optivue-growth-os .ovgo-care-note { margin: 16px 0 0; font-size: var(--ovgo-type-sm); color: var(--ovgo-muted); }
+#optivue-growth-os .ovgo-pricing-reassurance { margin-top: 32px; border-top: 1px solid var(--ovgo-border); padding-top: 24px; }
+#optivue-growth-os .ovgo-pricing-reassurance p { max-width: 80ch; }
+@media (max-width: 1000px) {
+  #optivue-growth-os #pricing .ovgo-pricing-grid { grid-template-columns: 1fr; }
+  #optivue-growth-os #pricing .ovgo-price-card h3,
+  #optivue-growth-os #pricing .ovgo-price-card ul,
+  #optivue-growth-os #pricing .ovgo-commitment { min-height: 0; }
+}
+@media (max-width: 760px) {
+  #optivue-growth-os .ovgo-pricing-path { grid-template-columns: 1fr; gap: 16px; }
+  #optivue-growth-os .ovgo-pricing-path li:not(:last-child)::after { content: '↓'; }
+}
+
+/* Ownership comparison keeps paired rows in two readable columns. */
+#optivue-growth-os .ovgo-ownership-table { width: 100%; table-layout: fixed; border-collapse: collapse; text-align: left; }
+#optivue-growth-os .ovgo-ownership-table th,
+#optivue-growth-os .ovgo-ownership-table td { width: 50%; padding: 24px; vertical-align: top; overflow-wrap: anywhere; border: 1px solid var(--ovgo-border); }
+#optivue-growth-os .ovgo-ownership-table th { color: var(--ovgo-text); background: var(--ovgo-surface-2); }
+#optivue-growth-os .ovgo-ownership-table td { color: var(--ovgo-muted); }
+#optivue-growth-os .ovgo-ownership-table td:nth-child(2) { color: var(--ovgo-text); background: var(--ovgo-surface); }
+@media (max-width: 760px) {
+  #optivue-growth-os .ovgo-ownership-table th,
+  #optivue-growth-os .ovgo-ownership-table td { padding: 16px 12px; font-size: var(--ovgo-type-sm); }
+}
+
+/* Pricing breakdown controls and progressive enhancement. */
+#optivue-growth-os #pricing [hidden] { display: none !important; }
+#optivue-growth-os .ovgo-pricing-trigger { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; width: 100%; padding: 16px; border: 1px solid var(--ovgo-border); border-radius: var(--ovgo-radius-structural); color: var(--ovgo-text); background: var(--ovgo-surface); text-align: left; font: inherit; cursor: pointer; }
+#optivue-growth-os .ovgo-pricing-trigger .ovgo-price { display: block; }
+#optivue-growth-os .ovgo-pricing-step { font-weight: 700; font-size: var(--ovgo-type-title-sm); }
+#optivue-growth-os .ovgo-price-name { font-weight: 600; }
+#optivue-growth-os .ovgo-pricing-selected { font-size: var(--ovgo-type-sm); font-weight: 700; }
+#optivue-growth-os #pricing .ovgo-price-card.is-selected { border: 2px solid var(--ovgo-blue); }
+#optivue-growth-os .ovgo-breakdown-toggle { display: block; min-height: var(--ovgo-tap-target-min); padding: 12px 0; border: 0; background: transparent; color: var(--ovgo-text); font: inherit; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+#optivue-growth-os .ovgo-pricing-trigger:focus-visible,
+#optivue-growth-os .ovgo-breakdown-toggle:focus-visible { outline: 3px solid var(--ovgo-blue); outline-offset: 4px; }
+#optivue-growth-os .ovgo-breakdown { margin-top: 24px; padding: 24px; border: 1px solid var(--ovgo-border); background: var(--ovgo-surface); border-radius: var(--ovgo-radius-structural); }
+#optivue-growth-os .ovgo-breakdown h3 { margin-top: 0; }
+#optivue-growth-os #pricing .ovgo-breakdown ul,
+#optivue-growth-os #pricing .ovgo-breakdown h3 { min-height: 0; }
+#optivue-growth-os .ovgo-breakdown li { margin-bottom: 16px; }
+#optivue-growth-os .ovgo-breakdown-columns { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media (min-width: 1024px) {
+ #optivue-growth-os [data-pricing-desktop-panel] .ovgo-breakdown-columns { grid-template-columns: minmax(0,1.3fr) minmax(0,1fr); gap: 48px; }
+}
+@media (max-width: 1023px) {
+ #optivue-growth-os #pricing .ovgo-pricing-grid { grid-template-columns: 1fr; }
+ #optivue-growth-os .ovgo-breakdown { padding: 16px; }
+}
+
+/* Founding surfaces use only the approved token values. */
+#optivue-growth-os [data-founding-region][hidden] { display: none !important; }
+#optivue-growth-os [data-founding-region="hero"] { margin-block: calc(var(--ovgo-estimator-space-unit) * 2); font-size: var(--ovgo-type-sm); }
+#optivue-growth-os .ovgo-founding-banner { padding: calc(var(--ovgo-estimator-space-unit) * 3); margin-bottom: calc(var(--ovgo-estimator-space-unit) * 3); border: 1px solid var(--ovgo-border); border-radius: var(--ovgo-radius-structural); background: var(--ovgo-surface); }
+#optivue-growth-os [data-founding-terms] summary { cursor: pointer; min-height: var(--ovgo-tap-target-min); list-style: none; }
+#optivue-growth-os [data-founding-terms] summary::-webkit-details-marker { display:none; }
+#optivue-growth-os [data-founding-region^="card-"] { display: grid; gap: var(--ovgo-estimator-space-unit); }
+#optivue-growth-os .ovgo-founding-label { color: var(--ovgo-text); }
+#optivue-growth-os .ovgo-founding-panel { padding: calc(var(--ovgo-estimator-space-unit) * 2); background: var(--ovgo-surface-2); }
+#optivue-growth-os .ovgo-estimator-price-table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+#optivue-growth-os .ovgo-estimator-price-table th,
+#optivue-growth-os .ovgo-estimator-price-table td { padding: var(--ovgo-estimator-space-unit); border-bottom: 1px solid var(--ovgo-border); vertical-align: top; text-align: left; overflow-wrap: anywhere; }
+#optivue-growth-os .ovgo-estimator-price-table small { display: block; margin-top: var(--ovgo-estimator-space-unit); }

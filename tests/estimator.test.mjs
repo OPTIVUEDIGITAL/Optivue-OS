@@ -22,7 +22,7 @@ const personas = {
 test('shared config owns approved public prices and the Phase 2 Result E item', () => {
   assert.deepEqual(ESTIMATOR_CONFIG.prices, {
     care: { label: 'Systems Care', display: 'From $350/month' },
-    diagnostic: { label: 'Growth Systems Diagnostic', display: 'From $1,500' },
+    diagnostic: { label: 'Growth Systems Diagnostic', display: '$1,500' },
     foundation: { label: '90-Day Growth Foundation Launch', display: 'From $7,500' },
     operations: { label: 'Growth Operations', display: 'From $3,500/month' },
   });

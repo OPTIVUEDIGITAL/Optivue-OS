@@ -4,6 +4,7 @@
   "compatibility_date": "2026-09-18",
   "workers_dev": true,
   "preview_urls": true,
+  "build": { "command": "node scripts/build-pricing.mjs && node scripts/build-founding.mjs" },
   "assets": {
     "directory": "./production",
     "html_handling": "drop-trailing-slash"

@@ -1,3 +1,4 @@
+import { displayPrice } from '../production/js/founding-program.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -5,12 +6,13 @@ import vm from 'node:vm';
 import { ESTIMATOR_CONFIG } from '../production/js/estimator-config.js';
 const read = p => fs.readFileSync(new URL(`../production/${p}`, import.meta.url), 'utf8');
 const html = read('index.html');
-test('all four public offers contain a static price matching shared config', () => {
-  assert.equal((html.match(/data-price-card\b/g)||[]).length, 4);
+test('three pricing cards and the care note contain static prices matching shared config', () => {
+  assert.equal((html.match(/data-price-card\b/g)||[]).length, 3);
   for (const [key, price] of Object.entries(ESTIMATOR_CONFIG.prices)) {
-    assert.ok(html.includes(`data-price-key="${key}">${price.display}</strong>`), `${key} needs a static price`);
+    const match = html.match(new RegExp(`data-price-key="${key}"[^>]*>([^<]+)<`));
+    assert.equal(match?.[1].toLowerCase(), displayPrice(key,key==='operations'?{priceAmount:''}:key==='care'?{priceExact:''}:{}).toLowerCase(), `${key} needs a static price`);
   }
-  assert.ok(html.includes('From $350/month'));
+  assert.ok(html.includes('$350/month'));
   assert.doesNotMatch(html, /<optivue-spotlight-card[^>]*>\s*<div class="ovgo-price-card__content"/);
 });
 test('public HTML contains no unresolved placeholders or unapproved client names', () => {
@@ -73,4 +75,41 @@ test('Reporting preserves approved labels, start and caption', () => {
   assert.match(reporting, /<figcaption>Illustrative tracking view\.<\/figcaption>/);
   assert.match(reporting, /Tracking changes what the report can prove\./);
   assert.doesNotMatch(reporting, /Starts at 35/);
+});
+
+ test('pricing offers one booking action and ownership follows the audience section', () => {
+  const pricing = html.slice(html.indexOf('<section id="pricing"'), html.indexOf('<section id="fit"'));
+  assert.equal((pricing.match(/data-ovgo-booking/g) || []).length, 1);
+  assert.match(pricing, /Request a Diagnostic/);
+  assert.match(pricing, /After your Diagnostic/);
+  assert.match(pricing, /After the build/);
+  assert.doesNotMatch(pricing, /ovgo-value-grid|Who controls your systems/);
+  assert.match(html, /<\/section>\s*<section id="ownership"/);
+  assert.match(html, /Find your gaps in 90 seconds →<\/a><\/p><\/section>\s*<section id="ownership"/);
+  assert.equal((html.match(/id="ownership"/g) || []).length, 1);
+  assert.doesNotMatch(html, /Who controls your systems\?/);
+  assert.match(html, /Renting \(many agency sub-account setups\)/);
+  assert.match(html, /workflows often stay behind/);
+  assert.ok(html.indexOf('id="ownership"') < html.indexOf('id="how-it-works"'));
+
+});
+test('optional Diagnostic policies default off and each flag controls its own statement', () => {
+  const config = read('js/runtime-config.js');
+  assert.match(config, /diagnosticCreditEnabled: false/);
+  assert.match(config, /diagnosticGuaranteeEnabled: false/);
+  assert.doesNotMatch(html, /Your Diagnostic fee is credited|I'll refund it/);
+  const source = read('js/optivue.js').replace(/^import .*;\n/gm, '');
+  for (const credit of [false, true]) for (const guarantee of [false, true]) {
+    const paragraphs = [];
+    const container = { hidden: false, replaceChildren(){paragraphs.length=0;}, append(p){paragraphs.push(p.textContent);} };
+    vm.runInNewContext(source + '\ninitPricingPolicies(testRoot, config);', {
+      document: { getElementById:()=>null, createElement:()=>({textContent:''}) },
+      testRoot: {querySelector:()=>container},
+      config: {diagnosticCreditEnabled:credit,diagnosticGuaranteeEnabled:guarantee},
+    });
+    assert.equal(container.hidden, !(credit || guarantee));
+    assert.equal(paragraphs.length, Number(credit)+Number(guarantee));
+    assert.equal(paragraphs.some(p=>p.includes('credited')), credit);
+    assert.equal(paragraphs.some(p=>p.includes('refund')), guarantee);
+  }
 });

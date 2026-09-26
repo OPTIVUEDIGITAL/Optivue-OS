@@ -76,7 +76,7 @@ test('Reporting preserves approved labels, start and caption', () => {
   assert.doesNotMatch(reporting, /Starts at 35/);
 });
 
- test('pricing offers one booking action and ownership follows the stage section', () => {
+ test('pricing offers one booking action and ownership follows the audience section', () => {
   const pricing = html.slice(html.indexOf('<section id="pricing"'), html.indexOf('<section id="fit"'));
   assert.equal((pricing.match(/<button\b/g) || []).length, 1);
   assert.match(pricing, /Request a Diagnostic/);
@@ -84,7 +84,11 @@ test('Reporting preserves approved labels, start and caption', () => {
   assert.match(pricing, /Starts after your Foundation Launch/);
   assert.doesNotMatch(pricing, /ovgo-value-grid|Who controls your systems/);
   assert.match(html, /<\/section>\s*<section id="ownership"/);
-  assert.ok(html.indexOf('id="systems"') < html.indexOf('id="ownership"'));
+  assert.match(html, /Find your gaps in 90 seconds →<\/a><\/p><\/section>\s*<section id="ownership"/);
+  assert.equal((html.match(/id="ownership"/g) || []).length, 1);
+  assert.doesNotMatch(html, /Who controls your systems\?/);
+  assert.match(html, /Renting \(many agency sub-account setups\)/);
+  assert.match(html, /workflows often stay behind/);
   assert.ok(html.indexOf('id="ownership"') < html.indexOf('id="how-it-works"'));
   for (const card of pricing.matchAll(/<article[^>]*data-price-card[\s\S]*?<\/article>/g)) {
     assert.ok((card[0].match(/<li>/g) || []).length <= 4);

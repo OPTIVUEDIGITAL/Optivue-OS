@@ -11,7 +11,7 @@ test('uses the clinic positioning and required hero message', () => {
   assert.match(html, /FOR HEALTH, WELLNESS &amp; AESTHETICS/);
   assert.match(html, /Turn more leads into booked visits/);
   assert.match(html, /20 minutes · No pressure · Find out if a Diagnostic makes sense/);
-  assert.match(html, /8 years working with medical and wellness practices/);
+  assert.match(html, /Your system, in your name\. · 8 years working with medical and wellness practices/);
 });
 
 test('removes legacy packages and free audit language', () => {

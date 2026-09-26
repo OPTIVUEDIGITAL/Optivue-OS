@@ -1429,3 +1429,15 @@ optivue-compare[start="35"]:not(:defined) img[slot="after"] { clip-path: inset(0
   #optivue-growth-os .ovgo-pricing-path { grid-template-columns: 1fr; gap: 16px; }
   #optivue-growth-os .ovgo-pricing-path li:not(:last-child)::after { content: '↓'; }
 }
+
+/* Ownership comparison keeps paired rows in two readable columns. */
+#optivue-growth-os .ovgo-ownership-table { width: 100%; table-layout: fixed; border-collapse: collapse; text-align: left; }
+#optivue-growth-os .ovgo-ownership-table th,
+#optivue-growth-os .ovgo-ownership-table td { width: 50%; padding: 24px; vertical-align: top; overflow-wrap: anywhere; border: 1px solid var(--ovgo-border); }
+#optivue-growth-os .ovgo-ownership-table th { color: var(--ovgo-text); background: var(--ovgo-surface-2); }
+#optivue-growth-os .ovgo-ownership-table td { color: var(--ovgo-muted); }
+#optivue-growth-os .ovgo-ownership-table td:nth-child(2) { color: var(--ovgo-text); background: var(--ovgo-surface); }
+@media (max-width: 760px) {
+  #optivue-growth-os .ovgo-ownership-table th,
+  #optivue-growth-os .ovgo-ownership-table td { padding: 16px 12px; font-size: var(--ovgo-type-sm); }
+}

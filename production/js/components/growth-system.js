@@ -77,11 +77,11 @@ class OptivueGrowthSystem extends HTMLElement {
     this._reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this._mobile = window.matchMedia('(max-width: 760px)').matches;
     this._render();
-    this._io = new IntersectionObserver((entries) => {
+    try { if (typeof IntersectionObserver !== 'function') throw new Error('Observer unavailable'); this._io = new IntersectionObserver((entries) => {
       this._visible = entries[0].isIntersecting;
       if (this._visible) this._start(); else this._stop();
     }, { threshold: 0 });
-    this._io.observe(this);
+    this._io.observe(this); } catch { this._progress = 1; this._target = 1; this._paint(); }
     if (this._mobile) {
       this._onVisibilityChange = () => {
         if (document.hidden) this._stop();
@@ -156,7 +156,7 @@ class OptivueGrowthSystem extends HTMLElement {
   _render() {
     const nodeMap = Object.fromEntries(NODES.map((node) => [node.id, node]));
     const center = (node) => ({ x: node.x + node.w / 2, y: node.y + NODE_H / 2 });
-    const renderNodes = this._mobile ? NODES.filter((node) => node.tier === 1) : NODES;
+    const renderNodes = NODES;
     const renderEdges = this._mobile
       ? [['traffic','capture'],['landing','capture'],['capture','crm'],['crm','customer'],['customer','analytics']]
       : EDGES;
@@ -203,7 +203,7 @@ class OptivueGrowthSystem extends HTMLElement {
         @media(max-width:720px){.scrim{background:linear-gradient(to bottom,color-mix(in srgb,var(--o-bg) 50%,transparent) 0%,color-mix(in srgb,var(--o-bg) 20%,transparent) 28%,color-mix(in srgb,var(--o-bg) 82%,transparent) 100%)}}
       </style>
       <div class="wrap">
-        <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg viewBox="70 110 1090 790" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
           <g class="grid">
             ${Array.from({length:9},(_,i)=>`<line x1="0" y1="${i*112}" x2="1600" y2="${i*112}" />`).join('')}
             ${Array.from({length:11},(_,i)=>`<line x1="${i*160}" y1="0" x2="${i*160}" y2="900" />`).join('')}
@@ -211,7 +211,7 @@ class OptivueGrowthSystem extends HTMLElement {
           <g class="layer-edges">${edges}</g>
           <g class="layer-nodes">${nodes}</g>
         </svg>
-        <div class="scrim"></div>
+
       </div>`;
 
     this._edges = [...this._root.querySelectorAll('.edge')];

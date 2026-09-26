@@ -113,7 +113,7 @@ export function initEstimator(root) {
   function clearInsight() { activeInsight = null; const current = mount.querySelector('[data-estimator-insight]'); if (current) current.hidden = true; }
 
   function renderIntro() {
-    mount.innerHTML = `<div class="ovgo-estimator-intro"><p class="ovgo-kicker">Growth System Scope Estimator</p><h2>See what stands between a lead and a booking.</h2><p>Answer 9 questions about your leads and follow-up. Get a snapshot of your growth system, a next step and an estimated cost range.</p><button class="ovgo-btn ovgo-btn--primary" type="button" data-estimator-start>Start the Estimate</button><ul class="ovgo-estimator-facts"><li>About 90 seconds</li><li>No email needed to see results</li><li>Not a fixed quote</li></ul><p class="ovgo-form-note">Please don't enter patient information or passwords anywhere in this tool.</p></div>`;
+    mount.innerHTML = `<div class="ovgo-estimator-intro"><p class="ovgo-kicker">Growth OS Scope Estimator</p><h2>See what stands between a lead and a booking.</h2><p>Answer 9 questions about your leads and follow-up. Get a snapshot of your growth system, a next step and an estimated cost range.</p><button class="ovgo-btn ovgo-btn--primary" type="button" data-estimator-start>Start the Estimate</button><ul class="ovgo-estimator-facts"><li>About 90 seconds</li><li>No email needed to see results</li><li>Not a fixed quote</li></ul><p class="ovgo-form-note">Please don't enter patient information or passwords anywhere in this tool.</p></div>`;
     mount.querySelector('[data-estimator-start]').addEventListener('click', () => { state.screen = 'question'; state.step = 0; persist(); trackEvent('estimator_start'); renderQuestion(); });
   }
 

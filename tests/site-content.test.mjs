@@ -27,7 +27,7 @@ test('publishes approved offers and binds shared estimator prices', () => {
 });
 
 test('has the required sections and one H1', () => {
-  for (const id of ['overview', 'how-it-works', 'transformations', 'pricing', 'fit', 'about', 'faq']) {
+  for (const id of ['overview', 'how-it-works', 'who-i-work-with', 'pricing', 'fit', 'about', 'faq']) {
     assert.match(html, new RegExp(`id=["']${id}["']`));
   }
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
@@ -43,9 +43,11 @@ test('uses Growth OS canonical and social metadata', () => {
   assert.match(robots, /https:\/\/growth\.optivuedigital\.com\/sitemap\.xml/);
 });
 
-test('keeps unresolved claims visibly marked', () => {
-  assert.match(html, /\[CONFIRM permission for each\]/);
-  assert.match(html, /\[CONFIRM: Based in the Philippines/);
+test('keeps unresolved claims out of public HTML and records them for review', async () => {
+  assert.doesNotMatch(html, /\[CONFIRM/);
+  const pending = await readFile(new URL('../docs/confirm-items.md', import.meta.url), 'utf8');
+  assert.match(pending, /Client naming permission/);
+  assert.match(pending, /Call availability/);
 });
 
 test('uses clinic language and first-person delivery voice', () => {

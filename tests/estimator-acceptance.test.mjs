@@ -18,7 +18,7 @@ test('Phase 1 contains no email capture or Result E note form', () => {
 
 test('production removes legacy estimator tiers and tool mounts', () => {
   assert.doesNotMatch(productionSource, /Growth Starter|Growth Accelerator|Growth Lab|\$88|data-ovgo-diagnosis|Lead Leak Check/);
-  assert.match(productionSource, /Growth System Scope Estimator/);
+  assert.match(productionSource, /Growth OS Scope Estimator/);
 });
 
 test('portable artifact points visitors to the current standalone estimator', () => {

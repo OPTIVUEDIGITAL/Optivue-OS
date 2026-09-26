@@ -23,7 +23,7 @@ function initTheme(root) {
   apply();
   root.querySelector('[data-ovgo-theme]')?.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; localStorage.setItem('optivue-theme', theme); apply(); });
   const growth = root.querySelector('optivue-growth-system');
-  const sync = () => growth?.setAttribute('density', window.innerWidth < 760 ? 'reduced' : 'full');
+  const sync = () => growth?.setAttribute('density', 'full');
   sync();
   window.addEventListener('resize', sync, { passive: true });
 }
@@ -79,16 +79,22 @@ function initSpotlights(root) {
 }
 
 function initReveal(root) {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const items = [...root.querySelectorAll('.ovgo-section > *, .ovgo-final-cta > *')];
-  items.forEach((item) => item.setAttribute('data-ovgo-reveal', ''));
-  const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }), { threshold:.08, rootMargin:'0px 0px -8% 0px' });
-  items.forEach((item) => observer.observe(item));
+  // Content is visible by default. A failed observer never blocks reading.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || typeof IntersectionObserver !== 'function') return;
+  try {
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    }), { threshold: .08 });
+    root.querySelectorAll('.ovgo-section > *, .ovgo-final-cta > *').forEach((item) => observer.observe(item));
+  } catch { /* Optional enhancement. Static content stays readable. */ }
 }
 
 function initFoundingClinic(root) {
   const section = root.querySelector('[data-founding-clinic]');
-  if (!section || !RUNTIME_CONFIG.foundingClinicEnabled) return;
+  if (!section || !RUNTIME_CONFIG.foundingClinicEnabled || !RUNTIME_CONFIG.foundingClinicSpots || !RUNTIME_CONFIG.foundingClinicTerms) return;
   section.hidden = false;
   section.querySelector('#founding-title').textContent = `Founding Clinic Program · ${RUNTIME_CONFIG.foundingClinicSpots} spots`;
   section.querySelector('[data-founding-copy]').textContent = `I'm documenting results for my first health, wellness and aesthetics case studies. Founding clinics receive ${RUNTIME_CONFIG.foundingClinicTerms} in exchange for permission to publish approved or anonymized results and access to measurement data.`;
@@ -98,10 +104,12 @@ function initMobileCta(root) {
   const bar = root.querySelector('[data-mobile-cta]');
   const heroButton = root.querySelector('[data-cta-location="hero"]');
   const final = root.querySelector('[data-final-cta]');
-  if (!bar || !heroButton || !final) return;
+  if (!bar || !heroButton || !final || typeof IntersectionObserver !== 'function') return;
   const visible = new Set();
-  const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target)); bar.classList.toggle('is-visible', visible.size === 0); }, { threshold:.05 });
-  observer.observe(heroButton); observer.observe(final);
+  try {
+    const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target)); bar.classList.toggle('is-visible', visible.size === 0); }, { threshold:.05 });
+    observer.observe(heroButton); observer.observe(final);
+  } catch { /* Inline booking actions remain available. */ }
 }
 
 function initFaq(root) {

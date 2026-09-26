@@ -1,6 +1,6 @@
 class OptivueCompare extends HTMLElement {
   static get observedAttributes() {
-    return ['start', 'label-before', 'label-after', 'labels'];
+    return ['start', 'label-before', 'label-after', 'labels', 'ratio'];
   }
 
   connectedCallback() {
@@ -18,7 +18,7 @@ class OptivueCompare extends HTMLElement {
   }
 
   initialPosition() {
-    const raw = Number(this.getAttribute('start'));
+    const raw = Number(this.getAttribute('start') ?? 50);
     return Number.isFinite(raw) ? Math.min(100, Math.max(0, raw)) : 50;
   }
 
@@ -69,7 +69,7 @@ class OptivueCompare extends HTMLElement {
           bottom: 0;
           left: var(--position);
           width: 2px;
-          background: rgba(245,247,250,.9);
+          background: #fff;
           transform: translateX(-1px);
           pointer-events: none;
         }
@@ -78,8 +78,9 @@ class OptivueCompare extends HTMLElement {
           z-index: 6;
           top: 50%;
           left: var(--position);
-          width: 46px;
-          height: 46px;
+          box-sizing: border-box;
+          width: 44px;
+          height: 44px;
           border: 2px solid #f5f7fa;
           border-radius: 50%;
           background: #101316;
@@ -87,11 +88,11 @@ class OptivueCompare extends HTMLElement {
           display: grid;
           place-items: center;
           transform: translate(-50%, -50%);
-          box-shadow: 0 0 0 3px rgba(76,141,255,.8);
+          box-shadow: 0 0 0 2px var(--ovgo-blue, #4c8dff);
           cursor: ew-resize;
         }
         .handle:focus-visible {
-          outline: 3px solid #4c8dff;
+          outline: 3px solid var(--ovgo-text, #f5f7fa);
           outline-offset: 4px;
         }
         .handle span {
@@ -114,7 +115,7 @@ class OptivueCompare extends HTMLElement {
         .label.before-label { left: 16px; }
         .label.after-label { right: 16px; }
         @media (max-width: 760px) {
-          .frame { aspect-ratio: 4 / 3; }
+          .frame { aspect-ratio: 8 / 5; }
           .label { top: 10px; }
           .label.before-label { left: 10px; }
           .label.after-label { right: 10px; }
@@ -133,7 +134,7 @@ class OptivueCompare extends HTMLElement {
         <div class="handle" role="slider" tabindex="0"
              aria-label="Compare ${before} and ${after}"
              aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-          <span aria-hidden="true">‹›</span>
+          <span aria-hidden="true">‹ ›</span>
         </div>
       </div>
     `;
@@ -144,23 +145,29 @@ class OptivueCompare extends HTMLElement {
     const handle = this.shadowRoot.querySelector('.handle');
     if (!frame || !handle) return;
 
-    const move = (event) => {
-      const point = event.touches ? event.touches[0] : event;
-      const rect = frame.getBoundingClientRect();
-      this.setPosition(((point.clientX - rect.left) / rect.width) * 100);
-    };
-
-    let dragging = false;
+    let pointerId = null;
+    let startX = 0;
+    let startPosition = 50;
     frame.addEventListener('pointerdown', (event) => {
-      dragging = true;
-      if (frame.setPointerCapture) frame.setPointerCapture(event.pointerId);
-      move(event);
+      if (event.button !== 0 || pointerId !== null) return;
+      pointerId = event.pointerId;
+      startX = event.clientX;
+      startPosition = this.position;
+      handle.focus({ preventScroll: true });
+      frame.setPointerCapture?.(event.pointerId);
     });
     frame.addEventListener('pointermove', (event) => {
-      if (dragging) move(event);
+      if (event.pointerId !== pointerId) return;
+      const width = frame.getBoundingClientRect().width;
+      if (width > 0) this.setPosition(startPosition + (event.clientX - startX) / width * 100);
     });
-    frame.addEventListener('pointerup', () => { dragging = false; });
-    frame.addEventListener('pointercancel', () => { dragging = false; });
+    const release = (event) => {
+      if (event.pointerId !== pointerId) return;
+      pointerId = null;
+    };
+    frame.addEventListener('pointerup', release);
+    frame.addEventListener('pointercancel', release);
+    frame.addEventListener('lostpointercapture', release);
 
     handle.addEventListener('keydown', (event) => {
       const current = Number(handle.getAttribute('aria-valuenow')) || 0;
@@ -182,6 +189,7 @@ class OptivueCompare extends HTMLElement {
 
   setPosition(value) {
     const position = Math.min(100, Math.max(0, Number(value) || 0));
+    this.position = position;
     this.style.setProperty('--position', position + '%');
     const handle = this.shadowRoot?.querySelector('.handle');
     if (handle) handle.setAttribute('aria-valuenow', String(Math.round(position)));

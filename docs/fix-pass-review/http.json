@@ -1,0 +1,52 @@
+{
+  "/": {
+    "status": 200,
+    "location": null,
+    "x_robots_tag": null,
+    "prices": [
+      [
+        "diagnostic",
+        "From $1,500"
+      ],
+      [
+        "foundation",
+        "From $7,500"
+      ],
+      [
+        "operations",
+        "From $3,500/month"
+      ],
+      [
+        "care",
+        "From $350/month"
+      ]
+    ],
+    "cards": 4,
+    "stage_instances": 1,
+    "confirm_placeholder": false,
+    "canonical": [
+      "https://growth.optivuedigital.com/"
+    ]
+  },
+  "/estimator": {
+    "status": 200,
+    "location": null,
+    "x_robots_tag": "noindex",
+    "tags": [
+      "<meta name=\"robots\" content=\"noindex\">",
+      "<link rel=\"canonical\" href=\"https://growth.optivuedigital.com/estimator\">",
+      "<title>Growth OS Scope Estimator | Optivue Growth OS</title>"
+    ]
+  },
+  "/diagnosis": {
+    "status": 301,
+    "location": "/estimator",
+    "x_robots_tag": null
+  },
+  "/robots.txt": {
+    "status": 200,
+    "location": null,
+    "x_robots_tag": null,
+    "body": "User-agent: *\nAllow: /\n\nSitemap: https://growth.optivuedigital.com/sitemap.xml\n"
+  }
+}

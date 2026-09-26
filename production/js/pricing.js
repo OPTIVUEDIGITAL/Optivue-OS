@@ -22,7 +22,7 @@ export function initPricingBreakdowns(root) {
    }
    if(k!=='care') {
     const tab=tabs[keys.indexOf(k)];
-    tab.querySelector('.ovgo-pricing-selected').hidden=!open;
+
     tab.closest('[data-price-card]').classList.toggle('is-selected',open);
     if(media.matches){tab.setAttribute('aria-selected',String(open));tab.tabIndex=(selected?open:k==='diagnostic')?0:-1;}
     else {tab.removeAttribute('aria-selected');tab.tabIndex=0;}
@@ -32,8 +32,8 @@ export function initPricingBreakdowns(root) {
  }
  function open(k, toggle=false) {
   const was=k==='care'?careOpen:selected===k;
-  if(k==='care')careOpen=toggle?!careOpen:true;
-  else selected=toggle&&was?null:k;
+  if(k==='care'){careOpen=toggle?!careOpen:true;if(!media.matches && careOpen)selected=null;}
+  else {selected=toggle&&was?null:k;if(!media.matches)careOpen=false;}
   animation?.cancel();cancelAnimationFrame(scrollFrame);
   render();
   const showing=k==='care'?careOpen:selected===k;
@@ -68,6 +68,10 @@ export function initPricingBreakdowns(root) {
   c.hidden=false;
   c.addEventListener('click',()=>open(c.dataset.pricingTrigger||c.dataset.pricingToggle,c.hasAttribute('data-pricing-toggle')||!media.matches));
  });
+ keys.forEach(k=>root.querySelector(`[data-breakdown-slot="${k}"]`).closest('[data-price-card]').addEventListener('click',event=>{
+  if(event.target.closest('button,a,[data-breakdown]'))return;
+  open(k,!media.matches);
+ }));
  tabs.forEach((tab,i)=>tab.addEventListener('keydown',event=>{
   if(!media.matches)return;
   let next;

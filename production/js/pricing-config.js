@@ -49,7 +49,7 @@ export const PRICING_BREAKDOWNS = {
       },
       {
         "label": "Optional AI receptionist or chat",
-        "text": "Connected to your CRM and booking, if it fits your clinic."
+        "text": "Connected to your CRM and booking, if it fits your clinic. Scoped and priced in your proposal."
       },
       {
         "label": "Ownership handoff",
@@ -70,7 +70,7 @@ export const PRICING_BREAKDOWNS = {
     "items": [
       {
         "label": "Monthly improvement",
-        "text": "A review of your numbers and your biggest gap. Up to 4 agreed improvements per month."
+        "text": "A review of your numbers and your biggest gap. Up to 4 agreed changes per month, such as a new follow-up message, a booking-page fix, or a campaign update."
       },
       {
         "label": "Ad management",

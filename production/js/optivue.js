@@ -9,7 +9,7 @@ import { addJourneyValue } from './context.js';
 function initPricing(root) {
   root.querySelectorAll('[data-price-key]').forEach((element) => {
     const price = ESTIMATOR_CONFIG.prices[element.dataset.priceKey];
-    if (price) element.textContent = 'priceLowercase' in element.dataset ? price.display.replace(/^From /, 'from ') : price.display;
+    if (price) element.textContent = 'priceLowercase' in element.dataset ? price.display.replace(/^From /, 'from ') : 'priceAmount' in element.dataset ? price.display.replace('/month', '') : price.display;
   });
 }
 

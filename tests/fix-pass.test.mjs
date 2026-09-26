@@ -9,7 +9,7 @@ test('three pricing cards and the care note contain static prices matching share
   assert.equal((html.match(/data-price-card\b/g)||[]).length, 3);
   for (const [key, price] of Object.entries(ESTIMATOR_CONFIG.prices)) {
     const match = html.match(new RegExp(`data-price-key="${key}"[^>]*>([^<]+)<`));
-    assert.equal(match?.[1].toLowerCase(), price.display.toLowerCase(), `${key} needs a static price`);
+    assert.equal(match?.[1].toLowerCase(), (key === 'operations' ? price.display.replace('/month', '') : price.display).toLowerCase(), `${key} needs a static price`);
   }
   assert.ok(html.includes('from $350/month'));
   assert.doesNotMatch(html, /<optivue-spotlight-card[^>]*>\s*<div class="ovgo-price-card__content"/);
@@ -80,8 +80,8 @@ test('Reporting preserves approved labels, start and caption', () => {
   const pricing = html.slice(html.indexOf('<section id="pricing"'), html.indexOf('<section id="fit"'));
   assert.equal((pricing.match(/data-ovgo-booking/g) || []).length, 1);
   assert.match(pricing, /Request a Diagnostic/);
-  assert.match(pricing, /Starts after your Diagnostic/);
-  assert.match(pricing, /Starts after your Foundation Launch/);
+  assert.match(pricing, /After your Diagnostic/);
+  assert.match(pricing, /After the build/);
   assert.doesNotMatch(pricing, /ovgo-value-grid|Who controls your systems/);
   assert.match(html, /<\/section>\s*<section id="ownership"/);
   assert.match(html, /Find your gaps in 90 seconds →<\/a><\/p><\/section>\s*<section id="ownership"/);

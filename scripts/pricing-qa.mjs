@@ -31,6 +31,8 @@ for(const width of [390,768,1023,1024,1440]) {
   await trigger.press('Tab');
   assert.equal(await page.locator('#pricing [data-ovgo-booking]').evaluate(e=>document.activeElement===e),true);
  }
+ await page.locator('[data-price-plan="90-Day Growth Foundation Launch"] .ovgo-pricing-action').click();
+ assert.equal(await page.locator('[data-breakdown="foundation"]').isVisible(),true);
  const before=await page.locator('[data-breakdown]:visible').count();
  await page.locator('#pricing [data-ovgo-booking]').click();
  assert.equal(await page.locator('[data-ovgo-modal]').isVisible(),true);
@@ -38,6 +40,7 @@ for(const width of [390,768,1023,1024,1440]) {
  await page.keyboard.press('Escape');
  await page.locator('[data-pricing-toggle="care"]').click();
  assert.equal(await page.locator('[data-breakdown="care"]').isVisible(),true);
+ if(width<1024)assert.equal(await page.locator('[data-breakdown]:visible').count(),1);
  for(const [key,config] of Object.entries(PRICING_BREAKDOWNS)){
   const text=await page.locator(`[data-breakdown="${key}"]`).textContent();
   for(const item of config.items)assert.ok(text.includes(`${item.label}: ${item.text}`));

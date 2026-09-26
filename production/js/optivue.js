@@ -1,3 +1,4 @@
+import { initPricingBreakdowns } from './pricing.js';
 import { initBooking } from './booking.js';
 import { initEstimator } from './estimator.js';
 import { ESTIMATOR_CONFIG } from './estimator-config.js';
@@ -146,5 +147,6 @@ if (root) {
   initBooking(root);
   initPricing(root);
   initPricingPolicies(root);
+  initPricingBreakdowns(root);
   initEstimator(root);
 }

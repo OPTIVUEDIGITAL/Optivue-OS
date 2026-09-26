@@ -53,6 +53,9 @@ jobs:
       - name: Responsive screenshots and overflow checks
         run: node scripts/visual-qa.mjs
 
+      - name: Pricing breakdown acceptance
+        run: node scripts/pricing-qa.mjs
+
       - name: Phone experience acceptance
         run: node scripts/mobile-qa.mjs
 

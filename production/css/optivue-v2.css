@@ -1441,3 +1441,28 @@ optivue-compare[start="35"]:not(:defined) img[slot="after"] { clip-path: inset(0
   #optivue-growth-os .ovgo-ownership-table th,
   #optivue-growth-os .ovgo-ownership-table td { padding: 16px 12px; font-size: var(--ovgo-type-sm); }
 }
+
+/* Pricing breakdown controls and progressive enhancement. */
+#optivue-growth-os #pricing [hidden] { display: none !important; }
+#optivue-growth-os .ovgo-pricing-trigger { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; width: 100%; padding: 16px; border: 1px solid var(--ovgo-border); border-radius: var(--ovgo-radius-structural); color: var(--ovgo-text); background: var(--ovgo-surface); text-align: left; font: inherit; cursor: pointer; }
+#optivue-growth-os .ovgo-pricing-trigger .ovgo-price { display: block; }
+#optivue-growth-os .ovgo-pricing-step { font-weight: 700; font-size: var(--ovgo-type-title-sm); }
+#optivue-growth-os .ovgo-price-name { font-weight: 600; }
+#optivue-growth-os .ovgo-pricing-selected { font-size: var(--ovgo-type-sm); font-weight: 700; }
+#optivue-growth-os #pricing .ovgo-price-card.is-selected { border: 2px solid var(--ovgo-blue); }
+#optivue-growth-os .ovgo-breakdown-toggle { display: block; min-height: var(--ovgo-tap-target-min); padding: 12px 0; border: 0; background: transparent; color: var(--ovgo-text); font: inherit; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+#optivue-growth-os .ovgo-pricing-trigger:focus-visible,
+#optivue-growth-os .ovgo-breakdown-toggle:focus-visible { outline: 3px solid var(--ovgo-blue); outline-offset: 4px; }
+#optivue-growth-os .ovgo-breakdown { margin-top: 24px; padding: 24px; border: 1px solid var(--ovgo-border); background: var(--ovgo-surface); border-radius: var(--ovgo-radius-structural); }
+#optivue-growth-os .ovgo-breakdown h3 { margin-top: 0; }
+#optivue-growth-os #pricing .ovgo-breakdown ul,
+#optivue-growth-os #pricing .ovgo-breakdown h3 { min-height: 0; }
+#optivue-growth-os .ovgo-breakdown li { margin-bottom: 16px; }
+#optivue-growth-os .ovgo-breakdown-columns { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media (min-width: 1024px) {
+ #optivue-growth-os [data-pricing-desktop-panel] .ovgo-breakdown-columns { grid-template-columns: minmax(0,1.3fr) minmax(0,1fr); gap: 48px; }
+}
+@media (max-width: 1023px) {
+ #optivue-growth-os #pricing .ovgo-pricing-grid { grid-template-columns: 1fr; }
+ #optivue-growth-os .ovgo-breakdown { padding: 16px; }
+}

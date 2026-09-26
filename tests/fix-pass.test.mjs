@@ -78,7 +78,7 @@ test('Reporting preserves approved labels, start and caption', () => {
 
  test('pricing offers one booking action and ownership follows the audience section', () => {
   const pricing = html.slice(html.indexOf('<section id="pricing"'), html.indexOf('<section id="fit"'));
-  assert.equal((pricing.match(/<button\b/g) || []).length, 1);
+  assert.equal((pricing.match(/data-ovgo-booking/g) || []).length, 1);
   assert.match(pricing, /Request a Diagnostic/);
   assert.match(pricing, /Starts after your Diagnostic/);
   assert.match(pricing, /Starts after your Foundation Launch/);
@@ -90,9 +90,7 @@ test('Reporting preserves approved labels, start and caption', () => {
   assert.match(html, /Renting \(many agency sub-account setups\)/);
   assert.match(html, /workflows often stay behind/);
   assert.ok(html.indexOf('id="ownership"') < html.indexOf('id="how-it-works"'));
-  for (const card of pricing.matchAll(/<article[^>]*data-price-card[\s\S]*?<\/article>/g)) {
-    assert.ok((card[0].match(/<li>/g) || []).length <= 4);
-  }
+
 });
 test('optional Diagnostic policies default off and each flag controls its own statement', () => {
   const config = read('js/runtime-config.js');

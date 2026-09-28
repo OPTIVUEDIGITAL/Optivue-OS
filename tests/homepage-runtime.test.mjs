@@ -1,4 +1,4 @@
-import { displayPrice } from '../production/js/founding-program.js';
+import { displayPrice } from '../production/js/pricing-values.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
@@ -16,7 +16,7 @@ test('homepage initializes stage content, prices and booking without a startup e
     document:{getElementById:()=>root,documentElement:{style:{}}},
     localStorage:{getItem:()=>null},
     window:{matchMedia:()=>({matches:true}),innerWidth:1440,addEventListener(){}},
-    displayPrice,initFounding(){},ESTIMATOR_CONFIG,RUNTIME_CONFIG:{foundingClinicEnabled:false},addJourneyValue(){},
+    displayPrice,ESTIMATOR_CONFIG,RUNTIME_CONFIG:{},addJourneyValue(){},
     initBooking(){booking=true;},initEstimator(){},initPricingBreakdowns(){},
   });
   assert.ok(fields['[data-stage-purpose]'].textContent.length>0);

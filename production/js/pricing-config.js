@@ -1,94 +1,102 @@
+import { ESTIMATOR_CONFIG } from './estimator-config.js';
 export const PRICING_BREAKDOWNS = {
   "diagnostic": {
-    "name": "Growth Systems Diagnostic",
+    "name": "Growth Systems Audit",
     "items": [
       {
-        "label": "Lead-to-booking review",
-        "text": "How leads arrive. I test your contact and booking paths as a new lead would."
+        "label": "Multi-channel review",
+        "text": "Up to 3 channels, such as Google Ads, Meta, and Google Business Profile."
       },
       {
-        "label": "CRM and follow-up review",
+        "label": "Website and booking path",
+        "text": "I test your contact and booking steps as a new lead would."
+      },
+      {
+        "label": "Follow-up and CRM",
         "text": "How inquiries are logged, assigned, and followed up."
       },
       {
-        "label": "Tracking review",
-        "text": "What your reports can and can't see."
+        "label": "Tracking check",
+        "text": "Whether your reports show real bookings, not just clicks."
+      },
+      {
+        "label": "Competitor gaps",
+        "text": "How 3 nearby competitors capture and follow up with leads."
       },
       {
         "label": "Baseline numbers",
-        "text": "Reply time, lead-to-booking rate, and show rate, so we can measure change later."
+        "text": "Reply time, lead-to-booking rate, and show rate."
       },
       {
         "label": "Your 90-day plan",
-        "text": "A written report of your top gaps, ranked. Do now, do next, don't do yet. A build estimate and a 45-minute walkthrough call."
+        "text": "Top gaps ranked. Do now, do next, don't do yet. A 30-minute walkthrough call."
       }
     ],
-    "timeline": "7–10 business days after payment, intake, and access. Paid upfront. Price covers one location. Multi-location is quoted after the Fit Call.",
-    "needs": "View access to your website, CRM, booking tool, analytics, and ad accounts. A 20-minute intake call.",
-    "excluded": "Building or changing anything. Legal, privacy, or compliance review.",
-    "closing": "You pay for diagnosis, priorities, and a plan you keep. If a simpler fix solves it, I'll recommend it. If your follow-up isn't ready for more leads, I'll tell you before you spend more on ads."
+    "timeline": "5–7 business days after payment and access. Paid upfront. Covers one location. Credited toward Fix or Fix + Grow within 30 days.",
+    "needs": "View access to your website, CRM, booking tool, analytics, and ad accounts.",
+    "excluded": "Building or changing anything. Legal, privacy, or compliance review."
   },
   "foundation": {
-    "name": "90-Day Growth Foundation Launch",
+    "name": "Growth System Fix",
     "items": [
       {
         "label": "Booking path",
-        "text": "One landing page or booking path. Mobile-first, with form and booking connected."
+        "text": "Fix your main landing page or booking path."
       },
       {
-        "label": "CRM setup",
-        "text": "A pipeline with up to 6 stages, from inquiry to booked visit. Lead routing to your team."
+        "label": "CRM routing",
+        "text": "Clear stages and lead routing to your team."
       },
       {
         "label": "Follow-up",
-        "text": "Up to 2 consent-based follow-up sequences. Missed-call and after-hours replies."
+        "text": "One consent-based follow-up sequence."
       },
       {
-        "label": "Tracking and reporting",
-        "text": "Tracking for calls, forms, and bookings, using first-party data where possible. One dashboard from lead to booking."
+        "label": "Tracking",
+        "text": "Fix tracking for calls, forms, and bookings."
       },
       {
-        "label": "Optional AI receptionist or chat",
-        "text": "Connected to your CRM and booking, if it fits your clinic. Scoped and priced in your proposal."
-      },
-      {
-        "label": "Ownership handoff",
-        "text": "Built in your accounts. Written documentation and two recorded walkthroughs."
+        "label": "Handoff",
+        "text": "Built in your accounts, documented, with one recorded walkthrough."
       },
       {
         "label": "Post-launch fixes",
         "text": "30 days included."
       }
     ],
-    "intro": "Typical scope. Your exact scope is set after your Diagnostic.",
-    "timeline": "90 days. Three installments: 50% to start, 25% on day 30, 25% on day 60.",
-    "needs": "Admin access, approvals within 2 business days, and one staff contact for testing.",
-    "excluded": "Extra pages or locations, ad spend, software fees, and migrating old CRM data."
+    "timeline": "4–6 weeks. 50% to start, 50% on day 30.",
+    "needs": "Admin access, approvals within 2 business days, one staff contact for testing.",
+    "excluded": "Ongoing management, ad management, extra pages or locations, CRM data migration.",
+    "intro": "Typical scope. Your exact scope comes from your Audit."
   },
   "operations": {
-    "name": "Growth Operations",
+    "name": "Growth OS Partnership",
     "items": [
       {
-        "label": "Monthly improvement",
-        "text": "A review of your numbers and your biggest gap. Up to 4 agreed changes per month, such as a new follow-up message, a booking-page fix, or a campaign update."
+        "label": "Setup (8 weeks)",
+        "text": "Everything in Fix, plus campaign setup on 1–2 ad channels."
+      },
+      {
+        "label": "Monthly growth",
+        "text": "Up to 3 agreed changes per month, such as a follow-up message, a booking-page fix, or a campaign update."
       },
       {
         "label": "Ad management",
-        "text": "Up to 2 channels, where ads make sense. Ad spend is separate."
+        "text": "1–2 channels. Ad spend is separate."
       },
       {
         "label": "Reporting",
-        "text": "A monthly report on leads, bookings, and what changed. A 45-minute review call."
+        "text": "A monthly report on leads and bookings, and a 30-minute call."
       },
       {
         "label": "Support",
         "text": "Reply within 1 business day, Monday to Friday."
       }
     ],
-    "intro": "Typical monthly scope. Final scope is agreed after the Foundation Launch.",
-    "timeline": "Billed monthly in advance. 3-month minimum, then quarterly.",
+    "timeline": `Setup paid upfront. Then ${ESTIMATOR_CONFIG.prices.operations.monthly}, billed monthly in advance, month-to-month. 12-month commitment: ${ESTIMATOR_CONFIG.prices.operations.annualMonthly}.`,
     "needs": "Timely approvals and access to your ad and CRM accounts.",
-    "excluded": "Ad spend, new locations or service launches, and major rebuilds."
+    "excluded": "Ad spend, new locations or service launches, major rebuilds.",
+    "intro": "Typical scope. Your exact scope comes from your Audit."
   },
   "care": {
     "name": "Systems Care",

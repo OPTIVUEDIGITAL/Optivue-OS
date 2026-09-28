@@ -1,17 +1,10 @@
 export const ESTIMATOR_CONFIG = Object.freeze({
-  founding: {
-    enabled: true, spotsTotal: 3, spotsRemaining: 3, endDate: '2027-01-31',
-    prices: { diagnostic: 750, foundation: 5000, operations: 2500 },
-    standardAmounts: { diagnostic: 1500, foundation: 7500, operations: 3500, care: 350 },
-    operationsFoundingMonths: 6,
-    heroEnabled: true,
-    countries: ['US', 'UK', 'Canada', 'Australia'],
-  },
+  founding: { enabled: false },
   prices: {
-    care: { label: 'Systems Care', display: 'From $350/month' },
-    diagnostic: { label: 'Growth Systems Diagnostic', display: '$1,500' },
-    foundation: { label: '90-Day Growth Foundation Launch', display: 'From $7,500' },
-    operations: { label: 'Growth Operations', display: 'From $3,500/month' },
+    care: { label: 'Systems Care', display: '$350/month' },
+    diagnostic: { label: 'Growth Systems Audit', display: 'from $800' },
+    foundation: { label: 'Growth System Fix', display: 'from $5,000' },
+    operations: { label: 'Growth OS Partnership', display: 'from $3,500 setup, then $2,000/month', cardDisplay: 'from $3,500 setup', monthly: '$2,000/month', annualMonthly: '$1,750/month' },
   },
   questions: [
     { id: 'business_type', label: 'What kind of business do you run?', options: [['medical_wellness', 'Medical wellness, aesthetics, or med spa'], ['allied_health', 'Chiropractic, physio, or allied health'], ['other_health', "Other health and wellness, such as IV therapy or functional medicine"], ['consulting', 'Consulting or professional services'], ['training', 'Training, education, or membership'], ['local_service', 'Local service business'], ['ecommerce', 'Online store only (ecommerce)'], ['other', 'Something else']] },
@@ -51,26 +44,26 @@ export const ESTIMATOR_CONFIG = Object.freeze({
 export const RESULT_COPY = Object.freeze({
   A: {
     summary: "Find the gaps in your booking process before you spend more.",
-    heading: 'Recommended next step: Growth Systems Diagnostic',
+    heading: 'Recommended next step: Growth Systems Audit',
     body: "I map each step from first contact to booking and reporting. You get a clear view of the main gap and a 90-day plan.",
-    nextStage: "The Diagnostic guides your next step",
+    nextStage: "The Audit guides your next step",
   },
   B: {
     summary: "Your answers point to gaps in the path to booking.",
-    heading: 'Likely path: Diagnostic, then a 90-Day Foundation Launch',
-    body: "The Foundation Launch gives your team a clear way to handle leads. I connect forms, CRM, follow-up, booking and reports. Your team sees who needs a reply and what comes next.",
+    heading: 'Likely path: Audit → Fix',
+    body: "Fix gives your team a clear way to handle leads. I connect forms, CRM, follow-up, booking and reports. Your team sees who needs a reply and what comes next.",
     nextStage: 'foundation',
   },
   C: {
     summary: "Your answers suggest a working base for the next growth phase.",
-    heading: 'Likely path: Diagnostic, then Growth Operations',
-    body: "Growth Operations gives you a clear focus each month. I review results and work on the main gap. Work covers lead generation, booking, follow-up or tracking.",
+    heading: 'Likely path: Audit → Fix + Grow',
+    body: "Fix + Grow gives you a clear focus each month. I review results and work on the main gap. Work covers lead generation, booking, follow-up or tracking.",
     nextStage: 'operations',
   },
   D: {
     summary: "Focus on replies and follow-up before adding more traffic.",
     heading: "Start with the response to each lead",
-    body: "Your answers point to gaps in reply times, team roles or follow-up. A Diagnostic shows where to start.",
+    body: "Your answers point to gaps in reply times, team roles or follow-up. A Audit shows where to start.",
     nextStage: 'foundation',
   },
   E: {

@@ -21,10 +21,10 @@ const personas = {
 
 test('shared config owns approved public prices and the Phase 2 Result E item', () => {
   assert.deepEqual(ESTIMATOR_CONFIG.prices, {
-    care: { label: 'Systems Care', display: 'From $350/month' },
-    diagnostic: { label: 'Growth Systems Diagnostic', display: '$1,500' },
-    foundation: { label: '90-Day Growth Foundation Launch', display: 'From $7,500' },
-    operations: { label: 'Growth Operations', display: 'From $3,500/month' },
+    care: { label: 'Systems Care', display: '$350/month' },
+    diagnostic: { label: 'Growth Systems Audit', display: 'from $800' },
+    foundation: { label: 'Growth System Fix', display: 'from $5,000' },
+    operations: { label: 'Growth OS Partnership', display: 'from $3,500 setup, then $2,000/month', cardDisplay: 'from $3,500 setup', monthly: '$2,000/month', annualMonthly: '$1,750/month' },
   });
   assert.ok(ESTIMATOR_CONFIG.phase2Acceptance.includes('Send a Note restored on Result E'));
   assert.equal(ESTIMATOR_CONFIG.notedInsightDuration, 2000);

@@ -1,5 +1,4 @@
-import { initFounding } from './founding.js';
-import { displayPrice } from './founding-program.js';
+import { displayPrice } from './pricing-values.js';
 import { initPricingBreakdowns } from './pricing.js';
 import { initBooking } from './booking.js';
 import { initEstimator } from './estimator.js';
@@ -19,8 +18,8 @@ function initPricingPolicies(root, config = RUNTIME_CONFIG) {
   const container = root.querySelector('[data-pricing-policies]');
   if (!container) return;
   const policies = [];
-  if (config.diagnosticCreditEnabled === true) policies.push("Your Diagnostic fee is credited toward the Foundation Launch if you go ahead within 30 days.");
-  if (config.diagnosticGuaranteeEnabled === true) policies.push("If the Diagnostic doesn't give you a clear 90-day plan, I'll refund it.");
+  if (config.diagnosticCreditEnabled === true) policies.push("Your Audit fee is credited toward Fix or Fix + Grow if you go ahead within 30 days.");
+  if (config.diagnosticGuaranteeEnabled === true) policies.push("If the Audit doesn't give you a clear 90-day plan, I'll refund it.");
   container.replaceChildren();
   for (const text of policies) {
     const paragraph = document.createElement('p');
@@ -142,7 +141,6 @@ if (root) {
   initFaq(root);
   initBooking(root);
   initPricing(root);
-  initFounding(root);
   initPricingPolicies(root);
   initPricingBreakdowns(root);
   initEstimator(root);

@@ -5,9 +5,9 @@
  * Point leadEndpoint at a server-side relay when the intake backend is live.
  */
 export const RUNTIME_CONFIG = {
+  // Owner approval required before enabling either pricing policy.
+  diagnosticCreditEnabled: false,
+  diagnosticGuaranteeEnabled: false,
   leadEndpoint: '',
   leadSubmissionEnabled: false,
-  foundingClinicEnabled: false,
-  foundingClinicSpots: null,
-  foundingClinicTerms: null,
 };

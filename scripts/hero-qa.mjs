@@ -9,6 +9,7 @@ for(const width of [390,768,1440]) {
  await page.goto('http://127.0.0.1:8787',{waitUntil:'networkidle'});
  await page.evaluate(()=>document.fonts.ready);
  assert.equal(await page.getByRole('heading',{level:1,name:'Turn more leads into booked visits',exact:true}).count(),1);
+ assert.equal(await page.locator('h1').textContent(),'Turn more leads into booked visits');
  assert.equal(await page.locator('[data-hero-phrase]').textContent(),'booked visits');
  const initial=await page.locator('[data-cta-location="hero"]').boundingBox();
  if(width===390)assert.ok(initial.y+initial.height<=650,`CTA below first screen: ${JSON.stringify(initial)}`);
@@ -33,7 +34,7 @@ for(const width of [390,768,1440]) {
  console.log(`PASS hero ${width}px: all phrases, fixed CTA, CLS=${metrics.cls}, no overflow`);
  await page.emulateMedia({reducedMotion:'reduce'});
  await page.clock.resume();
- await page.locator('[data-hero-phrase]').filter({hasText:/^booked visits$/}).waitFor({state:'visible'});
+ await page.locator('[data-hero-phrase]').filter({hasText:/^booked visits$/}).waitFor({state:'attached'});
  assert.equal(await page.locator('[data-hero-phrase]').textContent(),'booked visits');
  assert.equal(await page.locator('.ovgo-hero-phrase-live .ovgo-hero-caret').evaluate(e=>getComputedStyle(e).animationName),'none');
  await page.clock.runFor(10000);assert.equal(await page.locator('[data-hero-phrase]').textContent(),'booked visits');
@@ -46,8 +47,9 @@ assert.equal(await reduced.locator('.ovgo-hero-phrase-live .ovgo-hero-caret').ev
 await reduced.close();
 const page=await browser.newPage({javaScriptEnabled:false,viewport:{width:390,height:650}});
 await page.goto('http://127.0.0.1:8787');
-assert.equal(await page.locator('[data-hero-phrase]').innerText(),'booked visits');
+assert.equal(await page.locator('h1').textContent(),'Turn more leads into booked visits');
 assert.equal(await page.getByRole('heading',{level:1,name:'Turn more leads into booked visits',exact:true}).count(),1);
+ assert.equal(await page.locator('h1').textContent(),'Turn more leads into booked visits');
 assert.equal(await page.locator('.ovgo-hero-phrase-live .ovgo-hero-caret').evaluate(e=>getComputedStyle(e).animationName),'none');
 await page.screenshot({path:'shots/hero-no-js-390.png'});
 await browser.close();

@@ -14,7 +14,7 @@ for(const width of [390,768,1440]) {
  if(width===390)assert.ok(initial.y+initial.height<=650,`CTA below first screen: ${JSON.stringify(initial)}`);
  await page.evaluate(()=>{
   window.heroShifts=[];window.heroPositions=[];window.heroPhrases=[];
-  new PerformanceObserver(list=>{for(const e of list.getEntries())if(!e.hadRecentInput)window.heroShifts.push(e.value);}).observe({type:'layout-shift'});
+  new PerformanceObserver(list=>{for(const e of list.getEntries())if(!e.hadRecentInput)window.heroShifts.push({value:e.value,sources:e.sources.map(s=>({node:s.node?.outerHTML?.slice(0,160),before:s.previousRect.toJSON(),after:s.currentRect.toJSON()}))});}).observe({type:'layout-shift'});
   new MutationObserver(()=>{
    const b=document.querySelector('[data-cta-location="hero"]').getBoundingClientRect();
    window.heroPositions.push(b.top);
@@ -22,9 +22,10 @@ for(const width of [390,768,1440]) {
   }).observe(document.querySelector('[data-hero-phrase]'),{childList:true});
  });
  await page.clock.runFor(65000);
- const metrics=await page.evaluate(()=>({positions:window.heroPositions,phrases:window.heroPhrases,cls:window.heroShifts.reduce((a,b)=>a+b,0),overflow:document.documentElement.scrollWidth>innerWidth+1}));
+ const metrics=await page.evaluate(()=>({positions:window.heroPositions,phrases:window.heroPhrases,cls:window.heroShifts.reduce((a,b)=>a+b.value,0),shifts:window.heroShifts,overflow:document.documentElement.scrollWidth>innerWidth+1}));
  assert.ok(metrics.positions.length>100);
  assert.ok(metrics.positions.every(y=>Math.abs(y-initial.y)<1),`CTA shifts at ${width}`);
+ console.log(JSON.stringify({width,cls:metrics.cls,shifts:metrics.shifts}));
  assert.equal(metrics.cls,0,`CLS at ${width}`);
  assert.equal(metrics.overflow,false);
  for(const phrase of ['a higher conversion rate','long-term clients','better appointments','closed deals','stronger ad performance','revenue you can scale','higher ROAS'])assert.ok(metrics.phrases.includes(phrase),phrase);

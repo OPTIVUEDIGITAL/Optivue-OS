@@ -17,7 +17,7 @@ test('homepage initializes stage content, prices and booking without a startup e
     localStorage:{getItem:()=>null},
     window:{matchMedia:()=>({matches:true}),innerWidth:1440,addEventListener(){}},
     displayPrice,ESTIMATOR_CONFIG,RUNTIME_CONFIG:{},addJourneyValue(){},
-    initBooking(){booking=true;},initEstimator(){},initPricingBreakdowns(){},
+    initHeroTypewriter(){},initBooking(){booking=true;},initEstimator(){},initPricingBreakdowns(){},
   });
   assert.ok(fields['[data-stage-purpose]'].textContent.length>0);
   assert.equal(booking,true);

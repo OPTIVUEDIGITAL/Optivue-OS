@@ -1472,3 +1472,19 @@ optivue-compare[start="35"]:not(:defined) img[slot="after"] { clip-path: inset(0
 #optivue-growth-os .ovgo-estimator-price-table th,
 #optivue-growth-os .ovgo-estimator-price-table td { padding: var(--ovgo-estimator-space-unit); border-bottom: 1px solid var(--ovgo-border); vertical-align: top; text-align: left; overflow-wrap: anywhere; }
 #optivue-growth-os .ovgo-estimator-price-table small { display: block; margin-top: var(--ovgo-estimator-space-unit); }
+
+/* All configured phrases share a grid cell, reserving the tallest wrap before JS. */
+#optivue-growth-os .ovgo-hero-phrase-line { display: grid; min-height: 1em; }
+#optivue-growth-os .ovgo-hero-phrase-line > span { grid-area: 1 / 1; min-width: 0; overflow-wrap: normal; word-break: normal; hyphens: none; }
+#optivue-growth-os .ovgo-hero-phrase-reserve { visibility: hidden; pointer-events: none; }
+#optivue-growth-os .ovgo-hero-phrase-live { align-self: start; }
+#optivue-growth-os .ovgo-hero-caret { display: inline-block; width: var(--ovgo-estimator-progress-height); height: .85em; margin-left: var(--ovgo-estimator-progress-height); background: var(--ovgo-text); vertical-align: baseline; opacity: 0; }
+#optivue-growth-os [data-hero-typewriter][data-enhanced] .ovgo-hero-phrase-live .ovgo-hero-caret { animation: ovgo-hero-caret var(--ovgo-motion-loader) step-end infinite; }
+#optivue-growth-os [data-hero-typewriter][data-paused="true"] .ovgo-hero-caret { animation-play-state: paused; }
+@keyframes ovgo-hero-caret { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@media (max-width: 760px) {
+  #optivue-growth-os .ovgo-hero h1 { font-size: var(--ovgo-type-title-lg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #optivue-growth-os [data-hero-typewriter][data-enhanced] .ovgo-hero-phrase-live .ovgo-hero-caret { animation: none; opacity: 0; }
+}

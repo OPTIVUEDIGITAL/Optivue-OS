@@ -1477,7 +1477,7 @@ optivue-compare[start="35"]:not(:defined) img[slot="after"] { clip-path: inset(0
 #optivue-growth-os .ovgo-hero-phrase-line { display: grid; min-height: 1em; }
 #optivue-growth-os .ovgo-hero-phrase-line > span { grid-area: 1 / 1; min-width: 0; overflow-wrap: normal; word-break: normal; hyphens: none; }
 #optivue-growth-os .ovgo-hero-phrase-reserve { visibility: hidden; pointer-events: none; }
-#optivue-growth-os .ovgo-hero-phrase-live { align-self: start; }
+#optivue-growth-os .ovgo-hero-phrase-live { align-self: start; position: relative; }
 #optivue-growth-os .ovgo-hero-caret { display: inline-block; width: var(--ovgo-estimator-progress-height); height: .85em; margin-left: var(--ovgo-estimator-progress-height); background: var(--ovgo-text); vertical-align: baseline; opacity: 0; }
 #optivue-growth-os [data-hero-typewriter][data-enhanced] .ovgo-hero-phrase-live .ovgo-hero-caret { animation: ovgo-hero-caret var(--ovgo-motion-loader) step-end infinite; }
 #optivue-growth-os [data-hero-typewriter][data-paused="true"] .ovgo-hero-caret { animation-play-state: paused; }
@@ -1488,3 +1488,5 @@ optivue-compare[start="35"]:not(:defined) img[slot="after"] { clip-path: inset(0
 @media (prefers-reduced-motion: reduce) {
   #optivue-growth-os [data-hero-typewriter][data-enhanced] .ovgo-hero-phrase-live .ovgo-hero-caret { animation: none; opacity: 0; }
 }
+
+#optivue-growth-os .ovgo-hero-phrase-live .ovgo-hero-caret { position: absolute; top: 0; left: 0; }

@@ -13,13 +13,30 @@ export function initHeroTypewriter(root, config = HERO_CONFIG) {
   const hero = root.querySelector('[data-hero-typewriter]');
   if (!hero) return;
   const text = hero.querySelector('[data-hero-phrase]');
+  const caret = hero.querySelector('.ovgo-hero-phrase-live .ovgo-hero-caret');
   const doc = hero.ownerDocument;
   const win = doc.defaultView;
   const motion = win.matchMedia('(prefers-reduced-motion: reduce)');
   let cycle = phraseCycle(config.phrases), index = 0, phase = 'hold';
   let timer, due = 0, remaining = config.holdMs;
   text.textContent = config.phrases[0];
+  function positionCaret() {
+    if (!caret?.style || !text.firstChild) return;
+    const box = text.parentElement.getBoundingClientRect();
+    const range = doc.createRange();
+    const length = text.textContent.length;
+    range.setStart(text.firstChild, Math.max(0, length - 1));
+    range.setEnd(text.firstChild, length);
+    const end = range.getBoundingClientRect();
+    const x = length ? end.right - box.left : 0;
+    const y = length ? end.bottom - box.top - caret.offsetHeight : 0;
+    caret.style.transform = `translate(${x}px, ${y}px)`;
+  }
+  function paint(value) { text.textContent = value; positionCaret(); }
+  positionCaret();
   hero.dataset.enhanced = 'true';
+  win.addEventListener?.('resize', positionCaret);
+  doc.fonts?.addEventListener('loadingdone', positionCaret);
 
   function schedule(delay) {
     remaining = delay;
@@ -31,7 +48,7 @@ export function initHeroTypewriter(root, config = HERO_CONFIG) {
     timer = undefined;
     if (phase === 'hold') phase = 'delete';
     if (phase === 'delete') {
-      text.textContent = text.textContent.slice(0, -1);
+      paint(text.textContent.slice(0, -1));
       if (text.textContent) schedule(config.deleteMs);
       else { phase = 'gap'; schedule(config.gapMs); }
       return;
@@ -41,7 +58,7 @@ export function initHeroTypewriter(root, config = HERO_CONFIG) {
       if (index === cycle.length) { cycle = phraseCycle(config.phrases); index = 0; }
       phase = 'type';
     }
-    text.textContent = cycle[index].slice(0, text.textContent.length + 1);
+    paint(cycle[index].slice(0, text.textContent.length + 1));
     if (text.textContent === cycle[index]) { phase = 'hold'; schedule(config.holdMs); }
     else schedule(config.typeMs);
   }
@@ -55,7 +72,7 @@ export function initHeroTypewriter(root, config = HERO_CONFIG) {
   function preference() {
     win.clearTimeout(timer); timer = undefined;
     cycle = phraseCycle(config.phrases); index = 0; phase = 'hold';
-    text.textContent = config.phrases[0];
+    paint(config.phrases[0]);
     schedule(config.holdMs);
   }
   doc.addEventListener('visibilitychange', visibility);
@@ -64,6 +81,8 @@ export function initHeroTypewriter(root, config = HERO_CONFIG) {
   return () => {
     win.clearTimeout(timer);
     doc.removeEventListener('visibilitychange', visibility);
+    win.removeEventListener?.('resize', positionCaret);
+    doc.fonts?.removeEventListener('loadingdone', positionCaret);
     motion.removeEventListener('change', preference);
   };
 }

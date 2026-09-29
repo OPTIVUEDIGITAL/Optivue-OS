@@ -32,7 +32,8 @@ for(const width of [390,768,1440]) {
  await page.screenshot({path:`shots/hero-loop-${width}.png`});
  console.log(`PASS hero ${width}px: all phrases, fixed CTA, CLS=${metrics.cls}, no overflow`);
  await page.emulateMedia({reducedMotion:'reduce'});
- await page.clock.runFor(100);
+ await page.clock.resume();
+ await page.locator('[data-hero-phrase]').filter({hasText:/^booked visits$/}).waitFor({state:'visible'});
  assert.equal(await page.locator('[data-hero-phrase]').textContent(),'booked visits');
  assert.equal(await page.locator('.ovgo-hero-phrase-live .ovgo-hero-caret').evaluate(e=>getComputedStyle(e).animationName),'none');
  await page.clock.runFor(10000);assert.equal(await page.locator('[data-hero-phrase]').textContent(),'booked visits');

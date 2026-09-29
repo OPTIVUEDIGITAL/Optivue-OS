@@ -1,0 +1,54 @@
+import { chromium } from 'playwright';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+const browser=await chromium.launch({headless:true});
+await fs.mkdir('shots',{recursive:true});
+for(const width of [390,768,1440]) {
+ const page=await browser.newPage({viewport:{width,height:width===390?650:900}});
+ await page.clock.install();
+ await page.goto('http://127.0.0.1:8787',{waitUntil:'networkidle'});
+ await page.evaluate(()=>document.fonts.ready);
+ assert.equal(await page.getByRole('heading',{level:1,name:'Turn more leads into booked visits',exact:true}).count(),1);
+ assert.equal(await page.locator('[data-hero-phrase]').textContent(),'booked visits');
+ const initial=await page.locator('[data-cta-location="hero"]').boundingBox();
+ if(width===390)assert.ok(initial.y+initial.height<=650,`CTA below first screen: ${JSON.stringify(initial)}`);
+ await page.evaluate(()=>{
+  window.heroShifts=[];window.heroPositions=[];window.heroPhrases=[];
+  new PerformanceObserver(list=>{for(const e of list.getEntries())if(!e.hadRecentInput)window.heroShifts.push({value:e.value,sources:e.sources.map(s=>({node:s.node?.outerHTML?.slice(0,160),before:s.previousRect.toJSON(),after:s.currentRect.toJSON()}))});}).observe({type:'layout-shift'});
+  new MutationObserver(()=>{
+   const b=document.querySelector('[data-cta-location="hero"]').getBoundingClientRect();
+   window.heroPositions.push(b.top);
+   window.heroPhrases.push(document.querySelector('[data-hero-phrase]').textContent);
+  }).observe(document.querySelector('[data-hero-phrase]'),{childList:true});
+ });
+ await page.clock.runFor(65000);
+ const metrics=await page.evaluate(()=>({positions:window.heroPositions,phrases:window.heroPhrases,cls:window.heroShifts.reduce((a,b)=>a+b.value,0),shifts:window.heroShifts,overflow:document.documentElement.scrollWidth>innerWidth+1}));
+ assert.ok(metrics.positions.length>100);
+ assert.ok(metrics.positions.every(y=>Math.abs(y-initial.y)<1),`CTA shifts at ${width}`);
+ console.log(JSON.stringify({width,cls:metrics.cls,shifts:metrics.shifts}));
+ assert.equal(metrics.cls,0,`CLS at ${width}`);
+ assert.equal(metrics.overflow,false);
+ for(const phrase of ['a higher conversion rate','long-term clients','better appointments','closed deals','stronger ad performance','revenue you can scale','higher ROAS'])assert.ok(metrics.phrases.includes(phrase),phrase);
+ await page.screenshot({path:`shots/hero-loop-${width}.png`});
+ console.log(`PASS hero ${width}px: all phrases, fixed CTA, CLS=${metrics.cls}, no overflow`);
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await page.clock.resume();
+ await page.locator('[data-hero-phrase]').filter({hasText:/^booked visits$/}).waitFor({state:'visible'});
+ assert.equal(await page.locator('[data-hero-phrase]').textContent(),'booked visits');
+ assert.equal(await page.locator('.ovgo-hero-phrase-live .ovgo-hero-caret').evaluate(e=>getComputedStyle(e).animationName),'none');
+ await page.clock.runFor(10000);assert.equal(await page.locator('[data-hero-phrase]').textContent(),'booked visits');
+ await page.close();
+}
+const reduced=await browser.newPage({reducedMotion:'reduce',viewport:{width:390,height:650}});
+await reduced.goto('http://127.0.0.1:8787',{waitUntil:'networkidle'});
+assert.equal(await reduced.locator('[data-hero-phrase]').textContent(),'booked visits');
+assert.equal(await reduced.locator('.ovgo-hero-phrase-live .ovgo-hero-caret').evaluate(e=>getComputedStyle(e).animationName),'none');
+await reduced.close();
+const page=await browser.newPage({javaScriptEnabled:false,viewport:{width:390,height:650}});
+await page.goto('http://127.0.0.1:8787');
+assert.equal(await page.locator('[data-hero-phrase]').innerText(),'booked visits');
+assert.equal(await page.getByRole('heading',{level:1,name:'Turn more leads into booked visits',exact:true}).count(),1);
+assert.equal(await page.locator('.ovgo-hero-phrase-live .ovgo-hero-caret').evaluate(e=>getComputedStyle(e).animationName),'none');
+await page.screenshot({path:'shots/hero-no-js-390.png'});
+await browser.close();
+console.log('PASS hero reduced motion and no-JS fallback');

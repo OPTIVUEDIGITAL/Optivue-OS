@@ -1,3 +1,4 @@
+import { initHeroTypewriter } from './hero-typewriter.js';
 import { displayPrice } from './pricing-values.js';
 import { initPricingBreakdowns } from './pricing.js';
 import { initBooking } from './booking.js';
@@ -130,6 +131,7 @@ function initFaq(root) {
 
 const root = document.getElementById('optivue-growth-os');
 if (root) {
+  initHeroTypewriter(root);
   initTheme(root);
   initHeader(root);
   initMobileMenu(root);

@@ -21,7 +21,8 @@ export function initHeroTypewriter(root, config = HERO_CONFIG) {
   let timer, due = 0, remaining = config.holdMs;
   text.textContent = config.phrases[0];
   function positionCaret() {
-    if (!caret?.style || !text.firstChild) return;
+    if (!caret?.style) return;
+    if (!text.firstChild) { caret.style.transform = 'translate(0px, 0px)'; return; }
     const box = text.parentElement.getBoundingClientRect();
     const range = doc.createRange();
     const length = text.textContent.length;

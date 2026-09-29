@@ -32,11 +32,17 @@ for(const width of [390,768,1440]) {
  await page.screenshot({path:`shots/hero-loop-${width}.png`});
  console.log(`PASS hero ${width}px: all phrases, fixed CTA, CLS=${metrics.cls}, no overflow`);
  await page.emulateMedia({reducedMotion:'reduce'});
+ await page.clock.runFor(100);
  assert.equal(await page.locator('[data-hero-phrase]').textContent(),'booked visits');
  assert.equal(await page.locator('.ovgo-hero-phrase-live .ovgo-hero-caret').evaluate(e=>getComputedStyle(e).animationName),'none');
  await page.clock.runFor(10000);assert.equal(await page.locator('[data-hero-phrase]').textContent(),'booked visits');
  await page.close();
 }
+const reduced=await browser.newPage({reducedMotion:'reduce',viewport:{width:390,height:650}});
+await reduced.goto('http://127.0.0.1:8787',{waitUntil:'networkidle'});
+assert.equal(await reduced.locator('[data-hero-phrase]').textContent(),'booked visits');
+assert.equal(await reduced.locator('.ovgo-hero-phrase-live .ovgo-hero-caret').evaluate(e=>getComputedStyle(e).animationName),'none');
+await reduced.close();
 const page=await browser.newPage({javaScriptEnabled:false,viewport:{width:390,height:650}});
 await page.goto('http://127.0.0.1:8787');
 assert.equal(await page.locator('[data-hero-phrase]').innerText(),'booked visits');

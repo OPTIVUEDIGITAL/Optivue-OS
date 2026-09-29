@@ -34,6 +34,10 @@ export function initHeroTypewriter(root, config = HERO_CONFIG) {
     caret.style.transform = `translate(${x}px, ${y}px)`;
   }
   function paint(value) { text.textContent = value; positionCaret(); }
+  const visual = hero.querySelector('.ovgo-hero-headline-visual');
+  const fixed = hero.querySelector('[data-hero-fixed]');
+  if (fixed) fixed.textContent = 'Turn more leads into ';
+  if (visual) visual.hidden = false;
   positionCaret();
   hero.dataset.enhanced = 'true';
   win.addEventListener?.('resize', positionCaret);

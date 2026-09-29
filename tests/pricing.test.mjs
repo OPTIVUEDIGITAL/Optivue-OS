@@ -23,7 +23,7 @@ test('pricing breakdown analytics allows only enumerated tier and device',()=>{
 });
 
 test('Audit cards preserve compact hierarchy and one booking action',()=>{
- const pricing=html.slice(html.indexOf('<section id="pricing"'),html.indexOf('<section id="fit"'));
+ const pricing=html.slice(html.indexOf('<section id="pricing"'),html.indexOf('<section id="about"'));
  assert.doesNotMatch(html,/milestones|From \$1,500|class="ovgo-pricing-path"|class="ovgo-pricing-reassurance"/i);
  assert.equal((pricing.match(/data-ovgo-booking/g)||[]).length,1);
  assert.equal((html.match(/If a simpler fix solves it/g)||[]).length,0);

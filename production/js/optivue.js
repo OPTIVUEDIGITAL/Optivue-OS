@@ -64,29 +64,6 @@ function initMobileMenu(root) {
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape') setOpen(false); });
 }
 
-const STAGES = {
-  acquire: { index:'STAGE 01', name:'Acquire', title:'Get the right local leads.', purpose:"I connect local search, Google Business Profile and paid campaigns to clear booking pages. Your plan sets the channels.", tools:['Google Ads','Local Search','Google Business Profile'], capabilities:['Which sources produce leads','Where local demand enters','Which campaign paths deserve attention'] },
-  convert: { index:'STAGE 02', name:'Convert', title:'Give every prospect a clear next step.', purpose:"I build pages with clear next steps. Your visitors get a simpler path to booking.", tools:['Landing Pages','Booking','Conversion Review'], capabilities:['Where prospects stop','Which steps create friction','How each lead reaches booking'] },
-  automate: { index:'STAGE 03', name:'Automate', title:'Route leads and set follow-up steps.', purpose:"I set lead routing and consent-based follow-up in your CRM. Your team sees who needs a reply.", tools:['CRM','Email','SMS','Lead Routing'], capabilities:['Which leads need action','How quickly follow-up starts','Where each lead sits in the process'] },
-  measure: { index:'STAGE 04', name:'Measure', title:'See which leads become clients.', purpose:'The clinic problem: reports stop at clicks and form fills. What I build: tracking from source through booking and patient outcome, where technically and legally possible.', tools:['GA4','GTM','Call Tracking','Reporting'], capabilities:['Which leads book','Which leads show up','Which sources connect to new patients'] },
-  optimize: { index:'STAGE 05', name:'Optimize', title:'Fix the biggest bottleneck first.', purpose:"I use your results to choose the next fix. Your team gets one clear priority.", tools:['CRO','Campaign Review','Funnel Analysis'], capabilities:['The current priority','Evidence behind the decision','What gets fixed next'] },
-};
-
-function initSystemDetail(root) {
-  const buttons = [...root.querySelectorAll('[data-stage]')];
-  const fields = { index:root.querySelector('[data-stage-index]'), name:root.querySelector('[data-stage-name]'), title:root.querySelector('[data-stage-title]'), purpose:root.querySelector('[data-stage-purpose]'), tools:root.querySelector('[data-stage-tools]'), capabilities:root.querySelector('[data-stage-capabilities]') };
-  if (!buttons.length || Object.values(fields).some((field) => !field)) return;
-  const select = (key) => {
-    const item = STAGES[key];
-    buttons.forEach((button) => { const active = button.dataset.stage === key; button.classList.toggle('is-active', active); button.setAttribute('aria-selected', String(active)); });
-    fields.index.textContent = item.index; fields.name.textContent = item.name; fields.title.textContent = item.title; fields.purpose.textContent = item.purpose;
-    fields.tools.innerHTML = item.tools.map((label) => `<span>${label}</span>`).join(''); fields.capabilities.innerHTML = item.capabilities.map((label) => `<li>${label}</li>`).join('');
-    addJourneyValue('systemStagesViewed', item.name);
-  };
-  buttons.forEach((button) => button.addEventListener('click', () => select(button.dataset.stage)));
-  select('acquire');
-}
-
 function initSpotlights(root) {
   root.querySelectorAll('[data-price-card]').forEach((card) => {
     const spotlight = card.querySelector('optivue-spotlight-card');
@@ -135,7 +112,6 @@ if (root) {
   initTheme(root);
   initHeader(root);
   initMobileMenu(root);
-  initSystemDetail(root);
   initSpotlights(root);
   initReveal(root);
 

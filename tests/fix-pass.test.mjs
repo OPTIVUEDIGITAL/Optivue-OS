@@ -18,10 +18,9 @@ test('three pricing cards and the care note contain static prices matching share
 test('public HTML contains no unresolved placeholders or unapproved client names', () => {
   assert.doesNotMatch(html, /\[CONFIRM|Revive Medical|Ideal Spine|LearnX by CJB/);
 });
-test('one stage section contains useful static detail', () => {
-  assert.equal((html.match(/id="systems"/g)||[]).length, 1);
-  assert.match(html, /data-stage-purpose>[^<]+<\/p>/);
-  assert.match(html, /data-stage-capabilities><li>/);
+test('compact stages replace the interactive detail panel', () => {
+  assert.doesNotMatch(html, /id="systems"|data-stage-purpose|data-stage-capabilities/);
+  assert.match(html, /class="ovgo-growth-strip"/);
 });
 function sliderHarness(attrs = {}) {
   let Slider;
@@ -73,12 +72,12 @@ test('Reporting preserves approved labels, start and caption', () => {
   const reporting = html.match(/<section id="reporting"[\s\S]*?<\/section>/)[0];
   assert.match(reporting, /start="35" label-before="No tracking" label-after="Tracked"/);
   assert.match(reporting, /<figcaption>Illustrative tracking view\.<\/figcaption>/);
-  assert.match(reporting, /Tracking changes what the report can prove\./);
+  assert.match(reporting, /See what your reports are missing\./);
   assert.doesNotMatch(reporting, /Starts at 35/);
 });
 
  test('pricing offers one booking action and ownership follows the audience section', () => {
-  const pricing = html.slice(html.indexOf('<section id="pricing"'), html.indexOf('<section id="fit"'));
+  const pricing = html.slice(html.indexOf('<section id="pricing"'), html.indexOf('<section id="about"'));
   assert.equal((pricing.match(/data-ovgo-booking/g) || []).length, 1);
   assert.match(pricing, /Request an Audit/);
   assert.match(pricing, /After your Audit/);

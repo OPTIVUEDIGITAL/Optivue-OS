@@ -36,7 +36,7 @@ test('has the required sections and one H1', () => {
 test('uses Growth OS canonical and social metadata', () => {
   assert.match(html, /<link rel="canonical" href="https:\/\/growth\.optivuedigital\.com\/">/);
   assert.match(html, /<meta property="og:url" content="https:\/\/growth\.optivuedigital\.com\/">/);
-  assert.match(html, /<title>Optivue Growth OS \| Turn more leads into booked visits<\/title>/);
+  assert.match(html, /<title>Clinic Lead Follow-Up &amp; Booking Systems \| Optivue Growth OS<\/title>/);
   assert.match(html, /ProfessionalService/);
   assert.doesNotMatch(html, /aggregateRating|reviewRating/);
   assert.match(sitemap, /https:\/\/growth\.optivuedigital\.com\//);

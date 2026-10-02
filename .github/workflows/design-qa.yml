@@ -25,11 +25,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: "24"
+
+      - name: SEO and full unit suite
+        run: |
+          node --test
+          node scripts/build-hero.mjs --check
+          node scripts/build-seo.mjs --check
+          node scripts/build-tokens.mjs --check
 
       - name: Contrast audit
         run: python3 scripts/contrast.py
@@ -49,6 +58,13 @@ jobs:
           done
           cat /tmp/optivue-http.log
           exit 1
+
+      - name: Compare hero with approved main
+        run: |
+          mkdir -p /tmp/optivue-baseline
+          git archive 9a48bc583f452e8de89eba7579686c501c5d5696 | tar -x -C /tmp/optivue-baseline
+          PORT=8788 node /tmp/optivue-baseline/scripts/qa-server.mjs > /tmp/optivue-baseline.log 2>&1 &
+          node scripts/seo-parity-qa.mjs
 
       - name: Responsive screenshots and overflow checks
         run: node scripts/visual-qa.mjs

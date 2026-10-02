@@ -8,7 +8,7 @@ const html=fs.readFileSync(new URL('../production/index.html',import.meta.url),'
 test('hero static HTML, accessible heading and configured reservations match',()=>{
  assert.equal((html.match(/<h1\b/g)||[]).length,1);
  assert.ok(html.includes(renderHeroHeadline()));
- assert.ok(html.includes('<span class="ovgo-sr-only">Turn more leads into booked visits</span>'));
+ assert.equal(html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)[1].replace(/<[^>]+>/g,''),'Turn more leads into booked visits');
  assert.ok(html.includes('aria-hidden="true" class="ovgo-hero-headline-visual"'));
  assert.ok(html.includes('I build the systems that turn attention into qualified leads, booked calls, and revenue.'));
  assert.equal(HERO_CONFIG.phrases.length,8);
@@ -33,7 +33,7 @@ function harness(reduced=false) {
  const motion={matches:reduced,addEventListener:(k,f)=>motionEvents[k]=f,removeEventListener:k=>delete motionEvents[k]};
  const win={matchMedia:()=>motion,performance:{now:()=>now},setTimeout:(f,delay)=>{jobs.set(++id,{f,at:now+delay});return id;},clearTimeout:id=>jobs.delete(id)};
  const doc={defaultView:win,hidden:false,addEventListener:(k,f)=>events[k]=f,removeEventListener:k=>delete events[k]};
- const text={textContent:''};const hero={dataset:{},ownerDocument:doc,querySelector:()=>text};
+ const text={textContent:''};const hero={dataset:{},ownerDocument:doc,querySelector:selector=>selector==='[data-hero-phrase]'?text:null};
  const cleanup=initHeroTypewriter({querySelector:()=>hero});
  function advance(ms){const end=now+ms;while(true){const entry=[...jobs].sort((a,b)=>a[1].at-b[1].at)[0];if(!entry||entry[1].at>end)break;now=entry[1].at;jobs.delete(entry[0]);entry[1].f();}now=end;}
  return {advance,text,doc,events,motion,motionEvents,jobs,cleanup};

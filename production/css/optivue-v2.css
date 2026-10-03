@@ -1490,3 +1490,22 @@ optivue-compare[start="35"]:not(:defined) img[slot="after"] { clip-path: inset(0
 }
 
 #optivue-growth-os .ovgo-hero-phrase-live .ovgo-hero-caret { position: absolute; top: 0; left: 0; }
+
+/* Static H1 stays the sole heading text. The visual loop is a separate layer. */
+#optivue-growth-os .ovgo-hero-headline { position: relative; font-size: clamp(2.5rem,4.8vw,5rem); line-height: 1; letter-spacing: -.03em; margin: 18px 0 24px; font-weight: 700; max-width: 16ch; font-family: Archivo, Inter, sans-serif !important; font-variation-settings: "wdth" 115, "wght" 700; }
+#optivue-growth-os .ovgo-hero-headline h1 { font: inherit; letter-spacing: inherit; margin: 0; }
+#optivue-growth-os .ovgo-hero-headline-visual { position: absolute; inset: 0; font: inherit; }
+#optivue-growth-os .ovgo-hero-headline-visual[hidden] { display: none; }
+#optivue-growth-os .ovgo-hero-headline[data-enhanced] h1 { opacity: 0; }
+#optivue-growth-os .ovgo-hero-phrase-reserve::before { content: attr(data-measure); }
+@media (max-width: 760px) {
+  #optivue-growth-os .ovgo-hero-headline { font-size: var(--ovgo-type-title-lg); margin: 10px 0 12px; letter-spacing: -.035em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #optivue-growth-os .ovgo-hero-headline[data-enhanced] h1 { opacity: 1; }
+  #optivue-growth-os .ovgo-hero-headline-visual { visibility: hidden; }
+}
+
+#optivue-growth-os .ovgo-hero-headline span { font-weight: 500; }
+/* Match the original heading's line box around the animated inline spans. */
+#optivue-growth-os .ovgo-hero-headline-visual { font-family: Archivo, Inter, sans-serif !important; font-weight: 700 !important; }

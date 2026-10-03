@@ -9,3 +9,10 @@
 
 /estimator/*
   X-Robots-Tag: noindex
+
+# Workers and version-preview hostnames. Production remains indexable.
+https://:version.:subdomain.workers.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+https://:subdomain.workers.dev/*
+  X-Robots-Tag: noindex, nofollow

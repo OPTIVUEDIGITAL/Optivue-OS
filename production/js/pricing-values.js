@@ -2,7 +2,7 @@ import { ESTIMATOR_CONFIG } from './estimator-config.js';
 export function priceFor(key, config = ESTIMATOR_CONFIG) { return { ...config.prices[key] }; }
 export function displayPrice(key, dataset = {}, config = ESTIMATOR_CONFIG) {
  const price = priceFor(key, config);
- if ('priceMonthly' in dataset) return `then ${price.monthly}`;
+ if ('priceMonthly' in dataset) return price.monthly;
  return 'priceShort' in dataset ? (price.cardDisplay || price.display) : price.display;
 }
 export function pathTotal(result, config = ESTIMATOR_CONFIG) {

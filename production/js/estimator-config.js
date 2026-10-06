@@ -2,9 +2,9 @@ export const ESTIMATOR_CONFIG = Object.freeze({
   founding: { enabled: false },
   prices: {
     care: { label: 'Systems Care', display: '$350/month' },
-    diagnostic: { label: 'Growth Systems Audit', display: 'from $800' },
-    foundation: { label: 'Growth System Fix', display: 'from $5,000' },
-    operations: { label: 'Growth OS Partnership', display: 'from $3,500 setup, then $2,000/month', cardDisplay: 'from $3,500 setup', monthly: '$2,000/month', annualMonthly: '$1,750/month' },
+    diagnostic: { label: 'Growth Systems Audit', display: '$800' },
+    foundation: { label: 'Growth System Fix', display: 'from $5,000', cardDisplay: '$5,000' },
+    operations: { label: 'Growth OS Partnership', display: 'from $3,500 setup, then $2,000/month', cardDisplay: '$3,500 setup', monthly: '$2,000/month', annualMonthly: '$1,750/month' },
   },
   questions: [
     { id: 'business_type', label: 'What kind of business do you run?', options: [['medical_wellness', 'Medical wellness, aesthetics, or med spa'], ['allied_health', 'Chiropractic, physio, or allied health'], ['other_health', "Other health and wellness, such as IV therapy or functional medicine"], ['consulting', 'Consulting or professional services'], ['training', 'Training, education, or membership'], ['local_service', 'Local service business'], ['ecommerce', 'Online store only (ecommerce)'], ['other', 'Something else']] },
@@ -36,7 +36,7 @@ export const ESTIMATOR_CONFIG = Object.freeze({
     automate: "Log when each lead arrives and when your team replies. Use the gap to set a reply target.",
     measure: "Ask each new client how they found you. Keep the answers in one place.",
     convert: "Try booking on your website from your phone. Count the taps. Note any step which feels unclear.",
-    acquire: "Check your Google Business Profile. Update hours, services and photos. Reply to recent reviews.",
+    acquire: "Check your Google Business Profile. Update hours, services, and photos. Reply to recent reviews.",
     optimize: "Each month, check how many leads became bookings.",
   },
 });
@@ -51,7 +51,7 @@ export const RESULT_COPY = Object.freeze({
   B: {
     summary: "Your answers point to gaps in the path to booking.",
     heading: 'Likely path: Audit → Fix',
-    body: "Fix gives your team a clear way to handle leads. I connect forms, CRM, follow-up, booking and reports. Your team sees who needs a reply and what comes next.",
+    body: "Fix gives your team a clear way to handle leads. I connect forms, CRM, follow-up, booking, and reports. Your team sees who needs a reply and what comes next.",
     nextStage: 'foundation',
   },
   C: {

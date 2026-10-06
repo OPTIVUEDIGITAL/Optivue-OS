@@ -1509,3 +1509,7 @@ optivue-compare[start="35"]:not(:defined) img[slot="after"] { clip-path: inset(0
 #optivue-growth-os .ovgo-hero-headline span { font-weight: 500; }
 /* Match the original heading's line box around the animated inline spans. */
 #optivue-growth-os .ovgo-hero-headline-visual { font-family: Archivo, Inter, sans-serif !important; font-weight: 700 !important; }
+
+#optivue-growth-os .ovgo-growth-strip { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ovgo-estimator-space-unit); margin-top: calc(var(--ovgo-estimator-space-unit) * 3); font-size: var(--ovgo-type-sm); }
+#optivue-growth-os .ovgo-growth-strip span { padding: var(--ovgo-estimator-space-unit); border-radius: var(--ovgo-radius-chip); background: var(--ovgo-surface-2); color: var(--ovgo-text); }
+#optivue-growth-os .ovgo-growth-strip i { font-style: normal; }

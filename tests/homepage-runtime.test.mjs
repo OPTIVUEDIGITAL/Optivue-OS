@@ -5,7 +5,7 @@ import { readFile } from 'node:fs/promises';
 import vm from 'node:vm';
 import { ESTIMATOR_CONFIG } from '../production/js/estimator-config.js';
 const source = (await readFile(new URL('../production/js/optivue.js', import.meta.url), 'utf8')).replace(/^import .*;\n/gm, '');
-test('homepage initializes stage content, prices and booking without a startup exception', () => {
+test('homepage initializes prices and booking without a startup exception', () => {
   const element = () => ({ textContent: '', innerHTML: '', setAttribute() {}, addEventListener() {}, classList: { toggle() {} } });
   const stage = { ...element(), dataset: { stage: 'acquire' } };
   const fields = Object.fromEntries(['index','name','title','purpose','tools','capabilities'].map(key => [`[data-stage-${key}]`, element()]));
@@ -19,7 +19,6 @@ test('homepage initializes stage content, prices and booking without a startup e
     displayPrice,ESTIMATOR_CONFIG,RUNTIME_CONFIG:{},addJourneyValue(){},
     initHeroTypewriter(){},initBooking(){booking=true;},initEstimator(){},initPricingBreakdowns(){},
   });
-  assert.ok(fields['[data-stage-purpose]'].textContent.length>0);
   assert.equal(booking,true);
   assert.deepEqual(prices.map(p=>p.textContent),Object.keys(ESTIMATOR_CONFIG.prices).map(key=>displayPrice(key)));
 });

@@ -5,7 +5,7 @@ const browser=await chromium.launch({headless:true});
 const answers={business_type:'medical_wellness',location_count:'one',monthly_inquiries:'26_50',primary_problem:'ongoing',follow_up_process:'crm_automatic',response_speed:'within_hour',current_systems:['crm','booking','tracking','auto_followup'],marketing_spend:'2500_4999',decision_role:'owner'};
 const retired=/Founding Clinic|founding price|spots open|Diagnostic|Foundation Launch|Growth Operations|\$1,500|\$7,500|\$750|\$2,500\/month|\$3,500\/month/;
 const cases=[
- ['A',{...answers,monthly_inquiries:'not_sure',primary_problem:'not_sure',response_speed:'not_sure'},1,'from $800'],
+ ['A',{...answers,monthly_inquiries:'not_sure',primary_problem:'not_sure',response_speed:'not_sure'},1,'$800'],
  ['B',{...answers,current_systems:[],follow_up_process:'manual'},2,'Typical first step: $800 Audit, then from $5,000 (Audit credited)'],
  ['C',answers,2,'from $3,500 setup, then $2,000/month (Audit credited)'],
  ['D',{...answers,follow_up_process:'depends'},2,'Typical first step: $800 Audit, then from $5,000 (Audit credited)'],
@@ -18,10 +18,10 @@ for(const width of [390,1440]) {
  const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('http://127.0.0.1:8787',{waitUntil:'networkidle'});
  assert.doesNotMatch(await page.locator('body').innerText(),retired);
- assert.equal(await page.locator('[data-pricing-trigger="diagnostic"] [data-price-key]').textContent(),'from $800');
- assert.equal(await page.locator('[data-pricing-trigger="foundation"] [data-price-key]').textContent(),'from $5,000');
- assert.equal(await page.locator('[data-pricing-trigger="operations"] [data-price-short]').textContent(),'from $3,500 setup');
- assert.equal(await page.locator('[data-pricing-trigger="operations"] [data-price-monthly]').textContent(),'then $2,000/month');
+ assert.equal(await page.locator('[data-pricing-trigger="diagnostic"] [data-price-key]').textContent(),'$800');
+ assert.equal(await page.locator('[data-pricing-trigger="foundation"] [data-price-key]').textContent(),'$5,000');
+ assert.equal(await page.locator('[data-pricing-trigger="operations"] [data-price-short]').textContent(),'$3,500 setup');
+ assert.equal(await page.locator('[data-pricing-trigger="operations"] [data-price-monthly]').textContent(),'$2,000/month');
  assert.equal(await page.locator('[data-price-key="care"]').textContent(),'$350/month');
  for(const key of ['diagnostic','foundation','operations']) {
   await page.locator(`[data-pricing-trigger="${key}"]`).click();

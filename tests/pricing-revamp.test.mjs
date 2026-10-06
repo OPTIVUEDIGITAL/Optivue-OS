@@ -52,7 +52,7 @@ test('three static card prices, monthly terms, and care price match shared confi
  for(const [key,price] of Object.entries(config.prices)) {
   const values=[...html.matchAll(new RegExp(`data-price-key="${key}"[^>]*>([^<]*)<`,'g'))].map(m=>m[1]);
   assert.ok(values.includes(price.cardDisplay||price.display));
-  if(price.monthly)assert.ok(values.includes(`then ${price.monthly}`));
+  if(price.monthly)assert.ok(values.includes(price.monthly));
  }
  assert.equal((html.match(/data-cta-location="pricing"/g)||[]).length,1);
  assert.match(html,/Request an Audit/);
@@ -65,7 +65,7 @@ test('replacement panels retain four sections and exact payment terms', () => {
  assert.equal(PRICING_BREAKDOWNS.foundation.items.length,6);
  assert.equal(PRICING_BREAKDOWNS.operations.items.length,5);
  assert.equal(PRICING_BREAKDOWNS.foundation.timeline,'4–6 weeks. 50% to start, 50% on day 30.');
- assert.equal(PRICING_BREAKDOWNS.operations.timeline,`Setup paid upfront. Then ${config.prices.operations.monthly}, billed monthly in advance, month-to-month. 12-month commitment: ${config.prices.operations.annualMonthly}.`);
+ assert.equal(PRICING_BREAKDOWNS.operations.timeline,`Setup paid upfront. Then ${config.prices.operations.monthly}, billed in advance. Month-to-month. 12-month commitment: ${config.prices.operations.annualMonthly}.`);
  for(const key of ['diagnostic','foundation','operations']) {
   const panel=html.split(`<!-- breakdown:${key}:start -->`)[1].split(`<!-- breakdown:${key}:end -->`)[0];
   for(const heading of ["What's included",'Timeline and payment','What I need from you','Not included'])assert.ok(panel.includes(`<h4>${heading}</h4>`));

@@ -23,15 +23,15 @@ test('pricing breakdown analytics allows only enumerated tier and device',()=>{
 });
 
 test('Audit cards preserve compact hierarchy and one booking action',()=>{
- const pricing=html.slice(html.indexOf('<section id="pricing"'),html.indexOf('<section id="fit"'));
+ const pricing=html.slice(html.indexOf('<section id="pricing"'),html.indexOf('<section id="about"'));
  assert.doesNotMatch(html,/milestones|From \$1,500|class="ovgo-pricing-path"|class="ovgo-pricing-reassurance"/i);
  assert.equal((pricing.match(/data-ovgo-booking/g)||[]).length,1);
  assert.equal((html.match(/If a simpler fix solves it/g)||[]).length,0);
  assert.equal((html.match(/class="ovgo-kicker"/g)||[]).length,1);
- assert.match(html,/<p class="ovgo-kicker">FOR HEALTH, WELLNESS &amp; AESTHETICS<\/p>/);
+ assert.match(html,/<p class="ovgo-kicker">FOR HEALTH, WELLNESS, &amp; AESTHETICS<\/p>/);
  for(const [,content] of html.matchAll(/<button[^>]*data-pricing-trigger[^>]*>([\s\S]*?)<\/button>/g)) {
   assert.doesNotMatch(content,/Growth Systems Diagnostic|Foundation Launch|Growth Operations|minimum|Paid|installments/);
  }
- assert.match(pricing,/Three ways to start\./);
+ assert.match(pricing,/Three ways to work together\./);
  assert.match(html,/In 20 minutes, I'll help you decide if an Audit fits your needs\./);
 });

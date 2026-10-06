@@ -10,7 +10,7 @@ test('hero static HTML, accessible heading and configured reservations match',()
  assert.ok(html.includes(renderHeroHeadline()));
  assert.equal(html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)[1].replace(/<[^>]+>/g,''),'Turn more leads into booked visits');
  assert.ok(html.includes('aria-hidden="true" class="ovgo-hero-headline-visual"'));
- assert.ok(html.includes('I build the systems that turn attention into qualified leads, booked calls, and revenue.'));
+ assert.ok(html.includes('I build the systems that turn attention into qualified leads, booked visits, and revenue.'));
  assert.equal(HERO_CONFIG.phrases.length,8);
  assert.equal(HERO_CONFIG.phrases[0],'booked visits');
  assert.equal(HERO_CONFIG.typeMs,70);assert.equal(HERO_CONFIG.deleteMs,40);

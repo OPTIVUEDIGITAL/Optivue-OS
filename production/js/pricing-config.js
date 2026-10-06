@@ -5,7 +5,7 @@ export const PRICING_BREAKDOWNS = {
     "items": [
       {
         "label": "Multi-channel review",
-        "text": "Up to 3 channels, such as Google Ads, Meta, and Google Business Profile."
+        "text": "Up to three channels, such as Google Ads, Meta, and Google Business Profile."
       },
       {
         "label": "Website and booking path",
@@ -21,7 +21,7 @@ export const PRICING_BREAKDOWNS = {
       },
       {
         "label": "Competitor gaps",
-        "text": "How 3 nearby competitors capture and follow up with leads."
+        "text": "How three nearby competitors capture and follow up with leads."
       },
       {
         "label": "Baseline numbers",
@@ -41,7 +41,7 @@ export const PRICING_BREAKDOWNS = {
     "items": [
       {
         "label": "Booking path",
-        "text": "Fix your main landing page or booking path."
+        "text": "I fix your main landing page or booking path."
       },
       {
         "label": "CRM routing",
@@ -53,7 +53,7 @@ export const PRICING_BREAKDOWNS = {
       },
       {
         "label": "Tracking",
-        "text": "Fix tracking for calls, forms, and bookings."
+        "text": "I fix tracking for calls, forms, and bookings."
       },
       {
         "label": "Handoff",
@@ -65,8 +65,8 @@ export const PRICING_BREAKDOWNS = {
       }
     ],
     "timeline": "4–6 weeks. 50% to start, 50% on day 30.",
-    "needs": "Admin access, approvals within 2 business days, one staff contact for testing.",
-    "excluded": "Ongoing management, ad management, extra pages or locations, CRM data migration.",
+    "needs": "Admin access, approvals within 2 business days, and one staff contact for testing.",
+    "excluded": "Ongoing management, ad management, extra pages or locations, and CRM data migration.",
     "intro": "Typical scope. Your exact scope comes from your Audit."
   },
   "operations": {
@@ -78,7 +78,7 @@ export const PRICING_BREAKDOWNS = {
       },
       {
         "label": "Monthly growth",
-        "text": "Up to 3 agreed changes per month, such as a follow-up message, a booking-page fix, or a campaign update."
+        "text": "Up to three agreed changes per month, such as a follow-up message, a booking-page fix, or a campaign update."
       },
       {
         "label": "Ad management",
@@ -90,12 +90,12 @@ export const PRICING_BREAKDOWNS = {
       },
       {
         "label": "Support",
-        "text": "Reply within 1 business day, Monday to Friday."
+        "text": "Reply within one business day, Monday to Friday."
       }
     ],
-    "timeline": `Setup paid upfront. Then ${ESTIMATOR_CONFIG.prices.operations.monthly}, billed monthly in advance, month-to-month. 12-month commitment: ${ESTIMATOR_CONFIG.prices.operations.annualMonthly}.`,
+    "timeline": `Setup paid upfront. Then ${ESTIMATOR_CONFIG.prices.operations.monthly}, billed in advance. Month-to-month. 12-month commitment: ${ESTIMATOR_CONFIG.prices.operations.annualMonthly}.`,
     "needs": "Timely approvals and access to your ad and CRM accounts.",
-    "excluded": "Ad spend, new locations or service launches, major rebuilds.",
+    "excluded": "Ad spend, new locations or service launches, and major rebuilds.",
     "intro": "Typical scope. Your exact scope comes from your Audit."
   },
   "care": {
@@ -107,11 +107,11 @@ export const PRICING_BREAKDOWNS = {
       },
       {
         "label": "Small fixes",
-        "text": "Up to 1 hour per month."
+        "text": "Up to one hour per month."
       },
       {
         "label": "Support",
-        "text": "Reply within 2 business days, Monday to Friday."
+        "text": "Reply within two business days, Monday to Friday."
       }
     ],
     "timeline": "Billed monthly. For systems I built.",

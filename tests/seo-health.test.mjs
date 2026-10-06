@@ -18,7 +18,7 @@ test('homepage title and social metadata match approved copy',()=>{
  const description='I help med spas and wellness clinics fix lead follow-up, booking, and tracking, so more leads become booked visits. Systems you own.';
  for(const name of ['description','og:description','twitter:description'])assert.ok(html.includes(`${name}" content="${description}"`));
  assert.ok(html.includes("Here's where clinic leads usually get lost."));
- assert.ok(html.includes("Every plan starts with an Audit of your clinic's lead follow-up. All prices in USD."));
+ assert.ok(html.includes("Every plan starts with an Audit. All prices in USD."));
 });
 test('About alt text and 1200 by 630 social PNG exist',()=>{
  assert.match(html,/rahmel-dela-cruz\.webp[^>]*alt="Rahmel Dela Cruz, founder of Optivue Digital"/);
@@ -33,7 +33,7 @@ test('JSON-LD parses, ProfessionalService exists, FAQ exactly matches visible co
  const schemas=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
  const service=schemas.find(x=>x['@type']==='ProfessionalService');
  assert.equal(service['@context'],'https://schema.org');assert.equal(service.name,'Optivue Digital');assert.equal(service.url,'https://growth.optivuedigital.com/');
- const faq=schemas.find(x=>x['@type']==='FAQPage');assert.equal(faq['@context'],'https://schema.org');assert.equal(faq.mainEntity.length,6);
+ const faq=schemas.find(x=>x['@type']==='FAQPage');assert.equal(faq['@context'],'https://schema.org');assert.equal(faq.mainEntity.length,7);
  assert.deepEqual(faq.mainEntity,faqEntities(html));
  for(const q of faq.mainEntity){assert.equal(q['@type'],'Question');assert.ok(q.name);assert.equal(q.acceptedAnswer['@type'],'Answer');assert.ok(q.acceptedAnswer.text);}
  assert.equal(renderSeo(html),html);

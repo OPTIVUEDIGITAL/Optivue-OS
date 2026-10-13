@@ -2,6 +2,7 @@ import { priceFor, pathTotal } from './pricing-values.js';
 import { trackEvent } from './analytics.js';
 import { ESTIMATOR_CONFIG, RESULT_COPY } from './estimator-config.js';
 
+const initializedRoots = new WeakSet();
 const STORAGE_KEY = 'optivue-estimator-v2';
 const STATE_VERSION = 2;
 
@@ -100,7 +101,8 @@ export function buildSnapshotText(answers = {}, options = {}) {
 
 export function initEstimator(root) {
   const mount = root.querySelector('[data-ovgo-estimator]');
-  if (!mount) return;
+  if (!mount || initializedRoots.has(root)) return;
+  initializedRoots.add(root);
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const stored = readStoredState();
   let state = createEstimatorState(stored);
@@ -167,9 +169,10 @@ export function initEstimator(root) {
   }
 
   function renderResult() {
+    const completed = state.screen === 'loading';
     state.screen = 'result'; persist();
     const model = buildResultViewModel(state.answers);
-    trackEvent('estimator_result_view', { result: model.result.id, scope_label: model.result.scopeLabel });
+    if (completed) trackEvent('estimator_complete');
     mount.innerHTML = `<article class="ovgo-estimator-result"><header><p class="ovgo-kicker">Your Growth System Snapshot</p><h2>${model.result.summary}</h2></header><section aria-labelledby="snapshot-heading"><h3 id="snapshot-heading">Five-stage snapshot</h3><div class="ovgo-estimator-stages">${Object.values(model.snapshot).map(stageMarkup).join('')}</div><p class="ovgo-form-note">Based on your answers. A starting point, not an assessment.</p></section><section class="ovgo-estimator-recommendation"><p class="ovgo-status">${model.result.scopeLabel}</p><h3>${model.result.heading}</h3><p>${model.result.body}</p>${model.result.id === 'E' ? '' : `<h4>Why this fits your answers</h4><ul>${reasonBullets(state.answers, model).map((item) => `<li>${item}</li>`).join('')}</ul>${renderPricePath(model.result)}<details><summary>Is an Audit right for me?</summary><p>A Audit helps when you need to find the main gap. Use the plan before spending more on ads.</p><p>Already know the fix? Explain the scope on your call.</p></details>`}</section>${model.quickWins.length ? `<section><h3>Try these steps this week</h3><div class="ovgo-estimator-wins">${model.quickWins.map((win) => `<article><b>${title(win.stage)}</b><p>${win.text}</p></article>`).join('')}</div></section>` : ''}<section class="ovgo-estimator-actions" data-estimator-actions>${actionsMarkup(model.actions)}</section>${model.result.id === 'E' ? '' : `<details class="ovgo-estimator-fine"><summary>Details & fine print</summary><p>Investment guidance is preliminary and covers Optivue service fees only. Ad spend, software, CRM, SMS/email usage, call tracking, and booking tools are separate.</p><p>This isn't a proposal, fixed quote, performance guarantee, or legal, medical, privacy, or compliance advice. Final scope is confirmed after a Fit Call and, where appropriate, an Audit.</p></details><button class="ovgo-text-link" type="button" data-estimator-restart>Start over</button>`}<p class="ovgo-form-note" data-estimator-copy-status role="status"></p></article>`;
     mount.querySelectorAll('[data-stage-expand]').forEach((button) => button.addEventListener('click', () => { const open = button.getAttribute('aria-expanded') !== 'true'; button.setAttribute('aria-expanded', String(open)); button.nextElementSibling.hidden = !open; trackEvent('estimator_stage_expand', { stage: button.dataset.stageExpand }); }));
     mount.querySelector('[data-estimator-copy]')?.addEventListener('click', async () => { const status = mount.querySelector('[data-estimator-copy-status]'); try { await navigator.clipboard.writeText(buildSnapshotText(state.answers)); status.textContent = 'Snapshot copied.'; trackEvent('estimator_cta_click', { cta: 'copy_snapshot' }); } catch { status.textContent = 'Copy failed. Select the snapshot text and copy it manually.'; } });

@@ -2,6 +2,7 @@ import { setJourneyFlag, snapshot } from './context.js';
 import { trackEvent } from './analytics.js';
 
 const CALENDLY_URL = 'https://calendly.com/optivue-digital-strategy-call/clicks-to-clients-audit';
+const initializedRoots = new WeakSet();
 const UTM_FIELDS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
 
 export function buildCalendlyUrl(baseUrl = CALENDLY_URL, pageUrl = globalThis.location?.href || '') {
@@ -21,17 +22,18 @@ export function initBooking(root) {
   const closers = root.querySelectorAll('[data-ovgo-modal-close]');
   let previousFocus = null;
 
-  if (!modal || !frame) return;
+  if (!modal || !frame || initializedRoots.has(root)) return;
+  initializedRoots.add(root);
+  let bookingTracked = false;
+  const completedBookings = new Set();
 
   const focusables = () => [...modal.querySelectorAll('button,[href],iframe,[tabindex]:not([tabindex="-1"])')];
 
   function open(event) {
     previousFocus = document.activeElement;
     const source = event?.target?.closest?.('[data-ovgo-booking]') || event?.currentTarget;
-    const location = source?.dataset?.ctaLocation || 'unknown';
     const offerName = source?.dataset?.offerName || '';
-    trackEvent('cta_fit_call_click', { location });
-    if (offerName) trackEvent('pricing_card_cta_click', { offer_name: offerName });
+    trackEvent(offerName === 'Growth Systems Audit' ? 'request_audit_click' : 'book_fit_call_click');
     const proposalIntent = source?.dataset?.ovgoIntent === 'proposal';
     if (proposalIntent) setJourneyFlag('proposalIntent', true);
     setJourneyFlag('bookingIntent', true);
@@ -40,9 +42,11 @@ export function initBooking(root) {
     const url = new URL(buildCalendlyUrl(CALENDLY_URL));
     if (context.identity.name) url.searchParams.set('name', context.identity.name);
     if (context.identity.email) url.searchParams.set('email', context.identity.email);
+    url.searchParams.set('embed_domain', 'growth.optivuedigital.com');
+    url.searchParams.set('embed_type', 'PopupText');
+    bookingTracked = false;
     frame.src = url.toString();
     modal.hidden = false;
-    trackEvent('calendly_modal_open', { location });
     document.documentElement.style.overflow = 'hidden';
     requestAnimationFrame(() => modal.querySelector('[data-ovgo-modal-close]')?.focus());
   }
@@ -75,7 +79,12 @@ export function initBooking(root) {
   });
 
   window.addEventListener('message', (event) => {
-    if (event.origin !== 'https://calendly.com') return;
-    if (event.data?.event === 'calendly.event_scheduled') trackEvent('calendly_event_scheduled');
+    if (event.origin !== 'https://calendly.com' || event.source !== frame.contentWindow) return;
+    if (event.data?.event !== 'calendly.event_scheduled' || bookingTracked) return;
+    const bookingId = event.data?.payload?.invitee?.uri || event.data?.payload?.event?.uri;
+    if (bookingId && completedBookings.has(bookingId)) return;
+    bookingTracked = true;
+    if (bookingId) completedBookings.add(bookingId);
+    trackEvent('fit_call_booked');
   });
 }

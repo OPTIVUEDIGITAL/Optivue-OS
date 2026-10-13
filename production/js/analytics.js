@@ -10,8 +10,10 @@ export function sanitizeEventParameters(name, parameters = {}) {
   return Object.fromEntries(name.startsWith('estimator_') ? primitive.filter(([key]) => ESTIMATOR_FIELDS.has(key)) : primitive);
 }
 
-export function trackEvent(name, parameters = {}) {
-  const safe = sanitizeEventParameters(name, /^(pricing_|estimator_)/.test(name)?{...parameters,founding_active:false}:parameters);
-  if (Array.isArray(window.dataLayer)) window.dataLayer.push({ event: name, ...safe });
-  window.dispatchEvent(new CustomEvent('optivue:analytics', { detail: { name, parameters: safe } }));
+const GA4_EVENTS = new Set(['book_fit_call_click', 'request_audit_click', 'estimator_start', 'estimator_complete', 'fit_call_booked']);
+
+export function trackEvent(name) {
+  if (window.location.hostname !== 'growth.optivuedigital.com' || !GA4_EVENTS.has(name) || typeof window.gtag !== 'function') return;
+  // Send event names only. Never forward form values or Calendly payloads.
+  window.gtag('event', name);
 }

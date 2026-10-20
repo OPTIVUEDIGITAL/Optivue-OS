@@ -13,8 +13,10 @@ try {
   // Set debug mode before the production loader initializes. Never change site config.
   await context.addInitScript(()=>{
     window.dataLayer=[];
-    window.gtag=function(){window.dataLayer.push(arguments);};
-    window.gtag('set','debug_mode',true);
+    window.gtag=function(){
+      if(arguments[0]==='config')arguments[2]={...arguments[2],debug_mode:true};
+      window.dataLayer.push(arguments);
+    };
   });
   await context.route('https://calendly.com/**',route=>route.fulfill({contentType:'text/html',body:'<button onclick="parent.postMessage({event:\'calendly.event_scheduled\'},\'https://growth.optivuedigital.com\')">Test booking completion</button>'}));
   context.on('request',request=>{
@@ -54,6 +56,7 @@ try {
   };
   await page.goto(origin+'/',{waitUntil:'networkidle'});
   await waitEvent('page_view');
+  assert.equal(report.events.find(e=>e.name==='page_view').debug,'1','Require debug mode before testing a conversion');
   await page.locator('[data-cta-location="hero"]').click();
   await waitEvent('book_fit_call_click');
   await page.frameLocator('[data-ovgo-calendly]').getByRole('button',{name:'Test booking completion'}).click();

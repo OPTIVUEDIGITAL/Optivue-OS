@@ -2,7 +2,13 @@
 
 ## Current status, October 20, 2026
 
-Prepared for review. Not merged or deployed. GA4 receipt and real Calendly booking redirects remain unverified. Windsor read access now includes property 558572047, Optivue Digital | Growth OS. Web stream 16114331804 uses G-9XBD3QZ5BQ. No new property was created.
+PR #44 merged with owner approval on October 20. Cloudflare deployed commit a16e41670ae71298b16c8b016b64d2cfbeea75ee. The live homepage matches the release byte for byte, contains one shared GA4 loader reference, and omits the two hero lines the owner requested removed. No other hero copy, design or pricing changed.
+
+The live browser smoke test reached Google's collection endpoint for all five custom events, received HTTP 204 responses, counted one simulated booking, and suppressed its reload. A corrected QA run confirmed explicit debug parameters on outbound events. These checks prove browser transport, not GA4 DebugView receipt or a real appointment. No calendar appointment was created. Windsor's same-day aggregate query still returned no rows. Property 558572047 and web stream 16114331804 use G-9XBD3QZ5BQ. No new property was created.
+
+Evidence: release run 39444494551, artifact 12275611098, and corrected live QA run 39446153128. The first QA parser checked only _dbg and did not record alternate debug fields. One synthetic booking was sent around 15:04 UTC (23:04 Manila). Its debug status is unverified, so exclude it from customer booking totals. Later runs require an explicit debug pageview before testing a conversion. Debug mode alone does not guarantee exclusion from standard reports unless a developer-traffic filter is active.
+
+Automatic form_start was observed from enhanced measurement. GA4 dashboard review, developer-traffic filter status, key-event/custom-dimension setup, real booking tests, and the direct Calendly confirmation redirect remain unverified. Windsor exposes no GA4 settings write actions. Do not describe those account settings as completed.
 
 ## Event map
 
@@ -51,7 +57,7 @@ Automated Node tests exercise the actual loader/analytics/booking code with isol
 
 Before merge:
 - Run node --test tests/*.test.mjs, all three wrangler build steps, contrast audit, git diff --check.
-- Compare homepage/estimator against LIVE_BASE after removing only the shared head script reference. All existing CSS, tokens, images, pricing, hero and offer copy must be unchanged.
+- Compare homepage/estimator against LIVE_BASE after removing only the shared head script reference. All existing CSS, tokens, images, pricing and offer copy must be unchanged. The owner separately approved removal of the hero ownership/experience line and founder signature on October 20.
 - Run design-qa in GitHub and inspect desktop/mobile screenshots and Calendly appearance. Previous PR #44 saw an inner iframe background change from the approved embed parameters. Obtain real mobile evidence before approval.
 - Verify Cloudflare preview build and exact commit. Preview URLs must issue zero Google tag/collect requests. Do not promote a preview or manually deploy.
 

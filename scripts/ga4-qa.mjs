@@ -60,7 +60,7 @@ try {
     for(let i=0;i<9;i++) {
       const fieldset=page.locator('[data-estimator-form]');
       const before=await fieldset.locator('legend').textContent();
-      await fieldset.locator('input').first().check();
+      await fieldset.locator('.ovgo-estimator-option').first().click();
       const submit=fieldset.locator('button[type="submit"]');
       if(await submit.count())await submit.click();
       if(i<8)await page.waitForFunction(text=>document.querySelector('[data-estimator-form] legend')?.textContent!==text,before);

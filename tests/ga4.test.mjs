@@ -109,17 +109,32 @@ test('legacy local hooks remain available without sending arbitrary events to GA
 
 test('validated iframe completion redirects parent once and never counts a booking itself', () => {
   const h=harness(); const handlers={}; const frame={contentWindow:{}}; const modal={hidden:false};
+  const redirects=[]; let registrations=0;
+  h.context.location.assign=value=>redirects.push(value);
   h.context.setJourneyFlag=()=>{};h.context.snapshot=()=>({identity:{}});h.context.trackEvent=(...args)=>h.calls.push(args);
-  h.context.window.addEventListener=(name,fn)=>handlers[name]=fn;
+  h.context.window.addEventListener=(name,fn)=>{registrations++;handlers[name]=fn;};
   h.context.document.addEventListener=()=>{};
   const root={querySelector:s=>s==='[data-ovgo-modal]'?modal:s==='[data-ovgo-calendly]'?frame:null,querySelectorAll:()=>[],addEventListener:()=>{}};
   h.context.root=root;vm.runInContext(booking+'\ninitBooking(root);initBooking(root);',h.context);
-  handlers.message({origin:'https://evil.test',source:frame.contentWindow,data:{event:'calendly.event_scheduled'}});
-  assert.equal(h.context.location.assigned,undefined);
-  handlers.message({origin:'https://calendly.com',source:{},data:{event:'calendly.event_scheduled'}});
-  assert.equal(h.context.location.assigned,undefined);
-  handlers.message({origin:'https://calendly.com',source:frame.contentWindow,data:{event:'calendly.event_scheduled',payload:{invitee:{uri:'private'}}}});
-  assert.equal(h.context.location.assigned,'/thank-you?src=calendly');
+  assert.equal(registrations,1);
+  const data={event:'calendly.event_scheduled'};
+  Object.defineProperty(data,'payload',{get(){throw Error('Invitee payload must never be read');}});
+  const message={origin:'https://calendly.com',source:frame.contentWindow,data};
+  for (const origin of ['https://evil.test','https://calendly.com.evil.test','http://calendly.com','https://sub.calendly.com','null']) {
+    handlers.message({...message,origin});
+  }
+  handlers.message({...message,source:{}});
+  handlers.message({...message,data:{event:'calendly.event_type_viewed'}});
+  handlers.message({...message,data:null});
+  modal.hidden=true;handlers.message(message);modal.hidden=false;
+  assert.equal(redirects.length,0);
+  for(let i=0;i<3;i++) handlers.message(message);
+  assert.deepEqual(redirects,['/thank-you?src=calendly']);
+  const destination=harness(host+redirects[0],h.storage);destination.run();
+  const events=destination.calls.filter(c=>c[1]==='fit_call_booked');
+  assert.deepEqual(JSON.parse(JSON.stringify(events)),[['event','fit_call_booked',{booking_source:'calendly'}]]);
+  const revisit=harness(host+redirects[0],h.storage);revisit.run();
+  assert.equal(revisit.calls.filter(c=>c[1]==='fit_call_booked').length,0);
   assert.equal(h.calls.length,0);
 });
 

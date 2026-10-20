@@ -13,8 +13,10 @@ try {
   // Set debug mode before the production loader initializes. Never change site config.
   await context.addInitScript(()=>{
     window.dataLayer=[];
-    window.gtag=function(){window.dataLayer.push(arguments);};
-    window.gtag('set','debug_mode',true);
+    window.gtag=function(){
+      if(arguments[0]==='config')arguments[2]={...arguments[2],debug_mode:true};
+      window.dataLayer.push(arguments);
+    };
   });
   await context.route('https://calendly.com/**',route=>route.fulfill({contentType:'text/html',body:'<button onclick="parent.postMessage({event:\'calendly.event_scheduled\'},\'https://growth.optivuedigital.com\')">Test booking completion</button>'}));
   context.on('request',request=>{
@@ -25,7 +27,7 @@ try {
       const params=new URLSearchParams(u.search);
       for(const [k,v]of new URLSearchParams(body))params.set(k,v);
       if(params.get('tid')!=='G-9XBD3QZ5BQ')continue;
-      report.events.push({name:params.get('en'),location:params.get('dl'),debug:params.get('_dbg'),booking_source:params.get('ep.booking_source')});
+      report.events.push({name:params.get('en'),location:params.get('dl'),debug:params.get('_dbg')??params.get('ep.debug_mode')??params.get('epn.debug_mode'),debug_parameters:Object.fromEntries([...params].filter(([key])=>/dbg|debug/.test(key))),booking_source:params.get('ep.booking_source')});
       if([...params.values()].some(v=>/private@example|invitee_email|answer_1|qa-private/.test(v)))report.errors.push('Private test value reached Google');
     }
   });
@@ -54,6 +56,7 @@ try {
   };
   await page.goto(origin+'/',{waitUntil:'networkidle'});
   await waitEvent('page_view');
+  assert.ok(['1','true'].includes(report.events.find(e=>e.name==='page_view').debug),'Require debug mode before testing a conversion');
   await page.locator('[data-cta-location="hero"]').click();
   await waitEvent('book_fit_call_click');
   await page.frameLocator('[data-ovgo-calendly]').getByRole('button',{name:'Test booking completion'}).click();
@@ -79,7 +82,7 @@ try {
   }
   await waitEvent('estimator_complete');
   await page.waitForTimeout(2500);
-  assert.ok(report.events.every(e=>e.debug==='1'),'Test events must use debug mode');
+  assert.ok(report.events.every(e=>['1','true'].includes(e.debug)),'Test events must use debug mode');
   assert.ok(report.responses.length>0,'No Google collection response');
   assert.ok(report.responses.every(s=>s>=200&&s<300),'Google rejected a collection request');
   assert.ok(report.events.every(e=>!e.location||(!e.location.includes('?')&&!e.location.includes('#'))),'Unsanitized page location');
@@ -89,6 +92,7 @@ try {
   console.log(report.result);
 } catch(error){report.result='FAIL';report.failure=error.message;throw error;}
 finally{
+  console.log(JSON.stringify(report));
   await fs.mkdir('shots',{recursive:true});
   await fs.writeFile('shots/ga4-live-report.json',JSON.stringify(report,null,2));
   await browser.close();

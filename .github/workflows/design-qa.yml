@@ -42,6 +42,10 @@ jobs:
           npm install --no-save playwright@1.55.0 lighthouse@12.2.1
           npx playwright install --with-deps chromium
 
+      - name: Live GA4 transport after approved main deployment
+        if: (github.event_name == 'push' && github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, '#44')) || github.head_ref == 'fix/ga4-live-debug-20261020'
+        run: node scripts/ga4-live-qa.mjs
+
       - name: Serve production
         run: |
           node scripts/qa-server.mjs > /tmp/optivue-http.log 2>&1 &
@@ -85,10 +89,6 @@ jobs:
 
       - name: Enforce Lighthouse budgets
         run: node scripts/check-lighthouse.mjs
-
-      - name: Live GA4 transport after approved main deployment
-        if: (github.event_name == 'push' && github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, '#44')) || github.head_ref == 'fix/ga4-live-debug-20261020'
-        run: node scripts/ga4-live-qa.mjs
 
       - name: Upload design QA artifacts
         if: always()

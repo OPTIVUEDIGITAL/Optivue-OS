@@ -11,7 +11,8 @@ test('uses the clinic positioning and required hero message', () => {
   assert.match(html, /FOR HEALTH, WELLNESS &amp; AESTHETICS/);
   assert.match(html, /Turn more leads into booked visits/);
   assert.match(html, /20 minutes · No pressure · Find out if an Audit makes sense/);
-  assert.match(html, /Your system, in your name\. · 8 years working with medical and wellness practices/);
+  const hero = html.split('<section')[1].split('</section>')[0];
+  assert.doesNotMatch(hero, /Your system, in your name|8 years working|Rahmel Dela Cruz · Founder/);
 });
 
 test('removes legacy packages and free audit language', () => {

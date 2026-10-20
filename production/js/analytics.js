@@ -10,10 +10,18 @@ export function sanitizeEventParameters(name, parameters = {}) {
   return Object.fromEntries(name.startsWith('estimator_') ? primitive.filter(([key]) => ESTIMATOR_FIELDS.has(key)) : primitive);
 }
 
-const GA4_EVENTS = new Set(['book_fit_call_click', 'request_audit_click', 'estimator_start', 'estimator_complete', 'fit_call_booked']);
+const GA4_EVENTS = new Set(['book_fit_call_click', 'request_audit_click', 'estimator_start', 'estimator_complete']);
+const CTA_LOCATIONS = new Set(['nav', 'hero', 'pricing', 'final', 'footer', 'sticky', 'estimator', 'unknown']);
 
-export function trackEvent(name) {
+export function trackEvent(name, parameters = {}) {
+  // Retain existing local UI hooks. These objects are not Google gtag calls.
+  const safe = sanitizeEventParameters(name, /^(pricing_|estimator_)/.test(name) ? { ...parameters, founding_active: false } : parameters);
+  if (Array.isArray(window.dataLayer)) window.dataLayer.push({ event: name, ...safe });
+  window.dispatchEvent(new CustomEvent('optivue:analytics', { detail: { name, parameters: safe } }));
   if (window.location.hostname !== 'growth.optivuedigital.com' || !GA4_EVENTS.has(name) || typeof window.gtag !== 'function') return;
-  // Send event names only. Never forward form values or Calendly payloads.
-  window.gtag('event', name);
+  // Only a controlled section enum leaves the site. Never spread form data.
+  if (name === 'book_fit_call_click' || name === 'request_audit_click') {
+    const cta_location = CTA_LOCATIONS.has(parameters.cta_location) ? parameters.cta_location : 'unknown';
+    window.gtag('event', name, { cta_location });
+  } else window.gtag('event', name);
 }

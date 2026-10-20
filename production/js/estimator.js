@@ -72,7 +72,7 @@ export function toggleSystem(selected = [], value) {
 }
 
 export function createEstimatorState(saved) {
-  const fresh = { version: STATE_VERSION, screen: 'intro', step: 0, answers: {}, insightCount: 0 };
+  const fresh = { version: STATE_VERSION, screen: 'intro', step: 0, answers: {}, insightCount: 0, started: false };
   if (!saved || saved.version !== STATE_VERSION) return fresh;
   return { ...fresh, ...saved, answers: { ...(saved.answers || {}) }, step: Math.max(0, Math.min(8, Number(saved.step) || 0)) };
 }
@@ -117,7 +117,7 @@ export function initEstimator(root) {
 
   function renderIntro() {
     mount.innerHTML = `<div class="ovgo-estimator-intro"><p class="ovgo-kicker">Growth OS Scope Estimator</p><h2>See what stands between a lead and a booking.</h2><p>Answer 9 questions about your leads and follow-up. Get a snapshot of your growth system, a next step and an estimated cost range.</p><button class="ovgo-btn ovgo-btn--primary" type="button" data-estimator-start>Start the Estimate</button><ul class="ovgo-estimator-facts"><li>About 90 seconds</li><li>No email needed to see results</li><li>Not a fixed quote</li></ul><p class="ovgo-form-note">Please don't enter patient information or passwords anywhere in this tool.</p></div>`;
-    mount.querySelector('[data-estimator-start]').addEventListener('click', () => { state.screen = 'question'; state.step = 0; persist(); trackEvent('estimator_start'); renderQuestion(); });
+    mount.querySelector('[data-estimator-start]').addEventListener('click', () => { state.screen = 'question'; state.step = 0; if (!state.started) trackEvent('estimator_start'); state.started = true; persist(); renderQuestion(); });
   }
 
   function renderResume() {

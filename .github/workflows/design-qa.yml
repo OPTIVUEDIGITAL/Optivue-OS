@@ -34,6 +34,9 @@ jobs:
       - name: Contrast audit
         run: python3 scripts/contrast.py
 
+      - name: Node regression and analytics tests
+        run: node --test tests/*.test.mjs
+
       - name: Install browser QA tools
         run: |
           npm install --no-save playwright@1.55.0 lighthouse@12.2.1
@@ -52,6 +55,9 @@ jobs:
 
       - name: Responsive screenshots and overflow checks
         run: node scripts/visual-qa.mjs
+
+      - name: GA4 and booking integration (intercepted Google and Calendly)
+        run: node scripts/ga4-qa.mjs
 
       - name: Hero loop accessibility and layout stability
         run: node scripts/hero-qa.mjs

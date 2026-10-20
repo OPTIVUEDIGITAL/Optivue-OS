@@ -24,8 +24,7 @@ export function initBooking(root) {
 
   if (!modal || !frame || initializedRoots.has(root)) return;
   initializedRoots.add(root);
-  let bookingTracked = false;
-  const completedBookings = new Set();
+  let redirecting = false;
 
   const focusables = () => [...modal.querySelectorAll('button,[href],iframe,[tabindex]:not([tabindex="-1"])')];
 
@@ -33,7 +32,8 @@ export function initBooking(root) {
     previousFocus = document.activeElement;
     const source = event?.target?.closest?.('[data-ovgo-booking]') || event?.currentTarget;
     const offerName = source?.dataset?.offerName || '';
-    trackEvent(offerName === 'Growth Systems Audit' ? 'request_audit_click' : 'book_fit_call_click');
+    const cta_location = source?.dataset?.ctaLocation || (root.querySelector('[data-ovgo-estimator]') ? 'estimator' : 'unknown');
+    trackEvent(offerName === 'Growth Systems Audit' ? 'request_audit_click' : 'book_fit_call_click', { cta_location });
     const proposalIntent = source?.dataset?.ovgoIntent === 'proposal';
     if (proposalIntent) setJourneyFlag('proposalIntent', true);
     setJourneyFlag('bookingIntent', true);
@@ -44,7 +44,6 @@ export function initBooking(root) {
     if (context.identity.email) url.searchParams.set('email', context.identity.email);
     url.searchParams.set('embed_domain', 'growth.optivuedigital.com');
     url.searchParams.set('embed_type', 'PopupText');
-    bookingTracked = false;
     frame.src = url.toString();
     modal.hidden = false;
     document.documentElement.style.overflow = 'hidden';
@@ -80,11 +79,9 @@ export function initBooking(root) {
 
   window.addEventListener('message', (event) => {
     if (event.origin !== 'https://calendly.com' || event.source !== frame.contentWindow) return;
-    if (event.data?.event !== 'calendly.event_scheduled' || bookingTracked) return;
-    const bookingId = event.data?.payload?.invitee?.uri || event.data?.payload?.event?.uri;
-    if (bookingId && completedBookings.has(bookingId)) return;
-    bookingTracked = true;
-    if (bookingId) completedBookings.add(bookingId);
-    trackEvent('fit_call_booked');
+    if (event.data?.event !== 'calendly.event_scheduled' || redirecting || modal.hidden) return;
+    redirecting = true;
+    // Never read or forward the Calendly payload. The destination owns counting.
+    window.location.assign('/thank-you?src=calendly');
   });
 }

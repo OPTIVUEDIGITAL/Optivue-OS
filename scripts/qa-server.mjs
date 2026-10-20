@@ -62,6 +62,10 @@ const server = http.createServer((req, res) => {
     "vary": "Accept-Encoding",
   };
   if (requestPath === '/estimator' || requestPath.startsWith('/estimator/')) headers['x-robots-tag'] = 'noindex';
+  if (requestPath === '/thank-you' || requestPath.startsWith('/thank-you/')) {
+    headers['x-robots-tag'] = 'noindex, nofollow';
+    headers['cache-control'] = 'no-store';
+  }
 
   const acceptsGzip = /\bgzip\b/.test(req.headers["accept-encoding"] || "");
   if (acceptsGzip && COMPRESSIBLE.has(ext)) {

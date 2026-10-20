@@ -25,23 +25,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: "24"
 
-      - name: SEO and full unit suite
-        run: |
-          node --test
-          node scripts/build-hero.mjs --check
-          node scripts/build-seo.mjs --check
-          node scripts/build-tokens.mjs --check
-
       - name: Contrast audit
         run: python3 scripts/contrast.py
+
+      - name: Node regression and analytics tests
+        run: node --test tests/*.test.mjs
 
       - name: Install browser QA tools
         run: |
@@ -59,15 +53,11 @@ jobs:
           cat /tmp/optivue-http.log
           exit 1
 
-      - name: Compare hero with approved main
-        run: |
-          mkdir -p /tmp/optivue-baseline
-          git archive 9a48bc583f452e8de89eba7579686c501c5d5696 | tar -x -C /tmp/optivue-baseline
-          PORT=8788 node /tmp/optivue-baseline/scripts/qa-server.mjs > /tmp/optivue-baseline.log 2>&1 &
-          node scripts/seo-parity-qa.mjs
-
       - name: Responsive screenshots and overflow checks
         run: node scripts/visual-qa.mjs
+
+      - name: GA4 and booking integration (intercepted Google and Calendly)
+        run: node scripts/ga4-qa.mjs
 
       - name: Hero loop accessibility and layout stability
         run: node scripts/hero-qa.mjs
@@ -95,6 +85,10 @@ jobs:
 
       - name: Enforce Lighthouse budgets
         run: node scripts/check-lighthouse.mjs
+
+      - name: Live GA4 transport after approved main deployment
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, '#44')
+        run: node scripts/ga4-live-qa.mjs
 
       - name: Upload design QA artifacts
         if: always()

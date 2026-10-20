@@ -11,7 +11,8 @@ test('uses the clinic positioning and required hero message', () => {
   assert.match(html, /FOR HEALTH, WELLNESS &amp; AESTHETICS/);
   assert.match(html, /Turn more leads into booked visits/);
   assert.match(html, /20 minutes · No pressure · Find out if an Audit makes sense/);
-  assert.match(html, /Your system, in your name\. · 8 years working with medical and wellness practices/);
+  const hero = html.split('<section')[1].split('</section>')[0];
+  assert.doesNotMatch(hero, /Your system, in your name|8 years working|Rahmel Dela Cruz · Founder/);
 });
 
 test('removes legacy packages and free audit language', () => {
@@ -36,7 +37,7 @@ test('has the required sections and one H1', () => {
 test('uses Growth OS canonical and social metadata', () => {
   assert.match(html, /<link rel="canonical" href="https:\/\/growth\.optivuedigital\.com\/">/);
   assert.match(html, /<meta property="og:url" content="https:\/\/growth\.optivuedigital\.com\/">/);
-  assert.match(html, /<title>Clinic Lead Follow-Up &amp; Booking Systems \| Optivue Growth OS<\/title>/);
+  assert.match(html, /<title>Optivue Growth OS \| Turn more leads into booked visits<\/title>/);
   assert.match(html, /ProfessionalService/);
   assert.doesNotMatch(html, /aggregateRating|reviewRating/);
   assert.match(sitemap, /https:\/\/growth\.optivuedigital\.com\//);

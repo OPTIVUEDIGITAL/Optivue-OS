@@ -87,7 +87,7 @@ jobs:
         run: node scripts/check-lighthouse.mjs
 
       - name: Live GA4 transport after approved main deployment
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, '#44')
         run: node scripts/ga4-live-qa.mjs
 
       - name: Upload design QA artifacts

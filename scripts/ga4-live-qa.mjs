@@ -79,6 +79,7 @@ try {
   }
   await waitEvent('estimator_complete');
   await page.waitForTimeout(2500);
+  assert.ok(report.events.every(e=>e.debug==='1'),'Test events must use debug mode');
   assert.ok(report.responses.length>0,'No Google collection response');
   assert.ok(report.responses.every(s=>s>=200&&s<300),'Google rejected a collection request');
   assert.ok(report.events.every(e=>!e.location||(!e.location.includes('?')&&!e.location.includes('#'))),'Unsanitized page location');

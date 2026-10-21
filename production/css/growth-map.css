@@ -1,0 +1,86 @@
+/* Preview-only. Values reuse production/design-tokens.json. */
+#optivue-growth-os.gm-preview{background:var(--ovgo-bg);color:var(--ovgo-text);min-height:100vh}
+.gm-internal{margin:0;padding:calc(var(--ovgo-estimator-space-unit)*2) var(--ovgo-space-page);border-bottom:1px solid var(--ovgo-border);color:var(--ovgo-muted);font-size:var(--ovgo-type-sm)}
+.gm-section{max-width:calc(var(--ovgo-max) + var(--ovgo-space-page)*2);margin:auto;padding:var(--ovgo-space-page)}
+.gm-intro{max-width:var(--ovgo-max);margin:calc(var(--ovgo-estimator-space-unit)*4) 0 calc(var(--ovgo-estimator-space-unit)*6)}
+#optivue-growth-os .gm-intro h2{font-size:var(--ovgo-type-section);line-height:1.02;letter-spacing:-.045em;max-width:20ch;margin:0 0 calc(var(--ovgo-estimator-space-unit)*3)}
+.gm-intro>p{font-size:var(--ovgo-type-lede);line-height:1.6;max-width:72ch;color:var(--ovgo-muted);margin:0}
+.gm-diagram{position:relative;isolation:isolate;border:1px dashed var(--ovgo-muted);border-radius:var(--ovgo-radius-structural);padding:calc(var(--ovgo-estimator-space-unit)*3);margin:0 0 calc(var(--ovgo-estimator-space-unit)*4)}
+.gm-accounts-label{position:absolute;right:calc(var(--ovgo-estimator-space-unit)*3);top:0;transform:translateY(-50%);background:var(--ovgo-bg);padding:0 var(--ovgo-estimator-space-unit);font-size:var(--ovgo-type-sm);color:var(--ovgo-green)}
+.gm-start{position:relative;max-width:56ch;border-left:var(--ovgo-radius-chip) solid var(--ovgo-green);padding:calc(var(--ovgo-estimator-space-unit)*2);background:var(--ovgo-surface);border-radius:var(--ovgo-radius-structural);margin:var(--ovgo-estimator-space-unit) 0 calc(var(--ovgo-estimator-space-unit)*3)}
+.gm-start strong{font-size:var(--ovgo-type-body);font-weight:600;color:var(--ovgo-green)}
+.gm-start p{font-size:var(--ovgo-type-sm);line-height:1.6;margin:var(--ovgo-estimator-space-unit) 0 0;color:var(--ovgo-muted)}
+.gm-network{display:grid;grid-template-columns:calc(var(--ovgo-estimator-space-unit)*30) repeat(4,minmax(0,1fr));gap:calc(var(--ovgo-estimator-space-unit)*2);position:relative}
+.gm-sources{padding-top:calc(var(--ovgo-estimator-space-unit)*6);padding-right:calc(var(--ovgo-estimator-space-unit)*10)}
+.gm-sources ul{margin:0;padding:0;list-style:none;display:grid;grid-template-rows:repeat(5,calc(var(--ovgo-estimator-space-unit)*8))}
+.gm-sources li{position:relative;display:flex;align-items:center;justify-content:space-between;gap:var(--ovgo-estimator-space-unit);font-size:var(--ovgo-type-sm);line-height:1.4}
+.gm-source-label{position:relative;background:var(--ovgo-bg);padding-right:var(--ovgo-estimator-space-unit)}
+.gm-source-port{flex:0 0 auto;width:var(--ovgo-estimator-space-unit);height:var(--ovgo-estimator-space-unit);border-radius:50%;background:var(--gm-route)}
+.gm-source-caption{font-size:var(--ovgo-type-sm);color:var(--ovgo-muted);line-height:1.6;margin:calc(var(--ovgo-estimator-space-unit)*2) 0}
+.gm-station{position:relative;min-width:0;padding-top:calc(var(--ovgo-estimator-space-unit)*31)}
+.gm-station-marker{position:absolute;top:calc(var(--ovgo-estimator-space-unit)*26);left:50%;transform:translate(-50%,-50%);width:calc(var(--ovgo-estimator-space-unit)*3);height:calc(var(--ovgo-estimator-space-unit)*3);border:var(--ovgo-radius-chip) solid var(--ovgo-green);border-radius:50%;background:var(--ovgo-surface);z-index:2}
+.gm-station-content{padding:calc(var(--ovgo-estimator-space-unit)*2);border-top:1px solid var(--ovgo-border-strong);min-width:0}
+#optivue-growth-os .gm-station h3{font-size:var(--ovgo-type-title-sm);letter-spacing:-.03em;line-height:1.15;margin:0 0 calc(var(--ovgo-estimator-space-unit)*2);min-height:calc(var(--ovgo-estimator-space-unit)*7);overflow-wrap:break-word}
+.gm-tag{font-size:var(--ovgo-type-sm);line-height:1.6;color:var(--ovgo-muted);margin:0 0 calc(var(--ovgo-estimator-space-unit)*2);min-height:calc(var(--ovgo-estimator-space-unit)*10)}
+.gm-one-line{font-size:var(--ovgo-type-sm);line-height:1.6;margin:0 0 calc(var(--ovgo-estimator-space-unit)*2);min-height:calc(var(--ovgo-estimator-space-unit)*8)}
+.gm-gap{display:flex;align-items:flex-start;gap:var(--ovgo-estimator-space-unit);font-size:var(--ovgo-type-sm);line-height:1.6;color:var(--ovgo-muted);margin:0 0 calc(var(--ovgo-estimator-space-unit)*2);min-height:calc(var(--ovgo-estimator-space-unit)*17)}
+.gm-warning{width:calc(var(--ovgo-estimator-space-unit)*2);height:calc(var(--ovgo-estimator-space-unit)*2);flex-shrink:0;fill:none;stroke:var(--ovgo-amber);stroke-width:2;margin-top:var(--ovgo-radius-chip)}
+.gm-details{min-height:calc(var(--ovgo-estimator-space-unit)*43);position:relative}
+.gm-details summary{cursor:pointer;min-height:var(--ovgo-tap-target-min);padding:var(--ovgo-estimator-space-unit) 0;font-size:var(--ovgo-type-sm);color:var(--ovgo-green);font-weight:500;line-height:1.6}
+.gm-expanded p{font-size:var(--ovgo-type-sm);color:var(--ovgo-muted);line-height:1.7;margin:var(--ovgo-estimator-space-unit) 0 0}
+.gm-tracking-label{color:var(--ovgo-muted);font-size:var(--ovgo-type-sm);line-height:1.7;margin:var(--ovgo-estimator-space-unit) 0 0;padding-left:calc(var(--ovgo-estimator-space-unit)*2);border-left:var(--ovgo-radius-chip) solid var(--ovgo-text);max-width:80ch}
+.gm-tracks{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;overflow:visible}
+.gm-tracks path{fill:none;stroke-width:var(--ovgo-radius-structural);stroke-linecap:round;stroke-linejoin:round}
+.gm-tracks .gm-trunk{stroke:var(--ovgo-green)}
+.gm-tracks .gm-audit-link{stroke:var(--ovgo-muted);stroke-width:1;stroke-dasharray:var(--ovgo-radius-chip) var(--ovgo-estimator-space-unit)}
+.gm-tracks .gm-tracking{stroke:var(--ovgo-text);stroke-width:1}
+.gm-tracks .gm-interchange{fill:var(--ovgo-surface);stroke:var(--ovgo-green);stroke-width:var(--ovgo-radius-chip)}
+.gm-dot{fill:var(--ovgo-text);offset-rotate:0deg;animation:gm-travel calc(var(--ovgo-motion-loader)*12) linear infinite;animation-play-state:paused}
+.gm-in-view .gm-dot{animation-play-state:running}
+@keyframes gm-travel{to{offset-distance:100%}}
+.gm-tools{display:flex;align-items:flex-start;gap:calc(var(--ovgo-estimator-space-unit)*2);font-size:var(--ovgo-type-body);line-height:1.7;max-width:88ch;margin:0 0 calc(var(--ovgo-estimator-space-unit)*3)}
+.gm-tools svg{width:calc(var(--ovgo-estimator-space-unit)*3);height:calc(var(--ovgo-estimator-space-unit)*3);fill:none;stroke:var(--ovgo-green);stroke-width:2;flex-shrink:0;margin-top:var(--ovgo-radius-chip)}
+.gm-ownership{font-size:var(--ovgo-type-body);line-height:1.7;max-width:90ch;margin:0 0 calc(var(--ovgo-estimator-space-unit)*3);padding-left:calc(var(--ovgo-estimator-space-unit)*2);border-left:var(--ovgo-radius-chip) solid var(--ovgo-green)}
+.gm-fine-print{font-size:var(--ovgo-type-sm);line-height:1.7;color:var(--ovgo-muted);max-width:100ch;margin:0 0 calc(var(--ovgo-estimator-space-unit)*3)}
+.gm-cta{max-width:100%;white-space:normal;min-height:var(--ovgo-control-height);text-align:center;padding:var(--ovgo-estimator-space-unit) calc(var(--ovgo-estimator-space-unit)*2)}
+.gm-section summary:focus-visible,.gm-section a:focus-visible{outline:var(--ovgo-radius-chip) solid var(--ovgo-blue);outline-offset:var(--ovgo-radius-chip);border-radius:var(--ovgo-radius-chip)}
+@media(max-width:1023px){
+.gm-network{display:block;padding-left:calc(var(--ovgo-estimator-space-unit)*4)}
+.gm-sources{padding-top:var(--ovgo-estimator-space-unit);padding-right:0;max-width:56ch}
+.gm-sources ul{grid-template-rows:none;gap:var(--ovgo-estimator-space-unit)}
+.gm-sources li{flex-direction:row-reverse;justify-content:flex-end;min-height:var(--ovgo-tap-target-min);gap:calc(var(--ovgo-estimator-space-unit)*2)}
+.gm-source-label{padding:var(--ovgo-estimator-space-unit);background:var(--ovgo-surface);border:1px solid var(--ovgo-border);border-radius:var(--ovgo-radius-chip)}
+.gm-source-port{margin-left:calc(var(--ovgo-estimator-space-unit)*-4);background:var(--gm-route)}
+.gm-source-caption{margin:calc(var(--ovgo-estimator-space-unit)*2) 0 calc(var(--ovgo-estimator-space-unit)*7)}
+.gm-station{padding-top:0;margin:0 0 calc(var(--ovgo-estimator-space-unit)*3);max-width:80ch}
+.gm-station-marker{top:calc(var(--ovgo-estimator-space-unit)*3);left:calc(var(--ovgo-estimator-space-unit)*-4 + var(--ovgo-estimator-space-unit)/2);width:calc(var(--ovgo-estimator-space-unit)*2);height:calc(var(--ovgo-estimator-space-unit)*2)}
+.gm-station-content{border-top:none;border-bottom:1px solid var(--ovgo-border);padding:var(--ovgo-estimator-space-unit) 0 calc(var(--ovgo-estimator-space-unit)*2)}
+#optivue-growth-os .gm-station h3{min-height:0;font-size:var(--ovgo-type-title-sm);margin-bottom:var(--ovgo-estimator-space-unit)}
+.gm-tag,.gm-one-line,.gm-gap{min-height:0;font-size:var(--ovgo-type-sm);margin-bottom:calc(var(--ovgo-estimator-space-unit)*2)}
+.gm-details{min-height:calc(var(--ovgo-estimator-space-unit)*23)}
+.gm-accounts-label{right:calc(var(--ovgo-estimator-space-unit)*2)}
+.gm-tracking-label{margin-left:calc(var(--ovgo-estimator-space-unit)*4)}
+}
+@media(max-width:767px){
+.gm-section{padding:var(--ovgo-space-page)}
+.gm-intro{margin:calc(var(--ovgo-estimator-space-unit)*3) 0 calc(var(--ovgo-estimator-space-unit)*4)}
+#optivue-growth-os .gm-intro h2{font-size:var(--ovgo-type-display-mobile)}
+.gm-intro>p{font-size:var(--ovgo-type-body)}
+.gm-owned{border:1px dashed var(--ovgo-muted);border-radius:var(--ovgo-radius-structural);padding:calc(var(--ovgo-estimator-space-unit)*2)}
+.gm-diagram{border:none;padding:0;margin-bottom:calc(var(--ovgo-estimator-space-unit)*3)}
+.gm-accounts-label{top:calc(var(--ovgo-estimator-space-unit)*-2);right:0;max-width:100%;font-size:var(--ovgo-type-sm)}
+.gm-start{margin-top:calc(var(--ovgo-estimator-space-unit)*3);padding:calc(var(--ovgo-estimator-space-unit)*2)}
+.gm-network{padding-left:calc(var(--ovgo-estimator-space-unit)*4)}
+.gm-details{min-height:calc(var(--ovgo-estimator-space-unit)*38)}
+.gm-expanded p,.gm-start p,.gm-source-caption,.gm-fine-print{font-size:var(--ovgo-type-sm)}
+.gm-tools,.gm-ownership{font-size:var(--ovgo-type-sm)}
+.gm-cta{width:100%;font-size:var(--ovgo-type-sm)}
+}
+@media(prefers-reduced-motion:reduce){.gm-dot{display:none!important;animation:none!important}.gm-section *{transition:none!important}}
+
+/* Reserve the exact expanded paragraph height, without a second editable copy. */
+.gm-disclosure-space{position:relative;padding-top:var(--ovgo-tap-target-min)}
+.gm-reserve{visibility:hidden;pointer-events:none}
+.gm-details{position:absolute;inset:0;min-height:0}
+.gm-reserve p{font-size:var(--ovgo-type-sm);color:var(--ovgo-muted);line-height:1.7;margin:var(--ovgo-estimator-space-unit) 0 0}
+.gm-details summary{height:var(--ovgo-tap-target-min);box-sizing:border-box;padding:var(--ovgo-estimator-space-unit) 0}

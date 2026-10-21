@@ -1,0 +1,48 @@
+name: Growth map preview QA
+on:
+  pull_request:
+    paths:
+      - 'production/preview/growth-map/**'
+      - 'production/js/growth-map*'
+      - 'production/js/components/growth-map.js'
+      - 'production/css/growth-map.css'
+      - 'scripts/*growth-map*'
+      - 'tests/growth-map.test.mjs'
+      - '.github/workflows/growth-map-preview-qa.yml'
+permissions:
+  contents: read
+jobs:
+  preview-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Build preview and run regression checks
+        run: |
+          node scripts/build-growth-map-preview.mjs
+          git diff --exit-code -- production/preview/growth-map/index.html
+          node --test tests/*.test.mjs
+          node --check production/js/growth-map-preview.js
+          node --check production/js/components/growth-map.js
+      - name: Install existing browser QA tooling (not a runtime dependency)
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Run responsive, theme, disclosure and reduced-motion checks
+        run: |
+          PORT=8793 node scripts/qa-server.mjs > /tmp/growth-map-server.log 2>&1 &
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:8793/preview/growth-map/ >/dev/null; then break; fi
+            sleep 1
+          done
+          GROWTH_MAP_QA_URL=http://127.0.0.1:8793/preview/growth-map/ node scripts/growth-map-qa.mjs
+      - name: Save screenshots and results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: growth-map-preview-qa
+          path: /tmp/optivue-growth-map-qa
+          if-no-files-found: warn

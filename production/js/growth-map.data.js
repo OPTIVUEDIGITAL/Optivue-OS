@@ -1,0 +1,30 @@
+export const OWNERSHIP_SENTENCE = 'I build everything in your name: your website, CRM, workflows, tracking, ad accounts, and data. If we stop working together, it all stays with you and keeps running.';
+export const GROWTH_MAP = {
+  pageTitle: 'Growth OS route map preview | Optivue',
+  internalPreview: 'Internal preview. Not linked from the site.',
+  heading: 'Your Growth OS, built in your accounts.',
+  subheading: 'See how a lead moves from first contact to booked visit, and where tracking shows it getting lost.',
+  startLabel: 'Start here: the Audit',
+  startText: 'I go through your contact and booking steps as a new lead would, and mark where leads get lost.',
+  sources: [
+    {label:'Google Ads',color:'blue'},
+    {label:'Meta ads',color:'violet'},
+    {label:'Google Business Profile and local search',color:'green'},
+    {label:'Website forms',color:'amber'},
+    {label:'Calls and texts',color:'danger'},
+  ],
+  sourceCaption: 'Your plan sets which channels you use.',
+  stations: [
+    {title:'Lead captured',tag:'Website and acquisition · Calls and messages',line:'Every inquiry lands in one place.',gap:'A form comes in at 7:40 PM. Nobody sees it until morning.',expanded:'A landing page with a clear next step. Calls, forms and messages logged in one place. A reply target for every new lead.'},
+    {title:'Follow-up assigned',tag:'CRM and follow-up · Custom automations',line:'Someone owns every new lead.',gap:'The front desk means to call back. Then the phones ring.',expanded:'Clear CRM stages, a named owner for each lead, and consent-based follow-up that runs even when the phones are busy. Your team sees which leads need a reply.'},
+    {title:'Visit booked',tag:'Booking',line:'The next step is one click.',gap:'Your ad report says one number. Your calendar says another.',expanded:'A short booking path connected to your CRM, so each booking is recorded once and counted the same way in every report.'},
+    {title:'Visit tracked to its source',tag:'Reporting and visibility',line:'You see which leads book and attend.',gap:'A new client books. Nobody knows which ad sent her.',expanded:'Tracking with GA4 and Google Tag Manager that follows each lead from source to booked visit, so your report shows where handoffs break.'},
+  ],
+  detailsLabel:'What I build',
+  tracking: 'Reporting and visibility run underneath every step, so you can see where leads get lost.',
+  tools: "Already have a CRM or booking tool? I'll work with it. Starting fresh? I'll recommend what fits your budget.",
+  accountsLabel:'Your accounts',
+  ownership:OWNERSHIP_SENTENCE,
+  finePrint:"Typical scope. Your exact scope comes from your Audit. Results depend on access to your systems, your team's follow-up, booking capacity, and budget.",
+  cta:'Find your gaps in 90 seconds →',
+};

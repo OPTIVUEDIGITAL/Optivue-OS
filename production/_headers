@@ -17,3 +17,9 @@
 /thank-you/*
   X-Robots-Tag: noindex, nofollow
   Cache-Control: no-store
+
+/preview/growth-map
+  X-Robots-Tag: noindex, nofollow
+
+/preview/growth-map/*
+  X-Robots-Tag: noindex, nofollow

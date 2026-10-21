@@ -6,7 +6,7 @@ root.dataset.theme=theme;document.documentElement.style.colorScheme=theme;
 const diagram=root.querySelector('.gm-diagram');
 const svg=diagram.querySelector('.gm-tracks');
 const ns='http://www.w3.org/2000/svg';
-const colors=['blue','violet','green','amber','danger'];
+const colors=[...diagram.querySelectorAll('[data-source-color]')].map(port=>port.dataset.sourceColor);
 function drawTracks(){
  const bounds=diagram.getBoundingClientRect();
  const point=el=>{const r=el.getBoundingClientRect();return {x:r.left+r.width/2-bounds.left,y:r.top+r.height/2-bounds.top}};

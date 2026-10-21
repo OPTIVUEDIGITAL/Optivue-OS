@@ -14,12 +14,12 @@ try{
   await page.goto(`${base}?theme=${theme}`);await page.evaluate(()=>document.fonts.ready);
   const measures=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth,bodySize:Math.min(...[...document.querySelectorAll('.gm-section p,.gm-section li,.gm-section summary')].map(e=>parseFloat(getComputedStyle(e).fontSize))),titleSize:Math.min(...[...document.querySelectorAll('.gm-station h3')].map(e=>parseFloat(getComputedStyle(e).fontSize))),markers:document.querySelectorAll('.gm-source-track').length,robots:document.querySelector('meta[name="robots"]').content}));
   check(`${theme}-${width}: no horizontal overflow`,!measures.overflow);check(`${theme}-${width}: readable type`,measures.bodySize>=14&&measures.titleSize>=16);check(`${theme}-${width}: five source routes`,measures.markers===5);check(`${theme}-${width}: noindex`,measures.robots==='noindex, nofollow');
-  const baseline=await page.locator('.gm-ownership').boundingBox();
+  const baseline=await page.locator('.gm-ownership').evaluate(el=>el.getBoundingClientRect().top+scrollY);
   for(const summary of await page.locator('.gm-details summary').all()){
    await summary.focus();await page.keyboard.press('Enter');check(`${theme}-${width}: Enter opens disclosure`,await summary.evaluate(e=>e.parentElement.open));await page.keyboard.press('Space');check(`${theme}-${width}: Space closes disclosure`,!await summary.evaluate(e=>e.parentElement.open));
   }
   for(const summary of await page.locator('.gm-details summary').all())await summary.click();
-  const expanded=await page.locator('.gm-ownership').boundingBox();check(`${theme}-${width}: stable disclosure layout`,Math.abs(expanded.y-baseline.y)<1);
+  const expanded=await page.locator('.gm-ownership').evaluate(el=>el.getBoundingClientRect().top+scrollY);check(`${theme}-${width}: stable disclosure layout`,Math.abs(expanded-baseline)<1);
   await page.screenshot({path:`${output}/${theme}-${width}-expanded.png`,fullPage:true});
   report.screenshots.push(`${theme}-${width}-expanded.png`);
   if(width>=1024){const summary=page.locator('summary').first();await summary.focus();await page.keyboard.press('Escape');check(`${theme}-${width}: Escape closes`,!await summary.evaluate(e=>e.parentElement.open))}

@@ -50,7 +50,9 @@ export function initBooking(root) {
     requestAnimationFrame(() => modal.querySelector('[data-ovgo-modal-close]')?.focus());
   }
 
-  function close() {
+  function close(event) {
+    if(modal.hidden)return;
+    trackEvent('booking_modal_close',{action:event?.key==='Escape'?'escape':event?.currentTarget?.classList?.contains('ovgo-modal__backdrop')?'backdrop':'button'});
     modal.hidden = true;
     document.documentElement.style.overflow = '';
     previousFocus?.focus?.();
@@ -63,7 +65,7 @@ export function initBooking(root) {
 
   document.addEventListener('keydown', (event) => {
     if (modal.hidden) return;
-    if (event.key === 'Escape') close();
+    if (event.key === 'Escape') close(event);
     if (event.key === 'Tab') {
       const items = focusables();
       if (!items.length) return;
@@ -77,8 +79,11 @@ export function initBooking(root) {
     }
   });
 
+  const bookingSteps=new Set();
   window.addEventListener('message', (event) => {
     if (event.origin !== 'https://calendly.com' || event.source !== frame.contentWindow) return;
+    const step={'calendly.event_type_viewed':'event_type','calendly.date_and_time_selected':'date_time','calendly.event_scheduled':'scheduled'}[event.data?.event];
+    if(!modal.hidden&&step&&!bookingSteps.has(step)){bookingSteps.add(step);trackEvent('calendly_step_view',{step});}
     if (event.data?.event !== 'calendly.event_scheduled' || redirecting || modal.hidden) return;
     redirecting = true;
     // Never read or forward the Calendly payload. The destination owns counting.

@@ -60,13 +60,13 @@ test('a missing or throwing IntersectionObserver does not abort page setup', () 
   }
 });
 
-test('About uses the approved portrait pair with no image tags or process strip', () => {
+test('About uses the approved full portrait with accessible image text', () => {
   const about = html.match(/<section id="about"[\s\S]*?<\/section>/)[0];
-  assert.match(about, /start="50" ratio="portrait-45" labels="hidden"/);
-  assert.match(about, /slot="before" src="\.\/assets\/rahmel-dela-cruz\.webp"/);
-  assert.match(about, /slot="after" src="\.\/assets\/rahmel-working-after\.webp"/);
-  assert.doesNotMatch(about, /rahmel-candid-before|class="ovgo-process"/);
-  assert.match(about, /Rahmel Dela Cruz · Founder, Optivue Digital/);
+  assert.match(about, /src="[^" ]*rahmel-growth-os\.webp"/);
+  assert.match(about, /width="1122" height="1402"/);
+  assert.match(about, /alt="[^"]+"/);
+  assert.doesNotMatch(about, /compare-slider|class="ovgo-process"/);
+  assert.match(about, /Rahmel Dela Cruz/);
 });
 
 test('Reporting preserves approved labels, start and caption', () => {
@@ -77,7 +77,7 @@ test('Reporting preserves approved labels, start and caption', () => {
   assert.doesNotMatch(reporting, /Starts at 35/);
 });
 
- test('pricing offers one booking action and ownership follows the audience section', () => {
+ test('pricing offers one booking action and ownership follows the growth map', () => {
   const pricing = html.slice(html.indexOf('<section id="pricing"'), html.indexOf('<section id="fit"'));
   assert.equal((pricing.match(/data-ovgo-booking/g) || []).length, 1);
   assert.match(pricing, /Request an Audit/);
@@ -85,11 +85,11 @@ test('Reporting preserves approved labels, start and caption', () => {
   assert.equal((pricing.match(/After your Audit/g)||[]).length, 2);
   assert.doesNotMatch(pricing, /ovgo-value-grid|Who controls your systems/);
   assert.match(html, /<\/section>\s*<section id="ownership"/);
-  assert.match(html, /Find your gaps in 90 seconds →<\/a><\/p><\/section>\s*<section id="ownership"/);
+  assert.ok(html.indexOf('id="growth-map"') < html.indexOf('id="ownership"'));
   assert.equal((html.match(/id="ownership"/g) || []).length, 1);
   assert.doesNotMatch(html, /Who controls your systems\?/);
-  assert.match(html, /Renting \(many agency sub-account setups\)/);
-  assert.match(html, /workflows often stay behind/);
+  assert.match(html, /Agency-owned setup/);
+  assert.match(html, /Workflow transfer depends on the provider/);
   assert.ok(html.indexOf('id="ownership"') < html.indexOf('id="how-it-works"'));
 
 });

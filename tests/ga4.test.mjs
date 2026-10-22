@@ -135,7 +135,9 @@ test('validated iframe completion redirects parent once and never counts a booki
   assert.deepEqual(JSON.parse(JSON.stringify(events)),[['event','fit_call_booked',{booking_source:'calendly'}]]);
   const revisit=harness(host+redirects[0],h.storage);revisit.run();
   assert.equal(revisit.calls.filter(c=>c[1]==='fit_call_booked').length,0);
-  assert.equal(h.calls.length,0);
+  assert.deepEqual(h.calls.map(c=>c[0]),['calendly_step_view','calendly_step_view']);
+  assert.deepEqual(h.calls.map(c=>c[1].step),['event_type','scheduled']);
+  assert.equal(h.calls.filter(c=>c[0]==='fit_call_booked').length,0);
 });
 
 test('thank-you route is statically readable, noindex, and absent from sitemap', () => {
@@ -165,4 +167,21 @@ test('returning to estimator intro does not double-count a started attempt', () 
     elements.get('[data-estimator-start]').handlers.click();
     assert.equal(h.calls.filter(c=>c[1]==='estimator_start').length,1);
   } finally {globalThis.window=previousWindow;globalThis.sessionStorage=previousStorage;}
+});
+
+test('behavior events send only approved values and strip all contact data',()=>{
+ const h=harness();vm.runInContext(analytics,h.context);
+ vm.runInContext(`trackEvent('scroll_depth',{percent_scrolled:50,email:'private@example.com'});trackEvent('section_view',{section_id:'about',name:'private'});trackEvent('estimator_question_answered',{question_number:2,business_type:'private'});trackEvent('growth_map_interaction',{action:'details',payload:'private'});trackEvent('pricing_breakdown_open',{tier:'diagnostic',device:'mobile',email:'private'});`,h.context);
+ assert.deepEqual(h.calls.map(c=>c[1]),['scroll_depth','section_view','estimator_question_answered','growth_map_interaction','pricing_breakdown_open']);
+ assert.ok(!JSON.stringify(h.calls).includes('private'));
+});
+test('invalid behavior fields and unapproved events never reach GA4',()=>{
+ const h=harness();vm.runInContext(analytics,h.context);
+ vm.runInContext(`trackEvent('scroll_depth',{percent_scrolled:51});trackEvent('section_view',{section_id:'private@example.com'});trackEvent('growth_map_interaction',{action:'private'});trackEvent('estimator_question_answered',{question_number:999});trackEvent('random_event',{email:'private'});`,h.context);
+ assert.equal(h.calls.length,0);
+});
+test('all new behavior events stay local on the private review site',()=>{
+ const h=harness('https://optivue-growth-review-oct23.rahmeldc.chatgpt.site/site.html');vm.runInContext(analytics,h.context);
+ vm.runInContext(`trackEvent('scroll_depth',{percent_scrolled:90});trackEvent('section_view',{section_id:'about'});trackEvent('growth_map_interaction',{action:'details'});`,h.context);
+ assert.equal(h.calls.length,0);assert.equal(h.notifications.length,3);
 });

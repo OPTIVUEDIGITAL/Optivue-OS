@@ -1,3 +1,4 @@
+import { initBehavior } from './behavior.js';
 import { initHeroTypewriter } from './hero-typewriter.js';
 import { displayPrice } from './pricing-values.js';
 import { initPricingBreakdowns } from './pricing.js';
@@ -146,4 +147,5 @@ if (root) {
   initPricingPolicies(root);
   initPricingBreakdowns(root);
   initEstimator(root);
+  initBehavior(root);
 }

@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   design-qa:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
       - name: Checkout
@@ -43,7 +43,7 @@ jobs:
           npx playwright install --with-deps chromium
 
       - name: Live GA4 transport after approved main deployment
-        if: (github.event_name == 'push' && github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, '#44'))
+        if: (github.event_name == 'push' && github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, '#47'))
         run: node scripts/ga4-live-qa.mjs
 
       - name: Serve production

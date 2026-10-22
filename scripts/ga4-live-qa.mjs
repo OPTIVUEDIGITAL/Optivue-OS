@@ -57,6 +57,13 @@ try {
   await page.goto(origin+'/',{waitUntil:'networkidle'});
   await waitEvent('page_view');
   assert.ok(['1','true'].includes(report.events.find(e=>e.name==='page_view').debug),'Require debug mode before testing a conversion');
+  await page.locator('#faq details summary').first().click();
+  await waitEvent('faq_open');
+  await waitEvent('scroll_depth');
+  await waitEvent('section_view');
+  await page.locator('#growth-map').scrollIntoViewIfNeeded();
+  await page.frameLocator('#growth-map-frame').getByRole('button', {name:'View Details',exact:true}).click();
+  await waitEvent('growth_map_interaction');
   await page.locator('[data-cta-location="hero"]').click();
   await waitEvent('book_fit_call_click');
   await page.frameLocator('[data-ovgo-calendly]').getByRole('button',{name:'Test booking completion'}).click();
@@ -88,7 +95,7 @@ try {
   assert.ok(report.events.every(e=>!e.location||(!e.location.includes('?')&&!e.location.includes('#'))),'Unsanitized page location');
   assert.equal(report.events.find(e=>e.name==='fit_call_booked').booking_source,'calendly');
   assert.deepEqual(report.errors,[]);
-  report.result='PASS: five custom events reached Google collection endpoint, duplicate reload suppressed';
+  report.result='PASS: conversion and behavior events reached Google collection endpoint, duplicate reload suppressed';
   console.log(report.result);
 } catch(error){report.result='FAIL';report.failure=error.message;throw error;}
 finally{

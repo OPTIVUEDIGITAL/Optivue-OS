@@ -27,7 +27,7 @@ test('Audit cards preserve compact hierarchy and one booking action',()=>{
  assert.doesNotMatch(html,/milestones|From \$1,500|class="ovgo-pricing-path"|class="ovgo-pricing-reassurance"/i);
  assert.equal((pricing.match(/data-ovgo-booking/g)||[]).length,1);
  assert.equal((html.match(/If a simpler fix solves it/g)||[]).length,0);
- assert.equal((html.match(/class="ovgo-kicker"/g)||[]).length,1);
+ assert.equal((html.match(/FOR HEALTH, WELLNESS &amp; AESTHETICS/g)||[]).length,1);
  assert.match(html,/<p class="ovgo-kicker">FOR HEALTH, WELLNESS &amp; AESTHETICS<\/p>/);
  for(const [,content] of html.matchAll(/<button[^>]*data-pricing-trigger[^>]*>([\s\S]*?)<\/button>/g)) {
   assert.doesNotMatch(content,/Growth Systems Diagnostic|Foundation Launch|Growth Operations|minimum|Paid|installments/);

@@ -1,12 +1,7 @@
 import { HERO_CONFIG } from './hero-config.js';
 
-export function phraseCycle(phrases, random = Math.random) {
-  const rest = [...new Set(phrases)].slice(1);
-  for (let i = rest.length - 1; i > 0; i--) {
-    const j = Math.floor(random() * (i + 1));
-    [rest[i], rest[j]] = [rest[j], rest[i]];
-  }
-  return [phrases[0], ...rest];
+export function phraseCycle(phrases) {
+  return [...new Set(phrases)];
 }
 
 export function initHeroTypewriter(root, config = HERO_CONFIG) {

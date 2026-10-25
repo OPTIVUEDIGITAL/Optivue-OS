@@ -57,7 +57,7 @@ class OptivueSpotlightCard extends HTMLElement {
 
     this._root.innerHTML = `
       <style>
-        :host{--spot-x:-9999px;--spot-y:-9999px;display:block;position:absolute;inset:0;border-radius:18px;background:${bg};border:1px solid ${accentBorder};overflow:hidden;pointer-events:none}
+        :host{--spot-x:-9999px;--spot-y:-9999px;display:block;position:absolute;inset:0;border-radius:18px;background:var(--ovgo-surface, ${bg});border:1px solid var(--ovgo-border, ${accentBorder});overflow:hidden;pointer-events:none}
         .ring{position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle ${size}px at var(--spot-x) var(--spot-y),rgba(${ringRGB},${intensity}),transparent 60%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:1px}
       </style>
       <div class="ring"></div>`;

@@ -3,7 +3,7 @@ import { initHeroTypewriter } from './hero-typewriter.js';
 import { displayPrice } from './pricing-values.js';
 import { initPricingBreakdowns } from './pricing.js';
 import { initBooking } from './booking.js';
-import { initEstimator } from './estimator.js';
+
 import { ESTIMATOR_CONFIG } from './estimator-config.js';
 import { RUNTIME_CONFIG } from './runtime-config.js';
 import { addJourneyValue } from './context.js';
@@ -32,15 +32,15 @@ function initPricingPolicies(root, config = RUNTIME_CONFIG) {
 }
 
 function initTheme(root) {
-  const stored = localStorage.getItem('optivue-theme');
-  let theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  let stored; try { stored = localStorage.getItem('optivue-theme'); } catch {}
+  let theme = stored === 'dark' ? 'dark' : 'light';
   const apply = () => {
     root.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
     root.querySelectorAll('optivue-growth-system,optivue-spotlight-card').forEach((element) => element.setAttribute('theme', theme));
   };
   apply();
-  root.querySelector('[data-ovgo-theme]')?.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; localStorage.setItem('optivue-theme', theme); apply(); });
+  root.querySelector('[data-ovgo-theme]')?.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('optivue-theme', theme); } catch {} apply(); });
   const growth = root.querySelector('optivue-growth-system');
   const sync = () => growth?.setAttribute('density', 'full');
   sync();
@@ -146,6 +146,31 @@ if (root) {
   initPricing(root);
   initPricingPolicies(root);
   initPricingBreakdowns(root);
-  initEstimator(root);
-  initBehavior(root);
+  if (root.querySelector('[data-ovgo-estimator]')) {
+    import('./estimator.js').then(({initEstimator}) => initEstimator(root));
+  }
+  const compare = root.querySelector('optivue-compare');
+  if (compare) {
+    const loadCompare = () => import('./components/compare-slider.js');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        if (entries.some(entry => entry.isIntersecting)) { observer.disconnect(); loadCompare(); }
+      }, {rootMargin:'300px'});
+      observer.observe(compare);
+    } else loadCompare();
+  }
+  initServiceReveal(root);
+}
+
+initBehavior(document.querySelector("#optivue-growth-os"));
+
+function initServiceReveal(root) {
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) if (entry.isIntersecting) {
+      entry.target.classList.add('service-enter');
+      observer.unobserve(entry.target);
+    }
+  }, {threshold:0.15});
+  root.querySelectorAll('#work .ovgo-service-progression article').forEach(card => observer.observe(card));
 }

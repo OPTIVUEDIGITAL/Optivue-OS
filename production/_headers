@@ -17,3 +17,12 @@
 /thank-you/*
   X-Robots-Tag: noindex, nofollow
   Cache-Control: no-store
+
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable

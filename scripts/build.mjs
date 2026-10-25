@@ -1,0 +1,57 @@
+import {build,transform} from 'esbuild';
+import {readFile,writeFile,rm,mkdir,cp,readdir} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {gzipSync} from 'node:zlib';
+const hash=s=>createHash('sha256').update(s).digest('hex').slice(0,10);
+await rm('production',{recursive:true,force:true});
+await cp('src','production',{recursive:true});
+await rm('production/js',{recursive:true,force:true});
+await rm('production/css',{recursive:true,force:true});
+await mkdir('production/css',{recursive:true});
+const tokens=JSON.parse(await readFile('src/design-tokens.json','utf8'));
+const declarations=o=>Object.entries(o).map(([k,v])=>'--ovgo-'+k+':'+v+';').join('');
+const generated='#optivue-growth-os{'+declarations({...tokens.shared,...tokens.dark})+'}#optivue-growth-os[data-theme="light"]{'+declarations(tokens.light)+'}';
+const cssInputs=['optivue.css','optivue-v2.css','revamp.css','office-hero.css','brand.css'];
+const rawCss=generated+'\n'+(await Promise.all(cssInputs.map(f=>readFile('src/css/'+f,'utf8')))).join('\n');
+const css=(await transform(rawCss,{loader:'css',minify:true,target:'es2020'})).code;
+const cssFile='/css/site-'+hash(css)+'.min.css';
+await writeFile('production'+cssFile,css);
+const entries={app:'src/js/optivue.js',spotlight:'src/js/components/spotlight-card.js',ga4:'src/js/ga4.js',map:'src/js/map.js',embed:'src/js/growth-map-embed.js'};
+const result=await build({entryPoints:entries,bundle:true,splitting:true,format:'esm',outdir:'production/js',entryNames:'[name]-[hash].min',chunkNames:'chunk-[hash].min',minify:true,target:'es2020',metafile:true,legalComments:'none'});
+const outputFor=entry=>'/'+Object.entries(result.metafile.outputs).find(([,v])=>v.entryPoint===entry)[0].replace(/^production\//,'');
+const mapping={
+'js/optivue.js':outputFor(entries.app),
+'js/components/spotlight-card.js':outputFor(entries.spotlight),
+'js/growth-map-embed.js':outputFor(entries.embed),
+'js/map.js':outputFor(entries.map),
+'js/ga4.js':outputFor(entries.ga4)
+};
+async function files(dir){const r=[];for(const e of await readdir(dir,{withFileTypes:true})){const f=dir+'/'+e.name;if(e.isDirectory())r.push(...await files(f));else r.push(f);}return r;}
+let inlineBytesBefore=0,inlineBytesAfter=0;
+for(const file of (await files('production')).filter(f=>f.endsWith('.html'))){
+ let html=await readFile(file,'utf8'),inserted=false;
+ html=html.replace(/<link\b[^>]*rel="stylesheet"[^>]*>/g,tag=>{
+  if(!/css\//.test(tag))return tag;
+  if(inserted)return '';inserted=true;return '<link rel="stylesheet" href="'+cssFile+'">';
+ });
+ html=html.replace(/<script([^>]*?)src="([^"]+)"([^>]*)><\/script>/g,(tag,before,url,after)=>{
+  const key=url.replace(/^(\.\.\/|\.\/|\/)+/,'');
+  if(mapping[key])return '<script'+before+'src="'+mapping[key]+'"'+after+'></script>';
+  return tag;
+ });
+ // GA4 remains a classic blocking script: query cleanup precedes the first pageview.
+ // esbuild emits no exports for these three entrypoints, so their existing script mode is safe.
+ const styleMatches=[...html.matchAll(/<style>([\s\S]*?)<\/style>/g)];
+ for(const m of styleMatches){const code=(await transform(m[1],{loader:'css',minify:true,target:'es2020'})).code;inlineBytesBefore+=Buffer.byteLength(m[1]);inlineBytesAfter+=Buffer.byteLength(code);html=html.replace(m[0],'<style>'+code+'</style>');}
+ const scriptMatches=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)];
+ for(const m of scriptMatches){const code=(await transform(m[1],{loader:'js',minify:true,target:'es2020'})).code;inlineBytesBefore+=Buffer.byteLength(m[1]);inlineBytesAfter+=Buffer.byteLength(code);html=html.replace(m[0],'<script>'+code+'</script>');}
+ await writeFile(file,html);
+}
+const headers=await readFile('src/_headers','utf8');
+await writeFile('production/_headers',headers+'\n/css/*\n  Cache-Control: public, max-age=31536000, immutable\n\n/js/*\n  Cache-Control: public, max-age=31536000, immutable\n\n/assets/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n');
+const outputs=Object.keys(result.metafile.outputs);
+const js=await Promise.all(outputs.map(f=>readFile(f)));
+const report={css:{beforeBytes:Buffer.byteLength(rawCss),minifiedBytes:Buffer.byteLength(css),gzipBytes:gzipSync(css).length},javascript:{files:outputs.length,minifiedBytes:js.reduce((n,b)=>n+b.length,0),gzipBytes:js.reduce((n,b)=>n+gzipSync(b).length,0)},inline:{beforeBytes:inlineBytesBefore,minifiedBytes:inlineBytesAfter},entries:mapping};
+await writeFile('build-report.json',JSON.stringify(report,null,2)+'\n');
+await writeFile('build-meta.json',JSON.stringify(result.metafile,null,2)+'\n');
+console.log(JSON.stringify(report,null,2));

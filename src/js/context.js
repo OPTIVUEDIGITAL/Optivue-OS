@@ -1,3 +1,4 @@
+import {allows} from './consent-core.js';
 const STORAGE_KEY = 'optivue-prospect-context-v1';
 
 const DEFAULT_CONTEXT = {
@@ -56,7 +57,7 @@ function mergeDeep(target, source) {
 function createInitialState() {
   const next = clone(DEFAULT_CONTEXT);
   try {
-    const stored = sessionStorage.getItem(STORAGE_KEY);
+    const stored = allows('analytics') ? sessionStorage.getItem(STORAGE_KEY) : null;
     if (stored) {
       const parsed = JSON.parse(stored);
       mergeDeep(next, parsed);
@@ -66,6 +67,7 @@ function createInitialState() {
 }
 
 function persistAnonymous() {
+  if(!allows('analytics'))return;
   try {
     const safe = {
       version: state.version,

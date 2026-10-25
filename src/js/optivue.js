@@ -1,3 +1,4 @@
+import {allows} from './consent-core.js';
 import { initBehavior } from './behavior.js';
 import { initHeroTypewriter } from './hero-typewriter.js';
 import { displayPrice } from './pricing-values.js';
@@ -41,7 +42,7 @@ function initTheme(root) {
     root.querySelectorAll('optivue-growth-system,optivue-spotlight-card').forEach((element) => element.setAttribute('theme', theme));
   };
   apply();
-  root.querySelector('[data-ovgo-theme]')?.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('optivue-theme', theme); } catch {} apply(); });
+  root.querySelector('[data-ovgo-theme]')?.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; try { allows('functional') && localStorage.setItem('optivue-theme', theme); } catch {} apply(); });
   const growth = root.querySelector('optivue-growth-system');
   const sync = () => growth?.setAttribute('density', 'full');
   sync();

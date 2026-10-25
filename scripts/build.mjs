@@ -2,6 +2,7 @@ import {build,transform} from 'esbuild';
 import {readFile,writeFile,rm,mkdir,cp,readdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {gzipSync} from 'node:zlib';
+await import('./generate-legal.mjs');
 const hash=s=>createHash('sha256').update(s).digest('hex').slice(0,10);
 await rm('production',{recursive:true,force:true});
 await cp('src','production',{recursive:true});
@@ -14,7 +15,7 @@ const generated=':root,#optivue-growth-os{'+declarations({...tokens.shared,...to
 const themeCSS=(await transform(generated,{loader:'css',minify:true})).code;
 const themeFile='/css/theme-'+hash(themeCSS)+'.min.css';
 await writeFile('production'+themeFile,themeCSS);
-const cssInputs=['optivue.css','optivue-v2.css','revamp.css','office-hero.css','brand.css','midnight-navy.css'];
+const cssInputs=['optivue.css','optivue-v2.css','revamp.css','office-hero.css','brand.css','midnight-navy.css','legal-consent.css'];
 const rawCss=generated+'\n'+(await Promise.all(cssInputs.map(f=>readFile('src/css/'+f,'utf8')))).join('\n');
 const css=(await transform(rawCss,{loader:'css',minify:true,target:'es2020'})).code;
 const cssFile='/css/site-'+hash(css)+'.min.css';
@@ -44,7 +45,7 @@ for(const file of (await files('production')).filter(f=>f.endsWith('.html'))){
   if(mapping[key])return '<script'+before+'src="'+mapping[key]+'"'+after+'></script>';
   return tag;
  });
- // GA4 remains a classic blocking script: query cleanup precedes the first pageview.
+ // GA4 is an ES module. Consent and URL cleanup precede tag initialization.
  // esbuild emits no exports for these three entrypoints, so their existing script mode is safe.
  const styleMatches=[...html.matchAll(/<style>([\s\S]*?)<\/style>/g)];
  for(const m of styleMatches){const code=(await transform(m[1],{loader:'css',minify:true,target:'es2020'})).code;inlineBytesBefore+=Buffer.byteLength(m[1]);inlineBytesAfter+=Buffer.byteLength(code);html=html.replace(m[0],'<style>'+code+'</style>');}

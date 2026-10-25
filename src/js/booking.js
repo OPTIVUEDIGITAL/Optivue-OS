@@ -1,7 +1,9 @@
+import {legal} from '../config/legal.ts';
+import {allows,readConsent,saveConsent} from './consent-core.js';
 import { setJourneyFlag, snapshot } from './context.js';
 import { trackEvent } from './analytics.js';
 
-const CALENDLY_URL = 'https://calendly.com/optivue-digital-strategy-call/clicks-to-clients-audit';
+const CALENDLY_URL = legal.bookingUrl;
 const initializedRoots = new WeakSet();
 const UTM_FIELDS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
 
@@ -44,7 +46,13 @@ export function initBooking(root) {
     if (context.identity.email) url.searchParams.set('email', context.identity.email);
     url.searchParams.set('embed_domain', 'growth.optivuedigital.com');
     url.searchParams.set('embed_type', 'PopupText');
-    frame.src = url.toString();
+    let notice=modal.querySelector('.booking-privacy');
+    if(!notice){notice=document.createElement('div');notice.className='booking-privacy';notice.innerHTML=`<p>${legal.calendlyNotice} <a href="/privacy">Privacy Policy</a> · <a href="/cookies">Cookie Policy</a></p><p>Do not submit patient information or personal health data.</p><button type="button" data-booking-continue>Continue to booking</button>`;frame.before(notice);}
+    const proceed=notice.querySelector('button');
+    const loadBooking=()=>{frame.hidden=false;frame.src=url.toString();proceed.hidden=true;};
+    frame.hidden=!allows('functional');proceed.hidden=allows('functional');
+    proceed.onclick=()=>{saveConsent({...readConsent().choices,functional:true},true);loadBooking();frame.focus();};
+    if(allows('functional'))loadBooking();
     modal.hidden = false;
     document.documentElement.style.overflow = 'hidden';
     requestAnimationFrame(() => modal.querySelector('[data-ovgo-modal-close]')?.focus());
@@ -54,6 +62,7 @@ export function initBooking(root) {
     if(modal.hidden)return;
     trackEvent('booking_modal_close',{action:event?.key==='Escape'?'escape':event?.currentTarget?.classList?.contains('ovgo-modal__backdrop')?'backdrop':'button'});
     modal.hidden = true;
+    frame.removeAttribute('src');
     document.documentElement.style.overflow = '';
     previousFocus?.focus?.();
   }

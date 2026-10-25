@@ -1,3 +1,4 @@
+import {allows} from './consent-core.js';
 const ESTIMATOR_FIELDS = new Set(['business_type', 'location_count', 'monthly_inquiries', 'primary_problem', 'decision_role', 'marketing_spend', 'question_id', 'question_number', 'cta', 'stage', 'scope_label', 'result', 'founding_active']);
 
 export function sanitizeEventParameters(name, parameters = {}) {
@@ -43,6 +44,7 @@ const GA4_EVENTS = new Set(['book_fit_call_click', 'request_audit_click', 'estim
 const CTA_LOCATIONS = new Set(['nav', 'hero', 'pricing', 'final', 'footer', 'sticky', 'estimator', 'unknown']);
 
 export function trackEvent(name, parameters = {}) {
+  if(!allows('analytics'))return;
   // Retain existing local UI hooks. These objects are not Google gtag calls.
   const behavior = sanitizeBehaviorParameters(name, parameters);
   const safe = behavior ?? sanitizeEventParameters(name, /^(pricing_|estimator_)/.test(name) ? { ...parameters, founding_active: false } : parameters);

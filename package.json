@@ -1,1 +1,14 @@
-{"name":"optivue-growth-review","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","test":"node scripts/verify.mjs"},"devDependencies":{"esbuild":"0.28.2"}}
+{
+  "name": "optivue-growth-review",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/verify.mjs",
+    "build:preview": "LEGAL_PREVIEW=1 node scripts/build.mjs",
+    "check:legal": "node scripts/generate-legal.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

@@ -36,6 +36,7 @@ function initTheme(root) {
   let theme = stored === 'dark' ? 'dark' : 'light';
   const apply = () => {
     root.dataset.theme = theme;
+    document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
     root.querySelectorAll('optivue-growth-system,optivue-spotlight-card').forEach((element) => element.setAttribute('theme', theme));
   };

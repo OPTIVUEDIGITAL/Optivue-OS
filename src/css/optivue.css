@@ -7,7 +7,7 @@
 }
 #optivue-growth-os *,#optivue-growth-os *::before,#optivue-growth-os *::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:#090A0C}
+body{margin:0;background:var(--ovgo-canvas-fallback)}
 button,input,select,textarea{font:inherit}
 button,a{-webkit-tap-highlight-color:transparent}
 a{color:inherit}
@@ -47,9 +47,9 @@ a{color:inherit}
 }
 .ovgo-btn:hover{transform:translateY(-1px);border-color:var(--ovgo-border-strong)}
 .ovgo-btn:active{transform:scale(.985)}
-.ovgo-btn--primary{background:var(--ovgo-blue);border-color:var(--ovgo-blue);color:#fff}
-.ovgo-btn--secondary{background:rgba(255,255,255,.035);color:var(--ovgo-text)}
-[data-theme="light"] .ovgo-btn--secondary{background:rgba(16,17,20,.025)}
+.ovgo-btn--primary{background:var(--ovgo-blue);border-color:var(--ovgo-blue);color:var(--ovgo-white)}
+.ovgo-btn--secondary{background:var(--ovgo-secondary-wash);color:var(--ovgo-text)}
+[data-theme="light"] .ovgo-btn--secondary{background:var(--ovgo-light-secondary-wash)}
 .ovgo-btn--compact{min-height:40px;padding:0 16px;font-size:var(--ovgo-type-xs)}
 .ovgo-hero{min-height:100svh;position:relative;overflow:hidden;display:grid;align-items:center;background:var(--ovgo-bg)}
 .ovgo-hero__system{position:absolute;inset:0;width:100%;height:100%}
@@ -105,13 +105,13 @@ a{color:inherit}
 .ovgo-price-card{position:relative;min-height:100%;border-radius:18px}.ovgo-price-card>optivue-spotlight-card{z-index:0}.ovgo-price-card__content{position:relative;z-index:1;padding:26px;display:flex;flex-direction:column;height:100%}.ovgo-price-card.is-featured{transform:translateY(-8px)}
 .ovgo-price-card small{font-size:var(--ovgo-type-xs);color:var(--ovgo-subtle)}.ovgo-price-card h3{font-size:var(--ovgo-type-title-sm);margin:12px 0 8px}.ovgo-price-card p{color:var(--ovgo-muted);font-size:var(--ovgo-type-sm);min-height:60px}
 .ovgo-price{display:flex;align-items:baseline;gap:7px;padding:18px 0 0;margin-top:12px;border-top:1px solid var(--ovgo-border)}.ovgo-price strong{font:500 var(--ovgo-type-price) "IBM Plex Mono",ui-monospace,monospace}.ovgo-price span,.ovgo-commitment{font-size:var(--ovgo-type-xs);color:var(--ovgo-muted)}
-.ovgo-price-card .ovgo-btn{margin:20px 0}.ovgo-ownership-block{padding:14px;border:1px solid var(--ovgo-border);border-radius:9px;background:rgba(255,255,255,.02);display:flex;flex-direction:column;gap:5px}.ovgo-ownership-block b{font:500 var(--ovgo-type-xs) Inter,ui-sans-serif,sans-serif;color:var(--ovgo-green)}.ovgo-ownership-block span{font-size:var(--ovgo-type-xs);color:var(--ovgo-muted)}
+.ovgo-price-card .ovgo-btn{margin:20px 0}.ovgo-ownership-block{padding:14px;border:1px solid var(--ovgo-border);border-radius:9px;background:var(--ovgo-ownership-wash);display:flex;flex-direction:column;gap:5px}.ovgo-ownership-block b{font:500 var(--ovgo-type-xs) Inter,ui-sans-serif,sans-serif;color:var(--ovgo-green)}.ovgo-ownership-block span{font-size:var(--ovgo-type-xs);color:var(--ovgo-muted)}
 .ovgo-price-card ul,.ovgo-compare-grid ul{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}.ovgo-price-card li,.ovgo-compare-grid li{position:relative;padding-left:18px;font-size:var(--ovgo-type-xs);color:var(--ovgo-muted)}.ovgo-price-card li::before,.ovgo-compare-grid .is-positive li::before{content:"✓";position:absolute;left:0;color:var(--ovgo-green)}.ovgo-compare-grid article:not(.is-positive) li::before{content:"—";position:absolute;left:0;color:var(--ovgo-subtle)}
 
 .ovgo-price-card.is-recommended{outline:1px solid color-mix(in srgb,var(--ovgo-green) 70%,transparent);outline-offset:4px}
 .ovgo-recommended-badge{align-self:flex-start;margin:0 0 12px;padding:6px 9px;border:1px solid color-mix(in srgb,var(--ovgo-green) 45%,transparent);border-radius:999px;color:var(--ovgo-green);background:color-mix(in srgb,var(--ovgo-green) 7%,transparent);font:500 var(--ovgo-type-xs) Inter,ui-sans-serif,sans-serif;letter-spacing:.06em}
 
-.ovgo-price-card__badge{align-self:flex-start;margin:-38px 0 14px;padding:6px 9px;border-radius:999px;background:var(--ovgo-blue);color:#fff;font:500 var(--ovgo-type-xs) Inter,ui-sans-serif,sans-serif}
+.ovgo-price-card__badge{align-self:flex-start;margin:-38px 0 14px;padding:6px 9px;border-radius:999px;background:var(--ovgo-blue);color:var(--ovgo-white);font:500 var(--ovgo-type-xs) Inter,ui-sans-serif,sans-serif}
 .ovgo-disclosure{max-width:var(--ovgo-max);margin:18px auto 0;padding:13px 16px;border:1px solid var(--ovgo-border);border-radius:10px;color:var(--ovgo-muted);font-size:var(--ovgo-type-xs)}
 .ovgo-ownership-compare{margin-top:78px}.ovgo-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.ovgo-compare-grid article{padding:26px;border:1px solid var(--ovgo-border);border-radius:14px;background:var(--ovgo-surface)}.ovgo-compare-grid article.is-positive{border-color:color-mix(in srgb,var(--ovgo-green) 35%,var(--ovgo-border))}.ovgo-compare-grid small{font:500 var(--ovgo-type-xs) Inter,ui-sans-serif,sans-serif;color:var(--ovgo-subtle)}.ovgo-compare-grid h4{font-size:var(--ovgo-type-title-sm);margin:10px 0}
 .ovgo-tool-shell{border:1px solid var(--ovgo-border);border-radius:16px;background:var(--ovgo-surface);min-height:300px;overflow:hidden}
@@ -143,7 +143,7 @@ a{color:inherit}
 .ovgo-process{display:flex;flex-wrap:wrap;align-items:center;gap:10px}.ovgo-process span{padding:12px 14px;border:1px solid var(--ovgo-border);border-radius:8px;background:var(--ovgo-surface);font-size:var(--ovgo-type-xs)}.ovgo-process i{font-style:normal;color:var(--ovgo-blue)}
 .ovgo-final-cta{padding:clamp(90px,12vw,170px) 24px;text-align:center;border-top:1px solid var(--ovgo-border);background:var(--ovgo-surface)}.ovgo-final-cta h2{font-size:var(--ovgo-type-section);letter-spacing:-.05em;line-height:1;margin:8px 0 16px}.ovgo-final-cta>p:not(.ovgo-kicker){color:var(--ovgo-muted);max-width:62ch;margin:0 auto}.ovgo-final-cta .ovgo-actions{justify-content:center}
 .ovgo-footer{padding:18px clamp(18px,3vw,42px);border-top:1px solid var(--ovgo-border);display:flex;justify-content:space-between;gap:20px;font-size:var(--ovgo-type-xs);color:var(--ovgo-subtle)}
-.ovgo-modal[hidden]{display:none}.ovgo-modal{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:4vh 4vw}.ovgo-modal__backdrop{position:absolute;inset:0;background:rgba(0,0,0,.78)}.ovgo-modal__dialog{position:relative;width:min(960px,92vw);height:min(85vh,900px);background:var(--ovgo-surface);border:1px solid var(--ovgo-border);border-radius:16px;display:grid;grid-template-rows:auto 1fr;overflow:hidden}.ovgo-modal__header{padding:14px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ovgo-border)}.ovgo-modal__header h2{font-size:var(--ovgo-type-lede);margin:0}.ovgo-modal__header .ovgo-kicker{margin-bottom:3px}.ovgo-modal iframe{border:0;width:100%;height:100%;background:#fff}
+.ovgo-modal[hidden]{display:none}.ovgo-modal{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:4vh 4vw}.ovgo-modal__backdrop{position:absolute;inset:0;background:var(--ovgo-modal-scrim)}.ovgo-modal__dialog{position:relative;width:min(960px,92vw);height:min(85vh,900px);background:var(--ovgo-surface);border:1px solid var(--ovgo-border);border-radius:16px;display:grid;grid-template-rows:auto 1fr;overflow:hidden}.ovgo-modal__header{padding:14px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ovgo-border)}.ovgo-modal__header h2{font-size:var(--ovgo-type-lede);margin:0}.ovgo-modal__header .ovgo-kicker{margin-bottom:3px}.ovgo-modal iframe{border:0;width:100%;height:100%;background:var(--ovgo-white)}
 [data-ovgo-reveal]{opacity:1;transform:none;transition:opacity .6s var(--ovgo-ease),transform .6s var(--ovgo-ease)}[data-ovgo-reveal].is-visible{opacity:1;transform:none}
 :focus-visible{outline:2px solid var(--ovgo-blue);outline-offset:3px}
 @media(max-width:1050px){

@@ -10,16 +10,20 @@ await rm('production/css',{recursive:true,force:true});
 await mkdir('production/css',{recursive:true});
 const tokens=JSON.parse(await readFile('src/design-tokens.json','utf8'));
 const declarations=o=>Object.entries(o).map(([k,v])=>'--ovgo-'+k+':'+v+';').join('');
-const generated='#optivue-growth-os{'+declarations({...tokens.shared,...tokens.dark})+'}#optivue-growth-os[data-theme="light"]{'+declarations(tokens.light)+'}';
-const cssInputs=['optivue.css','optivue-v2.css','revamp.css','office-hero.css','brand.css'];
+const generated=':root,#optivue-growth-os{'+declarations({...tokens.shared,...tokens.light})+'}:root[data-theme="dark"],#optivue-growth-os[data-theme="dark"]{'+declarations(tokens.dark)+'}';
+const themeCSS=(await transform(generated,{loader:'css',minify:true})).code;
+const themeFile='/css/theme-'+hash(themeCSS)+'.min.css';
+await writeFile('production'+themeFile,themeCSS);
+const cssInputs=['optivue.css','optivue-v2.css','revamp.css','office-hero.css','brand.css','midnight-navy.css'];
 const rawCss=generated+'\n'+(await Promise.all(cssInputs.map(f=>readFile('src/css/'+f,'utf8')))).join('\n');
 const css=(await transform(rawCss,{loader:'css',minify:true,target:'es2020'})).code;
 const cssFile='/css/site-'+hash(css)+'.min.css';
 await writeFile('production'+cssFile,css);
-const entries={app:'src/js/optivue.js',spotlight:'src/js/components/spotlight-card.js',ga4:'src/js/ga4.js',map:'src/js/map.js',embed:'src/js/growth-map-embed.js'};
+const entries={app:'src/js/optivue.js',spotlight:'src/js/components/spotlight-card.js',ga4:'src/js/ga4.js',map:'src/js/map.js',embed:'src/js/growth-map-embed.js',theme:'src/js/theme-init.js'};
 const result=await build({entryPoints:entries,bundle:true,splitting:true,format:'esm',outdir:'production/js',entryNames:'[name]-[hash].min',chunkNames:'chunk-[hash].min',minify:true,target:'es2020',metafile:true,legalComments:'none'});
 const outputFor=entry=>'/'+Object.entries(result.metafile.outputs).find(([,v])=>v.entryPoint===entry)[0].replace(/^production\//,'');
 const mapping={
+'js/theme-init.js':outputFor(entries.theme),
 'js/optivue.js':outputFor(entries.app),
 'js/components/spotlight-card.js':outputFor(entries.spotlight),
 'js/growth-map-embed.js':outputFor(entries.embed),
@@ -31,6 +35,7 @@ let inlineBytesBefore=0,inlineBytesAfter=0;
 for(const file of (await files('production')).filter(f=>f.endsWith('.html'))){
  let html=await readFile(file,'utf8'),inserted=false;
  html=html.replace(/<link\b[^>]*rel="stylesheet"[^>]*>/g,tag=>{
+  if(tag.includes('theme.generated.css'))return '<link rel="stylesheet" href="'+themeFile+'">';
   if(!/css\//.test(tag))return tag;
   if(inserted)return '';inserted=true;return '<link rel="stylesheet" href="'+cssFile+'">';
  });

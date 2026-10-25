@@ -38,7 +38,7 @@ class OptivueCompare extends HTMLElement {
           position: relative;
           overflow: hidden;
           aspect-ratio: 8 / 5;
-          background: #101316;
+          background: var(--ovgo-compare-fill);
           touch-action: none;
           user-select: none;
         }
@@ -69,7 +69,7 @@ class OptivueCompare extends HTMLElement {
           bottom: 0;
           left: var(--position);
           width: 2px;
-          background: #fff;
+          background: var(--ovgo-compare-rule);
           transform: translateX(-1px);
           pointer-events: none;
         }
@@ -81,18 +81,18 @@ class OptivueCompare extends HTMLElement {
           box-sizing: border-box;
           width: 44px;
           height: 44px;
-          border: 2px solid #f5f7fa;
+          border: 2px solid var(--ovgo-compare-ink);
           border-radius: 50%;
-          background: #101316;
-          color: #f5f7fa;
+          background: var(--ovgo-compare-fill);
+          color: var(--ovgo-compare-ink);
           display: grid;
           place-items: center;
           transform: translate(-50%, -50%);
-          box-shadow: 0 0 0 2px var(--ovgo-blue, #4c8dff);
+          box-shadow: 0 0 0 2px var(--ovgo-blue);
           cursor: ew-resize;
         }
         .handle:focus-visible {
-          outline: 3px solid var(--ovgo-text, #f5f7fa);
+          outline: 3px solid var(--ovgo-compare-focus);
           outline-offset: 4px;
         }
         .handle span {
@@ -106,8 +106,8 @@ class OptivueCompare extends HTMLElement {
           top: 16px;
           padding: 8px 10px;
           border-radius: 3px;
-          background: rgba(9,10,12,.82);
-          color: #f5f7fa;
+          background: var(--ovgo-compare-label);
+          color: var(--ovgo-compare-ink);
           font-size: 12px;
           font-weight: 700;
           letter-spacing: .02em;

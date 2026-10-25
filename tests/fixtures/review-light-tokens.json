@@ -1,0 +1,19 @@
+{
+  "bg": "#F6F2E8",
+  "surface": "#FFFCF4",
+  "surface-2": "#EEE7D7",
+  "surface-3": "#FFFCF4",
+  "text": "#003B2E",
+  "muted": "#4D6256",
+  "subtle": "#51655A",
+  "border": "rgba(0,59,46,.16)",
+  "border-strong": "rgba(0,59,46,.32)",
+  "blue": "#003B2E",
+  "green": "#087A4C",
+  "violet": "#476553",
+  "amber": "#A96708",
+  "danger": "#C93654",
+  "primary": "#003B2E",
+  "primary-text": "#FFFFFF",
+  "primary-hover": "#075240"
+}

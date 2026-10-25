@@ -1,5 +1,5 @@
 /* Semantic brand rules shared by landing, estimator and confirmation pages. */
-body{background:#F6F2E8}
+body{background:var(--ovgo-canvas-light)}
 #optivue-growth-os .ovgo-btn--primary{background:var(--ovgo-primary);border-color:var(--ovgo-primary);color:var(--ovgo-primary-text)}
 #optivue-growth-os .ovgo-btn--primary:hover{background:var(--ovgo-primary-hover);border-color:var(--ovgo-primary-hover)}
 #optivue-growth-os .ovgo-btn--secondary{background:var(--ovgo-surface);color:var(--ovgo-text);border-color:var(--ovgo-border-strong)}
@@ -18,9 +18,9 @@ body{background:#F6F2E8}
 #optivue-growth-os .ovgo-ownership-table th:nth-child(2),#optivue-growth-os .ovgo-ownership-table td:nth-child(2){background:var(--ovgo-forest);color:var(--ovgo-cream)}
 #optivue-growth-os .ovgo-ownership-table thead th:nth-child(2){color:var(--ovgo-lime)}
 #optivue-growth-os .ovgo-check{color:var(--ovgo-green)}
-#optivue-growth-os .ovgo-final-cta .ovgo-btn--primary{background:var(--ovgo-forest);color:#fff;border-color:var(--ovgo-forest)}
+#optivue-growth-os .ovgo-final-cta .ovgo-btn--primary{background:var(--ovgo-forest);color:var(--ovgo-white);border-color:var(--ovgo-forest)}
 #optivue-growth-os .ovgo-final-cta :focus-visible{outline-color:var(--ovgo-forest)}
-#optivue-growth-os .office-hero .ovgo-btn--primary{background:var(--ovgo-forest);color:#fff;border-color:var(--ovgo-forest)}
+#optivue-growth-os .office-hero .ovgo-btn--primary{background:var(--ovgo-forest);color:var(--ovgo-white);border-color:var(--ovgo-forest)}
 #optivue-growth-os .ovgo-service-progression{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;background:none;border:0}
 #optivue-growth-os .ovgo-service-progression article{padding:28px;min-height:180px;background:var(--ovgo-surface);border:1px solid var(--ovgo-border);border-radius:12px}
 #optivue-growth-os .ovgo-service-progression article>span{display:block;color:var(--ovgo-blue);font-size:14px;margin-bottom:20px}

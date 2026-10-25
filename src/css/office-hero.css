@@ -1,33 +1,33 @@
 /* One projected floor plane, with a descending content hierarchy. */
-#optivue-growth-os .office-hero{position:relative;isolation:isolate;display:block;padding:0;min-height:680px;height:max(680px,56.25vw);max-height:1100px;overflow:hidden;background:#e8dfc9;color:#002e27}
+#optivue-growth-os .office-hero{position:relative;isolation:isolate;display:block;padding:0;min-height:680px;height:max(680px,56.25vw);max-height:1100px;overflow:hidden;background:var(--ovgo-office-fallback);color:var(--ovgo-office-ink)}
 .office-picture{position:absolute;inset:0;z-index:-1}
 .office-picture img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
 #optivue-growth-os .office-hero:before,#optivue-growth-os .office-hero:after{display:none}
-#optivue-growth-os .office-hero .ovgo-hero__content{position:absolute;left:6%;top:33%;width:47%;max-width:none;margin:0;padding:0;background:none;border:0;box-shadow:none;color:#002e27;backdrop-filter:none;-webkit-backdrop-filter:none}
+#optivue-growth-os .office-hero .ovgo-hero__content{position:absolute;left:6%;top:33%;width:47%;max-width:none;margin:0;padding:0;background:none;border:0;box-shadow:none;color:var(--ovgo-office-ink);backdrop-filter:none;-webkit-backdrop-filter:none}
 .office-floor-copy{transform:perspective(1400px) rotateZ(-12deg) rotateX(23deg) skewX(-5deg);transform-origin:50% 50%;mix-blend-mode:multiply}
-#optivue-growth-os .office-hero h1{font-family:Archivo,Arial,sans-serif;font-size:clamp(32px,4.1vw,78px);line-height:1.08;letter-spacing:-.045em;color:#002e27;margin:0;max-width:none}
+#optivue-growth-os .office-hero h1{font-family:Archivo,Arial,sans-serif;font-size:clamp(32px,4.1vw,78px);line-height:1.08;letter-spacing:-.045em;color:var(--ovgo-office-ink);margin:0;max-width:none}
 #optivue-growth-os .office-hero h1 span{font-weight:850}
 #optivue-growth-os .office-hero .office-opening{display:block;font-size:.45em;font-weight:650;letter-spacing:-.025em;margin-bottom:12px}
 #optivue-growth-os .office-hero .ovgo-hero-phrase-line{white-space:nowrap;min-height:1.22em;background:none;padding:0}
 #optivue-growth-os .office-hero .ovgo-hero-phrase-live{margin:0;align-self:center}
-#optivue-growth-os .office-hero [data-hero-phrase]{background:#d6f34e;box-shadow:8px 0 #d6f34e,-8px 0 #d6f34e;line-height:1.22;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+#optivue-growth-os .office-hero [data-hero-phrase]{background:var(--ovgo-lime);box-shadow:8px 0 var(--ovgo-lime),-8px 0 var(--ovgo-lime);line-height:1.22;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 #optivue-growth-os .office-hero [data-hero-phrase]:empty{box-shadow:none}
-#optivue-growth-os .office-hero .ovgo-hero-phrase-live .ovgo-hero-caret{position:static;display:inline-block;transform:none!important;height:.78em;width:2px;background:#003b2e;vertical-align:-.02em;margin-left:7px}
-#optivue-growth-os .office-hero .office-ownership{font-family:Georgia,serif;font-size:clamp(20px,2.05vw,38px);font-style:italic;font-weight:600;letter-spacing:-.025em;margin:12px 0 24px;line-height:1.25;color:#003b2e;border:0}
+#optivue-growth-os .office-hero .ovgo-hero-phrase-live .ovgo-hero-caret{position:static;display:inline-block;transform:none!important;height:.78em;width:2px;background:var(--ovgo-office-green);vertical-align:-.02em;margin-left:7px}
+#optivue-growth-os .office-hero .office-ownership{font-family:Georgia,serif;font-size:clamp(20px,2.05vw,38px);font-style:italic;font-weight:600;letter-spacing:-.025em;margin:12px 0 24px;line-height:1.25;color:var(--ovgo-office-green);border:0}
 #optivue-growth-os .office-benefits{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:clamp(15px,1.4vw,25px);font-weight:550;line-height:1.4}
-#optivue-growth-os .office-benefits li{display:flex;gap:10px;align-items:flex-start;padding:0;color:#003b2e}
+#optivue-growth-os .office-benefits li{display:flex;gap:10px;align-items:flex-start;padding:0;color:var(--ovgo-office-green)}
 #optivue-growth-os .office-benefits li:before{content:'✓';font-weight:750;display:block;flex-shrink:0;width:1em;background:none;border:0;border-radius:0}
 #optivue-growth-os .office-benefits li:after{display:none;content:none}
 .office-next-step{margin-top:42px}
 #optivue-growth-os .office-hero .ovgo-actions{margin:0}
-#optivue-growth-os .office-hero .ovgo-btn--primary{background:#003b2e;color:#fff;border:1px solid #003b2e;min-height:48px;width:auto;min-width:200px;padding:14px 24px;border-radius:6px;font-size:16px;gap:24px}
-#optivue-growth-os .office-hero .ovgo-btn--primary:hover{background:#075240}
-#optivue-growth-os .office-hero .ovgo-btn--primary:focus-visible{outline:3px solid #003b2e;outline-offset:5px}
-#optivue-growth-os .office-hero .ovgo-microcopy{color:#29483d;font-size:12px;line-height:1.4;margin:10px 0 0}
-#optivue-growth-os .ovgo-header{background:#eee7d7;color:#003b2e}
-#optivue-growth-os .ovgo-header .ovgo-brand,#optivue-growth-os .ovgo-header .ovgo-nav a,#optivue-growth-os .ovgo-header .ovgo-icon-btn{color:#003b2e}
-#optivue-growth-os .ovgo-header .ovgo-menu-btn span:not(.ovgo-sr-only){background:#003b2e}
-#optivue-growth-os .ovgo-header .ovgo-btn--primary{background:#003b2e;border-color:#003b2e;color:#fff}
+#optivue-growth-os .office-hero .ovgo-btn--primary{background:var(--ovgo-office-green);color:var(--ovgo-white);border:1px solid var(--ovgo-office-green);min-height:48px;width:auto;min-width:200px;padding:14px 24px;border-radius:6px;font-size:16px;gap:24px}
+#optivue-growth-os .office-hero .ovgo-btn--primary:hover{background:var(--ovgo-office-hover)}
+#optivue-growth-os .office-hero .ovgo-btn--primary:focus-visible{outline:3px solid var(--ovgo-office-green);outline-offset:5px}
+#optivue-growth-os .office-hero .ovgo-microcopy{color:var(--ovgo-office-muted);font-size:12px;line-height:1.4;margin:10px 0 0}
+#optivue-growth-os .ovgo-header{background:var(--ovgo-office-nav);color:var(--ovgo-office-green)}
+#optivue-growth-os .ovgo-header .ovgo-brand,#optivue-growth-os .ovgo-header .ovgo-nav a,#optivue-growth-os .ovgo-header .ovgo-icon-btn{color:var(--ovgo-office-green)}
+#optivue-growth-os .ovgo-header .ovgo-menu-btn span:not(.ovgo-sr-only){background:var(--ovgo-office-green)}
+#optivue-growth-os .ovgo-header .ovgo-btn--primary{background:var(--ovgo-office-green);border-color:var(--ovgo-office-green);color:var(--ovgo-white)}
 @media(min-width:768px) and (max-width:1023px){
 #optivue-growth-os .office-hero .ovgo-hero__content{top:38%;width:49%}
 #optivue-growth-os .office-hero .office-ownership{font-size:21px}

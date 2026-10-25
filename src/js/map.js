@@ -38,17 +38,6 @@ addEventListener('message', event => {
   }
 });
 document.documentElement.classList.add('js');
-const toggle = document.querySelector('#view-toggle');
-const map = document.querySelector('.map');
-const status = document.querySelector('#view-status');
-toggle.addEventListener('click', () => {
-  const expanded = map.classList.toggle('details');
-  toggle.setAttribute('aria-expanded', String(expanded));
-  toggle.textContent = expanded ? 'Back to Overview' : 'View Details';
-  status.textContent = expanded ? 'Details · 24 stops' : 'Overview';
-  parent.postMessage({type:'optivue-map-interaction',action:expanded?'details':'overview'}, location.origin);
-  reportSize();
-});
 const image = document.querySelector('.avatar img');
 if (!image.complete) image.parentElement.classList.add('loading');
 image.addEventListener('load', () => image.parentElement.classList.remove('loading'));

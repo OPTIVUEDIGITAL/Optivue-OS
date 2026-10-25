@@ -57,3 +57,11 @@ Screenshots are local development previews, not the deployed website. Before/aft
 [Square Growth Map](screenshots/map-dark-1280.jpg)
 
 [Pre-edit color inventory](colors-before.md)
+
+## October 25 responsive map revision
+
+Supersedes the earlier mobile View Details description. Removed the mobile overview/details layouts and toggle. The same 1080px square illustration now scales proportionally at every width, with all 6 animated paths and 24 stops. Supporting notes and credits remain outside the square. Below 880px, an always-visible channel transcript repeats the tiny diagram labels at readable 12–14px sizes. The founder portrait is 40px; name 13px; role and tally 12px.
+
+Browser measured 1080 × 1080, 768 × 768 and 375 × 375; no horizontal overflow at tested sizes. Six 12-second infinite traveller animations run. Reduced-motion CSS and visibility controls retained. Build, asset verification, five theme tests and two map regression tests pass. Existing legacy-suite limitations above are unchanged.
+
+[Updated mobile map](screenshots/map-consistent-mobile.jpg)

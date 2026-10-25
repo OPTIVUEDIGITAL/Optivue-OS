@@ -1,0 +1,19 @@
+[
+  "legal.contactEmail",
+  "legal.postalAddress",
+  "legal.privacyContactEmail",
+  "legal.governingLaw",
+  "legal.disputeVenue",
+  "legal.responseTimeframe",
+  "legal.dataRetention.booking",
+  "legal.dataRetention.correspondence",
+  "legal.dataRetention.analytics",
+  "legal.dataRetention.hostingLogs",
+  "legal.ownerConfirmations.vendors",
+  "legal.ownerConfirmations.calendlyNotice",
+  "legal.ownerConfirmations.noSaleOrSharing",
+  "legal.ownerConfirmations.childrenPolicy",
+  "legal.vendors.0.dataLocation",
+  "legal.vendors.1.dataLocation",
+  "legal.vendors.2.dataLocation"
+]

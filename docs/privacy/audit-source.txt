@@ -1,0 +1,29 @@
+src/site.html:11:  <link rel="canonical" href="https://growth.optivuedigital.com/">
+src/site.html:15:  <meta property="og:url" content="https://growth.optivuedigital.com/">
+src/site.html:18:  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Optivue Digital","url":"https://growth.optivuedigital.com/","founder":{"@type":"Person","name":"Rahmel Dela Cruz"},"description":"Marketing tools for health, wellness and aesthetics teams. See which leads book a visit."}</script>
+src/tracking-plan.html:22:- https://support.google.com/analytics/answer/9216061
+src/tracking-plan.html:23:- https://developers.google.com/analytics/devguides/collection/ga4/events
+src/tracking-plan.html:24:- https://support.google.com/analytics/answer/14240153
+src/tracking-plan.html:25:- https://support.google.com/analytics/answer/7201382
+src/estimator/index.html:11:  <link rel="canonical" href="https://growth.optivuedigital.com/estimator">
+src/js/optivue.js:35:  let stored; try { stored = localStorage.getItem('optivue-theme'); } catch {}
+src/js/optivue.js:44:  root.querySelector('[data-ovgo-theme]')?.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('optivue-theme', theme); } catch {} apply(); });
+src/js/context.js:59:    const stored = sessionStorage.getItem(STORAGE_KEY);
+src/js/context.js:76:    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(safe));
+src/js/lead-capture.js:37:            <input id="lead-website" name="website" type="url" autocomplete="url" placeholder="https://" value="${escapeLeadAttr(context.identity.website || context.business.website || '')}">
+src/js/lead-capture.js:109:      const response = await fetch(RUNTIME_CONFIG.leadEndpoint, {
+src/js/theme-init.js:1:(() => {let theme='light';try {theme=localStorage.getItem('optivue-theme')==='dark'?'dark':'light';}catch {}try {if(parent!==window && parent.document.documentElement.dataset.theme)theme=parent.document.documentElement.dataset.theme;}catch {}document.documentElement.dataset.theme=theme;document.documentElement.style.colorScheme=theme;})();
+src/index.html:11:  <link rel="canonical" href="https://growth.optivuedigital.com/">
+src/index.html:15:  <meta property="og:url" content="https://growth.optivuedigital.com/">
+src/index.html:18:  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Optivue Digital","url":"https://growth.optivuedigital.com/","founder":{"@type":"Person","name":"Rahmel Dela Cruz"},"description":"Marketing tools for health, wellness and aesthetics teams. See which leads book a visit."}</script>
+src/js/booking.js:4:const CALENDLY_URL = 'https://calendly.com/optivue-digital-strategy-call/clicks-to-clients-audit';
+src/js/booking.js:84:    if (event.origin !== 'https://calendly.com' || event.source !== frame.contentWindow) return;
+src/js/estimator.js:114:  function persist() { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+src/js/estimator.js:115:  function reset() { sessionStorage.removeItem(STORAGE_KEY); state = createEstimatorState(); }
+src/js/estimator.js:205:function readStoredState() { try { return JSON.parse(sessionStorage.getItem(STORAGE_KEY)); } catch { return null; } }
+src/thank-you/index.html:11:  <link rel="canonical" href="https://growth.optivuedigital.com/thank-you">
+src/js/ga4.js:32:  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-9XBD3QZ5BQ';
+src/js/ga4.js:38:      if (sessionStorage.getItem('ov_fcb_sent')) return;
+src/js/ga4.js:39:      sessionStorage.setItem('ov_fcb_storage_check', '1');
+src/js/ga4.js:40:      sessionStorage.removeItem('ov_fcb_storage_check');
+src/js/ga4.js:42:      sessionStorage.setItem('ov_fcb_sent', '1');

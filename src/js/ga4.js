@@ -1,3 +1,5 @@
+import {allows,clearAnalytics} from './consent-core.js';
+import {initConsent} from './consent-ui.js';
 (() => {
   const url = new URL(window.location.href);
   const isThankYou = /^\/thank-you\/?$/.test(url.pathname);
@@ -14,10 +16,18 @@
       return;
     }
   }
-  if (url.hostname !== 'growth.optivuedigital.com' || window.__optivueGa4Loaded) return;
-  window.__optivueGa4Loaded = true;
+
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+  const denied={analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'};
+  window.gtag('consent','default',denied);
+  function sync(){
+    const permitted=allows('analytics');
+    window['ga-disable-G-9XBD3QZ5BQ']=!permitted;
+    window.gtag('consent','update',{...denied,analytics_storage:permitted?'granted':'denied'});
+    if(!permitted){clearAnalytics();if(window.__optivueGa4Loaded){document.querySelector('[data-ga4-loader]')?.remove();location.reload();}return;}
+    if(url.hostname!=='growth.optivuedigital.com'||window.__optivueGa4Loaded)return;
+    window.__optivueGa4Loaded=true;
   let referrer = '';
   try { referrer = new URL(document.referrer).origin + '/'; } catch { /* Direct visit. */ }
   window.gtag('js', new Date());
@@ -26,9 +36,11 @@
     page_referrer: referrer,
     allow_google_signals: false,
     allow_ad_personalization_signals: false,
+    send_page_view: true,
   });
   const script = document.createElement('script');
   script.async = true;
+  script.dataset.ga4Loader='true';
   script.src = 'https://www.googletagmanager.com/gtag/js?id=G-9XBD3QZ5BQ';
   document.head.appendChild(script);
   // Single booking event source. The marker is not server-verified proof.
@@ -42,4 +54,10 @@
       sessionStorage.setItem('ov_fcb_sent', '1');
     } catch { /* Page content and pageview remain available. */ }
   }
+  }
+  window.addEventListener('optivue:consentchange',sync);
+  window.addEventListener('storage',e=>{if(e.key==='optivue-consent')sync();});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)sync();});
+  sync();
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initConsent,{once:true});else initConsent();
 })();

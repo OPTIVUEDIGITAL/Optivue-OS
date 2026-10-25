@@ -111,7 +111,7 @@ export function initEstimator(root) {
   if (stored?.screen && stored.screen !== 'intro') renderResume(); else renderIntro();
   trackEvent('estimator_view');
 
-  function persist() { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+  function persist() { try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {} }
   function reset() { sessionStorage.removeItem(STORAGE_KEY); state = createEstimatorState(); }
   function clearInsight() { activeInsight = null; const current = mount.querySelector('[data-estimator-insight]'); if (current) current.hidden = true; }
 

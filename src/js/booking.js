@@ -1,5 +1,5 @@
 import {legal} from '../config/legal.ts';
-import {allows,readConsent,saveConsent} from './consent-core.js';
+import {allows} from './consent-core.js';
 import { setJourneyFlag, snapshot } from './context.js';
 import { trackEvent } from './analytics.js';
 
@@ -44,16 +44,18 @@ export function initBooking(root) {
     const url = new URL(buildCalendlyUrl(CALENDLY_URL));
     if (context.identity.name) url.searchParams.set('name', context.identity.name);
     if (context.identity.email) url.searchParams.set('email', context.identity.email);
-    url.searchParams.set('embed_domain', 'growth.optivuedigital.com');
+    url.searchParams.set('embed_domain', window.location.hostname);
     url.searchParams.set('embed_type', 'PopupText');
-    let notice=modal.querySelector('.booking-privacy');
-    if(!notice){notice=document.createElement('div');notice.className='booking-privacy';notice.innerHTML=`<p>${legal.calendlyNotice} <a href="/privacy">Privacy Policy</a> · <a href="/cookies">Cookie Policy</a></p><p>Do not submit patient information or personal health data.</p><button type="button" data-booking-continue>Continue to booking</button>`;frame.before(notice);}
-    const proceed=notice.querySelector('button');
-    const loadBooking=()=>{frame.hidden=false;frame.src=url.toString();proceed.hidden=true;};
-    frame.hidden=!allows('functional');proceed.hidden=allows('functional');
-    proceed.onclick=()=>{saveConsent({...readConsent().choices,functional:true},true);loadBooking();frame.focus();};
-    if(allows('functional'))loadBooking();
+    // Never present a second privacy gate inside the booking flow.
+    // Without functional consent, open Calendly directly rather than
+    // initializing a third-party iframe on this page.
+    if (!allows('functional')) {
+      window.location.assign(url.toString());
+      return;
+    }
     modal.hidden = false;
+    frame.hidden = false;
+    frame.src = url.toString();
     document.documentElement.style.overflow = 'hidden';
     requestAnimationFrame(() => modal.querySelector('[data-ovgo-modal-close]')?.focus());
   }

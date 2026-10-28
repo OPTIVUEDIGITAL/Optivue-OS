@@ -1,0 +1,6 @@
+import assert from 'node:assert/strict';import {readFile,access} from 'node:fs/promises';
+for(const route of ['index.html','estimator/index.html','privacy/index.html','terms/index.html','cookies/index.html','thank-you/index.html']){const s=await readFile('production/'+route,'utf8');assert.equal((s.match(/<h1\b/g)||[]).length,1,route);assert(!/OWNER TO CONFIRM|Lorem ipsum|Cookiebot|cookiebot\.com/i.test(s));assert(s.includes('growth.optivuedigital.com'));const indexed=['index.html','privacy/index.html','terms/index.html','cookies/index.html'].includes(route);assert(s.includes(`content="${indexed?'index,follow':'noindex,nofollow'}"`));for(const m of s.matchAll(/(?:src|href)="(\/[^"?#]+\.(?:js|css|webp|svg|png))"/g))await access('production'+m[1]);}
+const home=await readFile('production/index.html','utf8');assert(home.includes('FOR HEALTH, WELLNESS &amp; AESTHETICS'));assert(home.includes('data-hero-typewriter'));
+const sitemap=await readFile('production/sitemap.xml','utf8');assert(!sitemap.includes('/estimator'));assert(!(await readFile('production/robots.txt','utf8')).includes('Disallow: /'));
+const headers=await readFile('production/_headers','utf8');assert(headers.includes('/estimator\n  X-Robots-Tag: noindex'));assert(!headers.startsWith('/*\n  X-Robots-Tag'));
+console.log('Production routes, one H1, assets, consent provider and indexing verified.');

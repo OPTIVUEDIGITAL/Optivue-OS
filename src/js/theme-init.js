@@ -1,0 +1,1 @@
+(() => {let theme='light';try {theme=localStorage.getItem('optivue-theme')==='dark'?'dark':'light';}catch {}try {if(parent!==window && parent.document.documentElement.dataset.theme)theme=parent.document.documentElement.dataset.theme;}catch {}document.documentElement.dataset.theme=theme;document.documentElement.style.colorScheme=theme;})();

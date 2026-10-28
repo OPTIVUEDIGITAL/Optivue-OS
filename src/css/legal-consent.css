@@ -1,0 +1,38 @@
+.legal-page #optivue-growth-os .ovgo-header{position:sticky}
+#optivue-growth-os .legal-content{max-width:var(--ovgo-estimator-content-max);margin-inline:auto;padding:var(--ovgo-space-page);font-size:var(--ovgo-type-body);line-height:1.6}
+#optivue-growth-os .legal-content h1{font-size:var(--ovgo-type-title-lg)}
+#optivue-growth-os .legal-content h2{font-size:var(--ovgo-type-title-sm);margin-top:var(--ovgo-space-page)}
+#optivue-growth-os .legal-content a,#optivue-growth-os .ovgo-consent a{text-decoration:underline;color:var(--ovgo-text)}
+#optivue-growth-os .legal-content nav{display:flex;flex-wrap:wrap;gap:var(--ovgo-estimator-space-unit)}
+#optivue-growth-os .legal-table{overflow-x:auto}#optivue-growth-os .legal-content table{border-collapse:collapse;font-size:var(--ovgo-type-xs);width:100%}
+#optivue-growth-os .legal-content td,#optivue-growth-os .legal-content th{padding:var(--ovgo-estimator-space-unit);border:1px solid var(--ovgo-border-strong);text-align:left;vertical-align:top;overflow-wrap:anywhere}
+#optivue-growth-os .legal-draft{border:1px solid var(--ovgo-border-strong);background:var(--ovgo-surface);padding:var(--ovgo-estimator-space-unit)}
+#optivue-growth-os .legal-footer{display:flex;gap:var(--ovgo-estimator-space-unit);flex-wrap:wrap;padding:var(--ovgo-space-page);font-size:var(--ovgo-type-sm)}
+#optivue-growth-os .ovgo-consent{font-family:inherit;font-size:var(--ovgo-type-sm);color:var(--ovgo-text)}
+#optivue-growth-os #consent-banner{position:fixed;bottom:0;left:0;right:0;z-index:1000;background:var(--ovgo-surface);border-top:1px solid var(--ovgo-border-strong);padding:var(--ovgo-estimator-space-unit) var(--ovgo-space-page);max-height:40dvh;overflow:auto}
+#optivue-growth-os #consent-banner[hidden]{display:none}
+#optivue-growth-os .consent-actions{display:flex;flex-wrap:wrap;gap:var(--ovgo-estimator-space-unit)}
+#optivue-growth-os .consent-actions button,#optivue-growth-os [data-cookie-settings],#optivue-growth-os [data-booking-continue]{font:inherit;min-height:var(--ovgo-tap-target-min);padding:var(--ovgo-estimator-space-unit);background:var(--ovgo-surface);color:var(--ovgo-text);border:1px solid var(--ovgo-border-strong);border-radius:var(--ovgo-radius-structural);cursor:pointer}
+#optivue-growth-os .consent-actions button{flex:1}
+#optivue-growth-os #consent-panel{max-width:var(--ovgo-estimator-content-max);width:calc(100% - var(--ovgo-space-page));max-height:90dvh;overflow:auto;background:var(--ovgo-surface);color:var(--ovgo-text);border:1px solid var(--ovgo-border-strong);border-radius:var(--ovgo-radius-structural);padding:var(--ovgo-space-page);font-size:var(--ovgo-type-sm)}
+#optivue-growth-os #consent-panel::backdrop{background:var(--ovgo-modal-scrim)}
+#optivue-growth-os #consent-panel label{display:flex;align-items:center;gap:var(--ovgo-estimator-space-unit);min-height:var(--ovgo-tap-target-min);font-weight:bold}
+#optivue-growth-os #consent-panel input{accent-color:var(--ovgo-primary)}
+#optivue-growth-os .ovgo-consent :is(a,button,input):focus-visible,#optivue-growth-os [data-cookie-settings]:focus-visible{outline:var(--ovgo-estimator-progress-height) solid var(--ovgo-primary);outline-offset:var(--ovgo-estimator-progress-height)}
+#optivue-growth-os .booking-privacy{padding:var(--ovgo-estimator-space-unit);font-size:var(--ovgo-type-sm);background:var(--ovgo-surface);color:var(--ovgo-text)}
+
+@media(max-width:600px){.legal-page #optivue-growth-os .ovgo-header{gap:8px;padding-inline:12px;justify-content:space-between}.legal-page #optivue-growth-os .ovgo-brand{flex-direction:column;align-items:flex-start;gap:4px;min-width:0}.legal-page #optivue-growth-os .ovgo-header__actions{flex-shrink:0;gap:6px}}
+
+/* Legal pages share the site's palette, typography and component treatment. */
+#optivue-growth-os .legal-heading{padding-block:24px;border-bottom:1px solid var(--ovgo-border);margin-bottom:20px}
+#optivue-growth-os .legal-eyebrow{font:600 .75rem/1.5 var(--ovgo-font-mono,monospace);letter-spacing:.08em;color:var(--ovgo-muted);margin:0 0 16px}
+#optivue-growth-os .legal-heading h1{line-height:1.1;letter-spacing:-.04em;margin:0 0 18px}
+#optivue-growth-os .legal-intro{max-width:58ch;color:var(--ovgo-muted)}
+#optivue-growth-os .legal-updated{font-size:.8rem;color:var(--ovgo-muted)}
+#optivue-growth-os .legal-content nav[aria-label="On this page"]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:20px;background:var(--ovgo-surface);border:1px solid var(--ovgo-border);border-radius:16px;margin-block:24px}
+#optivue-growth-os .legal-content nav[aria-label="On this page"] a{padding:10px;min-height:44px;font-size:.875rem;line-height:1.4;text-underline-offset:4px}
+#optivue-growth-os .legal-content section{padding-block:12px 20px;border-bottom:1px solid var(--ovgo-border)}
+#optivue-growth-os .legal-content section p{max-width:72ch}
+#optivue-growth-os .legal-content h2{line-height:1.25;letter-spacing:-.02em}
+#optivue-growth-os .legal-content a:focus-visible{outline:3px solid var(--ovgo-primary);outline-offset:3px}
+@media(max-width:600px){#optivue-growth-os .legal-content nav[aria-label="On this page"]{grid-template-columns:1fr;padding:12px}#optivue-growth-os .legal-heading h1{font-size:2.25rem;overflow-wrap:normal}}

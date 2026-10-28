@@ -1,0 +1,22 @@
+/* Dark-only component paint. Light values remain in the existing styles. */
+html{color-scheme:light;background:var(--ovgo-bg)}
+html[data-theme="dark"]{color-scheme:dark}
+html[data-theme="dark"] body{background:var(--ovgo-bg)}
+#optivue-growth-os[data-theme="dark"] :is(h1,h2,h3,h4,h5,h6){color:var(--ovgo-text)}
+#optivue-growth-os[data-theme="dark"] :is(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:3px solid var(--ovgo-primary);outline-offset:4px}
+#optivue-growth-os[data-theme="dark"] :is(input,select,textarea){color:var(--ovgo-text);background:var(--ovgo-surface);border-color:var(--ovgo-border)}
+#optivue-growth-os[data-theme="dark"] .ovgo-check{color:var(--ovgo-primary)}
+#optivue-growth-os[data-theme="dark"] .ovgo-ownership-table th:nth-child(2),#optivue-growth-os[data-theme="dark"] .ovgo-ownership-table td:nth-child(2){background:var(--ovgo-surface);color:var(--ovgo-text)}
+#optivue-growth-os[data-theme="dark"] .ovgo-final-cta .ovgo-btn--primary{background:var(--ovgo-primary);border-color:var(--ovgo-primary);color:var(--ovgo-primary-text)}
+/* The illustration has a 1080px square design canvas; the iframe also contains its heading and notes. */
+#optivue-growth-os .ovgo-map-shell{max-width:1080px;margin-inline:auto}
+
+#optivue-growth-os[data-theme="dark"] :is(.ovgo-status,.ovgo-recommended-badge){border-color:var(--ovgo-border)}
+#optivue-growth-os[data-theme="dark"] :is(.ovgo-stage.is-active,.ovgo-choice:has(input:checked),.ovgo-filter-row button.is-active,.ovgo-estimator-option:has(input:checked)){background:var(--ovgo-surface);border-color:var(--ovgo-primary)}
+
+/* The user keeps the original photo and projected floor copy in both themes. */
+#optivue-growth-os[data-theme="dark"] .office-hero{--ovgo-office-ink:var(--ovgo-hero-original-ink);--ovgo-office-green:var(--ovgo-hero-original-green);--ovgo-office-muted:var(--ovgo-hero-original-muted);--ovgo-office-fallback:var(--ovgo-hero-original-fallback)}
+#optivue-growth-os[data-theme="dark"] .office-hero h1{color:var(--ovgo-office-ink)}
+#optivue-growth-os[data-theme="dark"] .office-hero .ovgo-btn--primary{background:var(--ovgo-bg);border-color:var(--ovgo-bg);color:var(--ovgo-text)}
+#optivue-growth-os[data-theme="dark"] .office-hero .ovgo-btn--primary:hover{background:var(--ovgo-surface);border-color:var(--ovgo-surface)}
+#optivue-growth-os[data-theme="dark"] .office-hero .ovgo-btn--primary:focus-visible{outline:3px solid var(--ovgo-primary);outline-offset:2px;box-shadow:0 0 0 7px var(--ovgo-bg)}

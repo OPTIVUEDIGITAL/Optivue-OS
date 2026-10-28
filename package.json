@@ -1,0 +1,14 @@
+{
+  "name": "optivue-growth-review",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/verify.mjs",
+    "build:production": "node scripts/release-build.mjs",
+    "test:release": "node --experimental-strip-types --test tests/release/*.test.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

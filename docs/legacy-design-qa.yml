@@ -1,0 +1,102 @@
+name: Design QA
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "production/**"
+      - "scripts/**"
+      - ".github/workflows/design-qa.yml"
+  pull_request:
+    paths:
+      - "production/**"
+      - "scripts/**"
+      - ".github/workflows/design-qa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  design-qa:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Contrast audit
+        run: python3 scripts/contrast.py
+
+      - name: Node regression and analytics tests
+        run: node --test tests/*.test.mjs
+
+      - name: Install browser QA tools
+        run: |
+          npm install --no-save playwright@1.55.0 lighthouse@12.2.1
+          npx playwright install --with-deps chromium
+
+      - name: Live GA4 transport after approved main deployment
+        if: (github.event_name == 'push' && github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, '#47'))
+        run: node scripts/ga4-live-qa.mjs
+
+      - name: Serve production
+        run: |
+          node scripts/qa-server.mjs > /tmp/optivue-http.log 2>&1 &
+          echo $! > /tmp/optivue-http.pid
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:8787/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/optivue-http.log
+          exit 1
+
+      - name: Responsive screenshots and overflow checks
+        run: node scripts/visual-qa.mjs
+
+      - name: GA4 and booking integration (intercepted Google and Calendly)
+        run: node scripts/ga4-qa.mjs
+
+      - name: Hero loop accessibility and layout stability
+        run: node scripts/hero-qa.mjs
+
+      - name: Pricing breakdown acceptance
+        run: node scripts/pricing-qa.mjs
+
+      - name: Audit Fix Grow acceptance
+        run: node scripts/pricing-revamp-qa.mjs
+
+      - name: Phone experience acceptance
+        run: node scripts/mobile-qa.mjs
+
+      - name: Lighthouse mobile (3 runs)
+        run: |
+          for i in 1 2 3; do
+            npx lighthouse http://127.0.0.1:8787 \
+              --output=json \
+              --output-path="lighthouse-$i.json" \
+              --only-categories=performance,accessibility \
+              --form-factor=mobile \
+              --screenEmulation.mobile=true \
+              --chrome-flags="--headless --no-sandbox --disable-gpu"
+          done
+
+      - name: Enforce Lighthouse budgets
+        run: node scripts/check-lighthouse.mjs
+
+      - name: Upload design QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: optivue-design-qa
+          path: |
+            shots/
+            shots-mobile/
+            lighthouse-*.json
+          if-no-files-found: warn

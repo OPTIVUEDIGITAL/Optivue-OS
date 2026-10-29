@@ -29,7 +29,7 @@ test('homepage adds skip-to-content navigation without changing hero asset prior
     assert.ok(html.includes('fetchpriority="high"'), path + ' hero priority');
     if(path.startsWith('dist/')){
       assert.ok(html.includes('data-critical-hero'), 'critical CSS should be inline');
-      assert.ok(html.includes('media="print" onload="this.media=\'all\'"'), 'below-fold CSS should load asynchronously');
+      assert.ok(html.includes('media="(min-width:768px)" onload="this.media=\'all\'"'), 'below-fold CSS should load asynchronously');
       assert.ok(/\/fingerprinted\/hero-office-mobile-clean-[a-f0-9]{10}\.webp/.test(html), 'hashed hero image');
     }
     assert.ok(html.includes('id="growth-map-frame"'), path + ' map');

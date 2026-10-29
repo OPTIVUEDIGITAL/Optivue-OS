@@ -33,7 +33,7 @@ test('typewriter retains highlight, caret, visibility and reduced-motion behavio
  const css=await readFile('src/css/office-hero.css','utf8');
  assert.match(script,/function positionCaret\(\)/);
  assert.match(script,/phase === 'delete'/);
- assert.match(script,/phase === 'type'/);
+ assert.match(script,/phase = 'type'/);
  assert.match(script,/visibilitychange/);
  assert.match(script,/prefers-reduced-motion: reduce/);
  assert.match(css,/data-hero-phrase\]\{background:var\(--ovgo-lime\)/);

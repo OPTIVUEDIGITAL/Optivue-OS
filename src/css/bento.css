@@ -25,7 +25,7 @@
 #systems .bento-heading { display:flex; gap:18px; align-items:flex-start; }
 #systems .bento-icon { width:72px; height:72px; display:grid; place-items:center; flex:none; background:color-mix(in srgb,var(--bento-lime) 38%,var(--bento-card)); color:var(--bento-ink); border-radius:20px; }
 #systems .bento-icon svg { display:block; width:34px; height:34px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
-#systems .bento-index { color:color-mix(in srgb,var(--bento-muted) 64%,transparent); font-size:19px; line-height:1; display:block; margin-bottom:4px; }
+#systems .bento-index { color:var(--bento-muted); font-size:19px; line-height:1; display:block; margin-bottom:4px; }
 #systems .bento-heading h3 { font-size:clamp(27px,2.7vw,40px); line-height:1.02; letter-spacing:-.045em; font-weight:730; margin:0 0 4px; }
 #systems .bento-heading p { color:var(--bento-muted); font-size:clamp(14px,1.3vw,18px); line-height:1.35; margin:0; }
 #systems .bento-acquire-layout { display:grid; grid-template-columns:minmax(190px,.9fr) minmax(220px,1.13fr); gap:18px; align-items:end; margin:18px 0 6px; }

@@ -125,3 +125,9 @@
  #systems .bento-source,#systems .bento-details summary span { transition:none; }
  #growth-map .ovgo-map-skeleton > span { animation:none; }
 }
+
+/* Lightweight connector lines echo the supplied visual reference. */
+#systems .bento-acquire-layout { position:relative; }
+#systems .bento-sources,#systems .bento-discovery { position:relative; z-index:1; }
+#systems .bento-connections { position:absolute; z-index:2; pointer-events:none; width:150px; height:200px; left:calc(41% - 18px); bottom:12px; overflow:visible; }
+@media (max-width:740px) { #systems .bento-connections { display:none; } }

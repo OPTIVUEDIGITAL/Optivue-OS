@@ -29,3 +29,7 @@ body{background:var(--ovgo-canvas-light)}
 #optivue-growth-os .ovgo-service-progression .service-enter{animation:service-enter 450ms var(--ovgo-ease) both}
 @media(max-width:600px){#optivue-growth-os .ovgo-service-progression{grid-template-columns:1fr}#optivue-growth-os .ovgo-service-progression article{min-height:0;padding:24px}}
 @media(prefers-reduced-motion:reduce){#optivue-growth-os .ovgo-service-progression .service-enter{animation:none}html{scroll-behavior:auto}}
+
+/* Keyboard-only skip link; theme tokens keep focus text readable in both modes. */
+#optivue-growth-os .ovgo-skip-link{position:fixed;left:12px;top:12px;z-index:10000;padding:12px 16px;background:var(--ovgo-bg);color:var(--ovgo-text);border:2px solid var(--ovgo-text);border-radius:6px;font:700 16px/1.4 Arial,sans-serif;text-decoration:none;clip-path:inset(100%);white-space:nowrap}
+#optivue-growth-os .ovgo-skip-link:focus,#optivue-growth-os .ovgo-skip-link:focus-visible{clip-path:none;outline:3px solid var(--ovgo-primary);outline-offset:2px}

@@ -18,7 +18,7 @@ const generated=':root,#optivue-growth-os{'+declarations({...tokens.shared,...to
 const themeCSS=(await transform(generated,{loader:'css',minify:true})).code;
 const themeFile='/css/theme-'+hash(themeCSS)+'.min.css';
 await writeFile('dist'+themeFile,themeCSS);
-const cssInputs=['optivue.css','optivue-v2.css','revamp.css','office-hero.css','brand.css','midnight-navy.css','legal-consent.css','packages.css','concept.css'];
+const cssInputs=['optivue.css','optivue-v2.css','revamp.css','office-hero.css','brand.css','midnight-navy.css','legal-consent.css','packages.css','concept.css','bento.css'];
 const rawCss=generated+'\n'+(await Promise.all(cssInputs.map(f=>readFile('src/css/'+f,'utf8')))).join('\n');
 const css=(await transform(rawCss,{loader:'css',minify:true,target:'es2020'})).code;
 const cssFile='/css/site-'+hash(css)+'.min.css';

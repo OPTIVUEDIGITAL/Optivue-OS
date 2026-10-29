@@ -53,3 +53,6 @@
 }
 @media(prefers-reduced-motion:reduce){#optivue-growth-os .office-hero .ovgo-hero-phrase-live .ovgo-hero-caret{display:none}}
 @media(min-width:768px){#optivue-growth-os .office-next-step{margin-top:82px}}
+
+/* The longer appointment phrases fit the projected desktop floor without affecting the typewriter or lime highlight. */
+@media(min-width:768px){#optivue-growth-os .office-hero .ovgo-hero-phrase-line{font-size:.94em}}

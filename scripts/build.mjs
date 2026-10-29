@@ -77,7 +77,7 @@ for(const file of (await files('dist')).filter(f=>f.endsWith('.html'))){
   if(!html.includes(cssLink))throw new Error('Expected homepage CSS link: '+file);
   html=html.replace(cssLink,
    '<style data-critical-hero>'+criticalCss+'</style>'+
-   '<link rel="stylesheet" href="'+cssFile+'" media="print" onload="this.media=\'all\'">'+
+   '<link rel="stylesheet" href="'+cssFile+'" media="(min-width:768px)" onload="this.media=\'all\'">'+
    '<noscript><link rel="stylesheet" href="'+cssFile+'"></noscript>');
   const originalTheme='<script src="'+mapping['js/theme-init.js']+'"></script>';
   if(!html.includes(originalTheme))throw new Error('Expected theme script: '+file);

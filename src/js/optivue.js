@@ -4,6 +4,7 @@ import { initHeroTypewriter } from './hero-typewriter.js';
 import { displayPrice } from './pricing-values.js';
 import { initPricingBreakdowns } from './pricing.js';
 import { initBooking } from './booking.js';
+import { initBento } from './bento.js';
 
 import { ESTIMATOR_CONFIG } from './estimator-config.js';
 import { RUNTIME_CONFIG } from './runtime-config.js';

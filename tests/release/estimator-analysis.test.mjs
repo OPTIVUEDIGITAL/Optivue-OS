@@ -38,3 +38,10 @@ test('both estimator result routes enter the analysis transition without changin
   assert.match(code,/startEstimatorAnalysis/);
   assert.match(build,/estimator-analysis.css/);
 });
+
+test('the estimator result has no play or pause animation control', async()=>{
+  const code=await readFile('src/js/clinic-check.js','utf8');
+  assert.doesNotMatch(code, /data-check-action="motion"/);
+  assert.doesNotMatch(code, /Pause animation|Play animation/);
+  assert.match(code, /classList.toggle\('is-paused',paused\|\|document.hidden\)/);
+});

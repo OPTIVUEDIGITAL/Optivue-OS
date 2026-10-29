@@ -151,6 +151,7 @@ if (root) {
   initHeader(root);
   initMobileMenu(root);
   initSystemDetail(root);
+  initBento(root);
   initSpotlights(root);
   initReveal(root);
 

@@ -20,7 +20,7 @@ assert(site.includes('Illustrative workflow.'));
 assert(!site.includes('Examples, not a required stack.'));
 assert.equal((site.match(/rel="stylesheet"/g)||[]).length,2);
 assert(site.includes('data-critical-hero'));
-assert(site.includes('media="print" onload="this.media=\'all\'"'));
+assert(site.includes('media="(min-width:768px)" onload="this.media=\'all\'"'));
 assert(site.includes('<noscript><link rel="stylesheet"'));
 assert(!/src="\/js\/theme-[^\"]+\.min\.js"/.test(site));
 const meta=JSON.parse(await readFile('build-meta.json','utf8'));

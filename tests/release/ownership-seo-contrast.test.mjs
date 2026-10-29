@@ -25,8 +25,13 @@ test('homepage adds skip-to-content navigation without changing hero asset prior
     const html = await load(path);
     assert.ok(html.includes('class="ovgo-skip-link" href="#main-content"'), path + ' skip link');
     assert.ok(html.includes('<main id="main-content" tabindex="-1">'), path + ' main landmark');
-    assert.ok(html.includes('hero-office-mobile-clean.webp'), path + ' mobile image');
+    assert.match(html, /hero-office-mobile-clean(?:-[a-f0-9]{10})?\.webp/, path + ' mobile image');
     assert.ok(html.includes('fetchpriority="high"'), path + ' hero priority');
+    if(path.startsWith('dist/')){
+      assert.ok(html.includes('data-critical-hero'), 'critical CSS should be inline');
+      assert.ok(html.includes('media="(min-width:768px)" onload="this.media=\'all\'"'), 'below-fold CSS should load asynchronously');
+      assert.ok(/\/fingerprinted\/hero-office-mobile-clean-[a-f0-9]{10}\.webp/.test(html), 'hashed hero image');
+    }
     assert.ok(html.includes('id="growth-map-frame"'), path + ' map');
     assert.ok(/id="growth-map-frame"[^>]+loading="lazy"/.test(html), path + ' map lazy load');
   }

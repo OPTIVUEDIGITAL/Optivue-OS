@@ -47,7 +47,7 @@ export function sanitizeBehaviorParameters(name, parameters = {}) {
  } return safe;
 }
 const GA4_EVENTS = new Set(['book_fit_call_click', 'request_audit_click', 'estimator_start', 'estimator_complete']);
-const CTA_LOCATIONS = new Set(['nav', 'hero', 'pricing', 'final', 'footer', 'sticky', 'estimator', 'unknown', 'packages', 'care', 'booking']);
+const CTA_LOCATIONS = new Set(['nav', 'hero', 'pricing', 'final', 'footer', 'sticky', 'estimator', 'unknown', 'packages', 'care', 'booking', 'systems']);
 
 export function trackEvent(name, parameters = {}) {
   if(!allows('analytics'))return;
